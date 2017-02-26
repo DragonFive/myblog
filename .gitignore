@@ -1,2 +1,5 @@
 /.deploy_git
 /public
+.npmignore
+db.json
+/nodemodules/
