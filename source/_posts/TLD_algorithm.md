@@ -14,11 +14,7 @@ tags:
 
 2010年发表的论文《Tracking-Learning-Detection》 , GitHub上有很多C++版本的TLD，比如[arthurv](https://github.com/arthurv/OpenTLD)，注释比较详细，但速度很慢。
 
-```
 
-![Paste_Image.png](http://upload-images.jianshu.io/upload_images/454341-f518840d2338852d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
-
-```
 
 对openTLD的注释
 
@@ -28,11 +24,19 @@ tags:
 
 TLD算法主要由三个模块构成：追踪器（tracker），检测器（detector）和机器学习（learning）。TLD算法成功的原因就在于它将检测器和跟踪器有机的整合在一起，从而实现了长线跟踪。
 
+<!--more-->
+
 TLD是对视频中未知物体的长时间跟踪的算法。**“未知物体”指的是任意的物体**，在开始追踪之前不知道哪个物体是目标。**“长时间跟踪”又意味着需要算法实时计算，在追踪中途物体可能会消失再出现**，而且随着光照、背景的变化和由于偶尔的部分遮挡，物体在像素上体现出来的“外观”可能会发生很大的变化。从这几点要求看来，单独使用追踪器或检测器都无法胜任这样的工作。所以作者提出把追踪器和检测器结合使用，同时加入机器学习来提高结果的准确度。
 
 ![](http://johnhany.net/wp-content/uploads/2014/05/tld.png)
 
-<!--more-->
+
+
+```
+
+![Paste_Image.png](http://upload-images.jianshu.io/upload_images/454341-f518840d2338852d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+
+```
 
 **追踪器**的作用是跟踪连续帧间的运动，当物体始终可见时跟踪器才会有效。追踪器根据物体在**前一帧已知的位置估计在当前帧**的位置，这样就会产生一条物体运动的轨迹，从这条轨迹可以**为学习模块产生正样本**（Tracking->Learning）。
 
