@@ -2,4 +2,4 @@
 /public
 .npmignore
 db.json
-/nodemodules/
+/node_modules/
