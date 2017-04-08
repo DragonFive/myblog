@@ -1,6 +1,6 @@
 
 title: DL从入门到放弃
-date: 2017/1/10 22:04:12
+date: 2017/3/20 22:04:12
 categories:
 - 计算机视觉
 tags:
