@@ -302,21 +302,26 @@ ReLU还经常被“诟病”的一个问题是输出具有**偏移现象[7]，�
 还有 PReLU 、maxout、elu等，不同的激活函数搭配不同的参数初始化策略
 
 ## 深度学习学习资料
-[Deep Learning（深度学习）学习笔记整理系列之（一）](http://blog.csdn.net/zouxy09/article/details/8775360)
+
 
 [UFLDL教程中文版](http://ufldl.stanford.edu/wiki/index.php/UFLDL%E6%95%99%E7%A8%8B)
 
-[一文弄懂神经网络中的反向传播法——BackPropagation](http://www.cnblogs.com/charlotte77/p/5629865.html)
+[杨立坤的deeplearning](https://github.com/exacity/deeplearningbook-chinese)
+
+[莫凡 tensorflow](https://morvanzhou.github.io/tutorials/machine-learning/tensorflow/1-2-install/)
 
 [tensorfly](http://www.tensorfly.cn/home/)
 
 [Neural Networks and Deep Learning中文翻译](https://hit-scir.gitbooks.io/neural-networks-and-deep-learning-zh_cn/content/)
 
-[杨立坤的deeplearning](https://github.com/exacity/deeplearningbook-chinese)
+[一文弄懂神经网络中的反向传播法——BackPropagation](http://www.cnblogs.com/charlotte77/p/5629865.html)
+
 
 [皮果提的深度学习笔记](http://blog.csdn.net/peghoty/article/category/1451403)
 
 [邹晓艺汇总的深度学习学习资料](http://blog.csdn.net/zouxy09/article/details/8782018)
+
+[Deep Learning（深度学习）学习笔记整理系列之（一）](http://blog.csdn.net/zouxy09/article/details/8775360)
 
   [1]: https://www.github.com/DragonFive/CVBasicOp/raw/master/1490521285112.jpg "1490521285112"
 
