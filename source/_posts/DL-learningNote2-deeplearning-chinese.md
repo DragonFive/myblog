@@ -31,6 +31,17 @@ AI 系统需要具备自己**获取知识的能力**，即从原始数据中提�
 
 深度学习与其他学习的区别。
 ![深度学习与其他的区别][3]
+# 应用数学与机器学习基础
+
+## 线性代数部分
+坐标超过两维度的数组称为**张量（tensor）**，一个数组中的元素分布在若干维坐标的规则网络中。
+
+
+一组向量的**生成子空间**是原始向量线性组合后所能抵达的点的集合。
+确定 `!$ Ax=b$`是否有解相当于确定向量b是否在A列向量的**生成子空间中**。又叫A的**值域**
+
+
+
 
 # 参考资料
 [bengio 深度学习中译本](https://exacity.github.io/deeplearningbook-chinese/0)
@@ -38,6 +49,11 @@ AI 系统需要具备自己**获取知识的能力**，即从原始数据中提�
 
 # 深度学习学习资料
 
+[李宏毅2017课程](http://speech.ee.ntu.edu.tw/~tlkagk/courses_MLDS17.html)
+
+[李宏毅2016课程](http://speech.ee.ntu.edu.tw/~tlkagk/courses_ML16.html)
+
+[爱可可爱生活搬运的课程](http://space.bilibili.com/23852932/#!/channel/detail?cid=11583)
 
 [UFLDL教程中文版](http://ufldl.stanford.edu/wiki/index.php/UFLDL%E6%95%99%E7%A8%8B)
 
