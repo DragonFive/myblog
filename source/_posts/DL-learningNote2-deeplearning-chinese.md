@@ -158,6 +158,9 @@ $log\sigma(x)=-\zeta(-x)$
 
 [杨立坤的deeplearning](https://github.com/exacity/deeplearningbook-chinese)
 
+
+[tensorlayer中文版](http://tensorlayercn.readthedocs.io/zh/latest/)
+
 [莫凡 tensorflow](https://morvanzhou.github.io/tutorials/machine-learning/tensorflow/1-2-install/)
 
 [tensorfly](http://www.tensorfly.cn/home/)
