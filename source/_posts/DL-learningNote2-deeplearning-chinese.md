@@ -107,9 +107,41 @@ SVD分解可以把矩阵求逆拓展到非方矩阵上面。
 连续变量：$p(x) = \int p(x,y)dy.$
 
 **条件概率的链式法则**：$P(a,b,c) = P(a|b,c)P(b|c)P(c) $
+### 协方差
+两个变量的协方差如果是正的，那么两个变量都倾向于同时取得相对较大的值。
+
+中心极限定理表明很多独立随机变量的和近似服从**正态分布**，正态分布是对模型加入的先验知识量最少的分布。
+
+### multinouli分布
+
+多努力分布，又叫范畴分布，是指由一个随机变量在多个分类上的分布，与伯努利的区别在于伯努利指的是两个类。
+伯努利函数的概率用sigmoid函数来预测，而多努力函数是用softmax函数与做预测的。
+
+$ softmax(x)_i = \frac{exp(x_i)}{\sum _{j=1}^nexp(x_j)} $ 
+
+[softmax的理解与应用](http://blog.csdn.net/supercally/article/details/54234115)
+### 常用函数的有用性质
+
+**logistic sigmoid函数**：$ \sigma(x) = \frac{1}{1+exp(-x)} $，在变量的绝对值很大的情况下回出现饱和现象，这时候就会对输入的微小变化不敏感。
+
+另一个经常遇到的函数是**softplus函数**：$\zeta(x) = log(1+exp(x))$，它的值域是$(0,\infty)$,他是对max函数的平滑max(0,x).
 
 
+![softplus函数][5]
 
+一些性质：$\sigma(x) = \frac{exp(x)}{exp(x)+exp(0)}$
+$\frac{d}{dx}\sigma(x)=\sigma(x)(1-\sigma(x))$
+$1-\sigma(x)=\sigma(-x)$
+$log\sigma(x)=-\zeta(-x)$
+
+
+## 数值计算
+
+### 梯度下降法
+
+![三种临界点][6]
+
+**鞍点**是拐点的一种。其二阶导数为0
 # 参考资料
 [bengio 深度学习中译本](https://exacity.github.io/deeplearningbook-chinese/0)
 
@@ -146,3 +178,5 @@ SVD分解可以把矩阵求逆拓展到非方矩阵上面。
   [2]: https://www.github.com/DragonFive/CVBasicOp/raw/master/1491647505456.jpg "1491647505456"
   [3]: https://www.github.com/DragonFive/CVBasicOp/raw/master/1491648776897.jpg "1491648776897"
   [4]: https://www.github.com/DragonFive/CVBasicOp/raw/master/1491899762309.jpg "1491899762309"
+  [5]: https://www.github.com/DragonFive/CVBasicOp/raw/master/1491965737743.jpg "1491965737743"
+  [6]: https://www.github.com/DragonFive/CVBasicOp/raw/master/1491968682477.jpg "1491968682477"
