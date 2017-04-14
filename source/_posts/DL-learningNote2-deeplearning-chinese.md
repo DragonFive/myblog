@@ -145,10 +145,27 @@ $log\sigma(x)=-\zeta(-x)$
 # 参考资料
 [bengio 深度学习中译本](https://exacity.github.io/deeplearningbook-chinese/0)
 
+名称  | 京东报价|李季报价
+------------- | ------------- | -------------
+CPU：I7 5930k  |  4299  | 4850
+主板华硕x99  |  3999  | 4350
+内存条：金士顿Fury 2400 8Gx4 | 1796| 2000
+固态硬盘：三星850|  669  | 795
+机械硬盘：希捷2T7200 SATA3|  449  |  515
+机箱| 649 | 700
+主机电源|  1999  |2200
+显卡  |  11100  |  14400
+显示器|  1549 |1700
+键鼠| 239  |  280
+其他|  157 |185
+合计| 26905 |31975
+
+
+
 
 # 深度学习学习资料
 
-[李宏毅2017课程](http://speech.ee.ntu.edu.tw/~tlkagk/courses_MLDS17.html)
+[李宏毅2017课程](http://speech.ee 185.ntu.edu.tw/~tlkagk/courses_MLDS17.html)
 
 [李宏毅2016课程](http://speech.ee.ntu.edu.tw/~tlkagk/courses_ML16.html)
 
