@@ -142,10 +142,26 @@ $log\sigma(x)=-\zeta(-x)$
 ![三种临界点][6]
 
 **鞍点**是拐点的一种。其二阶导数为0
+
+###  jacobian矩阵和hessian矩阵
+f的Jacobian矩阵定义为 $ J_{i,j} = \frac{\partial }{\partial x_j}f(x)_i $
+当我们的函数有多维输入时，把二阶导数合并成一个矩阵，称为**Hessian**矩阵。$ H(f)(x)_{i,j} = \frac{\partial ^2}{} $
+
+
+
+
+
+
+
+
+
+
+
+
 # 参考资料
 [bengio 深度学习中译本](https://exacity.github.io/deeplearningbook-chinese/0)
 
-名称  | 京东报价|李季报价
+名称  | 京东报价 | 李季报价
 ------------- | ------------- | -------------
 CPU：I7 5930k  |  4299  | 4850
 主板华硕x99  |  3999  | 4350
