@@ -181,7 +181,7 @@ CPU：I7 5930k  |  4299  | 4850
 
 # 深度学习学习资料
 
-[李宏毅2017课程](http://speech.ee 185.ntu.edu.tw/~tlkagk/courses_MLDS17.html)
+[李宏毅2017课程](http://speech.ee.ntu.edu.tw/~tlkagk/courses_MLDS17.html)
 
 [李宏毅2016课程](http://speech.ee.ntu.edu.tw/~tlkagk/courses_ML16.html)
 
