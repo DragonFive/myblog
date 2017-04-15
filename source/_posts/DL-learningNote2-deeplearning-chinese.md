@@ -188,7 +188,9 @@ CPU：I7 5930k  |  4299  | 4850
 
 [cs231N课程笔记翻译](https://zhuanlan.zhihu.com/p/21930884?refer=intelligentunit)
 
-[]()
+[网友的cs231n课程作业与课程内容回顾](http://www.jianshu.com/p/004c99623104)
+
+[cs231n课程课件](http://pan.baidu.com/s/1pKsTivp#list/path=%2F)
 
 [李宏毅2017课程,深度学习偏语音](http://speech.ee.ntu.edu.tw/~tlkagk/courses_MLDS17.html)
 
