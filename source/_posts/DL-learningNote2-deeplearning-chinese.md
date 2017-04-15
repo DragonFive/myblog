@@ -147,9 +147,11 @@ $log\sigma(x)=-\zeta(-x)$
 f的Jacobian矩阵定义为 $ J_{i,j} = \frac{\partial }{\partial x_j}f(x)_i $
 当我们的函数有多维输入时，把二阶导数合并成一个矩阵，称为**Hessian**矩阵。$ H(f)(x)_{i,j} = \frac{\partial ^2}{\partial x_i \partial x_j} f(x) $
 
->Hessian矩阵大多数都是实对称矩阵。所以可以进行特征分解并写成下面的表达式：$d^\top Hd$,当d是H的特征向量时，表达式的值为d对应的特征值，也就是d这个方向上的二阶导数。
+Hessian矩阵大多数都是实对称矩阵。所以可以进行特征分解并写成下面的表达式：$d^\top Hd$,当d是H的特征向量时，表达式的值为d对应的特征值，也就是d这个方向上的二阶导数。当d是H的一个特征向量时，这个方向的二阶导数就是对应的特征值。对于其他的方向d，**方向二阶导数就是所有特征值的加权平均**，权重在0和1之间，且与d夹角越小的特征向量的权重越大。最大特征值来确定最大二阶导数，最小特征值确定最小二阶导数。
 
-在临界点（一阶偏导都为0处），我们通过检测Hessian的特征值来判断该临界点是一个局部极大点、局部极小点还是鞍点。当Hessian是正定的（所有特征值都是正的），则该临界点是局部极小点。因为方向二阶导数在任何方向都是正的，当Hessian矩阵是负定的，这个点就是局部极大点。如果hessian的特征值中至少一个是正的且至少一个是负的，
+
+
+在临界点（一阶偏导都为0处），我们通过检测Hessian的特征值来判断该临界点是一个局部极大点、局部极小点还是鞍点。当**Hessian是正定**的（所有特征值都是正的），则该临界点是局部极小点。因为方向二阶导数在任何方向都是正的，当Hessian矩阵是负定的，这个点就是局部极大点。如果hessian的特征值中至少一个是正的且至少一个是负的，
 
 
 
@@ -181,11 +183,17 @@ CPU：I7 5930k  |  4299  | 4850
 
 # 深度学习学习资料
 
-[李宏毅2017课程](http://speech.ee.ntu.edu.tw/~tlkagk/courses_MLDS17.html)
+
+[爱可可爱生活搬运的cs231N课程](http://space.bilibili.com/23852932/#!/video)
+
+[cs231N课程笔记翻译](https://zhuanlan.zhihu.com/p/21930884?refer=intelligentunit)
+
+[]()
+
+[李宏毅2017课程,深度学习偏语音](http://speech.ee.ntu.edu.tw/~tlkagk/courses_MLDS17.html)
 
 [李宏毅2016课程](http://speech.ee.ntu.edu.tw/~tlkagk/courses_ML16.html)
 
-[爱可可爱生活搬运的课程](http://space.bilibili.com/23852932/#!/channel/detail?cid=11583)
 
 [UFLDL教程中文版](http://ufldl.stanford.edu/wiki/index.php/UFLDL%E6%95%99%E7%A8%8B)
 
