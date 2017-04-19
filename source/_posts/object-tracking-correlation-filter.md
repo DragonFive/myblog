@@ -20,4 +20,8 @@ tags:
 - Wu Y, Lim J, Yang M H. Object tracking benchmark [J]. TPAMI, 2015.
 
 OTB50包括50个序列，后来扩展到OTB100.
+![OTB50][1]
 ## VOT 
+
+
+  [1]: https://www.github.com/DragonFive/CVBasicOp/raw/master/1492588025562.jpg "1492588025562"
