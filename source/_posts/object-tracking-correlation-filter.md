@@ -21,7 +21,21 @@ tags:
 
 OTB50包括50个序列，后来扩展到OTB100.
 ![OTB50][1]
-## VOT 
+
+2012年以后相关滤波和深度学习崛起了。
+
+
+
+## VOT 竞赛数据库
+
+
+
+
+
+
+
+
+
 
 
   [1]: https://www.github.com/DragonFive/CVBasicOp/raw/master/1492588025562.jpg "1492588025562"
