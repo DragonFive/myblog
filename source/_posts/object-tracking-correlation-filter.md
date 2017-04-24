@@ -48,9 +48,6 @@ OTB50包括50个序列，后来扩展到OTB100.
 - Vojir T, Noskova J, Matas J. **Robust scale-adaptive mean-shift for tracking** [J]. Pattern Recognition Letters, 2014.
 
 
-赵老师   21号到23号有VALSE 第7届年度研讨会  
-
-这个会是国内计算机视觉领域的顶级学术交流会  作报告的有孙剑(微软face++)、山世光(计算所)、颜水成(360系)、欧阳万里(商汤系)、王亮(自动化所)、程明明(南开系)、吴毅(做跟踪的大牛)等   
 
 ## 判别模型 （也叫 tracking-by-detection）
 
