@@ -1,5 +1,5 @@
 
-title: 目标跟踪算法之相关滤波
+title: 目标跟踪算法之深度学习方法
 
 date: 2017/4/19 22:04:12
 
@@ -59,7 +59,6 @@ OTB50包括50个序列，后来扩展到OTB100.
 # 参考资料 
 
 [目标跟踪之NIUBILITY的相关滤波](https://zhuanlan.zhihu.com/DCF-tracking)
-
 
 [cvpr论文阅读笔记](http://www.cnblogs.com/wangxiaocvpr/)
 
