@@ -12,7 +12,11 @@ tags:
 ---
 [TOC]
 
-
+MDNet:[paper-](https://arxiv.org/pdf/1510.07945v2.pdf)
+[project site](http://cvlab.postech.ac.kr/research/mdnet/)
+[github repository](https://github.com/HyeonseobNam/MDNet)
+[作者做的presentation](http://votchallenge.net/vot2015/download/presentation_Hyeonseob.pdf)
+[python版实现](https://github.com/edgelord/MDNet)
 
 <!--more-->
 
