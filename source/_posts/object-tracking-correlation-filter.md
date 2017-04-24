@@ -57,11 +57,18 @@ OTB50包括50个序列，后来扩展到OTB100.
 
 # 参考资料 
 
+
+
+[深度学习在目标跟踪中的应用](https://zhuanlan.zhihu.com/p/22334661)
+
 [目标跟踪之NIUBILITY的相关滤波](https://zhuanlan.zhihu.com/DCF-tracking)
 
 [cvpr论文阅读笔记](http://www.cnblogs.com/wangxiaocvpr/)
 
 [CNN-tracking-文章导读](http://blog.csdn.net/ben_ben_niao/article/details/51315000)
+
+
+
 
 [物体跟踪-CVPR16-tracking](http://blog.csdn.net/ben_ben_niao/article/details/52072659)
 
