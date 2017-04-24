@@ -222,6 +222,8 @@ v显示器：戴尔U2414H|  1549 |1700
 
 [cvpr论文阅读笔记](http://www.cnblogs.com/wangxiaocvpr/)
 
+[CNN-tracking-文章导读](http://blog.csdn.net/ben_ben_niao/article/details/51315000)
+
   [1]: https://www.github.com/DragonFive/CVBasicOp/raw/master/1491645781301.jpg "1491645781301"
   [2]: https://www.github.com/DragonFive/CVBasicOp/raw/master/1491647505456.jpg "1491647505456"
   [3]: https://www.github.com/DragonFive/CVBasicOp/raw/master/1491648776897.jpg "1491648776897"
