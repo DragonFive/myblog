@@ -57,7 +57,7 @@ OTB50包括50个序列，后来扩展到OTB100.
 
 # 参考资料 
 
-
+[目标跟踪算法五：MDNet: Learning Multi-Domain Convolutional Neural Networks for Visual Tracking](https://zhuanlan.zhihu.com/p/25312850)
 
 [深度学习在目标跟踪中的应用](https://zhuanlan.zhihu.com/p/22334661)
 
