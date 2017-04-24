@@ -51,6 +51,97 @@ OTB50包括50个序列，后来扩展到OTB100.
 
 ## 判别模型 （也叫 tracking-by-detection）
 
+### 用深度学习做目标跟踪：
+Naiyan Wang, Dit-Yan Yeung. Learning a Deep Compact Image Representation for Visual Tracking . Proceedings of Twenty-Seventh Annual Conference on Neural Information Processing Systems (NIPS) 2013 第一篇？
+
+Naiyan Wang, Siyi Li, Abhinav Gupta, Dit-Yan Yeung, Transferring Rich Feature Hierarchies for Robust Visual Tracking. arXiv:1501.04587  2015
+
+Chao Ma（沈春华澳洲学生）, Jia-Bin Huang, Xiaokang Yang and Ming-Hsuan Yang, "Hierarchical Convolutional Features for Visual Tracking", ICCV 2015  
+Github 主页 https://github.com/jbhuang0604/CF2
+http://www.cnblogs.com/wangxiaocvpr/p/5925851.html 一篇学习笔记
+
+Lijun Wang, Wanli Ouyang, Xiaogang Wang, Huchuan Lu（卢湖川大连理工）, Visual Tracking with Fully Convolutional Networks, ICCV2015
+Project site: http://scott89.github.io/FCNT/
+
+Lijun Wang, Wanli Ouyang, Xiaogang Wang, Huchuan Lu ,STCT: Sequentially Training Convolutional Networks for Visual Tracking.cvpr 2016
+Github repository: https://github.com/scott89/STCT
+论文笔记：http://blog.csdn.net/u012905422/article/details/52396372
+王柳军的博客：https://scott89.github.io/
+
+Zhizhen Chi, Hongyang Li, Huchuan Lu, Ming-Hsuan Yang,Dual Deep Network for Visual Tracking. TIP 2017
+Github repository: https://github.com/chizhizhen/DNT
+迟至真的博客：http://chizhizhen.github.io/
+
+
+Seunghoon Hong, Tackgeun You, Suha Kwak and Bohyung Han. Online Tracking by Learning Discriminative Saliency Map with Convolutional Neural Network 
+ICML - International Conference on Machine Learning, 2015   
+Project site: http://cvlab.postech.ac.kr/research/CNN_SVM/
+
+H. Li, Y. Li, and F. Porikli, DeepTrack: Learning Discriminative Feature Representations by Convolutional Neural Networks for Visual Tracking, BMVC 2014
+
+
+Hyeonseob Namand Bohyung Han, Learning Multi-Domain Convolutional Neural Networks for Visual Tracking
+Project site: http://cvlab.postech.ac.kr/research/mdnet/
+
+Heng Fan, Haibin Ling. "SANet: Structure-Aware Network for Visual Tracking." arXiv (2016). 
+凌海滨个人主页：http://www.dabi.temple.edu/~hbling/
+
+Ran Tao, Efstratios Gavves, Arnold W.M. Smeulders. Siamese Instance Search for Tracking. cvpr2016
+博客笔记 http://www.dongcoder.com/detail-155114.html
+
+Luca Bertinetto *, Jack Valmadre *, João F. Henriques, Andrea Vedaldi, Philip H.S. Torr, Fully-Convolutional Siamese Networks for Object Tracking, ECCV 2016   
+Project site: http://www.robots.ox.ac.uk/~luca/siamese-fc.html
+Author homepage: http://www.robots.ox.ac.uk/~luca/index.html 
+http://www.robots.ox.ac.uk/~joao/# 牛津大学课题组 CF理论推进者
+github repository: https://github.com/bertinetto/siamese-fc
+
+David Held, Sebastian Thrun, Silvio Savarese,Learning to Track at 100 FPS with Deep Regression Networks, ECCV2016. 
+Stanford课题组
+Github repository: https://github.com/davheld/GOTURN
+Project site: http://davheld.github.io/GOTURN/GOTURN.html
+
+
+Yuankai Qi, Shengping Zhang, Lei Qin, Hongxun Yao, Qingming Huang, Jongwoo Lim, Ming-Hsuan Yang. Hedged Deep Tracking. Cvpr2016
+计算所智能实验室黄庆明组。
+Project site: https://sites.google.com/site/yuankiqi/hdt/
+
+Guanghan Ning, Zhi Zhang, Chen Huang, Zhihai He, Xiaobo Ren, Haohong Wang, Spatially Supervised Recurrent Convolutional Neural Networks for Visual Object Tracking.arxiv: 2016.
+Github repository: https://github.com/Guanghan/ROLO  
+Project site: http://guanghan.info/projects/ROLO/ 宁广汉的主页 安徽大学phd.
+王潇的论文笔记：http://www.cnblogs.com/wangxiaocvpr/p/5774840.html
+王潇的github: https://github.com/wangxiao5791509
+
+
+
+### 用相关滤波做跟踪：
+第一篇文章：MOSSE
+D. S. Bolme, J. R. Beveridge, B. A. Draper, and Y. M. Lui. Visual object tracking using adaptive correlation filters. In CVPR, 2010.
+
+瑞典林雪平大学phd三年级学生 Martin Danelljan  ECO  CCOT作者
+ECO: Efficient Convolution Operators for Tracking.CVPR2017
+Learning Continuous Convolution Operators for Visual Tracking.ECCV2016.
+Github reposityory: https://github.com/martin-danelljan/Continuous-ConvOp
+Project site: https://theinformationageblog.wordpress.com/2017/01/12/eccv-2016-videos-beyond-correlation-filters-learning-continuous-convolution-operators-for-visual-tracking/
+
+
+### benckmark:
+吴毅：Annan Li, Min Lin, Yi Wu, Ming-Hsuan Yang and Shuicheng Yan. NUS-PRO: A New Visual Tracking Challenge.PAMI 2016.
+Project site: https://sites.google.com/site/li00annan/nus-pro
+CNT: Kaihua Zhang, Qingshan Liu, Yi Wu, Minghsuan Yang. "Robust Visual Tracking via Convolutional Networks Without Training." TIP (2016)
+TIP:Transaction Image Processing IEEE期刊
+
+王强：在这里可以看到作者收集了很多新的方法：计算所的 
+Github repository: https://github.com/foolwood/benchmark_results
+VOT的使用方法：http://blog.csdn.net/carrierlxksuper/article/details/47054231
+
+Matthias Mueller, Neil Smith, Bernard Ghanem,A Benchmark and Simulator for UAV Tracking.
+阿卜杜拉国王科技大学做的一个无人机航拍数据集。
+
+Esteban Real, Jonathon Shlens, Stefano Mazzocchi, Xin Pan, Vincent Vanhoucke
+,YouTube-BoundingBoxes: A Large High-Precision Human-Annotated Data Set for Object Detection in Video
+Project site: https://research.google.com/youtube-bb/
+Github repository: https://github.com/mbuckler/youtube-bb
+
 
 
 
