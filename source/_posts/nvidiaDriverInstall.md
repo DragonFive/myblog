@@ -44,6 +44,10 @@ sudo apt-get install software-properties-common
 ```
 然后关掉terminator
 
+### 输入nvidia-smi 说驱动没装上
+
+换成英文版ubuntu
+
 
 
 
