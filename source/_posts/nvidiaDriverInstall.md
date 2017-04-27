@@ -46,7 +46,7 @@ sudo apt-get install software-properties-common
 
 ### 输入nvidia-smi 说驱动没装上
 
-换成英文版ubuntu
+重装系统换成英文版ubuntu
 
 
 
