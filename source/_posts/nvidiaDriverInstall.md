@@ -19,9 +19,11 @@ tags:
 <!--more-->
 # 安装Nvidia驱动
 
-## 查询NVIDIA驱动
+## 安装步骤
+- 查询NVIDIA驱动
 首先去官网(http://www.nvidia.com/Download/index.aspx?lang=en-us) 查看适合自己显卡的驱动
-## 安装NVIDIA驱动
+
+- 安装NVIDIA驱动
 安装之前先卸载已经存在的驱动版本：
 ```
 sudo apt-get remove --purge nvidia*
@@ -44,7 +46,7 @@ sudo nvidia-smi
 
 ## 可能出的问题
 
-### add-apt-repository 命令不存在
+- add-apt-repository 命令不存在
 ```
 sudo apt-get update
 sudo apt-get install python-software-properties
@@ -52,14 +54,14 @@ sudo apt-get install software-properties-common
 ```
 然后关掉terminator
 
-### 输入nvidia-smi 说驱动没装上
+- 输入nvidia-smi 说驱动没装上
 
 重装系统换成英文版ubuntu
 
 # 安装anaconda
 
-安装andaconda会自动安装很多python库和ipython notebook，并且可以保证
-
+安装andaconda会自动安装很多python库和ipython notebook，并且可以提供虚拟机机制，支持多版本python共存。
+ 
 
 
 
