@@ -77,11 +77,69 @@ bash Anaconda*.sh
 - 输入yes把anaconda的binary路径加入~/.bashrc
 
 
-## anaconda的使用
+## anacond的使用
+用户安装的不同python环境都会被放在目录~/anaconda/envs下
+- 查看已安装环境
+```
+conda info -e
+```
+- anaconda版本
+```
+which conda # 或者 conda -V
+```
+### conda的环境管理
+- 创建一个python2.7的环境
+```
+conda create --name py27 python=2.7
+```
 
+- 使用activate激活某个环境
+```
+source activate py27  # linux使用此句
+activate python34      # windows使用此句
+```
+> 激活后，会发现terminal输入的地改成py27，是因为把.bashrc里的path改成python27的路径
+
+- 若想返回默认的python版本
+```
+source deactivate py27   # 返回原始版本python
+```
+
+- 删除一个已有的环境
+```
+conda remove --name py27 --all
+```
+
+### conda的包管理
+- 安装包
+```
+conda install scipy
+```
+- 查看已经安装packages
+```
+conda list
+```
+- 查看某个指定环境的已安装包
+```
+conda list -n py27
+```
+- 查看package信息
+```
+conda search numpy
+```
+- 更新package
+```
+conda update -n py27 numpy
+```
+- 删除package
+```
+conda remove -n py27 numpy
+```
 
 ## 参考资料
 《TensorFlow实战》
 
+[Anaconda使用总结](http://www.jianshu.com/p/2f3be7781451)
 
+[Anaconda使用教程（使用Anaconda配置多python开发环境）](http://www.afox.cc/archives/390)
 
