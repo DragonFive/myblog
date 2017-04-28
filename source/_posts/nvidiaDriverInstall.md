@@ -201,3 +201,4 @@ sudo apt-get install libcupti-dev
 
 [tensorlayer安装教程中文版](http://tensorlayercn.readthedocs.io/zh/latest/user/installation.html)
 
+[tensorflow安装教程](https://www.tensorflow.org/install/install_linux#nvidia_requirements_to_run_tensorflow_with_gpu_support)
