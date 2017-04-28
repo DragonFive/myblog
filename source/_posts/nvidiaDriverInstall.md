@@ -67,6 +67,14 @@ sudo apt-get install software-properties-common
  
 ## 安装anaconda
 
+- 在anaconda官网continuum下载64位python3版本
+- 在annaconda下载目录执行命令
+```
+bash Anaconda*.sh
+```
+
+- anaconda的license文档按q跳过，输入yes确认，按回车使用默认路径
+- 输入yes把anaconda的binary路径加入.bashrc
 
 
 ## anaconda的使用
