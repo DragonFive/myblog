@@ -199,3 +199,5 @@ sudo apt-get install libcupti-dev
 
 [Anaconda使用教程（使用Anaconda配置多python开发环境）](http://www.afox.cc/archives/390)
 
+[tensorlayer安装教程中文版](http://tensorlayercn.readthedocs.io/zh/latest/user/installation.html)
+
