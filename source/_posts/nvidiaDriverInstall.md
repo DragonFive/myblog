@@ -1,15 +1,22 @@
 ---
-title: ubuntu安装Nvidia驱动
+title: ubuntu安装Nvidia驱动-cudnn-anaconda-tensorflow-tensorlayer
 
 date: 2017/4/27 15:04:12
 
 categories:
 - 计算机视觉
 tags:
-- nvidia驱动安装
-
+- nvidia驱动
+- cuda
+- anaconda
+- tensorflow
+- tensorlayer
+- 深度学习
+- deeplearning
 ---
 [TOC]
+
+# 安装Nvidia驱动
 
 ## 查询NVIDIA驱动
 首先去官网(http://www.nvidia.com/Download/index.aspx?lang=en-us) 查看适合自己显卡的驱动
