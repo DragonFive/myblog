@@ -191,6 +191,18 @@ sudo ldconfig
 ```
 sudo apt-get install libcupti-dev
 ```
+# 安装tensorflow GPU版本
+
+- 创建一个环境
+```
+conda create -n tensorflow
+source activate tensorflow
+```
+- 安装GPU版的tensorflow
+```
+pip install --ignore-installed --upgrade  tensorflow的网址
+```
+[tensorflow的网址](https://www.tensorflow.org/install/install_linux#the_url_of_the_tensorflow_python_package)
 
 ## 参考资料
 《TensorFlow实战》
