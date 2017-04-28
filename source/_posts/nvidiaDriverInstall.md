@@ -136,6 +136,62 @@ conda update -n py27 numpy
 conda remove -n py27 numpy
 ```
 
+# 安装cuda 
+先下载[cuda](https://developer.nvidia.com/cuda-downloads)
+然后输入命令进行安装
+```
+sudo sh cuda*linux.run --override
+```
+>启动安装程序，一直按q，输入accept接受条款 
+输入n不安装nvidia图像驱动，之前已经安装过了 
+输入y安装cuda 8.0工具 
+回车确认cuda默认安装路径：/usr/local/cuda-8.0 
+输入y用sudo权限运行安装，输入密码 
+输入y或者n安装或者不安装指向/usr/local/cuda的符号链接 
+输入y安装CUDA 8.0 Samples，以便后面测试
+
+# 安装cudnn
+- 将下载下来的cudnn-8.0-linux-x64-v5.1.tgz 解压之后，解压后的cuda文件夹先打开里面的include文件夹，在终端输入：
+```
+sudo cp cudnn.h /usr/local/cuda/include/ 
+cd ~/cuda/lib64 
+sudo cp lib* /usr/local/cuda/lib64/
+```
+- 继续更新文件链接
+```
+cd /usr/local/cuda/lib64/ 
+sudo rm -rf libcudnn.so libcudnn.so.5 
+sudo ln -s libcudnn.so.5.1.10 libcudnn.so.5 
+sudo ln -s libcudnn.so.5 libcudnn.so
+```
+- 然后设置环境变量
+```
+sudo gedit /etc/profile
+```
+- 在末尾加入
+```
+PATH=/usr/local/cuda/bin:$PATH 
+export PATH
+```
+- 保存之后创建链接文件
+```
+sudo gedit /etc/ld.so.conf.d/cuda.conf
+```
+- 加入
+```
+/usr/local/cuda/lib64
+```
+- 终端下接着输入
+```
+sudo ldconfig
+```
+使链接生效
+
+# advance profile 工具接口
+```
+sudo apt-get install libcupti-dev
+```
+
 ## 参考资料
 《TensorFlow实战》
 
