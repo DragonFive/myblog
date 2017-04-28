@@ -74,13 +74,14 @@ bash Anaconda*.sh
 ```
 
 - anaconda的license文档按q跳过，输入yes确认，按回车使用默认路径
-- 输入yes把anaconda的binary路径加入.bashrc
+- 输入yes把anaconda的binary路径加入~/.bashrc
 
 
 ## anaconda的使用
 
 
 ## 参考资料
+《TensorFlow实战》
 
 
 
