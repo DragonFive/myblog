@@ -204,6 +204,12 @@ pip install --ignore-installed --upgrade  tensorflow的网址
 ```
 [tensorflow的网址](https://www.tensorflow.org/install/install_linux#the_url_of_the_tensorflow_python_package)
 
+# 安装tensorlayer
+
+```
+pip install tensorlayer
+```
+
 ## 参考资料
 《TensorFlow实战》
 
