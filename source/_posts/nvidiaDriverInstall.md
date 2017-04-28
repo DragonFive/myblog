@@ -16,6 +16,7 @@ tags:
 ---
 [TOC]
 
+<!--more-->
 # 安装Nvidia驱动
 
 ## 查询NVIDIA驱动
