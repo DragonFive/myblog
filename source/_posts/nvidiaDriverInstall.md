@@ -63,7 +63,7 @@ sudo apt-get install software-properties-common
 
 # anaconda
 
-安装andaconda会自动安装很多python库和ipython notebook，并且可以提供虚拟机机制，支持多版本python共存。
+安装andaconda会自动安装很多python库和ipython notebook，并且可以提供虚拟机机制，支持多版本python共存。anaconda自动集成了最新版的MKL（math kernel libray）库，这是Intel推出的底层数值计算库。
  
 ## 安装anaconda
 
