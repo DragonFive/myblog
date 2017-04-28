@@ -56,6 +56,11 @@ sudo apt-get install software-properties-common
 
 重装系统换成英文版ubuntu
 
+# 安装anaconda
+
+安装andaconda会自动安装很多python库和ipython notebook，并且可以保证
+
+
 
 
 
