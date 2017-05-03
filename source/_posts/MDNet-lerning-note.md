@@ -25,6 +25,8 @@ MDNet:[paper-](https://arxiv.org/pdf/1510.07945v2.pdf)
 
 MDNet的网络结构是前面一个是共享的CNN网络用来提取图像的特征，在训练的过程中主要训练前面共享网络的参数，而后面的是针对不用视频序列的分支的二值分类器，训练过程调整前面共享网络的参数，使得二值分类器的结果与groundtruth的结果一致。而在跟踪过程中，新建一个后面专用的domain，然后在线训练这块儿的网络。
 
+王乃岩2015年的文章用的方法：Structured output CNN[Wang et al. Arxiv’15] 文章名字叫做： Transferring rich feature hierarchies for robust visual tracking（放在axiv2015上没中）这篇文章是典型的用imagenet训练网络来做追踪的，效果不好的原因是分类与跟踪问题最基本的不同：分类是对目标打标签，而跟踪是定位任意目标的位置。
+
 
 
 # 参考资料 
