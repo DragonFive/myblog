@@ -38,7 +38,7 @@ MDNet的**网络结构**是前面一个是共享的CNN网络用来提取图像�
 早期的CNN方法针对特定目标做跟踪，比如2010年智能跟踪人，而2014年的缺少数据,2015年的王乃岩和另一篇使用imagenet效果并不好。multi_domain_learning最早是用在NLP领域的。在视觉中之前只用在一些域自适应的场景中。
 
 # MDNet网络结构
-如上面的图所示，包含了共享的层和K个域专用的分支层，黄色和蓝色的包围框表示的分别是正样本和负样本。其中卷积层与VGG-M 网络一致,论文为：M. Danelljan, G. Hager, F. Khan, and M. Felsberg. Accurate scale estimation for robust visual tracking. In BMVC, 2014。 而全连接层的输出为512层，用了relu和dropout
+如上面的图所示，包含了共享的层和K个域专用的分支层，黄色和蓝色的包围框表示的分别是正样本和负样本。其中卷积层与VGG-M 网络一致,论文为：M. Danelljan, G. Hager, F. Khan, and M. Felsberg. Accurate scale estimation for robust visual tracking. In BMVC, 2014。 而全连接层的输出为512层，用了relu和dropout。K个分支包含一个二值分类器用softmax做交叉熵损失函数。
 
 
 
