@@ -46,7 +46,13 @@ MDNet的**网络结构**是前面一个是共享的CNN网络用来提取图像�
 跟踪控制和网络更新，**网络更新**有长时更新(使用长时间累积的正样本)和短时更新（用在跟踪出错的时候）的区分，这里不是很懂。
 
 ## 难例挖掘
-在tracking-by-detection的方法中大部分的负样本是不重要的或者是冗余的，平均低对待这些样本容易造成漂移。35Example-based learning for viewbased human face detection 给了**难例挖掘**的方法，随着训练的进行，**负样本越来越难以被分类*。
+在tracking-by-detection的方法中大部分的负样本是不重要的或者是冗余的，平均低对待这些样本容易造成漂移。[35] Example-based learning for viewbased human face detection 给了**难例挖掘**的方法，随着训练的进行，**负样本越来越难以被分类*。
+
+## 包围框回归
+
+由于CNN的特征抽象层次高并且数据增广策略在选择正样本的时候是在目标的周围选的一些样本，这样会导致最终找到的包围框不能最小的包围到那个目标，所以我们要进行bounding box regression。
+
+
 
 # 参考资料 
 
