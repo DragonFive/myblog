@@ -50,7 +50,8 @@ MDNet的**网络结构**是前面一个是共享的CNN网络用来提取图像�
 
 ## 包围框回归
 
-由于CNN的特征抽象层次高并且数据增广策略在选择正样本的时候是在目标的周围选的一些样本，这样会导致最终找到的包围框不能最小的包围到那个目标，所以我们要进行bounding box regression。
+由于CNN的特征抽象层次高并且数据增广策略在选择正样本的时候是在目标的周围选的一些样本，这样会导致最终找到的包围框不能最小的包围到那个目标，所以我们要进行bounding box regression。最早用在目标检测领域,[13,11] DPM算法也这么用。Rich feature
+hierarchies for accurate object detection and semantic segmentation。
 
 
 
