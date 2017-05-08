@@ -218,6 +218,7 @@ keras 是一个高度封装的深度学习框架，后端可以是tensorflow,也
 conda install keras
 ```
 
+
 # 参考资料
 《TensorFlow实战》
 
@@ -228,3 +229,5 @@ conda install keras
 [tensorlayer安装教程中文版](http://tensorlayercn.readthedocs.io/zh/latest/user/installation.html)
 
 [tensorflow安装教程](https://www.tensorflow.org/install/install_linux#nvidia_requirements_to_run_tensorflow_with_gpu_support)
+
+[keras中文教程](https://keras-cn.readthedocs.io/en/latest/)
