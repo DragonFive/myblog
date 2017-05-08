@@ -231,3 +231,5 @@ conda install keras
 [tensorflow安装教程](https://www.tensorflow.org/install/install_linux#nvidia_requirements_to_run_tensorflow_with_gpu_support)
 
 [keras中文教程](https://keras-cn.readthedocs.io/en/latest/)
+
+[keras速查表](https://s3.amazonaws.com/assets.datacamp.com/blog_assets/Keras_Cheat_Sheet_Python.pdf)
