@@ -205,7 +205,7 @@ pip install --ignore-installed --upgrade  tensorflow的网址
 [tensorflow的网址](https://www.tensorflow.org/install/install_linux#the_url_of_the_tensorflow_python_package)
 
 ## 安装tensorlayer
-
+安装前需要安装tensorflow.
 ```
 pip install tensorlayer
 ```
@@ -217,7 +217,50 @@ keras 是一个高度封装的深度学习框架，后端可以是tensorflow,也
 ```
 conda install keras
 ```
-# 
+# 安装caffe
+caffe的以来项还是很多的，所以我写了个脚本，把它们一并安了吧
+```
+#! /bin/bash
+sudo apt-get install libatlas-base-dev -y
+sudo apt-get install libprotobuf-dev -y
+sudo apt-get install libleveldb-dev -y
+sudo apt-get install libsnappy-dev -y
+sudo apt-get install libopencv-dev -y
+sudo apt-get install libboost-all-dev -y
+sudo apt-get install libhdf5-serial-dev -y
+sudo apt-get install libgflags-dev -y
+sudo apt-get install libgoogle-glog-dev -y
+sudo apt-get install liblmdb-dev -y
+sudo apt-get install protobuf-compiler -y
+sudo git clone https://github.com/jayrambhia/Install-OpenCV
+cd Install-OpenCV/Ubuntu 
+sudo sh dependencies.sh 
+cd 2.4 
+sudo sh opencv2_4_10.sh
+cd ../../..
+sudo cp Makefile.config.example Makefile.config
+make all
+sudo echo '/usr/local/cuda/lib64' >> /etc/ld.so.conf.d/caffe.conf
+```
+在make all的时候可能出问题：
+```
+compilation terminated.
+Makefile:575: recipe for target '.build_release/src/caffe/util/hdf5.o' failed
+```
+这时候需要 ：
+在 Makefile.config 中追加 /usr/include/hdf5/serial/ 到 INCLUDE_DIR后面:
+
+在Makefile.config中注释掉：INCLUDE_DIRS := $(PYTHON_INCLUDE) /usr/local/include
+a下一行加上 INCLUDE_DIRS := $(PYTHON_INCLUDE) /usr/local/include /usr/include/hdf5/serial/
+
+在makefile中把hdf5_hl and hdf5 改成 hdf5_serial_hl and hdf5_serial
+
+--- LIBRARIES += glog gflags protobuf boost_system boost_filesystem m hdf5_hl hdf5
++++ LIBRARIES += glog gflags protobuf boost_system boost_filesystem m hdf5_serial_h
+
+参考[iss:4808](https://github.com/BVLC/caffe/issues/4808)
+
+
 
 # 参考资料
 《TensorFlow实战》
