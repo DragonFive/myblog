@@ -1,5 +1,5 @@
 ---
-title: ubuntu安装Nvidia驱动-cudnn-anaconda-tensorflow-tensorlayer-keras
+title: ubuntu安装Nvidia驱动-cudnn-anaconda-tensorflow-tensorlayer-keras-caffe
 
 date: 2017/4/27 15:04:12
 
@@ -204,20 +204,20 @@ pip install --ignore-installed --upgrade  tensorflow的网址
 ```
 [tensorflow的网址](https://www.tensorflow.org/install/install_linux#the_url_of_the_tensorflow_python_package)
 
-# 安装tensorlayer
+## 安装tensorlayer
 
 ```
 pip install tensorlayer
 ```
 
-# 安装keras 
+## 安装keras 
 
-keras 是一个高度封装的深度学习框架，后端可以是tensorflow,也可以是theno，安装非常简单
+keras 是一个高度封装的深度学习框架，后端可以是tensorflow,也可以是theno，安装非常简单,安装前需要安装tensorflow
 
 ```
 conda install keras
 ```
-
+# 
 
 # 参考资料
 《TensorFlow实战》
