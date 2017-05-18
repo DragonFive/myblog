@@ -12,6 +12,9 @@ tags:
 - tensorflow
 - tensorlayer
 - 深度学习
+- keras
+- caffe
+- docker
 - deeplearning
 ---
 [TOC]
@@ -261,6 +264,28 @@ a下一行加上 INCLUDE_DIRS := $(PYTHON_INCLUDE) /usr/local/include /usr/inclu
 
 参考[iss:4808](https://github.com/BVLC/caffe/issues/4808)
 
+# docker安装keras/caffe等
+# docker与nvidia-docker
+ubuntu安装docker直接
+```bash
+sudo apt-get install docker.io
+```
+安装nvidia-docker
+```bash
+wget -P /tmp https://github.com/NVIDIA/nvidia-docker/releases/download/v1.0.1/nvidia-docker_1.0.1-1_amd64.deb
+sudo dpkg -i /tmp/nvidia-docker*.deb && rm /tmp/nvidia-docker*.deb
+```
+测试安装的nvidia-docker [nvidia-docker](https://github.com/NVIDIA/nvidia-docker)
+```
+nvidia-docker run --rm nvidia/cuda nvidia-smi
+```
+
+
+## cpu版本caffe
+可以直接使用bvlc的版本 [bvlc/caffe](https://github.com/BVLC/caffe/tree/master/docker)
+```
+sudo docker pull bvlc/caffe:cpu
+.```
 
 
 # 参考资料
