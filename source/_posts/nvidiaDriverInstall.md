@@ -265,6 +265,7 @@ a下一行加上 INCLUDE_DIRS := $(PYTHON_INCLUDE) /usr/local/include /usr/inclu
 参考[iss:4808](https://github.com/BVLC/caffe/issues/4808)
 
 # docker安装keras/caffe等
+可以使用别人弄好的，但是在使用GPU的时候有些问题 [大杂烩](https://zhuanlan.zhihu.com/p/26916891)/ [大杂烩镜像](https://hub.docker.com/r/yiminglin/dl-image/)
 # docker与nvidia-docker
 ubuntu安装docker直接
 ```bash
@@ -285,7 +286,158 @@ nvidia-docker run --rm nvidia/cuda nvidia-smi
 可以直接使用bvlc的版本 [bvlc/caffe](https://github.com/BVLC/caffe/tree/master/docker)
 ```
 sudo docker pull bvlc/caffe:cpu
-.```
+```
+
+## GPU版本caffe
+这个容易出问题，暂时按下不表
+
+# ubuntu其他软件安装一键式脚本
+
+```
+#!/bin/bash
+
+
+install_sougou(){
+echo "开始安装搜狗输入法"
+wget -O ~/Downloads/sougoupinyinETC.deb http://pinyin.sogou.com/linux/download.php?f=linux&bit=64  
+sudo dpkg -i ~/Downloads/sougoupinyinETC.deb
+echo "安装搜狗输入法完成"
+}
+hehe(){
+echo 没安装成
+}
+
+install_chrome(){
+echo "开始安装chrome"
+wget -O ~/Downloads/google-chrome.deb https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb  
+sudo dpkg -i ~/Downloads/google-chrome.deb
+echo "安装chrome完成"
+}
+
+install_shadowsocker(){
+echo "开始安装install_shadowsocker"
+sudo apt-get install python-pip python-dev build-essential
+sudo pip installl pip
+sudo apt-get install python-m2crypto
+sudo pip install shadowsocks
+
+sudo add-apt-repository ppa:hzwhuang/ss-qt5
+sudo apt-get update
+sudo apt-get install shadowsocks-qt5
+
+echo "安装shadowsockers安装完成，请打开图形界面进行配置"
+}
+
+install_conda(){
+echo "开始安装anaconda"
+bash ~/Downloads/Anaconda*.sh
+echo "安装chrome完成"
+}
+
+install_nvidia(){
+echo "开始安装nvidiadriver"
+sudo apt-get remove --purge nvidia*
+sudo add-apt-repository ppa:xorg-edgers/ppa
+sudo apt-get update
+sudo apt-get install nvidia-375
+sudo nvidia-smi
+echo "安装shadowsockers安装完成，请确认"
+}
+
+
+
+install_cuda(){
+echo "开始安装cuda,请把安装文件放在downloads下面"
+echo "输入n不装驱动，输入y安装cuda8工具，回车确认默认安装位置，y使用sudo权限，y创建符号链接，y安装阳历"
+sudo sh ~/Downloads/cuda*linux.run --override
+
+tar xzvf ~/Downloads/cudnn*tgz
+cd /usr/local/cuda/lib64/ 
+sudo rm -rf /usr/local/cuda/lib64/libcudnn.so /usr/local/cuda/lib64/libcudnn.so.5 
+sudo ln -s /usr/local/cuda/lib64/libcudnn.so.5.1.10 /usr/local/cuda/lib64/libcudnn.so.5 
+sudo ln -s /usr/local/cuda/lib64/libcudnn.so.5 /usr/local/cuda/lib64/libcudnn.so
+sudo echo PATH=/usr/local/cuda/bin:$PATH >> /etc/profile
+sudo echo export PATH >> /etc/profile
+sudo echo /usr/local/cuda/lib64 >> /etc/ld.so.conf.d/cuda.conf
+sudo ldconfig
+sudo apt-get install libcupti-dev
+echo "安装cuda安装完成，请确认"
+}
+
+ubuntu_etc(){
+echo "下面准备安装搜狗输入法，是否安装？(y|n)"
+read ans
+case $ans in
+	y|Y|yes|Yes)
+		install_sougou
+		;;
+	n|N|no|No)
+		hehe
+		;;
+esac
+
+echo "下面准备安装chrome，是否安装？(y|n)"
+read ans
+case $ans in
+	y|Y|yes|Yes)
+		install_chrome
+		;;
+	n|N|no|No)
+		hehe
+		;;
+esac
+
+echo "下面准备安装shadowsocker，是否安装？(y|n)"
+read ans
+case $ans in
+	y|Y|yes|Yes)
+		install_shadowsocker
+		;;
+	n|N|no|No)
+		hehe
+		;;
+esac
+
+echo "下面准备安装anaconda，是否安装？(y|n)"
+read ans
+case $ans in
+	y|Y|yes|Yes)
+		install_conda
+		;;
+	n|N|no|No)
+		hehe
+		;;
+esac
+
+echo "下面准备安装nvidia_driver，是否安装？(y|n)"
+read ans
+case $ans in
+	y|Y|yes|Yes)
+		install_nvidia
+		;;
+	n|N|no|No)
+		hehe
+		;;
+esac
+
+echo "下面准备安装cuda，是否安装？(y|n)"
+read ans
+case $ans in
+	y|Y|yes|Yes)
+		install_cuda
+		;;
+	n|N|no|No)
+		hehe
+		;;
+esac
+
+
+}
+
+
+ubuntu_etc
+
+```
 
 
 # 参考资料
