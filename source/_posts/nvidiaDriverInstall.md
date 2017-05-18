@@ -241,6 +241,7 @@ cd ../../..
 sudo cp Makefile.config.example Makefile.config
 make all
 sudo echo '/usr/local/cuda/lib64' >> /etc/ld.so.conf.d/caffe.conf
+sudo ldconfig
 ```
 在make all的时候可能出问题：
 ```
