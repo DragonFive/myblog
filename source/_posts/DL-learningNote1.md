@@ -318,6 +318,8 @@ ReLU还经常被“诟病”的一个问题是输出具有**偏移现象[7]，�
 
 [一个浙大直博生推荐的学习资料](fb46167ebbdefa3e6c766c784e104234d1284871)
 
+[一个外文的tensorflow入门教程](http://cv-tricks.com/category/tensorflow-tutorial/)
+
 [皮果提的深度学习笔记](http://blog.csdn.net/peghoty/article/category/1451403)
 
 [邹晓艺汇总的深度学习学习资料](http://blog.csdn.net/zouxy09/article/details/8782018)
