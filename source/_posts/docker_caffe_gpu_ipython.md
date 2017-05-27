@@ -48,8 +48,48 @@ sudo docker run -ti --device=/dev/nvidiactl --device=/dev/nvidia-uvm --device=/d
 ```
 
 # 在镜像里安装ipython notebook，需要这样做
-把大象装进冰箱分三步，
+把大象装进冰箱分四步，映射端口，开通open-ssh服务器，安装jupyter,配置密码
+在镜像中执行
+0. 映射端口
+在dock run的时候加-p参数 
+1. 开通ssh
+```
+sudo apt-get install openssh-server
+```
+2. 安装jupyter
+```
+apt-get update
+#安装python dev包
+apt-get install python-dev
+#安装jupyter
+pip install jupyter
+```
+3. 设置密码
+分三小步
+a. 生成jupyter配置文件，这个会生成配置文件.jupyter/jupyter_notebook_config.py
+```
+jupyter notebook --generate-config
+```
+b. 从密码到ssa密文
+在命令行输入ipython，进入ipython命令行
+```
+#使用ipython生成密码
+In [1]: from notebook.auth import passwd
+In [2]: passwd()
+Enter password: 
+Verify password: 
+Out[2]: 'sha1:38a5ecdf288b:c82dace8d3c7a212ec0bd49bbb99c9af3bae076e'
+````
+c. 改配置
+```
+#去配置文件.jupyter/jupyter_notebook_config.py中修改以下参数
+c.NotebookApp.ip='*'                          #绑定所有地址
+c.NotebookApp.password = u'刚才生成的密文也就是sha1:38a5ecdf288b:c82dace8d3c7a212ec0bd49bbb99c9af3bae076e'
+c.NotebookApp.open_browser = False            #启动后是否在浏览器中自动打开，注意F大写
+c.NotebookApp.port =8888                      #指定一个访问端口，默认8888，注意和映射的docker端口对应
+```
 
+然后执行ipython notebook --allow-root就可以在宿主机上用docker里面的环境了，爽歪歪。
 
 [把jupyter-notebook装进docker里](https://segmentfault.com/a/1190000007448177)
 
