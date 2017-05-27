@@ -4,7 +4,7 @@ date: 2016-12-26 10:36:32
 ---
 # 个人信息
 
-- 在河之洲/男
+- 在河之洲/男/巨蟹座
 - 研究生@[中科院计算所](http://www.ict.ac.cn/)
 - 本科@[西安电子科技大学软件学院](http://sc.xidian.edu.cn/index.html)
 - 邮箱: dragonfive2013@163.com
