@@ -1,5 +1,5 @@
 ---
-title: 不会装cuda配caffe的小白，怎么用docker撸DL
+title: 不会装cuda配caffe的小白的救赎—玄学DL
 tdate: 2017/5/26 15:04:12
 
 categories:
