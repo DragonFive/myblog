@@ -18,8 +18,8 @@ DL如今已经快成为全民玄学了，感觉离民科入侵不远了。唯一
 ![image.png](http://upload-images.jianshu.io/upload_images/454341-5fd9359ddbf72292.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
 <!--more-->
-# 从nvidia-docker到docker，需要这样做
-大致流程如下，入门版通过docker pull一个GPU版本的caffe 的image,然后安装nvidia-docker 和 nvidia-docker-plugin 来映射宿主机的nvidia-driver并通过共享volume的方式来支持容器里面能“看到”宿主机的GPU。进阶版通过curl -s命令列出宿主机的配置显卡配置，并通过docker run的方式来启动。总结完成。
+# 从nvidia-docker到docker，需要有这样的操作
+大致流程如下，入门版通过docker pull一个GPU版本的caffe 的image,然后安装nvidia-docker 和 nvidia-docker-plugin 来映射宿主机的nvidia-driver并通过共享volume的方式来支持容器里面能“看到”宿主机的GPU。进阶版通过curl -s命令列出宿主机的配置显卡配置，并通过docker run的方式来启动。总结完成。纸上得来终觉浅，绝知此事要躬行，光说不练空把式，唯有实践出真知。
 [tensorflow gpu in docker](https://xuxinkun.github.io/2016/10/08/tensorflow-kubernetes/)
 
 使用nvidia-docker
@@ -48,6 +48,8 @@ sudo docker run -ti --device=/dev/nvidiactl --device=/dev/nvidia-uvm --device=/d
 ```
 
 # 在镜像里安装ipython notebook，需要这样做
+把大象装进冰箱分三步
+
 
 [把jupyter-notebook装进docker里](https://segmentfault.com/a/1190000007448177)
 
