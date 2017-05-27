@@ -1,5 +1,5 @@
 ---
-title: ubuntu安装Nvidia驱动-cudnn-anaconda-tensorflow-tensorlayer-keras-caffe
+title: 懒人单手配ubuntu大法-快速翻墙装驱动配置开发环境
 
 date: 2017/4/27 15:04:12
 
