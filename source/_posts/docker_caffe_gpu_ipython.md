@@ -48,7 +48,7 @@ sudo docker run -ti --device=/dev/nvidiactl --device=/dev/nvidia-uvm --device=/d
 ```
 
 # 在镜像里安装ipython notebook，需要这样做
-把大象装进冰箱分三步
+把大象装进冰箱分三步，
 
 
 [把jupyter-notebook装进docker里](https://segmentfault.com/a/1190000007448177)
