@@ -19,7 +19,7 @@ tags:
 ](https://github.com/DragonFive/deep-learning-exercise/blob/master/caffe_python1.ipynb)
 
 ## caffe-blob
-
+[【Caffe代码解析】Blob](http://blog.csdn.net/chenriwei2/article/details/46367023)
 
 
 
