@@ -20,8 +20,8 @@ tags:
 
 ## caffe-blob
 [【Caffe代码解析】Blob](http://blog.csdn.net/chenriwei2/article/details/46367023)
-
-
+[caffe源码分析--Blob类代码研究](http://blog.csdn.net/lingerlanlan/article/details/24379689)
+[Caffe源码解析1：Blob](http://www.cnblogs.com/louyihang-loves-baiyan/p/5149628.html)
 
 # caffe学习资料收集 
 
