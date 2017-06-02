@@ -18,6 +18,8 @@ tags:
 这里计算图像的均值使用的是pper_image_mean方法，在natural images上训练的时候，这种方式比较好，以imagenet数据集为例，caffe在使用imagenet数据集的时候需要计算均值文件，详细见 [python-caffe
 ](https://github.com/DragonFive/deep-learning-exercise/blob/master/caffe_python1.ipynb)
 
+## caffe-blob
+
 
 
 
