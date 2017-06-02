@@ -20,10 +20,21 @@ tags:
 
 ## caffe-blob
 [【Caffe代码解析】Blob](http://blog.csdn.net/chenriwei2/article/details/46367023)
-
 [caffe源码分析--Blob类代码研究](http://blog.csdn.net/lingerlanlan/article/details/24379689)
-
 [Caffe源码解析1：Blob](http://www.cnblogs.com/louyihang-loves-baiyan/p/5149628.html)
+
+### 结构体分析
+Blob 是Caffe作为数据传输的媒介，无论是网络权重参数，还是输入数据，都是转化为Blob数据结构来存储，网络，求解器等都是直接与此结构打交道的。
+
+4纬的结构体（包含数据和梯度)，其4维结构通过shape属性得以计算出来.
+```cpp
+ protected:
+  shared_ptr<SyncedMemory> data_;// 存放数据
+  shared_ptr<SyncedMemory> diff_;//存放梯度
+  vector<int> shape_; //存放形状
+  int count_; //数据个数
+  int capacity_; //数据容量
+```
 
 
 
