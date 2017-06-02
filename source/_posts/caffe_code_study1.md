@@ -1,8 +1,10 @@
 ---
-title: caffe_code_study1
+title: caffe-源码学习——只看一篇就够了
 tags: 新建,模板,小书匠
 grammar_cjkRuby: true
 ---
+
+
 
 
 # caffe学习资料收集 
