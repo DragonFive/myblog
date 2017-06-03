@@ -63,3 +63,4 @@ Blob 是Caffe作为数据传输的媒介，无论是网络权重参数，还是�
 
 [Caffe源码分析（一）](http://blog.leanote.com/post/fishing_piggy/Caffe%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90%EF%BC%88%E4%B8%80%EF%BC%89)
 
+[caffe源码解析11篇](http://blog.csdn.net/seven_first/article/category/5721883)
