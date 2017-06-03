@@ -29,8 +29,8 @@ Blob 是Caffe作为数据传输的媒介，无论是网络权重参数，还是�
 4纬的结构体（包含数据和梯度)，其4维结构通过shape属性得以计算出来.
 ```cpp
  protected:
-  shared_ptr<SyncedMemory> data_;// 存放数据
-  shared_ptr<SyncedMemory> diff_;//存放梯度
+  shared_ptr<SyncedMemory> data_;    // 存放数据 指向SyncedMemory的智能指针
+  shared_ptr<SyncedMemory> diff_;    //存放梯度,diff  用于更新data_
   vector<int> shape_; //存放形状
   int count_; //数据个数
   int capacity_; //数据容量
