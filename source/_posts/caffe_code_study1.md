@@ -34,6 +34,11 @@ Blob 是Caffe作为数据传输的媒介，无论是网络权重参数，还是�
   vector<int> shape_; //存放形状
   int count_; //数据个数
   int capacity_; //数据容量
+  int  num_;
+int  channels_;  //通道数
+int  height_;
+int  width_;
+int  count_;
 ```
 
 
