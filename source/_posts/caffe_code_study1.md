@@ -27,6 +27,8 @@ tags:
 Blob 是Caffe作为数据传输的媒介，无论是网络权重参数，还是输入数据，都是转化为Blob数据结构来存储，网络，求解器等都是直接与此结构打交道的。
 
 4纬的结构体（包含数据和梯度)，其4维结构通过shape属性得以计算出来.
+
+**成员变量** 
 ```cpp
  protected:
   shared_ptr<SyncedMemory> data_;    // 存放数据 指向SyncedMemory的智能指针
@@ -39,6 +41,15 @@ int  channels_;  //通道数
 int  height_;
 int  width_;
 int  count_;
+```
+**成员函数**
+1. 构造函数
+```
+Blob():num_(0),channels_(0),height_(0),width_(0),count_(0),data_(),diff_(){}
+功能：简单的初始化
+
+explicit Blob(const int num,const int channels,const int height,const int width);
+功能：调用Reshape函数，初始化数据成员
 ```
 
 
