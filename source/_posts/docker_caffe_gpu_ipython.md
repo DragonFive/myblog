@@ -46,6 +46,10 @@ sudo docker run -ti --device=/dev/nvidiactl --device=/dev/nvidia-uvm --device=/d
 --volume-driver=nvidia-docker --volume=nvidia_driver_375.39:/usr/local/nvidia:ro \
  -v /mnt/share:/mnt/share -v /mnt/lustre:/mnt/lustre  -v /lib64:/lib64  镜像名  bash
 ```
+当前你也可以有这样风骚的走位
+```
+sudo docker run -ti  $(ls /dev/nvidia* | xargs -I{} echo '--device={}')   -v /mnt/share:/mnt/share -v /mnt/lustre:/mnt/lustre  -v /lib64:/lib64  镜像名  bash
+```
 
 # 在镜像里安装ipython notebook，需要这样做
 把大象装进冰箱分四步，映射端口，开通open-ssh服务器，安装jupyter,配置密码
