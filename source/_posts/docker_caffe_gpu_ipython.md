@@ -15,7 +15,9 @@ tags:
 
 DL如今已经快成为全民玄学了，感觉离民科入侵不远了。唯一的门槛可能是环境不好配，特别是caffe这种依赖数10种其它软件打框架。不过有了docker之后，小学生也能站起撸DL了。
 
-![image.png](http://upload-images.jianshu.io/upload_images/454341-5fd9359ddbf72292.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![enter description here][1]
+
+
 
 <!--more-->
 # 从nvidia-docker到docker，需要有这样的操作
@@ -103,3 +105,6 @@ c.NotebookApp.port =8888                      #指定一个访问端口，默认
 
 [把jupyter-notebook装进docker里](https://segmentfault.com/a/1190000007448177)
 [tensorflow gpu in docker](https://xuxinkun.github.io/2016/10/08/tensorflow-kubernetes/)
+
+
+  [1]: https://www.github.com/DragonFive/CVBasicOp/raw/master/1496650170493.jpg
