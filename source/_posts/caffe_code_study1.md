@@ -97,7 +97,9 @@ class BaseConvolutionLayer : public Layer<Dtype> {
 #endif
 ```
 这里给出来CPU和GPU版本的代码的声明，这些代码比较底层，先放一放以后再看。
-forward_cpu_gemm:猜测可能是前馈过程计算weight部分，来看看CPP里面的实现吧
+forward_cpu_gemm:猜测可能是前馈过程计算weight部分，来看看CPP里面的实现吧。
+
+在BaseConvolutionLayer中的卷积的实现中有一个重要的函数就是im2col以及col2im，im2colnd以及col2imnd。前面的两个函数是二维卷积的正向和逆向过程，而后面的两个函数是n维卷积的正向和逆向过程。
 ```
 void BaseConvolutionLayer<Dtype>::forward_cpu_gemm(const Dtype* input,
     const Dtype* weights, Dtype* output, bool skip_im2col) {
@@ -117,6 +119,8 @@ void BaseConvolutionLayer<Dtype>::forward_cpu_gemm(const Dtype* input,
 }
 
 ```
+
+
 
 # 数据集
 
