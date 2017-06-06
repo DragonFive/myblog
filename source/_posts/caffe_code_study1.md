@@ -54,7 +54,9 @@ caffe/layers/cudnn_conv_layer.hpp:38:  virtual ~CuDNNConvolutionLayer();
 主要有三个类包含这个卷积层的实现：
 base_conv_layer：主要是卷积层基类的实现
 deconv_layer： 目测是反向传播时候的卷积层的逆向过程
-cudnn_conv_layer：目测是cudnn实现的卷积层版本继承自BaseConvolutionLayer
+cudnn_conv_layer：目测是cudnn实现的卷积层版本继承自BaseConvolutionLayer,GPU版本
+
+
 # 数据集
 
 ## 生成数据集的均值文件
