@@ -97,7 +97,7 @@ class BaseConvolutionLayer : public Layer<Dtype> {
 #endif
 ```
 这里给出来CPU和GPU版本的代码的声明，这些代码比较底层，先放一放以后再看。
-forward_cpu_gemm:猜测可能是前馈过程计算weight部分，
+forward_cpu_gemm:猜测可能是前馈过程计算weight部分，来看看CPP里面的实现吧
 
 
 # 数据集
