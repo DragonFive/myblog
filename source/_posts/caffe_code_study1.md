@@ -11,6 +11,12 @@ tags:
 - python
 ---
 
+# 网络模型
+
+
+
+
+
 # 数据集
 
 ## 生成数据集的均值文件
@@ -28,30 +34,57 @@ Blob 是Caffe作为数据传输的媒介，无论是网络权重参数，还是�
 
 4纬的结构体（包含数据和梯度)，其4维结构通过shape属性得以计算出来.
 
-**成员变量** 
+**成员变量**
+
 ```cpp
  protected:
-  shared_ptr<SyncedMemory> data_;    // 存放数据 指向SyncedMemory的智能指针
-  shared_ptr<SyncedMemory> diff_;    //存放梯度,diff  用于更新data_
+  shared_ptr<SyncedMemory> data_;// 存放数据
+  shared_ptr<SyncedMemory> diff_;//存放梯度
   vector<int> shape_; //存放形状
   int count_; //数据个数
   int capacity_; //数据容量
-  int  num_;
-int  channels_;  //通道数
-int  height_;
-int  width_;
-int  count_;
 ```
+
 **成员函数**
-1. 构造函数
-```
-Blob():num_(0),channels_(0),height_(0),width_(0),count_(0),data_(),diff_(){}
-功能：简单的初始化
 
-explicit Blob(const int num,const int channels,const int height,const int width);
-功能：调用Reshape函数，初始化数据成员
 ```
+  const Dtype* cpu_data() const;			 //cpu使用的数据
+  void set_cpu_data(Dtype* data);		//用数据块的值来blob里面的data。
+  const Dtype* gpu_data() const;		//返回不可更改的指针，下同
+  const Dtype* cpu_diff() const;
+  const Dtype* gpu_diff() const;
+  Dtype* mutable_cpu_data();    		//返回可更改的指针，下同
+  Dtype* mutable_gpu_data();
+  Dtype* mutable_cpu_diff();
+  Dtype* mutable_gpu_diff();
+  
+  int offset(const int n, const int c = 0, const int h = 0,const int w = 0) const
+// 通过n,c,h,w 4个参数来计算一维向量的偏移量。
 
+Dtype data_at(const int n, const int c, const int h,const int w) const//通过n,c,h,w 4个参数来来获取该向量位置上的值。
+
+Dtype diff_at(const int n, const int c, const int h,const int w) const//同上
+
+inline const shared_ptr<SyncedMemory>& data() const {
+    CHECK(data_);
+    return data_;			//返回数据，不能修改
+  }
+
+inline const shared_ptr<SyncedMemory>& diff() const {
+    CHECK(diff_);
+    return diff_;			//返回梯度，不能修改
+  }
+
+Reshape(...)//reshape 有多种多态的实现，可以是四个数字，长度为四的vector，其它blob等。
+
+if (count_ > capacity_) {
+    capacity_ = count_;
+    data_.reset(new SyncedMemory(capacity_ * sizeof(Dtype)));
+    diff_.reset(new SyncedMemory(capacity_ * sizeof(Dtype)));
+  }//当空间不够的时候，需要扩大容量，reset。
+
+```
+函数名中带mutable的表示可以对返回的指针内容进行修改。
 
 
 
@@ -79,4 +112,3 @@ explicit Blob(const int num,const int channels,const int height,const int width)
 
 [Caffe源码分析（一）](http://blog.leanote.com/post/fishing_piggy/Caffe%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90%EF%BC%88%E4%B8%80%EF%BC%89)
 
-[caffe源码解析11篇](http://blog.csdn.net/seven_first/article/category/5721883)
