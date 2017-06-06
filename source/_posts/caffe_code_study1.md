@@ -26,6 +26,7 @@ tags:
 ```bash
 grep -n -H -R "ConvolutionLayer"
 ```
+-n表示显示行号，-H表示显示文件名，-R表示递归查找 后面部分表示查找的内容
 结果如下
 ```bash
 caffe/layer_factory.hpp:31: * (for example, when your layer has multiple backends, see GetConvolutionLayer
@@ -56,6 +57,7 @@ base_conv_layer：主要是卷积层基类的实现
 deconv_layer： 目测是反向传播时候的卷积层的逆向过程
 cudnn_conv_layer：目测是cudnn实现的卷积层版本继承自BaseConvolutionLayer,GPU版本
 
+接下来我们就打开这三个文件，跳转到相关行，详细看一下。
 
 # 数据集
 
