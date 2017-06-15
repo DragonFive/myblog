@@ -9,5 +9,7 @@ tags:
 ---
 [TOC]
 
+
+<!--more-->
 # reference
 [c++11新特性](http://blog.csdn.net/wangshubo1989/article/details/50575008)
