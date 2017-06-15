@@ -19,3 +19,5 @@ goturn 的代码是用caffe写的，是我们学caffe，深度学习和目标跟
 
 [github主页](https://github.com/davheld/GOTURN)
 
+<!--more-->
+
