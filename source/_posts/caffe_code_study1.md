@@ -131,7 +131,8 @@ void BaseConvolutionLayer<Dtype>::forward_cpu_gemm(const Dtype* input,
 [ caffe代码阅读10：Caffe中卷积的实现细节](http://blog.csdn.net/xizero00/article/details/51049858)
 
 ## 激活函数 
-
+### softmaxlayer
+[caffe深度学习网络softmax层代码注释](http://blog.csdn.net/u010668083/article/details/44857455)
 
 
 
