@@ -160,21 +160,45 @@ STUB_GPU(SoftmaxLayer);
 INSTANTIATE_CLASS(SoftmaxLayer);
 
 ```
+**caffe_cpu_gemm **
 在forward_cpu函数里做减法的时候调用来caffe_cpu_gemm函数，这个函数的实现在 src/caffe/util/math_functions.cpp里面
 [caffecpugemm-函数](http://blog.csdn.net/seven_first/article/details/47378697#1-caffecpugemm-函数)
 ```cpp
-emplate <>
-void caffe_cpu_gemv<float>(const CBLAS_TRANSPOSE TransA, const int M,
-    const int N, const float alpha, const float* A, const float* x,
-    const float beta, float* y) {
-  cblas_sgemv(CblasRowMajor, TransA, M, N, alpha, A, N, x, 1, beta, y, 1);
+template<>
+void caffe_cpu_gemm<float>(const CBLAS_TRANSPOSE TransA,
+    const CBLAS_TRANSPOSE TransB, const int M, const int N, const int K,
+    const float alpha, const float* A, const float* B, const float beta,
+    float* C) {
+  int lda = (TransA == CblasNoTrans) ? K : M;
+  int ldb = (TransB == CblasNoTrans) ? N : K;
+  cblas_sgemm(CblasRowMajor, TransA, TransB, M, N, K, alpha, A, lda, B,
+      ldb, beta, C, N);
 }
 ```
-功能：$ y=alpha*A*x+beta*y $
-其中X和Y是向量，A 是矩阵 
-M：A 的行数 
-N：A 的列数 
-cblas_sgemv 中的 参数1 表示对X和Y的每个元素都进行操作
+>功能： C=alpha*A*B+beta*C 
+A,B,C 是输入矩阵（一维数组格式） 
+CblasRowMajor :数据是行主序的（二维数据也是用一维数组储存的） 
+TransA, TransB：是否要对A和B做转置操作（CblasTrans CblasNoTrans） 
+M： A、C 的行数 
+N： B、C 的列数 
+K： A 的列数， B 的行数 
+lda ： A的列数（不做转置）行数（做转置） 
+ldb： B的列数（不做转置）行数（做转置）
+
+所以这里求减法：
+```cpp
+    caffe_cpu_gemm<Dtype>(CblasNoTrans, CblasNoTrans, channels, inner_num_,
+        1, -1., sum_multiplier_.cpu_data(), scale_data, 1., top_data);
+```
+就是： $ topdata = top_data - 1* sum_multiplier_.cpu_data()*scale_data $， 这里用top_data来减而不用bottom一方面是因为bottom是const的，取的是cpu_data(), 而top_data是mutable_cpu_data,另一方面之前已经把数据从bottom拷贝到top里面去了。
+
+** caffe_exp **
+caffe_exp函数是用来求指数的，其中一个实现是这样的。
+template <>
+void caffe_exp<float>(const int n, const float* a, float* y) {
+  vsExp(n, a, y);
+}
+
 
 看完softmax layer的实现，我们再来看一下SoftmaxWithLossLayer的代码实现。
 
