@@ -118,7 +118,7 @@ void SoftmaxLayer<Dtype>::Forward_cpu(const vector<Blob<Dtype>*>& bottom,
     // sum after exp 求和
     caffe_cpu_gemv<Dtype>(CblasTrans, channels, inner_num_, 1.,
         top_data, sum_multiplier_.cpu_data(), 0., scale_data);
-    // division 做减法
+    // division 做除法
     for (int j = 0; j < channels; j++) {
       caffe_div(inner_num_, top_data, scale_data, top_data);
       top_data += inner_num_;
@@ -160,7 +160,7 @@ STUB_GPU(SoftmaxLayer);
 INSTANTIATE_CLASS(SoftmaxLayer);
 
 ```
-**caffe_cpu_gemm **
+**caffe_cpu_gemm减法 **
 在forward_cpu函数里做减法的时候调用来caffe_cpu_gemm函数，这个函数的实现在 src/caffe/util/math_functions.cpp里面
 [caffecpugemm-函数](http://blog.csdn.net/seven_first/article/details/47378697#1-caffecpugemm-函数)
 ```cpp
@@ -192,12 +192,35 @@ ldb： B的列数（不做转置）行数（做转置）
 ```
 就是： $ topdata = top_data - 1* sum_multiplier_.cpu_data()*scale_data $， 这里用top_data来减而不用bottom一方面是因为bottom是const的，取的是cpu_data(), 而top_data是mutable_cpu_data,另一方面之前已经把数据从bottom拷贝到top里面去了。
 
-** caffe_exp **
+** caffe_exp指数 **
 caffe_exp函数是用来求指数的，其中一个实现是这样的。
+```cpp
 template <>
 void caffe_exp<float>(const int n, const float* a, float* y) {
   vsExp(n, a, y);
 }
+```
+> 功能：  y[i] = exp(a[i] )
+
+所以， forward_cpu里面的指数就很容易理解了。
+```
+caffe_exp<Dtype>(dim, top_data, top_data);
+```
+
+**  caffe_cpu_gemv 求和**
+```cpp
+template <>
+void caffe_cpu_gemv<float>(const CBLAS_TRANSPOSE TransA, const int M,
+    const int N, const float alpha, const float* A, const float* x,
+    const float beta, float* y) {
+  cblas_sgemv(CblasRowMajor, TransA, M, N, alpha, A, N, x, 1, beta, y, 1);
+}
+```
+>功能： y=alpha*A*x+beta*y 
+其中X和Y是向量，A 是矩阵 
+M：A 的行数 
+N：A 的列数 
+cblas_sgemv 中的 参数1 表示对X和Y的每个元素都进行操作
 
 
 看完softmax layer的实现，我们再来看一下SoftmaxWithLossLayer的代码实现。
