@@ -132,7 +132,46 @@ void BaseConvolutionLayer<Dtype>::forward_cpu_gemm(const Dtype* input,
 
 ## 激活函数 
 ### softmaxlayer
+旧版本的caffe代码，写的比较难懂。比较好的注释如下。
 [caffe深度学习网络softmax层代码注释](http://blog.csdn.net/u010668083/article/details/44857455)
+
+而1.0以后的代码写的比较简洁，这个代码是2015年12月3日的，至今(20170622)没有变过，而一本叫《21天实战caffe》的书第一版与2016年7月发第一版，用的代码比这个老很多。可见作者要么写的比较早，要么呢抄的别人的博客，我就不恶意分析了。
+
+sigmoid的cpp文件里主要给了三个函数的实现，分别是sigmoid函数，forward_cpu, backward_cpu,是否意味着它只有CPU的实现呢？
+
+```cpp
+template <typename Dtype>
+inline Dtype sigmoid(Dtype x) {
+  return 0.5 * tanh(0.5 * x) + 0.5;
+}
+
+template <typename Dtype>
+void SigmoidLayer<Dtype>::Forward_cpu(const vector<Blob<Dtype>*>& bottom,
+    const vector<Blob<Dtype>*>& top) {
+  const Dtype* bottom_data = bottom[0]->cpu_data();
+  Dtype* top_data = top[0]->mutable_cpu_data();
+  const int count = bottom[0]->count();
+  for (int i = 0; i < count; ++i) {
+    top_data[i] = sigmoid(bottom_data[i]);
+  }
+}
+
+template <typename Dtype>
+void SigmoidLayer<Dtype>::Backward_cpu(const vector<Blob<Dtype>*>& top,
+    const vector<bool>& propagate_down,
+    const vector<Blob<Dtype>*>& bottom) {
+  if (propagate_down[0]) {
+    const Dtype* top_data = top[0]->cpu_data();
+    const Dtype* top_diff = top[0]->cpu_diff();
+    Dtype* bottom_diff = bottom[0]->mutable_cpu_diff();
+    const int count = bottom[0]->count();
+    for (int i = 0; i < count; ++i) {
+      const Dtype sigmoid_x = top_data[i];
+      bottom_diff[i] = top_diff[i] * sigmoid_x * (1. - sigmoid_x);
+    }
+  }
+}
+```
 
 
 
