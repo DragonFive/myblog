@@ -84,10 +84,11 @@ void SoftmaxLayer<Dtype>::Reshape(const vector<Blob<Dtype>*>& bottom,
   outer_num_ = bottom[0]->count(0, softmax_axis_);
   inner_num_ = bottom[0]->count(softmax_axis_ + 1);
   vector<int> scale_dims = bottom[0]->shape();
+  // scale_尺寸为：num*1*height*width
   scale_dims[softmax_axis_] = 1;
   scale_.Reshape(scale_dims);
 }
-
+//前向计算，得到softmax的值
 template <typename Dtype>
 void SoftmaxLayer<Dtype>::Forward_cpu(const vector<Blob<Dtype>*>& bottom,
     const vector<Blob<Dtype>*>& top) {
@@ -99,24 +100,25 @@ void SoftmaxLayer<Dtype>::Forward_cpu(const vector<Blob<Dtype>*>& bottom,
   caffe_copy(bottom[0]->count(), bottom_data, top_data);
   // We need to subtract the max to avoid numerical issues, compute the exp,
   // and then normalize.
-  for (int i = 0; i < outer_num_; ++i) {
+  // 先找到最大值
+  for (int i = 0; i < outer_num_; ++i) {//outer_num就是num输出数据的数目
     // initialize scale_data to the first plane
-    caffe_copy(inner_num_, bottom_data + i * dim, scale_data);
+    caffe_copy(inner_num_, bottom_data + i * dim, scale_data);//dim表示每个数据有多少个不同类别的值.
     for (int j = 0; j < channels; j++) {
       for (int k = 0; k < inner_num_; k++) {
-        scale_data[k] = std::max(scale_data[k],
+        scale_data[k] = std::max(scale_data[k],//每个元素表示应该是当前位置中所有类别和channel里面最大的那一个。
             bottom_data[i * dim + j * inner_num_ + k]);
       }
     }
-    // subtraction
+    // subtraction 减去最大值 详细分析见后面 
     caffe_cpu_gemm<Dtype>(CblasNoTrans, CblasNoTrans, channels, inner_num_,
         1, -1., sum_multiplier_.cpu_data(), scale_data, 1., top_data);
-    // exponentiation
+    // exponentiation 求指数
     caffe_exp<Dtype>(dim, top_data, top_data);
-    // sum after exp
+    // sum after exp 求和
     caffe_cpu_gemv<Dtype>(CblasTrans, channels, inner_num_, 1.,
         top_data, sum_multiplier_.cpu_data(), 0., scale_data);
-    // division
+    // division 做减法
     for (int j = 0; j < channels; j++) {
       caffe_div(inner_num_, top_data, scale_data, top_data);
       top_data += inner_num_;
@@ -158,9 +160,21 @@ STUB_GPU(SoftmaxLayer);
 INSTANTIATE_CLASS(SoftmaxLayer);
 
 ```
-
+在forward_cpu函数里做减法的时候调用来caffe_cpu_gemm函数，这个函数的实现在 src/caffe/util/math_functions.cpp里面
 [caffecpugemm-函数](http://blog.csdn.net/seven_first/article/details/47378697#1-caffecpugemm-函数)
-
+```cpp
+emplate <>
+void caffe_cpu_gemv<float>(const CBLAS_TRANSPOSE TransA, const int M,
+    const int N, const float alpha, const float* A, const float* x,
+    const float beta, float* y) {
+  cblas_sgemv(CblasRowMajor, TransA, M, N, alpha, A, N, x, 1, beta, y, 1);
+}
+```
+功能：$ y=alpha*A*x+beta*y $
+其中X和Y是向量，A 是矩阵 
+M：A 的行数 
+N：A 的列数 
+cblas_sgemv 中的 参数1 表示对X和Y的每个元素都进行操作
 
 看完softmax layer的实现，我们再来看一下SoftmaxWithLossLayer的代码实现。
 
