@@ -190,9 +190,9 @@ ldb： B的列数（不做转置）行数（做转置）
     caffe_cpu_gemm<Dtype>(CblasNoTrans, CblasNoTrans, channels, inner_num_,
         1, -1., sum_multiplier_.cpu_data(), scale_data, 1., top_data);
 ```
-就是： $ topdata = top_data - 1* sum_multiplier_.cpu_data()*scale_data $， 这里用top_data来减而不用bottom一方面是因为bottom是const的，取的是cpu_data(), 而top_data是mutable_cpu_data,另一方面之前已经把数据从bottom拷贝到top里面去了。
+就是： $top\_data = top\_data - 1* sum\_multiplier\_.cpu\_data()*scale\_data$， 这里用top_data来减而不用bottom一方面是因为bottom是const的，取的是cpu_data(), 而top_data是mutable_cpu_data,另一方面之前已经把数据从bottom拷贝到top里面去了。
 
-** caffe_exp指数 **
+**caffe_exp指数**
 caffe_exp函数是用来求指数的，其中一个实现是这样的。
 ```cpp
 template <>
@@ -206,8 +206,8 @@ void caffe_exp<float>(const int n, const float* a, float* y) {
 ```
 caffe_exp<Dtype>(dim, top_data, top_data);
 ```
-
-**  caffe_cpu_gemv 求和**
+top_data[i] = exp(topdata[i])
+**caffe_cpu_gemv求和**
 ```cpp
 template <>
 void caffe_cpu_gemv<float>(const CBLAS_TRANSPOSE TransA, const int M,
@@ -222,8 +222,35 @@ M：A 的行数
 N：A 的列数 
 cblas_sgemv 中的 参数1 表示对X和Y的每个元素都进行操作
 
+forward_cpu里面的求和就很容易理解了
+```cpp
+    // sum after exp 求和
+    caffe_cpu_gemv<Dtype>(CblasTrans, channels, inner_num_, 1.,
+        top_data, sum_multiplier_.cpu_data(), 0., scale_data);
+```
+
+$scale\_data =\sum top\_data[i]*sum\_multiplier\_.cpu\_data()[i];$
 
 
+
+
+**caffe_div除法**
+```cpp
+template <>
+void caffe_div<float>(const int n, const float* a, const float* b,
+    float* y) {
+  vsDiv(n, a, b, y);
+}
+```
+> 功能 y[i] = a[i] / b[i]
+
+```cpp
+    // division 做除法
+    for (int j = 0; j < channels; j++) {
+      caffe_div(inner_num_, top_data, scale_data, top_data);
+      top_data += inner_num_;
+```
+$top\_data[i] = top\_data[i] / scale\_data[i];$
 
 看完softmax layer的实现，我们再来看一下SoftmaxWithLossLayer的代码实现。
 
