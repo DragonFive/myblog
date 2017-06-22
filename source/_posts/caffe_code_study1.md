@@ -172,9 +172,17 @@ void SigmoidLayer<Dtype>::Backward_cpu(const vector<Blob<Dtype>*>& top,
   }
 }
 ```
+**sigmoid函数**
 注意这里的sigmoid函数与标准的定义不太一样。参见ufld里面的定义
 [神经网络UFLD
 ](http://ufldl.stanford.edu/wiki/index.php/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C)
+
+而在这里 sigmoid = 0.5 * tanh(0.5 * x) + 0.5, sigmoid变化范围为从0-1, tanh从-1到1，乘于0.5再加上0.5两者变化范围就一样了。
+**forward_cpu**
+这个很容易就能看懂，就是对每一个bottom元素计算sigmoid就得到来top的元素。
+
+
+
 
 # 数据集
 
