@@ -137,7 +137,7 @@ void BaseConvolutionLayer<Dtype>::forward_cpu_gemm(const Dtype* input,
 
 而1.0以后的代码写的比较简洁，这个代码是2015年12月3日的，至今(20170622)没有变过，而一本叫《21天实战caffe》的书第一版与2016年7月发第一版，用的代码比这个老很多。可见作者要么写的比较早，要么呢抄的别人的博客，我就不恶意分析了。
 
-sigmoid的cpp文件里主要给了三个函数的实现，分别是sigmoid函数，forward_cpu, backward_cpu,是否意味着它只有CPU的实现呢？
+sigmoid的cpp文件里主要给了三个函数的实现，分别是sigmoid函数，forward_cpu, backward_cpu,在cpp文件里只实现了算法的CPU版本，至于GPU版本的函数实现放在.cu文件里面。
 
 ```cpp
 template <typename Dtype>
@@ -172,8 +172,9 @@ void SigmoidLayer<Dtype>::Backward_cpu(const vector<Blob<Dtype>*>& top,
   }
 }
 ```
-
-
+注意这里的sigmoid函数与标准的定义不太一样。参见ufld里面的定义
+[神经网络UFLD
+](http://ufldl.stanford.edu/wiki/index.php/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C)
 
 # 数据集
 
