@@ -223,6 +223,8 @@ N：A 的列数
 cblas_sgemv 中的 参数1 表示对X和Y的每个元素都进行操作
 
 
+
+
 看完softmax layer的实现，我们再来看一下SoftmaxWithLossLayer的代码实现。
 
 
