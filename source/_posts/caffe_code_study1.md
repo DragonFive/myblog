@@ -252,7 +252,11 @@ void caffe_div<float>(const int n, const float* a, const float* b,
 ```
 $top\_data[i] = top\_data[i] / scale\_data[i];$
 
+**反向传播公式推导**
+[Caffe Softmax层的实现原理,知乎](https://www.zhihu.com/question/28927103)
+
 看完softmax layer的实现，我们再来看一下SoftmaxWithLossLayer的代码实现。
+
 
 
 ## 卷积层
