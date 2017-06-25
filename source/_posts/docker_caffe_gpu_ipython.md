@@ -1,6 +1,6 @@
 ---
 title: 不会装cuda配caffe的小学生怎么玩caffe
-tdate: 2017/5/26 15:04:12
+date: 2017/5/26 15:04:12
 
 categories:
 - 计算机视觉
