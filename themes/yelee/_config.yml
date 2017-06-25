@@ -7,11 +7,11 @@ Yelee: "3.5"
 ## About Page: `hexo new page about`
 ## Tags Cloud Page: `hexo new page tags`
 menu:
-  我有故事: /about/
-  我爱读书: /tags/随笔
+  我的故事: /about/
+  #我爱读书: /tags/随笔
   #我的博客: /archives/
   #我的随笔: /tags/随笔
-  #我的标签: /tags/
+  我的标签: /tags/
   
 
 # Link to your avatar | 填写头像地址

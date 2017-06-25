@@ -9,7 +9,7 @@ date: 2016-12-26 10:36:32
 - 本科@[西安电子科技大学软件学院](http://sc.xidian.edu.cn/index.html)
 - 邮箱: dragonfive2013@163.com
 - GitHub: [DragonFive](https://github.com/DragonFive)
-- 博客地址: [2016年10月后dragonfive](https://dragonfive.github.io/)、[2016年10月前csdn](http://blog.csdn.net/zhzz2012)
+- 博客地址: [2016年10月后的独立博客](https://dragonfive.github.io/)、[2016年10月前csdn](http://blog.csdn.net/zhzz2012)
 
 # 个人评价
 
