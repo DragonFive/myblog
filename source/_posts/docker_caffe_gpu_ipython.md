@@ -9,6 +9,7 @@ tags:
 - 深度学习
 - caffe
 - docker
+- k8s
 - deeplearning
 - python
 ---
