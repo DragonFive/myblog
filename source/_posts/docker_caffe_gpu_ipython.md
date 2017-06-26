@@ -13,6 +13,8 @@ tags:
 - deeplearning
 - python
 ---
+本文首发于个人博客 [不会装cuda配环境的小学生怎么躺撸caffe](https://dragonfive.github.io/docker_caffe_gpu_ipython/)
+收录于简书专题[[深度学习·计算机视觉与机器学习](http://www.jianshu.com/c/1249336e61cb)](http://www.jianshu.com/c/1249336e61cb)
 
 DL如今已经快成为全民玄学了，感觉离民科入侵不远了。唯一的门槛可能是环境不好配，特别是caffe这种依赖数10种其它软件打框架。不过有了docker和k8s之后，小学生也能站撸DL了。
 
