@@ -313,6 +313,38 @@ sleep 10
    expect sensenet-pod-cfg.exp
 ```
 
+# 自己制作的某个支持cuda的dockerfile
+```
+FROM 10.10.31.26:5000/nvidia/cuda:8.0-cudnn5-runtime-centos7
+# 作者
+MAINTAINER xxx "xxx.com"
+# 先安装一批需要的软件
+COPY local_base.repo  /etc/yum.repos.d/local_base.repo
+COPY requirements.txt /root/requirements.txt
+COPY sshd_config /etc/ssh/sshd_config
+
+RUN yum clean all -y && yum clean metadata -y \
+        && yum clean dbcache -y && yum makecache -y \
+        && yum update -y \
+        && yum install -y  \
+        boost boost-devel \
+        glog glog-devel \
+        protobuf protobuf-devel protobuf-python \
+        hdf5-devel hdf5 \
+        openssh-server \
+        lmdb-devel lmdb \
+        leveldb leveldb-devel \
+        opencv opencv-devel opencv-python \
+        openblas-devel openblas \
+        && echo 'root:12345678' | chpasswd \
+        && yum clean all \
+        && ssh-keygen -t dsa -f /etc/ssh/ssh_host_dsa_key \
+        && ssh-keygen -t rsa -f /etc/ssh/ssh_host_rsa_key \
+        && ssh-keygen -t ecdsa -f /etc/ssh/ssh_host_ecdsa_key \
+        && ssh-keygen -t ed25519 -f /etc/ssh/ssh_host_ed25519_key \
+        && mkdir /var/run/sshd
+
+```
 
 # 参考资料
 
