@@ -1,5 +1,5 @@
 ---
-title: 不会装cuda配caffe的小学生怎么玩caffe
+title: 不会装cuda配环境的小学生怎么躺撸caffe
 date: 2017/5/26 15:04:12
 
 categories:
