@@ -13,7 +13,7 @@ tags:
 - python
 ---
 
-DL如今已经快成为全民玄学了，感觉离民科入侵不远了。唯一的门槛可能是环境不好配，特别是caffe这种依赖数10种其它软件打框架。不过有了docker之后，小学生也能站撸DL了。
+DL如今已经快成为全民玄学了，感觉离民科入侵不远了。唯一的门槛可能是环境不好配，特别是caffe这种依赖数10种其它软件打框架。不过有了docker和k8s之后，小学生也能站撸DL了。
 
 ![enter description here][1]
 
@@ -99,8 +99,219 @@ c.NotebookApp.port =8888                      #指定一个访问端口，默认
 
 [把jupyter-notebook装进docker里](https://segmentfault.com/a/1190000007448177)
 
+# 使用k8s与脚本一键式训练网络
+## 简要介绍
+
+用k8s启动docker能够有效的管理宿主机资源，保证任务能够在资源许可的情况下顺利地执行，同时能够保护宿主机的安全。但是从使用k8s到训练网络这中间隔着几十步的操作、配置和交互，需要遵循相应的顺序和格式，比较繁琐。这里通过一种expect脚本的方式简化这种操作，让用户可以简洁而又正确的使用k8s.
+
+## 操作步骤
+
+1. 根据需要的资源修改yaml文件
+2. 修改执行脚本里的资源和网络文件位置
+3. 执行expect脚本
+## 修改yaml文件
+
+这里举个例子并有一些注意事项。
+
+下面的yaml文件使用RC的方式创建pod
+ 
+ ```yaml
+ apiVersion: v1
+kind: ReplicationController
+metadata:
+  name: sensenet-master2
+  labels:
+    name: sensenet-master2
+spec:
+  replicas: 2
+  selector:
+    name: sensenet-master2
+  template:
+    metadata:
+      labels:
+        name: sensenet-master2
+    spec:
+      nodeSelector:
+        ip: five
+      containers:
+      - name: sensenet-master
+        image: 10.10.31.26:5000/sensenet_cuda8:2.1
+        #command: ["/bin/sleep", "infinity"]
+        #securityContext:
+        #  privileged: true
+        ports:
+        - containerPort: 6380
+        imagePullPolicy: IfNotPresent
+        resources:
+          requests:
+            alpha.kubernetes.io/nvidia-gpu: 1
+            #cpu: 2
+            #memory: 30Gi
+          limits:
+            alpha.kubernetes.io/nvidia-gpu: 1
+            #cpu: 2
+            #memory: 30Gi
+        volumeMounts:
+        - mountPath: /usr/local/nvidia/
+          name: nvidia-driver
+          readOnly: true
+        - mountPath: /mnt/lustre/xxx/xxx/
+          name: sensenet
+        - mountPath: /mnt/lustre/share/
+          name: share
+      volumes:
+      - hostPath:
+          path: /var/lib/nvidia-docker/volumes/nvidia_driver/375.39
+        name: nvidia-driver
+      - hostPath:
+          path: /mnt/lustre/xxx/xxx
+        name: sensenet
+      - hostPath:
+          path: /mnt/lustre/share/
+        name: share
+ ```
+需要注意的是：
+
+```yaml
+  nodeSelector:
+      ip: five
+```
+表示选择标签为ip=five的结点，这句话也可以不要。注意后面的resource的gpu数不要超过物理机GPU总数。
 
 
+## 修改expect脚本
+
+注意这个expect 脚本运行前需保证各个pod都处于running 状态。
+
+xxx-pod-cfg.exp脚本内容
+
+```yaml
+#!/usr/bin/expect -f
+
+# 设置超时时间
+
+set timeout 30000
+# 设置GPU个数
+set gpuNum 1
+# 创建rc创建pod
+exec kubectl create -f /mnt/lustre/yeanhua/maxiaolong2/yaml/sensenet_cuda_controller_test.yaml
+sleep 10
+
+# 首先通过k8s获得每个pod的ip与hostname对 放在一个临时文件中
+exec kubectl get po -o=custom-columns=IP:status.podIP,NAME:.metadata.name >hehe
+
+# 接下来把每个ip对 放在数组里面去
+set fd [open "hehe" r]
+gets $fd line
+set numIp 0
+while { [gets $fd line] >= 0 } {
+        set ips($numIp) [ lindex $line 0 ]
+        set hns($numIp) [ lindex $line 1 ]
+        incr numIp
+        #puts $numIp
+}
+#puts $ips(1)
+
+# 接下来登录每个pod上面去修改hosts文件
+for {set i 0} {$i<$numIp} {incr i} {
+        set sshIp $ips($i)
+        set sshUrl "root@"
+        append sshUrl $sshIp
+        # 连接上这个pod
+        spawn ssh $sshUrl
+        # 修改这个pod的文件
+        expect "password:"
+        send "12345678\r"
+        # 下面把ip数组复制进文件里面
+        for { set j 0} {$j<$numIp} {incr j} {
+                set ip $ips($j)
+                set hn $hns($j)
+                append ip " " $hn
+                expect "#*"
+                send "echo $ip >> /etc/hosts\r"
+        }
+        # 如果有必要的话，可以在这里设置mpirun的位置
+        expect "#*"
+        send "exit\r"
+        expect eof
+}
+
+# 下面生成第一个pod的key，并且copy到其它的pod里面.
+set sshIp $ips(0)
+set sshUrl "root@"
+append sshUrl $sshIp
+spawn ssh $sshUrl
+expect "password:"
+send "12345678\r"
+
+expect "#*"
+send "ssh-keygen \r"
+expect "id_rsa):*"
+send "\r"
+expect "passphrase):*"
+send "\r"
+expect "again:*"
+send "\r"
+
+# 接下来保证第一个pod能ssh连上其它所有的pod
+for {set i 1} {$i<$numIp} {incr i} {
+        set cmd "ssh-copy-id -i ~/.ssh/id_rsa.pub "
+        set ip $ips($i)
+        append cmd $ip
+        expect "#*"
+        send "$cmd \r"
+        expect "yes/no)?*"
+        send "yes\r"
+        expect "password:*"
+        send "12345678\r"
+}
+
+
+# 下面制作hostfile文件,把ip数组写进文件里
+expect "#*"
+send "cd /root\r"
+for {set i 0} {$i<$numIp} {incr i} {
+        #set content $ips($i)
+        expect "#*"
+        send "echo $ips($i) >>hostfile\r"
+}
+
+# 下面开始训练resnet200
+expect "#*"
+send "/mnt/lustre/share/intel64/bin/mpirun -n $numIp -ppn $gpuNum -f hostfile -env I_MPI_FABRICS shm:tcp /mnt/lustre/yeanhua/sensenet/example/build/tools/caffe train --solver=/mnt/lustre/yeanhua/sensenet/example/resnet200/resnet200_solver.prototxt\r"
+
+
+expect eof
+exit
+```
+
+1. 下面这句表示超时时间，设置大一点比较好，不然可能提前结束
+```yaml
+  set timeout 30000 
+```
+2. 下面这句是每个pod里面的GPU数量，根据实际情况自己设置
+```yaml
+  set gpuNum 1
+```
+3. 创建rc来创建pod ,sleep10保证在执行下一句之前pod能处于running 状态，根据需要时间可以调长 
+```yaml
+exec kubectl create -f /mnt/lustre/yeanhua/maxiaolong2/yaml/sensenet_cuda_controller_test.yaml 
+sleep 10
+```
+4. 下面是获取ip与hostname对
+```
+  exec kubectl get po -l name==sensenet-master2  -o=custom-columns=IP:status.podIP,NAME:.metadata.name >hehe
+```
+-l后面跟的是你要获取的pod的过滤器，也就是label的值，这里我是用上面rc创建的两个pod,自动给pod打标签为name=sensenet-master2,所以这里这样写。
+
+5. 训练网络的例子，根据自己需要进行修改
+```
+  send "/mnt/lustre/share/intel64/bin/mpirun -n $numIp -ppn $gpuNum -f hostfile -env I_MPI_FABRICS shm:tcp /mnt/lustre/yeanhua/sensenet/example/build/tools/caffe train --solver=/mnt/lustre/yeanhua/sensenet/example/resnet200/resnet200_solver.prototxt\r"
+```
+## 执行expect脚本
+```
+   expect sensenet-pod-cfg.exp
+```
 # 参考资料
 
 [把jupyter-notebook装进docker里](https://segmentfault.com/a/1190000007448177)
