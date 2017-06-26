@@ -119,23 +119,23 @@ c.NotebookApp.port =8888                      #指定一个访问端口，默认
  apiVersion: v1
 kind: ReplicationController
 metadata:
-  name: sensenet-master2
+  name: xxx-master2
   labels:
-    name: sensenet-master2
+    name: xxx-master2
 spec:
   replicas: 2
   selector:
-    name: sensenet-master2
+    name: xxx-master2
   template:
     metadata:
       labels:
-        name: sensenet-master2
+        name: xxx-master2
     spec:
       nodeSelector:
         ip: five
       containers:
-      - name: sensenet-master
-        image: 10.10.31.26:5000/sensenet_cuda8:2.1
+      - name: xxx-master
+        image: 10.10.31.26:5000/xxx_cuda8:2.1
         #command: ["/bin/sleep", "infinity"]
         #securityContext:
         #  privileged: true
@@ -165,7 +165,7 @@ spec:
         name: nvidia-driver
       - hostPath:
           path: /mnt/lustre/xxx/xxx
-        name: sensenet
+        name: xxx
       - hostPath:
           path: /mnt/lustre/share/
         name: share
@@ -194,7 +194,7 @@ set timeout 30000
 # 设置GPU个数
 set gpuNum 1
 # 创建rc创建pod
-exec kubectl create -f /mnt/lustre/yeanhua/maxiaolong2/yaml/sensenet_cuda_controller_test.yaml
+exec kubectl create -f /mnt/lustre/xxx/xxx/yaml/xxxx_cuda_controller_test.yaml
 sleep 10
 
 # 首先通过k8s获得每个pod的ip与hostname对 放在一个临时文件中
@@ -278,7 +278,7 @@ for {set i 0} {$i<$numIp} {incr i} {
 
 # 下面开始训练resnet200
 expect "#*"
-send "/mnt/lustre/share/intel64/bin/mpirun -n $numIp -ppn $gpuNum -f hostfile -env I_MPI_FABRICS shm:tcp /mnt/lustre/yeanhua/sensenet/example/build/tools/caffe train --solver=/mnt/lustre/yeanhua/sensenet/example/resnet200/resnet200_solver.prototxt\r"
+send "/mnt/lustre/share/intel64/bin/mpirun -n $numIp -ppn $gpuNum -f hostfile -env I_MPI_FABRICS shm:tcp /mnt/lustre/xxx/xxx/example/build/tools/caffe train --solver=/mnt/lustre/xxx/xxx/example/resnet200/resnet200_solver.prototxt\r"
 
 
 expect eof
@@ -295,23 +295,25 @@ exit
 ```
 3. 创建rc来创建pod ,sleep10保证在执行下一句之前pod能处于running 状态，根据需要时间可以调长 
 ```yaml
-exec kubectl create -f /mnt/lustre/yeanhua/maxiaolong2/yaml/sensenet_cuda_controller_test.yaml 
+exec kubectl create -f /mnt/lustre/xxx/xxxx/yaml/xxx_cuda_controller_test.yaml 
 sleep 10
 ```
 4. 下面是获取ip与hostname对
 ```
   exec kubectl get po -l name==sensenet-master2  -o=custom-columns=IP:status.podIP,NAME:.metadata.name >hehe
 ```
--l后面跟的是你要获取的pod的过滤器，也就是label的值，这里我是用上面rc创建的两个pod,自动给pod打标签为name=sensenet-master2,所以这里这样写。
+-l后面跟的是你要获取的pod的过滤器，也就是label的值，这里我是用上面rc创建的两个pod,自动给pod打标签为name=xxx-master2,所以这里这样写。
 
 5. 训练网络的例子，根据自己需要进行修改
 ```
-  send "/mnt/lustre/share/intel64/bin/mpirun -n $numIp -ppn $gpuNum -f hostfile -env I_MPI_FABRICS shm:tcp /mnt/lustre/yeanhua/sensenet/example/build/tools/caffe train --solver=/mnt/lustre/yeanhua/sensenet/example/resnet200/resnet200_solver.prototxt\r"
+  send "/mnt/lustre/share/intel64/bin/mpirun -n $numIp -ppn $gpuNum -f hostfile -env I_MPI_FABRICS shm:tcp /mnt/lustre/xxx/xxx/example/build/tools/caffe train --solver=/mnt/lustre/xxx/xxxx/example/resnet200/resnet200_solver.prototxt\r"
 ```
 ## 执行expect脚本
 ```
    expect sensenet-pod-cfg.exp
 ```
+
+
 # 参考资料
 
 [把jupyter-notebook装进docker里](https://segmentfault.com/a/1190000007448177)
