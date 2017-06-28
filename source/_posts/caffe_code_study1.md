@@ -12,7 +12,7 @@ tags:
 ---
 
 # 网络模型
-
+说caffe代码难懂，其实关键点在于caffe中有很多基础的数学运算代码，如果能够对掌握这些数学运算，剩下的就是推公式了。
 ## 激活函数 
 ## sigmoid
 看softmax函数之前先看一下简单的sigmoid, 这个sigmoid layer的cpp实现是非常简洁的。 sigmoid的cpp文件里主要给了三个函数的实现，分别是sigmoid函数，forward_cpu, backward_cpu,在cpp文件里只实现了算法的CPU版本，至于GPU版本的函数实现放在.cu文件里面。
