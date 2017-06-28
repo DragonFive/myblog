@@ -284,7 +284,7 @@ void caffe_mul<float>(const int n, const float* a, const float* b,
 ```cpp
  caffe_mul(top[0]->count(), bottom_diff, top_data, bottom_diff);
 ```
-
+bottom_diff[i] = bottom_diff[i] * top_data[i]
 
 **反向传播公式推导**
 [Caffe Softmax层的实现原理,知乎](https://www.zhihu.com/question/28927103)
