@@ -252,6 +252,18 @@ void caffe_div<float>(const int n, const float* a, const float* b,
 ```
 $top\_data[i] = top\_data[i] / scale\_data[i];$
 
+**caffe_cpu_strided_dot**
+```cpp
+template <>
+double caffe_cpu_strided_dot<double>(const int n, const double* x,
+    const int incx, const double* y, const int incy) {
+  return cblas_ddot(n, x, incx, y, incy);
+}
+```
+>功能： 返回 vector X 和 vector Y 的内积。 
+incx， incy ： 步长，即每隔incx 或 incy 个element 进行操作。
+
+
 **反向传播公式推导**
 [Caffe Softmax层的实现原理,知乎](https://www.zhihu.com/question/28927103)
 
