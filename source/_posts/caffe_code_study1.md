@@ -139,6 +139,7 @@ void SoftmaxLayer<Dtype>::Backward_cpu(const vector<Blob<Dtype>*>& top,
   caffe_copy(top[0]->count(), top_diff, bottom_diff);
   for (int i = 0; i < outer_num_; ++i) {
     // compute dot(top_diff, top_data) and subtract them from the bottom diff
+	//计算top_diff与top_data的点集
     for (int k = 0; k < inner_num_; ++k) {
       scale_data[k] = caffe_cpu_strided_dot<Dtype>(channels,
           bottom_diff + i * dim + k, inner_num_,
@@ -191,6 +192,14 @@ ldb： B的列数（不做转置）行数（做转置）
         1, -1., sum_multiplier_.cpu_data(), scale_data, 1., top_data);
 ```
 就是： $top\_data = top\_data - 1* sum\_multiplier\_.cpu\_data()*scale\_data$， 这里用top_data来减而不用bottom一方面是因为bottom是const的，取的是cpu_data(), 而top_data是mutable_cpu_data,另一方面之前已经把数据从bottom拷贝到top里面去了。
+
+
+而在back_ward函数里面也用到了这个函数。
+```cpp
+caffe_cpu_gemm<Dtype>(CblasNoTrans, CblasNoTrans, channels, inner_num_, 1,
+        -1., sum_multiplier_.cpu_data(), scale_data, 1., bottom_diff + i * dim);
+```
+$$bottom\_diff + i * dim = bottom\_diff + i * dim - sum\_multiplier\_.cpu_data() * scale\_data$$
 
 **caffe_exp指数**
 caffe_exp函数是用来求指数的，其中一个实现是这样的。
@@ -262,6 +271,19 @@ double caffe_cpu_strided_dot<double>(const int n, const double* x,
 ```
 >功能： 返回 vector X 和 vector Y 的内积。 
 incx， incy ： 步长，即每隔incx 或 incy 个element 进行操作。
+
+**caffe_mul**
+```cpp
+template <>
+void caffe_mul<float>(const int n, const float* a, const float* b,
+    float* y) {
+  vsMul(n, a, b, y);
+}
+```
+功能 $y[i]=a[i] * b[i]$
+```cpp
+ caffe_mul(top[0]->count(), bottom_diff, top_data, bottom_diff);
+```
 
 
 **反向传播公式推导**
