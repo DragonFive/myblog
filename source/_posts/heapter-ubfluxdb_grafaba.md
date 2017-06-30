@@ -21,3 +21,6 @@ cAdvisor web界面访问： http://< Node-IP >:4194
 
 
 # reference
+[Kubernetes监控之Heapster介绍](http://dockone.io/article/1881)
+
+[Kubernetes技术分析之监控](http://dockone.io/article/569)
