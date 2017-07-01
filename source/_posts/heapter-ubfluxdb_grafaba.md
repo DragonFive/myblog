@@ -15,6 +15,7 @@ tags:
 cAdvisor web界面访问： http://< Node-IP >:4194
 
 <!--more-->
+# 方案配置
 
 但是cadvisor只能搜集本node上面的资源信息，对于集群中其它结点的资源使用情况检查不了。而heapter是一个只需运行一份就能监控集群中所有node的资源信息，所以我们使用主流的方案：heapter+ubfluxdb+grafaba. heapter用来采集信息，ubfluxdb用来存储，而grafaba用来展示信息。
 
