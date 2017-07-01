@@ -31,12 +31,12 @@ rpm -vih  influxdb-1.2.4.x86_64.rpm
 ```
 安装之后发现influxdb需要8086和8088两个端口，但这两个端口经常被占用，所以我们打算使用容器来运行
 
+发现influxdb1.0的才能被grafana使用
+
 使用的镜像是[tutum/influxdb:0.8.8](https://hub.docker.com/r/tutum/influxdb/), 
 步骤和参数 [Docker学习系列3-Influxdb使用入门](http://blog.csdn.net/u011537073/article/details/52852759)
 
-docker run -p 8083:8083 -p 8086:8086 --expose 8090 --expose 8099 \
--e FORCE_HOSTNAME="auto"  \
--d --name masterinflux 10.10.31.25:5000/influxdb:0.8.8
+
 ## 使用grafana
 使用的grafana版本[grafana](https://hub.docker.com/r/tutum/grafana/)
 
@@ -48,3 +48,6 @@ docker run -p 8083:8083 -p 8086:8086 --expose 8090 --expose 8099 \
 [Kubernetes技术分析之监控](http://dockone.io/article/569)
 
 [部署分布式(cadvisor+influxdb+grafana)](http://www.pangxie.space/docker/580)
+
+[Try InfluxDB and Grafana by docker
+](https://blog.laputa.io/try-influxdb-and-grafana-by-docker-6b4d50c6a446)
