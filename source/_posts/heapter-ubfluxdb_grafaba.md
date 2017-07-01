@@ -34,7 +34,9 @@ rpm -vih  influxdb-1.2.4.x86_64.rpm
 使用的镜像是[tutum/influxdb:0.8.8](https://hub.docker.com/r/tutum/influxdb/), 
 步骤和参数 [Docker学习系列3-Influxdb使用入门](http://blog.csdn.net/u011537073/article/details/52852759)
 
-
+docker run -p 8083:8083 -p 8086:8086 --expose 8090 --expose 8099 \
+-e FORCE_HOSTNAME="auto"  \
+-d --name masterinflux 10.10.31.25:5000/influxdb:0.8.8
 ## 使用grafana
 使用的grafana版本[grafana](https://hub.docker.com/r/tutum/grafana/)
 
