@@ -51,3 +51,7 @@ rpm -vih  influxdb-1.2.4.x86_64.rpm
 
 [Try InfluxDB and Grafana by docker
 ](https://blog.laputa.io/try-influxdb-and-grafana-by-docker-6b4d50c6a446)
+
+[Run Heapster in a Kubernetes cluster with an InfluxDB backend and a Grafana UI
+
+](https://github.com/kubernetes/heapster/blob/master/docs/influxdb.md)
