@@ -30,7 +30,8 @@ rpm -vih  influxdb-1.2.4.x86_64.rpm
 ```
 安装之后发现influxdb需要8086和8088两个端口，但这两个端口经常被占用，所以我们打算使用容器来运行
 
-使用的镜像是[tutum/influxdb:0.8.8](https://hub.docker.com/r/tutum/influxdb/)
+使用的镜像是[tutum/influxdb:0.8.8](https://hub.docker.com/r/tutum/influxdb/), 
+步骤和参数 [Docker学习系列3-Influxdb使用入门](http://blog.csdn.net/u011537073/article/details/52852759)
 
 # reference
 [Kubernetes监控之Heapster介绍](http://dockone.io/article/1881)
