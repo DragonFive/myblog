@@ -36,6 +36,8 @@ rpm -vih  influxdb-1.2.4.x86_64.rpm
 
 
 ## 使用grafana
+使用的grafana版本[grafana](https://hub.docker.com/r/tutum/grafana/)
+
 
 
 # reference
