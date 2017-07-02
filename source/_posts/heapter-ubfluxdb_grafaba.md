@@ -45,9 +45,16 @@ rpm -vih  influxdb-1.2.4.x86_64.rpm
 
 k get deployment --all-namespaces
 
-遇到问题：
+使用google_container遇到问题：
 heapster的镜像无法启动;
-Back-off restarting failed container
+>Back-off restarting failed container
+
+查看log:
+```bash
+kubectl logs -p --namespace=kube-system  heapster-1014378573-6s75z
+```
+
+>Failed to create source provide: open /var/run/secrets/kubernetes.io/serviceaccount/token: no such file or directory
 # reference
 [Kubernetes监控之Heapster介绍](http://dockone.io/article/1881)
 
