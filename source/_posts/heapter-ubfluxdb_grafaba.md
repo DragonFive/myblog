@@ -36,6 +36,40 @@ rpm -vih  influxdb-1.2.4.x86_64.rpm
 使用的镜像是[tutum/influxdb:0.8.8](https://hub.docker.com/r/tutum/influxdb/), 
 步骤和参数 [Docker学习系列3-Influxdb使用入门](http://blog.csdn.net/u011537073/article/details/52852759)
 
+Connected to http://localhost:8086 version 0.10.3
+InfluxDB shell 0.10.3
+> SHOW DATABASES
+name: databases
+---------------
+name
+_internal
+ 
+新建testdb数据库
+> CREATE DATABASE testdb
+> SHOW DATABASES
+name: databases
+---------------
+name
+_internal
+testdb
+> use testdb
+Using database testdb
+ 
+新建root用户
+> CREATE USER "root" WITH PASSWORD 'root' WITH ALL PRIVILEGES
+> show users
+user    admin
+root    true
+ 
+插入一条测试数据
+> INSERT cpu,host=test,region=us_west value=0.64
+> SELECT * FROM /.*/ LIMIT 1
+name: cpu
+---------
+time                    host    region  value
+1458115488163303455     test    us_west 0.64
+ 
+>
 
 ## 使用grafana
 使用的grafana版本[grafana](https://hub.docker.com/r/tutum/grafana/)
@@ -62,6 +96,8 @@ kubectl logs -p --namespace=kube-system  heapster-1014378573-6s75z
 --source=kubernetes:http://10.10.31.25:8080?inClusterConfig=false 
 ```
 
+--link的设置：
+https://github.com/kubernetes/heapster/blob/master/docs/sink-configuration.md
 # reference
 [Kubernetes监控之Heapster介绍](http://dockone.io/article/1881)
 
