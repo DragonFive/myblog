@@ -45,6 +45,9 @@ rpm -vih  influxdb-1.2.4.x86_64.rpm
 
 k get deployment --all-namespaces
 
+遇到问题：
+heapster的镜像无法启动;
+Back-off restarting failed container
 # reference
 [Kubernetes监控之Heapster介绍](http://dockone.io/article/1881)
 
