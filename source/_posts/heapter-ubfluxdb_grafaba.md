@@ -39,7 +39,7 @@ rpm -vih  influxdb-1.2.4.x86_64.rpm
 
 ## 使用grafana
 使用的grafana版本[grafana](https://hub.docker.com/r/tutum/grafana/)
-
+采用的镜像来自[ist0ne的google container](https://hub.docker.com/u/ist0ne/?page=2)
 
 
 # reference
@@ -49,9 +49,6 @@ rpm -vih  influxdb-1.2.4.x86_64.rpm
 
 [部署分布式(cadvisor+influxdb+grafana)](http://www.pangxie.space/docker/580)
 
-[Try InfluxDB and Grafana by docker
-](https://blog.laputa.io/try-influxdb-and-grafana-by-docker-6b4d50c6a446)
+[Try InfluxDB and Grafana by docker](https://blog.laputa.io/try-influxdb-and-grafana-by-docker-6b4d50c6a446)
 
-[Run Heapster in a Kubernetes cluster with an InfluxDB backend and a Grafana UI
-
-](https://github.com/kubernetes/heapster/blob/master/docs/influxdb.md)
+[Run Heapster in a Kubernetes cluster with an InfluxDB backend and a Grafana UI](https://github.com/kubernetes/heapster/blob/master/docs/influxdb.md)
