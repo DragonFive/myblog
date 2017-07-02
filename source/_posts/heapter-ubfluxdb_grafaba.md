@@ -49,6 +49,7 @@ k get deployment --all-namespaces
 heapster的镜像无法启动;
 >Back-off restarting failed container
 
+参考资料[k8s的资源](https://github.com/kubernetes/kubernetes/issues/22684)，[source-config](https://github.com/kubernetes/heapster/blob/master/docs/source-configuration.md#current-sources)
 查看log:
 ```bash
 kubectl logs -p --namespace=kube-system  heapster-1014378573-6s75z
