@@ -42,6 +42,9 @@ rpm -vih  influxdb-1.2.4.x86_64.rpm
 采用的镜像来自[ist0ne的google container](https://hub.docker.com/u/ist0ne/?page=2)
 
 [ist0ne的github](https://github.com/ist0ne/google-containers)
+
+k get deployment --all-namespaces
+
 # reference
 [Kubernetes监控之Heapster介绍](http://dockone.io/article/1881)
 
