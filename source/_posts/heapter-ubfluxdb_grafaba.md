@@ -55,6 +55,8 @@ kubectl logs -p --namespace=kube-system  heapster-1014378573-6s75z
 ```
 
 >Failed to create source provide: open /var/run/secrets/kubernetes.io/serviceaccount/token: no such file or directory
+
+
 # reference
 [Kubernetes监控之Heapster介绍](http://dockone.io/article/1881)
 
