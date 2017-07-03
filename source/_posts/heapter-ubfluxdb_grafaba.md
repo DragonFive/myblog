@@ -111,8 +111,8 @@ https://github.com/kubernetes/heapster/blob/master/docs/sink-configuration.md
 接下来发现问题：
 >Failed to create infuxdb: failed to ping InfluxDB server at "monitoring-influxdb.kube-system.svc:8086" - Get http://monitoring-influxdb.kube-system.svc:8086/ping: dial tcp: lookup monitoring-influxdb.kube-system.svc on 10.10.11.110:53: no such host
 
-
-
+解决方法：
+>--sink=influxdb:http://10.10.31.26:30031
 
 # reference
 [Kubernetes监控之Heapster介绍](http://dockone.io/article/1881)
