@@ -71,6 +71,7 @@ time                    host    region  value
  
 >
 
+[influxdb的简单操作](http://www.linuxdaxue.com/influxdb-basic-operation.html)
 ## 使用grafana
 使用的grafana版本[grafana](https://hub.docker.com/r/tutum/grafana/)
 采用的镜像来自[ist0ne的google container](https://hub.docker.com/u/ist0ne/?page=2)
