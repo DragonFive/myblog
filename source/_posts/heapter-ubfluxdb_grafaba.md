@@ -104,7 +104,7 @@ kubectl logs -p --namespace=kube-system  heapster-1014378573-6s75z
 --source=kubernetes:http://10.10.31.25:8080?inClusterConfig=false 
 ```
 
---link的设置：
+--sink的设置：
 https://github.com/kubernetes/heapster/blob/master/docs/sink-configuration.md
 
 
