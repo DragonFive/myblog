@@ -108,6 +108,10 @@ kubectl logs -p --namespace=kube-system  heapster-1014378573-6s75z
 https://github.com/kubernetes/heapster/blob/master/docs/sink-configuration.md
 
 
+接下来发现问题：
+>Failed to create infuxdb: failed to ping InfluxDB server at "monitoring-influxdb.kube-system.svc:8086" - Get http://monitoring-influxdb.kube-system.svc:8086/ping: dial tcp: lookup monitoring-influxdb.kube-system.svc on 10.10.11.110:53: no such host
+
+
 
 
 # reference
