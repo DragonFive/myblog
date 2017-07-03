@@ -80,6 +80,9 @@ time                    host    region  value
 
 k get deployment --all-namespaces
 
+
+## heapster 
+
 使用google_container遇到问题：
 heapster的镜像无法启动;
 >Back-off restarting failed container
@@ -99,6 +102,11 @@ kubectl logs -p --namespace=kube-system  heapster-1014378573-6s75z
 
 --link的设置：
 https://github.com/kubernetes/heapster/blob/master/docs/sink-configuration.md
+
+有两种连接influxdb的方式：一种是proxy,通过influxdb的service名字+port方式
+一种是direct,通过nodeip+nodeport方式，前者与influxdb具体所在的port无法，但是需要设置好
+
+
 # reference
 [Kubernetes监控之Heapster介绍](http://dockone.io/article/1881)
 
