@@ -190,7 +190,13 @@ void Tracker::Track(const cv::Mat& image_curr, RegressorBase* regressor,
 }
 
 ```
-这段代码里有两处比较重要：一处是regressor->regess用来回归出当前帧中的扩充位置，具体在下面分析，第二处是  BoundingBox bbox_estimate_unscaled;这个BoundingBo结构体。
+这段代码里有两处比较重要：一处是regressor->regess用来回归出当前帧中的扩充位置，具体在下面分析，第二处是  BoundingBox bbox_estimate_unscaled;这个BoundingBox结构体。从前面include的头文件可以看出这个boundingbox定义在 #include "helper/bounding_box.h"，这么看来这个helper文件夹里定义的都是辅助函数。我们来看一下这个目录里都定义了什么？
+```bash
+root@aa0afc645153:helper# ls
+bounding_box.cpp  bounding_box.h  helper.cpp  helper.h  high_res_timer.cpp  high_res_timer.h  image_proc.cpp  image_proc.h
+```
+
+
 
 
 
