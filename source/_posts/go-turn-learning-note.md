@@ -1,5 +1,5 @@
 ---
-title: go-turn-learning-note 
+title:手把手教你看懂goturn的源码
 date: 2017/6/15 17:38:58
 
 categories:
@@ -79,9 +79,29 @@ grep -nr show_tracker_vot CMakeLists.txt
 这里有几个重要的类：Regressor/Tracker/TrackerVisualizer，待会我们一一来看，do_train和show_intermediate_output都是false.
 
 **跟踪regressor的结果**
+执行：
+```bash
+grep -nr Regressor
+```
+结果为:
+
+>network/**regressor.h**:17:class Regressor : public RegressorBase {
+network/regressor.h:22:  Regressor(const std::string& train_deploy_proto,
+network/regressor.h:28:  Regressor(const std::string& train_deploy_proto,
+network/**regressor_train_base.cpp:**7:RegressorTrainBase::RegressorTrainBase(const std::string& solver_file)
+network/regressor_base.h:14:class RegressorBase
+network/regressor_base.h:17:  RegressorBase();
+network/**regressor_train_base.h**:32:class RegressorTrainBase 
+network/regressor_train_base.h:35:  RegressorTrainBase(const std::string& solver_file);
+network/**regressor_train.h:**7:class RegressorTrain : public Regressor, public RegressorTrainBase
+network/regressor_train.h:10:  RegressorTrain(const std::string& deploy_proto,
+network/regressor_train.h:16:  RegressorTrain(const std::string& deploy_proto,
+network/regressor.cpp:16:Regressor::Regressor(const string& deploy_proto,
+network/**regressor.cpp:**29:Regressor::Regressor(const string& deploy_proto,
+network/**regressor_train.cpp**:10:RegressorTrain::RegressorTrain(const std::string& deploy_proto,
 
 
-
+从结果可以看出总共
 
 
 
