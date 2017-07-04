@@ -85,7 +85,7 @@ k get deployment --all-namespaces
 
 在yaml文件中指定参数的方式：
 [configure-the-connection-to-influxdb](https://github.com/tutumcloud/grafana/tree/master#configure-the-connection-to-influxdb)
-
+[另一个提供更多选项的image](https://hub.docker.com/r/qapps/grafana-docker/)
 ## heapster 
 
 使用google_container遇到问题：
