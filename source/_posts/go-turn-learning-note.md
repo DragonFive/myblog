@@ -19,6 +19,8 @@ goturn 的代码是用caffe写的，是我们学caffe，深度学习和目标跟
 
 [github主页](https://github.com/davheld/GOTURN)
 
+![enter description here][1]
+
 <!--more-->
 
 # 代码学习
@@ -267,6 +269,4 @@ visualizer/show_tracker_vot.cpp:60:  TrackerVisualizer tracker_visualizer(videos
 ```
 
 
-
-
-
+  [1]: https://www.github.com/DragonFive/CVBasicOp/raw/master/1499156314202.jpg
