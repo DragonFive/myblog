@@ -77,6 +77,59 @@ grep -nr show_tracker_vot CMakeLists.txt
 
 ```
 这里有几个重要的类：Regressor/Tracker/TrackerVisualizer，待会我们一一来看，do_train和show_intermediate_output都是false.
+** 跟踪tracker的结果 **
+在GOTRUN/src下执行
+```bash
+grep -nr Tracker
+```
+结果为：
+>tracker/tracker_manager.h:10:class TrackerManager
+>tracker/tracker.h:12:class Tracker
+>train/tracker_trainer.h:12:class TrackerTrainer
+
+tracker三个类：tracker/trackermanager/trackerTrainer
+
+tracker.h
+```cpp
+class Tracker
+{
+public:
+
+  Tracker(const bool show_tracking);
+//使用当前图像和指定的回归器即可完成Tracking
+  // Estimate the location of the target object in the current image.
+  virtual void Track(const cv::Mat& image_curr, RegressorBase* regressor,
+             BoundingBox* bbox_estimate_uncentered);
+//使用image和BoundingBox完成tracker的初始化
+  // Initialize the tracker with the ground-truth bounding box of the first frame.
+  void Init(const cv::Mat& image_curr, const BoundingBox& bbox_gt,
+            RegressorBase* regressor);
+
+  // Initialize the tracker with the ground-truth bounding box of the first frame.
+  // VOTRegion is an object for initializing the tracker when using the VOT Tracking dataset.
+  void Init(const std::string& image_curr_path, const VOTRegion& region,
+            RegressorBase* regressor);
+
+private:
+  // Show the tracking output, for debugging.可视化跟踪结果
+  void ShowTracking(const cv::Mat& target_pad, const cv::Mat& curr_search_region, const BoundingBox& bbox_estimate) const;
+
+  // Predicted prior location of the target object in the current image.
+  // This should be a tight (high-confidence) prior prediction area.  We will
+  // add padding to this region.预测的当前帧中目标的bbox
+  BoundingBox bbox_curr_prior_tight_;
+
+  // Estimated previous location of the target object. 前一帧中估计的位置
+  BoundingBox bbox_prev_tight_;
+
+  // Full previous image. 前一帧图像
+  cv::Mat image_prev_;
+
+  // Whether to visualize the tracking results是否要可视化结果
+  bool show_tracking_;
+};
+```
+
 
 **跟踪regressor的结果**
 执行：
@@ -101,7 +154,15 @@ network/**regressor.cpp:**29:Regressor::Regressor(const string& deploy_proto,
 network/**regressor_train.cpp**:10:RegressorTrain::RegressorTrain(const std::string& deploy_proto,
 
 
-从结果可以看出总共regressor这个类主要在三个头文件里： regressor.h, regressor_train_base.cpp, regressor_train.h
+从结果可以看出总共regressor这个类主要在三个头文件里： regressor.h, regressor_train_base.cpp, regressor_train.h。所以我们先从头文件regression.h下手。
+
+```cpp
+class Regressor : public RegressorBase
+```
+
+从这句话可以看出类的继承关系，regressor继承自regressorbase, 而从上面的头文件可知，regressorbase类定义在network/regressor_base.h里面。
+
+
 
 
 
