@@ -78,6 +78,11 @@ grep -nr show_tracker_vot CMakeLists.txt
 ```
 这里有几个重要的类：Regressor/Tracker/TrackerVisualizer，待会我们一一来看，do_train和show_intermediate_output都是false.
 
+**跟踪regressor的结果**
+
+
+
+
 
 
 **跟踪TrackerVisualizer的结果**
