@@ -161,7 +161,7 @@ void Tracker::Track(const cv::Mat& image_curr, RegressorBase* regressor,
   cv::Mat curr_search_region;
   BoundingBox search_location;
   double edge_spacing_x, edge_spacing_y;
-  CropPadImage(bbox_curr_prior_tight_, image_curr, &curr_search_region, &search_location, &edge_spacing_x, &edge_spacing_y);
+  (bbox_curr_prior_tight_, image_curr, &curr_search_region, &search_location, &edge_spacing_x, &edge_spacing_y);
 //看来主要是这个Regress能够回归处当前帧中的目标的大致位置;
   // Estimate the bounding box location of the target, centered and scaled relative to the cropped image.
   BoundingBox bbox_estimate;
@@ -195,6 +195,19 @@ void Tracker::Track(const cv::Mat& image_curr, RegressorBase* regressor,
 root@aa0afc645153:helper# ls
 bounding_box.cpp  bounding_box.h  helper.cpp  helper.h  high_res_timer.cpp  high_res_timer.h  image_proc.cpp  image_proc.h
 ```
+具体boundingbox定义了什么，后面分析，先回归正题。
+
+注意到track函数里面，两次调用了CropPadImage函数，我们就来对这个函数分析一下，先追踪一个这个函数在那儿定义的呢？
+在src目录下执行：
+```bash
+grep -nr CropPadImage
+```
+得到结果 
+>helper/image_proc.cpp:58:void CropPadImage(const BoundingBox& bbox_tight, const cv::Mat& image, cv::Mat* pad_image,
+helper/**image_proc.cpp:63**:  ComputeCropPadImageLocation(bbox_tight, image, pad_image_location);
+helper/image_proc.h:11:void CropPadImage(const BoundingBox& bbox_tight, const cv::Mat& image, cv::Mat* pad_image);
+helper/image_proc.h:12:void CropPadImage(const BoundingBox& bbox_tight, const cv::Mat& image, cv::Mat* pad_image,
+helper/**image_proc.h:** 18:void ComputeCropPadImageLocation(const BoundingBox& bbox_tight, const cv::Mat& image, BoundingBox* pad_image_location);
 
 
 
