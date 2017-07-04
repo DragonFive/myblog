@@ -125,7 +125,7 @@ private:
   // Full previous image. 前一帧图像
   cv::Mat image_prev_;
 
-  // Whether to visualize the tracking results是否要可视化结果
+  // Whether to visualize the tracking results 是否要可视化结果
   bool show_tracking_;
 };
 ```
