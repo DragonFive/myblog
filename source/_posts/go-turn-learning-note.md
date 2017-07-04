@@ -89,7 +89,7 @@ grep -nr Tracker
 
 tracker三个类：tracker/trackermanager/trackerTrainer
 
-tracker.h
+tracker.h 
 ```cpp
 class Tracker
 {
@@ -128,6 +128,24 @@ private:
   // Whether to visualize the tracking results 是否要可视化结果
   bool show_tracking_;
 };
+```
+从上面的代码和简单的注释可以看出，比较重要的类是init和track, 接下来我们查看和tracker.h在同一个目录里面的tracker.cpp里面的实现。
+
+下面是init的函数实现，初始化的时候认为目标当前帧的位置和上一帧一致。
+```cpp
+void Tracker::Init(const cv::Mat& image, const BoundingBox& bbox_gt,
+                   RegressorBase* regressor) {
+  image_prev_ = image;
+  bbox_prev_tight_ = bbox_gt;
+
+  // Predict in the current frame that the location will be approximately the same
+  // as in the previous frame.
+  // TODO - use a motion model?
+  bbox_curr_prior_tight_ = bbox_gt;
+
+  // Initialize the neural network.
+  regressor->Init();
+}
 ```
 
 
