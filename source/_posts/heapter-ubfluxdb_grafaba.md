@@ -87,6 +87,8 @@ k get deployment --all-namespaces
 [configure-the-connection-to-influxdb](https://github.com/tutumcloud/grafana/tree/master#configure-the-connection-to-influxdb)
 [另一个提供更多选项的image](https://hub.docker.com/r/qapps/grafana-docker/)
 
+其实我决定grafana的版本还是挺重要的，不同的版本提供了不同的配置项。
+
 最终的yaml文件
 ```yaml
 ---
