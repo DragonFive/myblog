@@ -101,7 +101,9 @@ network/**regressor.cpp:**29:Regressor::Regressor(const string& deploy_proto,
 network/**regressor_train.cpp**:10:RegressorTrain::RegressorTrain(const std::string& deploy_proto,
 
 
-从结果可以看出总共
+从结果可以看出总共regressor这个类主要在三个头文件里： regressor.h, regressor_train_base.cpp, regressor_train.h
+
+
 
 
 
