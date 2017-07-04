@@ -328,6 +328,8 @@ ReLU还经常被“诟病”的一个问题是输出具有**偏移现象[7]，�
 
 [Deep Learning（深度学习）学习笔记整理系列之（一）](http://blog.csdn.net/zouxy09/article/details/8775360)
 
+[深度学习论文集](https://github.com/songrotek/Deep-Learning-Papers-Reading-Roadmap)
+
   [1]: https://www.github.com/DragonFive/CVBasicOp/raw/master/1490521285112.jpg "1490521285112"
 
   [3]: https://www.github.com/DragonFive/CVBasicOp/raw/master/1490147713221.jpg "1490147713221"
