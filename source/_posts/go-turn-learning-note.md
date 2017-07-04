@@ -209,7 +209,7 @@ helper/image_proc.h:11:void CropPadImage(const BoundingBox& bbox_tight, const cv
 helper/image_proc.h:12:void CropPadImage(const BoundingBox& bbox_tight, const cv::Mat& image, cv::Mat* pad_image,
 helper/**image_proc.h:** 18:void ComputeCropPadImageLocation(const BoundingBox& bbox_tight, const cv::Mat& image, BoundingBox* pad_image_location);
 
-
+同样这个辅助函数也定义在helper路径下面，那么我们就来看一看吧。
 
 
 
