@@ -83,7 +83,8 @@ k get deployment --all-namespaces
 有两种连接influxdb的方式：一种是proxy,通过influxdb的service名字+port方式
 一种是direct,通过nodeip+nodeport方式，前者与influxdb具体所在的port无法，但是需要设置好
 
-
+在yaml文件中指定参数的方式：
+[configure-the-connection-to-influxdb](https://github.com/tutumcloud/grafana/tree/master#configure-the-connection-to-influxdb)
 
 ## heapster 
 
