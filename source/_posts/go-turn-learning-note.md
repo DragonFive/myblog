@@ -56,6 +56,8 @@ grep -nr show_tracker_vot CMakeLists.txt
 101:target_link_libraries (show_tracker_vot ${PROJECT_NAME})
 
 说明这个工具由 src/visualizer/show_tracker_vot.cpp编译得到，那么我们就打开这个文件学习一下源码。下面是代码的主要部分：
+
+
 ```cpp
   // Set up the neural network.
   const bool do_train = false;
@@ -71,15 +73,11 @@ grep -nr show_tracker_vot CMakeLists.txt
   TrackerVisualizer tracker_visualizer(videos, &regressor, &tracker);
   tracker_visualizer.TrackAll(start_video_num, pause_val);
 
-
-
 ```
+这里有几个重要的类：Regressor/Tracker/TrackerVisualizer，待会我们一一来看，do_train和show_intermediate_output都是false.
 
 
 
-
-
-```
 
 
 ```
@@ -92,3 +90,8 @@ tracker/tracker_manager.cpp:101:void TrackerVisualizer::VideoInit(const Video& v
 visualizer/show_tracker_alov.cpp:63:  TrackerVisualizer tracker_visualizer(videos, &regressor, &tracker);
 visualizer/show_tracker_vot.cpp:60:  TrackerVisualizer tracker_visualizer(videos, &regressor, &tracker);
 ```
+
+
+
+
+
