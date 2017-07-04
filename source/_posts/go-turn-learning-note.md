@@ -34,9 +34,53 @@ vot_test
 
 ## 下载
 
-## 
+## 阅读源码
 
-在docker容器里面运行脚本，但是不能显示结果
+在docker容器里面运行脚本，但是不能显示结果。
+
+在根目录（GOTURN）运行
+```bash
+bash scripts/show_tracker_test.sh VOT2014
+```
+可以用训练好的tracker测试vot2014，看看代码是怎么弄的，打开脚本show_tracker_test.sh，最后一句是
+>build/show_tracker_vot  something
+
+说明是调用的goturn里面这个已经编译好的这个工具show_tracker_vot，那个这个工具的源码在哪里呢。让我们来看看cmakefile吧。
+
+执行
+```bash
+grep -nr show_tracker_vot CMakeLists.txt
+```
+输出的是：
+> 99:add_executable (show_tracker_vot src/visualizer/show_tracker_vot.cpp)
+101:target_link_libraries (show_tracker_vot ${PROJECT_NAME})
+
+说明这个工具由 src/visualizer/show_tracker_vot.cpp编译得到，那么我们就打开这个文件学习一下源码。下面是代码的主要部分：
+```cpp
+  // Set up the neural network.
+  const bool do_train = false;
+  Regressor regressor(model_file, trained_file, gpu_id, do_train);
+
+  Tracker tracker(show_intermediate_output);
+
+  // Get videos.
+  LoaderVOT loader(videos_folder);
+  std::vector<Video> videos = loader.get_videos();
+
+  // Visualize the tracker performance.
+  TrackerVisualizer tracker_visualizer(videos, &regressor, &tracker);
+  tracker_visualizer.TrackAll(start_video_num, pause_val);
+
+
+
+```
+
+
+
+
+
+```
+
 
 ```
 grep -nr TrackerVisualizer
