@@ -21,6 +21,8 @@ goturn 的代码是用caffe写的，是我们学caffe，深度学习和目标跟
 
 <!--more-->
 
+# 代码学习
+
 ## 编译问题
 
 caffe_dir找不到
