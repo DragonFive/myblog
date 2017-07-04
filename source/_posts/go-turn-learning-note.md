@@ -190,7 +190,9 @@ void Tracker::Track(const cv::Mat& image_curr, RegressorBase* regressor,
 }
 
 ```
-这段代码里有两处比较重要：一处是regressor->regess用来回归出当前帧中的扩充位置，具体在下面分析，第二处是  BoundingBox bbox_estimate_unscaled;
+这段代码里有两处比较重要：一处是regressor->regess用来回归出当前帧中的扩充位置，具体在下面分析，第二处是  BoundingBox bbox_estimate_unscaled;这个BoundingBo结构体。
+
+
 
 
 
