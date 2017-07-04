@@ -112,6 +112,21 @@ metadata:
     # If you are NOT using this as an addon, you should comment out this line.
     kubernetes.io/cluster-service: 'true'
     kubernetes.io/name: monitoring-influxdb
+    name: monitoring-influxdb
+    namespace: kube-system
+spec:
+  type: NodePort
+  ports:
+  - port: 8086
+    nodePort: 30031
+    targetPort: 8086
+  #type: NodePort
+  #ports:
+  #- port: 8083
+  #  nodePort: 30032
+  #  targetPort: 8083
+  selector:
+    k8s-app: influxdb
 
 ```
 
