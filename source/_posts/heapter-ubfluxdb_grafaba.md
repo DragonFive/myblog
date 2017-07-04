@@ -114,7 +114,10 @@ https://github.com/kubernetes/heapster/blob/master/docs/sink-configuration.md
 解决方法：
 >--sink=influxdb:http://10.10.31.26:30031
 
-![enter description here][1]
+# 其它信息记录
+
+
+
 
 # reference
 [Kubernetes监控之Heapster介绍](http://dockone.io/article/1881)
@@ -128,4 +131,3 @@ https://github.com/kubernetes/heapster/blob/master/docs/sink-configuration.md
 [Run Heapster in a Kubernetes cluster with an InfluxDB backend and a Grafana UI](https://github.com/kubernetes/heapster/blob/master/docs/influxdb.md)
 
 
-  [1]: http://markdown.xiaoshujiang.com/img/spinner.gif "[[[1499082501487]]]"
