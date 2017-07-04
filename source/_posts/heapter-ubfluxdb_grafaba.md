@@ -115,6 +115,8 @@ https://github.com/kubernetes/heapster/blob/master/docs/sink-configuration.md
 >--sink=influxdb:http://10.10.31.26:30031
 
 # 其它信息记录
+grafana 在pod启动两分钟后大概可以画出一条线。
+
 
 
 
