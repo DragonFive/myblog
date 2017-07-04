@@ -311,7 +311,7 @@ spec:
 
 # 其它信息记录
 grafana 在pod启动两分钟后大概可以画出一条线。grafana停掉重启不会丢失influxdb的数据。
-9点46断掉influxdb,10点10打开influxdb，
+9点46断掉influxdb,10点10打开influxdb，发现并没有数据灌入，只有当heapster重启之后才有新数据灌入，而grafana为了描述变化，就使用直线连连接。
 
 
 
