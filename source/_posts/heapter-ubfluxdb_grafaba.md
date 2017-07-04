@@ -112,8 +112,8 @@ metadata:
     # If you are NOT using this as an addon, you should comment out this line.
     kubernetes.io/cluster-service: 'true'
     kubernetes.io/name: monitoring-influxdb
-    name: monitoring-influxdb
-    namespace: kube-system
+  name: monitoring-influxdb
+  namespace: kube-system
 spec:
   type: NodePort
   ports:
@@ -251,6 +251,63 @@ https://github.com/kubernetes/heapster/blob/master/docs/sink-configuration.md
 
 解决方法：
 >--sink=influxdb:http://10.10.31.26:30031
+
+```yaml
+---
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: heapster
+  namespace: kube-system
+---
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: heapster
+  namespace: kube-system
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        task: monitoring
+        k8s-app: heapster
+    spec:
+      serviceAccountName: heapster
+      containers:
+      - name: heapster
+      #  image: gcr.io/google_containers/heapster-amd64:v1.3.0
+      #  image: 10.10.31.26:5000/heapster-amd64:v1.3.0-beta.1
+        image: 10.10.31.26:5000/heapster-amd64:v1.2.0
+        imagePullPolicy: IfNotPresent
+      #  command:
+      #  - /heapster
+      #  - --source=kubernetes:https://kubernetes.default
+      #  - --sink=influxdb:http://monitoring-influxdb.kube-system.svc:8086
+        command:
+        - /heapster
+        - --source=kubernetes:http://10.10.31.25:8080?inClusterConfig=false
+        - --sink=influxdb:http://10.10.31.26:30031
+---
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    task: monitoring
+    # For use as a Cluster add-on (https://github.com/kubernetes/kubernetes/tree/master/cluster/addons)
+    # If you are NOT using this as an addon, you should comment out this line.
+    kubernetes.io/cluster-service: 'true'
+    kubernetes.io/name: Heapster
+  name: heapster
+  namespace: kube-system
+spec:
+  ports:
+  - port: 80
+    targetPort: 8082
+  selector:
+    k8s-app: heapster
+
+```
 
 # 其它信息记录
 grafana 在pod启动两分钟后大概可以画出一条线。grafana停掉重启不会丢失influxdb的数据。
