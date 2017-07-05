@@ -330,5 +330,5 @@ grafana 在pod启动两分钟后大概可以画出一条线。grafana停掉重�
 
 [Run Heapster in a Kubernetes cluster with an InfluxDB backend and a Grafana UI](https://github.com/kubernetes/heapster/blob/master/docs/influxdb.md)
 
-  [1]: http://upload-images.jianshu.io/upload_images/454341-6d8cac0372eab55f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240
+  [1]: https://pan.baidu.com/s/1miyrYXy
 
