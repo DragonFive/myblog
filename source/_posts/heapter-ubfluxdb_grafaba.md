@@ -1,5 +1,5 @@
 ---
-title: heapter-ubfluxdb_grafaba
+title: heapter-ubfluxdb_grafaba实现k8s集群资源监控
 date: 2017/6/30 15:04:12
 
 categories:
