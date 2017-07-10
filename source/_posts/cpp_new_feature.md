@@ -101,7 +101,7 @@ ABEntry::ABEntry(const std::string& name, const std::string& address,
 ```
 在一个 class（类）内部，data members（数据成员）按照它们被声明的顺序被初始化。例如，在 ABEntry 中，theName 总是首先被初始化，theAddress 是第二个，thePhones 第三，numTimesConsulted 最后。即使它们在 member initialization list（成员初始化列表）中以一种不同的顺序排列（这不幸合法）.
 
-
+7. 赋值运算符函数需要注意的点，因为当前对象已经经过了初始化，所以已经有了存储空间，那么使用前就需要先**释放**之前申请的存储空间;另外，在赋值之前需要先判断这两个对象**是否是同一个对象**。
 
 
 # reference
