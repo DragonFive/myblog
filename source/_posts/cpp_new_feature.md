@@ -32,11 +32,11 @@ member functions（成员函数）在只有 constness（常量性）不同时是
 ```
 改变一个返回 built-in type（内建类型）的函数的返回值总是非法的。
 4. mutable 将 non-static data members（非静态数据成员）从 bitwise constness（二进制位常量性）的约束中解放出来：
+
 ```cpp
 class CTextBlock {
 public:
 
-  ...
 
   std::size_t length() const;
 
@@ -61,3 +61,5 @@ std::size_t CTextBlock::length() const
 
 # reference
 [c++11新特性](http://blog.csdn.net/wangshubo1989/article/details/50575008)
+
+[effective-cpp](https://wizardforcel.gitbooks.io/effective-cpp/content/)
