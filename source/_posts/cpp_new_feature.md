@@ -112,7 +112,7 @@ ABEntry::ABEntry(const std::string& name, const std::string& address,
 
 
 8. struct与class的区别，如果没有标明访问权限级别，在struct中默认的是public,而在class中默认的是private.如果 base classes（基类）将 copy assignment operator（拷贝赋值运算符）声明为 private，编译器拒绝为从它继承的 derived classes（派生类）生成 implicit copy assignment operators（隐式拷贝赋值运算符）。如果成员变量中有指针，引用或者const类型就需要自己定义默认构造函数、默认复制构造函数、默认赋值操作符。
-9. 
+9. 将复制构造函数和赋值操作符函数声明为private，同时不给出定义就可以防止被复制。
 
 
 
