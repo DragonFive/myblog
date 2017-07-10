@@ -58,6 +58,37 @@ std::size_t CTextBlock::length() const
 }
 ```
 
+5. 根据 const member function（成员函数）实现它的 non-const 版本的技术却非常值得掌握
+```cpp
+class TextBlock {
+public:
+
+  ...
+
+  const char& operator[](std::size_t position) const     // same as before
+  {
+    ...
+    ...
+    ...
+    return text[position];
+  }
+
+  char& operator[](std::size_t position)         // now just calls const op[]
+  {
+    return
+      const_cast<char&>(                         // cast away const on
+                                                 // op[]'s return type;
+        static_cast<const TextBlock&>(*this)     // add const to *this's type;
+          [position]                             // call const version of op[]
+      );
+  }
+
+...
+
+};
+```
+
+
 
 # reference
 [c++11新特性](http://blog.csdn.net/wangshubo1989/article/details/50575008)
