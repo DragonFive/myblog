@@ -111,7 +111,9 @@ ABEntry::ABEntry(const std::string& name, const std::string& address,
 7. 赋值运算符函数需要注意的点，因为当前对象已经经过了初始化，所以已经有了存储空间，那么使用前就需要先**释放**之前申请的存储空间;另外，在赋值之前需要先判断这两个对象**是否是同一个对象**。
 
 
-8. struct与class的区别，如果没有标明访问权限级别，在struct中默认的是public,而在class中默认的是private.
+8. struct与class的区别，如果没有标明访问权限级别，在struct中默认的是public,而在class中默认的是private.如果 base classes（基类）将 copy assignment operator（拷贝赋值运算符）声明为 private，编译器拒绝为从它继承的 derived classes（派生类）生成 implicit copy assignment operators（隐式拷贝赋值运算符）。
+9. 
+
 
 
 # reference
