@@ -99,8 +99,15 @@ ABEntry::ABEntry(const std::string& name, const std::string& address,
 
 {}    
 ```
+在一个 class（类）内部，data members（数据成员）按照它们被声明的顺序被初始化。例如，在 ABEntry 中，theName 总是首先被初始化，theAddress 是第二个，thePhones 第三，numTimesConsulted 最后。即使它们在 member initialization list（成员初始化列表）中以一种不同的顺序排列（这不幸合法）.
+
+
+
 
 # reference
 [c++11新特性](http://blog.csdn.net/wangshubo1989/article/details/50575008)
 
 [effective-cpp](https://wizardforcel.gitbooks.io/effective-cpp/content/)
+
+
+[c++单例模型](http://blog.yangyubo.com/2009/06/04/best-cpp-singleton-pattern/)
