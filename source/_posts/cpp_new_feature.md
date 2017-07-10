@@ -76,8 +76,7 @@ public:
   char& operator[](std::size_t position)         // now just calls const op[]
   {
     return
-      const_cast<char&>(                         // cast away const on
-                                                 // op[]'s return type;
+      const_cast<char&>(                         // cast away const on op[]'s return type;
         static_cast<const TextBlock&>(*this)     // add const to *this's type;
           [position]                             // call const version of op[]
       );
@@ -87,7 +86,7 @@ public:
 
 };
 ```
-
+6. 通常它有更高的效率。assignment-based（基于赋值）的版本会首先调用 default constructors（缺省构造函数）初始化 theName，theAddress 和 thePhones，然而很快又在 default-constructed（缺省构造）的值之上赋予新值。那些 default constructions（缺省构造函数）所做的工作被浪费了。而 member initialization list（成员初始化列表）的方法避免了这个问题，因为**initialization list（初始化列表**中的 arguments（参数）就可以作为各种 data members（数据成员）的 constructor（构造函数）所使用的 arguments（参数）。在这种情况下，theName 从 name 中 copy-constructed（拷贝构造），theAddress 从 address 中 copy-constructed（拷贝构造），thePhones 从 phones 中 copy-constructed（拷贝构造）。对于大多数类型来说，只调用一次 copy constructor（拷贝构造函数）的效率比先调用一次 default constructor（缺省构造函数）再调用一次 copy assignment operator（拷贝赋值运算符）的效率要高（有时会高很多）。
 
 
 # reference
