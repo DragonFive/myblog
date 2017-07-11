@@ -125,6 +125,17 @@ Widget& Widget::operator=(Widget rhs)   // rhs is a copy of the object
 }
 ```
 12. 当你写一个拷贝函数，需要保证（1）拷贝所有本地数据成员以及（2）调用所有基类中的适当的拷贝函数。
+```cpp
+PriorityCustomer::operator=(const PriorityCustomer& rhs)
+{
+  logCall("PriorityCustomer copy assignment operator");
+
+  Customer::operator=(rhs);           // assign base class parts
+  priority = rhs.priority;
+
+  return *this;
+}
+```
 
 # reference
 [c++11新特性](http://blog.csdn.net/wangshubo1989/article/details/50575008)
