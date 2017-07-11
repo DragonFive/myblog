@@ -136,7 +136,7 @@ PriorityCustomer::operator=(const PriorityCustomer& rhs)
   return *this;
 }
 ```
-
+不要试图依据类内的一个拷贝函数实现同一类里的另一个拷贝函数。作为代替，将通用功能放入第三个供双方调用的函数
 # reference
 [c++11新特性](http://blog.csdn.net/wangshubo1989/article/details/50575008)
 
