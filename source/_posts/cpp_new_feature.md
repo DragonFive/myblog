@@ -137,7 +137,20 @@ PriorityCustomer::operator=(const PriorityCustomer& rhs)
 }
 ```
 不要试图依据类内的一个拷贝函数实现同一类里的另一个拷贝函数。作为代替，将通用功能放入第三个供双方调用的函数
-13. shared_ptr 和auto_ptr能够有效的管理堆上的资源，保证他们能够被释放，share_ptr更好用。
+13. shared_ptr 和auto_ptr能够有效的管理堆上的资源，保证他们能够被释放，share_ptr更好用。而且支持拷贝资源管理。
+```cpp
+class Lock {
+public:
+ explicit Lock(Mutex *pm)       // init shared_ptr with the Mutex
+ : mutexPtr(pm, unlock)         // to point to and the unlock func
+ {                              // as the deleter
+
+   lock(mutexPtr.get());        // see Item 15 for info on "get"
+ }
+private:
+ std::tr1::shared_ptr<Mutex> mutexPtr;    // use shared_ptr
+};
+```
 # reference
 [c++11新特性](http://blog.csdn.net/wangshubo1989/article/details/50575008)
 
