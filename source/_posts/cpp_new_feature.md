@@ -152,7 +152,7 @@ private:
 };
 ```
 shared_ptr 和 auto_ptr 都提供一个 get 成员函数进行显示转换。
-
+14. 在一个独立的语句中将 new 出来的对象存入智能指针
 
 
 # reference
