@@ -151,6 +151,8 @@ private:
  std::tr1::shared_ptr<Mutex> mutexPtr;    // use shared_ptr
 };
 ```
+shared_ptr 和 auto_ptr 都提供一个 get 成员函数进行显示转换。
+
 
 
 # reference
