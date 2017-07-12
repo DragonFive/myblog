@@ -31,15 +31,15 @@ tags:
 
 [用简单的网络结构解决手写数字识别](https://mp.weixin.qq.com/s?__biz=MzIxMjAzNDY5Mg==&mid=400137026&idx=1&sn=f5c8a9ab3e24d7c0bd38058ba211d22a&scene=21#wechat_redirect)
 
+
+![损失函数](http://mmbiz.qpic.cn/mmbiz/58FUuNaBUjqmFnpiaugfukXTylgau1kOB5cBdtFib3TiaOQy9ImBB9OwyEnJtR1ibowkldBGM1GG16Tiaq3GexGoGEQ/640?wx_fmt=png&tp=webp&wxfrom=5&wx_lazy=1)
+
 # reference
 
 
 [Neural Networks and Deep Learning](http://neuralnetworksanddeeplearning.com/index.html)
 
 [参考：《神经网络与深度学习》连载——哈工大](https://mp.weixin.qq.com/s?__biz=MzIxMjAzNDY5Mg==&mid=503307054&idx=1&sn=d20623df35d1771dc548d545ed38f318&chksm=0f474ec53830c7d3bd43285f1b32a69ee76887676ce276446aed833512ddc1d3515331b954e7&mpshare=1&scene=1&srcid=0712NxuIohdYeyT9HV9KoJD0&pass_ticket=ih%2BTmMdW0BKOpaQftxTEsre0o%2FuiaqArflVqs4UY1MJqSN5yV0Im5QO0FlBgY6QF#rd)
-
-
-
 
 
   [1]: https://www.github.com/DragonFive/CVBasicOp/raw/master/1499827436670.jpg
