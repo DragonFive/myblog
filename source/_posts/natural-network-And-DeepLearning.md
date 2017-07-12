@@ -1,5 +1,5 @@
 ---
-title: natural-network-And-DeepLearning
+title: 《神经网络和深度学习》
 
 date: 2017/3/20 22:04:12
 
