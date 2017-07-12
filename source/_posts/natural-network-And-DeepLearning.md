@@ -1,5 +1,5 @@
 ---
-title: 《神经网络和深度学习》学习
+title: 《Neural Network and Deep Learning》学习
 
 date: 2017/7/10 12:04:12
 
@@ -10,10 +10,11 @@ tags:
 - 梯度下降法
 - 正则化
 - 激活函数
+- 神经网络
 ---
 [TOC]
 
-
+ Michael Nielsen的《Neural Network and Deep Learning》
 ![神经网络和深度学习][1]
 
 <!--more-->
