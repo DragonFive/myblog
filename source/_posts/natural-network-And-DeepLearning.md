@@ -28,6 +28,9 @@ tags:
 
 我们也有一些存在回馈环路可能性的人工神经网络模型。这种模型被称为**递归神经网络（recurrent neural networks）**。该模型的关键在于，神经元在变为非激活态之前会在一段有限时间内均保持激活状态。这种激活状态可以激励其他的神经元，被激励的神经元在随后一段有限时间内也会保持激活状态。如此就会导致更多的神经元被激活，一段时间后我们将得到一个级联的神经元激活系统。
 
+
+[用简单的网络结构解决手写数字识别](https://mp.weixin.qq.com/s?__biz=MzIxMjAzNDY5Mg==&mid=400137026&idx=1&sn=f5c8a9ab3e24d7c0bd38058ba211d22a&scene=21#wechat_redirect)
+
 # reference
 
 
