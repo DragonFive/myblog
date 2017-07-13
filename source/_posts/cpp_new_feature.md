@@ -153,7 +153,7 @@ private:
 ```
 shared_ptr 和 auto_ptr 都提供一个 get 成员函数进行显示转换。
 14. 在一个独立的语句中将 new 出来的对象存入智能指针。
-
+15. 避免返回对象内部构件的句柄（引用，指针，或迭代器）。这样会提高封装性，帮助 const 成员函数产生 cosnt 效果，并将空悬句柄产生的可能性降到最低
 
 # reference
 [c++11新特性](http://blog.csdn.net/wangshubo1989/article/details/50575008)
