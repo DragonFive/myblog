@@ -154,7 +154,7 @@ private:
 shared_ptr 和 auto_ptr 都提供一个 get 成员函数进行显示转换。
 14. 在一个独立的语句中将 new 出来的对象存入智能指针。智能指针能够提供一种异常安全的功能，reset函数能够修改智能指针指向的内容，然后删除之前的内容，这意味着如果新内容创建失败就不会delete之前的内容，保证了异常安全。copy and swap策略可以保证线程安全。
 15. 避免返回对象内部构件的句柄（引用，指针，或迭代器）。这样会提高封装性，帮助 const 成员函数产生 cosnt 效果，并将空悬句柄产生的可能性降到最低.
-16. inline函数：在类内声明的函数默认成为inline函数。inline 函数和模板一般都是定义在头文件中的。
+16. inline函数：在类内声明的函数默认成为inline函数。inline 函数一般都是定义在头文件中的。
 # reference
 [c++11新特性](http://blog.csdn.net/wangshubo1989/article/details/50575008)
 
