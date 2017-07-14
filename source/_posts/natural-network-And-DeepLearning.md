@@ -50,7 +50,7 @@ tags:
 # 反向传播算法
 
 ## 矩阵据算前向传播
-
+![网络参数表示][3]
 
 
 
@@ -65,3 +65,4 @@ tags:
 
   [1]: https://www.github.com/DragonFive/CVBasicOp/raw/master/1499827436670.jpg
   [2]: https://www.github.com/DragonFive/CVBasicOp/raw/master/1500000500020.jpg
+  [3]: https://www.github.com/DragonFive/CVBasicOp/raw/master/1500017093236.jpg
