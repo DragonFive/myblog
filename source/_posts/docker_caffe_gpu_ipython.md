@@ -3,7 +3,8 @@ title: 零门槛玩坏caffe
 date: 2017/5/26 15:04:12
 
 categories:
-- 计算机视觉
+- 深度学习
+- 虚拟化
 tags:
 - nvidia驱动
 - 深度学习
