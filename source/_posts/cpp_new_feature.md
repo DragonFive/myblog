@@ -9,7 +9,7 @@ tags:
 ---
 [TOC]
 
-
+![c++][1]
 <!--more-->
 
 # effective_Cpp
@@ -162,3 +162,6 @@ shared_ptr 和 auto_ptr 都提供一个 get 成员函数进行显示转换。
 
 
 [c++单例模型](http://blog.yangyubo.com/2009/06/04/best-cpp-singleton-pattern/)
+
+
+  [1]: https://www.github.com/DragonFive/CVBasicOp/raw/master/1500016771751.jpg
