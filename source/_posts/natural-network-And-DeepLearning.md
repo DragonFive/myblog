@@ -50,9 +50,10 @@ tags:
 # 反向传播算法
 
 ## 矩阵据算前向传播
+用wljk来表示从第l−1层的第k个神经元到第l层的第j个神经元的连接的权重。
 ![网络参数表示][3]
-
-
+我们用blj表示第l层第j个神经元的偏置，用alj表示第l层的第j个神经元的激活值。
+![激活函数与偏置][4]
 
 
 # reference
@@ -66,3 +67,4 @@ tags:
   [1]: https://www.github.com/DragonFive/CVBasicOp/raw/master/1499827436670.jpg
   [2]: https://www.github.com/DragonFive/CVBasicOp/raw/master/1500000500020.jpg
   [3]: https://www.github.com/DragonFive/CVBasicOp/raw/master/1500017093236.jpg
+  [4]: https://www.github.com/DragonFive/CVBasicOp/raw/master/1500017155436.jpg
