@@ -1,5 +1,5 @@
 ---
-title: 《Neural Network and Deep Learning》学习
+title: 《Neural Network and Deep Learning》思想
 
 date: 2017/7/10 12:04:12
 
