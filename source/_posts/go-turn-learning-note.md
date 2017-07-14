@@ -3,7 +3,8 @@ title: 手把手教你看懂goturn的源码
 date: 2017/6/15 17:38:58
 
 categories:
-- tracking
+- 深度学习
+- 计算机视觉
 tags:
 - computervision
 - caffe
