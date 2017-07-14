@@ -56,6 +56,8 @@ tags:
 ![激活函数与偏置][4]
 第l层第j个神经元的激活值alj通过下面的式子与第l−1层神经元的激活值联系起来
 ![相邻层计算][5]
+![矩阵形式][6]
+
 计算出了中间结果zl≡wlal−1+bl的值。这个数值非常有用，以至于值得我们专门给它一个名字：我们称zl为对第l层神经元的加权输入（weighted input）
 # reference
 
@@ -70,3 +72,4 @@ tags:
   [3]: https://www.github.com/DragonFive/CVBasicOp/raw/master/1500017093236.jpg
   [4]: https://www.github.com/DragonFive/CVBasicOp/raw/master/1500017155436.jpg
   [5]: https://www.github.com/DragonFive/CVBasicOp/raw/master/1500017726928.jpg
+  [6]: https://www.github.com/DragonFive/CVBasicOp/raw/master/1500020102864.jpg
