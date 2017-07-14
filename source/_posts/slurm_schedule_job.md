@@ -5,6 +5,7 @@ date: 2017/6/25 12:04:12
 
 categories:
 - 深度学习
+- 编程
 tags:
 - deeplearning
 - slurm
