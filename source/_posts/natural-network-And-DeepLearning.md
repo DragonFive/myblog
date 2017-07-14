@@ -54,7 +54,8 @@ tags:
 ![网络参数表示][3]
 我们用blj表示第l层第j个神经元的偏置，用alj表示第l层的第j个神经元的激活值。
 ![激活函数与偏置][4]
-
+第l层第j个神经元的激活值alj通过下面的式子与第l−1层神经元的激活值联系起来
+![相邻层计算][5]
 
 # reference
 
@@ -68,3 +69,4 @@ tags:
   [2]: https://www.github.com/DragonFive/CVBasicOp/raw/master/1500000500020.jpg
   [3]: https://www.github.com/DragonFive/CVBasicOp/raw/master/1500017093236.jpg
   [4]: https://www.github.com/DragonFive/CVBasicOp/raw/master/1500017155436.jpg
+  [5]: https://www.github.com/DragonFive/CVBasicOp/raw/master/1500017726928.jpg
