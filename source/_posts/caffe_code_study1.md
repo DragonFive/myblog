@@ -3,7 +3,7 @@ title: caffe-源码学习——只看一篇就够了
 date: 2017/6/12 15:04:12
 
 categories:
-- 计算机视觉
+- 深度学习
 tags:
 - 深度学习
 - caffe
