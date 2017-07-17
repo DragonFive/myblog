@@ -1,5 +1,5 @@
 ---
-title: 《Neural Network and Deep Learning》思想
+title: 《Neural Network and Deep Learning》学习
 
 date: 2017/7/10 12:04:12
 
@@ -19,9 +19,6 @@ tags:
 
 <!--more-->
 # 神经网络基础
-![检测人脸][2]
-
-以人脸为例，隐层可能的特征是某个位置有某个特征点
 ## sigmoid神经元
 假设在网络的一些权值（或偏移）上做一个小的改变。我们期望的结果是，这些在权值上的小改变，将会为网络的输出结果带来相应的改变，且这种改变也必须是轻微的。我们在后面将会看到，满足这样的性质才能使学习变得可能。我们就可以改变权值和偏移来使得网络的表现越来越接近我们预期。
 当使用σ函数时我们就得到了一个平滑的感知机。而且，σ函数的平滑属性才是其关键。sigmoid函数的代数形式保证了其在求微分的时候很方便。
@@ -47,18 +44,6 @@ tags:
 
 为了使我们的梯度下降法能够正确地运行，我们需要选择足够小的学习速率η使得等式（9）能得到很好的近似。
 
-# 反向传播算法
-
-## 矩阵据算前向传播
-用wljk来表示从第l−1层的第k个神经元到第l层的第j个神经元的连接的权重。
-![网络参数表示][3]
-我们用blj表示第l层第j个神经元的偏置，用alj表示第l层的第j个神经元的激活值。
-![激活函数与偏置][4]
-第l层第j个神经元的激活值alj通过下面的式子与第l−1层神经元的激活值联系起来
-![相邻层计算][5]
-![矩阵形式][6]
-
-计算出了中间结果zl≡wlal−1+bl的值。这个数值非常有用，以至于值得我们专门给它一个名字：我们称zl为对第l层神经元的加权输入（weighted input）
 # reference
 
 
@@ -68,8 +53,3 @@ tags:
 
 
   [1]: https://www.github.com/DragonFive/CVBasicOp/raw/master/1499827436670.jpg
-  [2]: https://www.github.com/DragonFive/CVBasicOp/raw/master/1500000500020.jpg
-  [3]: https://www.github.com/DragonFive/CVBasicOp/raw/master/1500017093236.jpg
-  [4]: https://www.github.com/DragonFive/CVBasicOp/raw/master/1500017155436.jpg
-  [5]: https://www.github.com/DragonFive/CVBasicOp/raw/master/1500017726928.jpg
-  [6]: https://www.github.com/DragonFive/CVBasicOp/raw/master/1500020102864.jpg
