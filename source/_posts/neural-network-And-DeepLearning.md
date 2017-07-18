@@ -54,6 +54,12 @@ tags:
 
 ![依据下一层错误量δl+1获取错误量δl的等式](http://mmbiz.qpic.cn/mmbiz/58FUuNaBUjp0hJlhelcn7XVuqEfyDuDwGSCWDfia4mCUkMWibu7LJW3E461HRBgeBTuDia421G8jfzw0eiaBBlYnvQ/640?wx_fmt=png&tp=webp&wxfrom=5&wx_lazy=1)
 
+![网络的代价函数相对于偏置的改变速率](http://mmbiz.qpic.cn/mmbiz/58FUuNaBUjp0hJlhelcn7XVuqEfyDuDwgp0HvHMJywr794ic3kyiaecicPXZAz6c4MyR0Gdrup4WzfxAmGBChWREQ/640?wx_fmt=png&tp=webp&wxfrom=5&wx_lazy=1)
+
+
+![网络的代价函数相对于权重的改变速率](http://mmbiz.qpic.cn/mmbiz/58FUuNaBUjp0hJlhelcn7XVuqEfyDuDwWF23AeicSicQJs4Ekia7Qx3j1ntModqNaFmUrQaputUGENiaeazMn5dMKA/640?wx_fmt=png&tp=webp&wxfrom=5&wx_lazy=1)
+
+
 # reference
 
 
