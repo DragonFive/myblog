@@ -52,6 +52,8 @@ tags:
 
 ![错误量](http://mmbiz.qpic.cn/mmbiz/58FUuNaBUjp0hJlhelcn7XVuqEfyDuDwXdicA5veldVeT1hhVqlx9GF6ySpicDJ2zSdvJLjqEiawZbiauaZXNL8j1A/640?wx_fmt=png&tp=webp&wxfrom=5&wx_lazy=1)
 
+![image.png](http://upload-images.jianshu.io/upload_images/454341-f0847d6952ee8bbf.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+
 
 # reference
 
