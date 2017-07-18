@@ -52,7 +52,7 @@ tags:
 
 ![错误量](http://mmbiz.qpic.cn/mmbiz/58FUuNaBUjp0hJlhelcn7XVuqEfyDuDwliaD9eJx9aJNxuO5ktGqQsSlLCibKicrR7pglVf8Yq7iauxqG0ueibhVKXQ/640?wx_fmt=png&tp=webp&wxfrom=5&wx_lazy=1)
 
-
+![依据下一层错误量δl+1获取错误量δl的等式](http://mmbiz.qpic.cn/mmbiz/58FUuNaBUjp0hJlhelcn7XVuqEfyDuDwGSCWDfia4mCUkMWibu7LJW3E461HRBgeBTuDia421G8jfzw0eiaBBlYnvQ/640?wx_fmt=png&tp=webp&wxfrom=5&wx_lazy=1)
 
 # reference
 
