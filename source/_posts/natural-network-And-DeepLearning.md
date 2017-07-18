@@ -50,6 +50,8 @@ tags:
 
 [反向传播背后的四个基本等式](https://mp.weixin.qq.com/s?__biz=MzIxMjAzNDY5Mg==&mid=400329443&idx=1&sn=f7158ee615c2a0d6f0014adae038193e&scene=21#wechat_redirect)
 
+![错误量](http://mmbiz.qpic.cn/mmbiz/58FUuNaBUjp0hJlhelcn7XVuqEfyDuDwliaD9eJx9aJNxuO5ktGqQsSlLCibKicrR7pglVf8Yq7iauxqG0ueibhVKXQ/640?wx_fmt=png&tp=webp&wxfrom=5&wx_lazy=1)
+
 
 
 # reference
