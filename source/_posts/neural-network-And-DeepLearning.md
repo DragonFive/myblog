@@ -50,14 +50,7 @@ tags:
 
 [反向传播背后的四个基本等式](https://mp.weixin.qq.com/s?__biz=MzIxMjAzNDY5Mg==&mid=400329443&idx=1&sn=f7158ee615c2a0d6f0014adae038193e&scene=21#wechat_redirect)
 
-![错误量](http://mmbiz.qpic.cn/mmbiz/58FUuNaBUjp0hJlhelcn7XVuqEfyDuDwliaD9eJx9aJNxuO5ktGqQsSlLCibKicrR7pglVf8Yq7iauxqG0ueibhVKXQ/640?wx_fmt=png&tp=webp&wxfrom=5&wx_lazy=1)
-
-![依据下一层错误量δl+1获取错误量δl的等式](http://mmbiz.qpic.cn/mmbiz/58FUuNaBUjp0hJlhelcn7XVuqEfyDuDwGSCWDfia4mCUkMWibu7LJW3E461HRBgeBTuDia421G8jfzw0eiaBBlYnvQ/640?wx_fmt=png&tp=webp&wxfrom=5&wx_lazy=1)
-
-![网络的代价函数相对于偏置的改变速率](http://mmbiz.qpic.cn/mmbiz/58FUuNaBUjp0hJlhelcn7XVuqEfyDuDwgp0HvHMJywr794ic3kyiaecicPXZAz6c4MyR0Gdrup4WzfxAmGBChWREQ/640?wx_fmt=png&tp=webp&wxfrom=5&wx_lazy=1)
-
-
-![网络的代价函数相对于权重的改变速率](http://mmbiz.qpic.cn/mmbiz/58FUuNaBUjp0hJlhelcn7XVuqEfyDuDwWF23AeicSicQJs4Ekia7Qx3j1ntModqNaFmUrQaputUGENiaeazMn5dMKA/640?wx_fmt=png&tp=webp&wxfrom=5&wx_lazy=1)
+![错误量](http://mmbiz.qpic.cn/mmbiz/58FUuNaBUjp0hJlhelcn7XVuqEfyDuDwXdicA5veldVeT1hhVqlx9GF6ySpicDJ2zSdvJLjqEiawZbiauaZXNL8j1A/640?wx_fmt=png&tp=webp&wxfrom=5&wx_lazy=1)
 
 
 # reference
