@@ -17,3 +17,21 @@ tags:
 
 论文出自google的 MobileNets: Efficient Convolutional Neural Networks for Mobile Vision Applications。
 源代码和训练好的模型: [tensorflow版本](https://github.com/tensorflow/models/blob/master/slim/nets/mobilenet_v1.md)
+
+![enter description here][1]
+
+
+
+
+
+
+
+**持续更新中。。。。。。。。。。。**
+
+# reference
+
+
+
+
+
+  [1]: https://www.github.com/DragonFive/CVBasicOp/raw/master/1500434910512.jpg
