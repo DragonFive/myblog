@@ -1,5 +1,5 @@
 ---
-title: 《Neural Network and Deep Learning》思想
+title: 《Neural Network and Deep Learning》学习
 
 date: 2017/7/10 12:04:12
 
@@ -19,9 +19,6 @@ tags:
 
 <!--more-->
 # 神经网络基础
-![检测人脸][2]
-
-以人脸为例，隐层可能的特征是某个位置有某个特征点
 ## sigmoid神经元
 假设在网络的一些权值（或偏移）上做一个小的改变。我们期望的结果是，这些在权值上的小改变，将会为网络的输出结果带来相应的改变，且这种改变也必须是轻微的。我们在后面将会看到，满足这样的性质才能使学习变得可能。我们就可以改变权值和偏移来使得网络的表现越来越接近我们预期。
 当使用σ函数时我们就得到了一个平滑的感知机。而且，σ函数的平滑属性才是其关键。sigmoid函数的代数形式保证了其在求微分的时候很方便。
@@ -47,6 +44,20 @@ tags:
 
 为了使我们的梯度下降法能够正确地运行，我们需要选择足够小的学习速率η使得等式（9）能得到很好的近似。
 
+## 反向传播
+
+如果输入神经元是低激活量的，或者输出神经元已经饱和（高激活量或低激活量），那么权重就会学习得缓慢。
+
+[反向传播背后的四个基本等式](https://mp.weixin.qq.com/s?__biz=MzIxMjAzNDY5Mg==&mid=400329443&idx=1&sn=f7158ee615c2a0d6f0014adae038193e&scene=21#wechat_redirect)
+
+![错误量](http://mmbiz.qpic.cn/mmbiz/58FUuNaBUjp0hJlhelcn7XVuqEfyDuDwXdicA5veldVeT1hhVqlx9GF6ySpicDJ2zSdvJLjqEiawZbiauaZXNL8j1A/640?wx_fmt=png&tp=webp&wxfrom=5&wx_lazy=1)
+
+
+
+
+
+![enter description here][3]
+
 # reference
 
 
@@ -56,4 +67,5 @@ tags:
 
 
   [1]: https://www.github.com/DragonFive/CVBasicOp/raw/master/1499827436670.jpg
-  [2]: https://www.github.com/DragonFive/CVBasicOp/raw/master/1500000500020.jpg
+
+  [3]: https://www.github.com/DragonFive/CVBasicOp/raw/master/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1500378801942.jpg
