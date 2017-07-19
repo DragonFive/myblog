@@ -22,7 +22,7 @@ tags:
 
 <!--more-->
 
-
+[tensorflow官网](https://www.tensorflow.org/mobile/)给出了部署方式，支持android,ios,raspberry Pi等。
 
 
 
