@@ -42,7 +42,7 @@ tags:
 
 [tensorflow训练好的模型怎么调用？](https://www.zhihu.com/question/58287577)
 
-[](https://www.ctolib.com/topics-101544.html)
+[如何用TensorFlow和TF-Slim实现图像分类与分割](https://www.ctolib.com/topics-101544.html)
 
 
 
