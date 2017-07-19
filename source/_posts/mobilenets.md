@@ -40,5 +40,6 @@ tags:
 
 [MobileNets: Efficient Convolutional Neural Networks for Mobile Vision Applications 论文理解](http://www.jianshu.com/p/2fd0c007a560)
 
+[tensorflow训练好的模型怎么调用？](https://www.zhihu.com/question/58287577)
 
   [1]: https://www.github.com/DragonFive/CVBasicOp/raw/master/1500434910512.jpg
