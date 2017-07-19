@@ -34,7 +34,9 @@ tags:
 
 [官方的部署方式](https://www.tensorflow.org/mobile/)
 
+[ 深度学习（六十五）移动端网络MobileNets](http://blog.csdn.net/hjimce/article/details/72831171)
 
+[MobileNets: Efficient Convolutional Neural Networks for Mobile Vision Applications 论文理解](http://www.jianshu.com/p/2fd0c007a560)
 
 
   [1]: https://www.github.com/DragonFive/CVBasicOp/raw/master/1500434910512.jpg
