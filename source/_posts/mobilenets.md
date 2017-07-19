@@ -30,6 +30,9 @@ tags:
 
 # reference
 
+[github源码](https://github.com/tensorflow/models/blob/master/slim/nets/mobilenet_v1.md)
+
+[官方的部署方式](https://www.tensorflow.org/mobile/)
 
 
 
