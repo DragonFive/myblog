@@ -18,6 +18,7 @@ tags:
 
 <!--more-->
 
+使用的squeezenet的pre-trained model来自[SqueezeNet repo](https://github.com/DeepScale/SqueezeNet)
 
 **持续更新中。。。。。。。。。。。**
 
