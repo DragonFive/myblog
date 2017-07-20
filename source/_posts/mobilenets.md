@@ -1,5 +1,5 @@
 ---
-title: mobilenets
+title: mobile_net的所谓的模型优化
 
 date: 2017/7/17 12:04:12
 
