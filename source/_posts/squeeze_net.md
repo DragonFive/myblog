@@ -1,5 +1,5 @@
 ---
-title: squeeze_net
+title: squeeze_net的模型优化
 
 date: 2017/7/20 12:04:12
 
