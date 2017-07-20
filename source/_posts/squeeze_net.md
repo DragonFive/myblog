@@ -13,6 +13,12 @@ tags:
 - 神经网络
 ---
 
+
+<div class="github-widget" data-repo="DragonFive/deep-learning-exercise"></div>
+
+<!--more-->
+
+
 **持续更新中。。。。。。。。。。。**
 
 # reference
