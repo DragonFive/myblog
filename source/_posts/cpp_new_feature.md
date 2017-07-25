@@ -155,7 +155,7 @@ shared_ptr 和 auto_ptr 都提供一个 get 成员函数进行显示转换。
 14. 在一个独立的语句中将 new 出来的对象存入智能指针。
 15. 绝不要返回一个局部栈对象的指针或引用，绝不要返回一个被分配的堆对象的引用，如果存在需要一个以上这样的对象的可能性时，绝不要返回一个局部 static 对象的指针或引用。
 16. 在子类中使用与父类public成员函数同名的函数会造成覆盖，继续使用父类函数有两种方式：a.using b. 转调 [Item 33: 避免覆盖（hiding）“通过继承得到的名字”](https://wizardforcel.gitbooks.io/effective-cpp/content/35.html)
-
+17. 
 
 # reference
 [c++11新特性](http://blog.csdn.net/wangshubo1989/article/details/50575008)
