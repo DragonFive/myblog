@@ -21,6 +21,11 @@ tags:
 <div class="github-widget" data-repo="DragonFive/python_cv_AI_ML"></div>
 
 
+# 网络结构的基础知识
+1. 下采样层的目的是为了**降低网络训练参数**及模型的**过拟合程度**。
+2. 
+
+
 
 
 # reference
