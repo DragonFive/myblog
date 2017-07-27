@@ -27,7 +27,7 @@ tags:
 3. alexnet做了重叠池化，与lenet不同。也就是说它的pool kernel的步长比kernel size要小。
 4. dropout在每个不同的样本进来的时候用不同的一半的神经元做fc层。但他们共享权重，
 5. relu是线性的，非饱和的。收敛速度比sigmoid和tanh快
-6. 
+6. inception的主要思路是用密集成分来近似局部稀疏结构
 
 
 
