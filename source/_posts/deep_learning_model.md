@@ -26,7 +26,7 @@ tags:
 2. LRN局部响应归一化有利于模型泛化。（过拟合）
 3. alexnet做了重叠池化，与lenet不同。也就是说它的pool kernel的步长比kernel size要小。
 4. dropout在每个不同的样本进来的时候用不同的一半的神经元做fc层。但他们共享权重，
-5. relu是线性的，非饱和的。收敛速度比sigmoid和tanh块，
+5. relu是线性的，非饱和的。收敛速度比sigmoid和tanh快
 6. 
 
 
