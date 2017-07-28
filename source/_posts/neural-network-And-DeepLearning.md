@@ -58,6 +58,9 @@ tags:
 
 ![enter description here][3]
 
+方向传播算法就是将错误量从输出层反向传播。
+
+
 # reference
 
 
