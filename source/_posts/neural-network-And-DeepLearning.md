@@ -71,6 +71,8 @@ tags:
 
 ## 交叉熵代价函数
 可以用不同的代价函数比如交叉熵（cross-entropy）代价函数来替代二次代价函数来让学习速度加快。
+![交叉熵代价函数][5]
+**交叉熵函数为什么能作为代价函数**
 
 
 
@@ -87,3 +89,4 @@ tags:
   [2]: https://www.github.com/DragonFive/CVBasicOp/raw/master/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1500378801942.jpg
   [3]: https://www.github.com/DragonFive/CVBasicOp/raw/master/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1501232404378.jpg
   [4]: https://www.github.com/DragonFive/CVBasicOp/raw/master/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1501232423609.jpg
+  [5]: https://www.github.com/DragonFive/CVBasicOp/raw/master/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1501233195651.jpg
