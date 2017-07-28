@@ -79,6 +79,10 @@ tags:
 
 。而且交叉熵有另一个均方代价函数不具备的特征，**它能够避免学习速率降低的情况**。为了理解这个，我们需要计算一下交叉熵关于权重的偏导。因为在计算代价函数关于权值的偏导的时候，sigmoid函数的导数会与交叉熵中导数的一部分抵消掉。
 
+![误差关于权值的偏导][6]
+
+
+
 
 
 # reference
@@ -94,3 +98,4 @@ tags:
   [3]: https://www.github.com/DragonFive/CVBasicOp/raw/master/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1501232404378.jpg
   [4]: https://www.github.com/DragonFive/CVBasicOp/raw/master/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1501232423609.jpg
   [5]: https://www.github.com/DragonFive/CVBasicOp/raw/master/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1501233195651.jpg
+  [6]: https://www.github.com/DragonFive/CVBasicOp/raw/master/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1501241302962.jpg
