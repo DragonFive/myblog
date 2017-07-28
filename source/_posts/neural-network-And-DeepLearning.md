@@ -56,12 +56,19 @@ tags:
 
 
 
-![enter description here][3]
+![enter description here][2]
 
 方向传播算法就是将错误量从输出层反向传播。
 
 
 # 改进神经网络的方式
+学习的速度（收敛速度）与很多因素有关，学习率、代价函数的形式、激活函数的形式都有关系。这是使用平方误差作为代价函数。
+
+![代价函数][3]
+假设y=0是我们的输出。
+![对权值偏导][4]
+我们能够从图像看出当神经元输出接近Rendered by QuickLaTeX.com时，曲线变得非常平坦，因此激活函数的导数会变得很小。
+
 
 
 
@@ -74,5 +81,6 @@ tags:
 
 
   [1]: https://www.github.com/DragonFive/CVBasicOp/raw/master/1499827436670.jpg
-
-  [3]: https://www.github.com/DragonFive/CVBasicOp/raw/master/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1500378801942.jpg
+  [2]: https://www.github.com/DragonFive/CVBasicOp/raw/master/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1500378801942.jpg
+  [3]: https://www.github.com/DragonFive/CVBasicOp/raw/master/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1501232404378.jpg
+  [4]: https://www.github.com/DragonFive/CVBasicOp/raw/master/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1501232423609.jpg
