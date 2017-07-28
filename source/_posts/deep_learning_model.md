@@ -1,5 +1,5 @@
 ---
-title: deep_learning_model
+title: 神经网络模型进化
 date: 2017/7/5 17:38:58
 
 categories:
