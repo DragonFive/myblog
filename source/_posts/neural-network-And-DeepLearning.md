@@ -106,9 +106,9 @@ tags:
 
 
 **softmax函数的导数**
-$ a_j = \frac{e^{z_j}  }{ \sum{e^{z_j}} } $
+$a_j = \frac{e^{z_j}  }{ \sum{e^{z_j}} }$
 
-当 j = k时， $\frac{\partial C  }{ \partial z_k } =   \frac{e^z_k*\sum z - e^z_k*e^z_k}{\sum^2 z } = \frac{e^z_k}{\sum z}*(1-\frac{e^z_k}{\sum z}) = a*(1-a) $
+当 j = k时， $\frac{\partial C  }{ \partial z_k } =   \frac{e^z_k*\sum z - e^z_k*e^z_k}{\sum^2 z } = \frac{e^z_k}{\sum z}*(1-\frac{e^z_k}{\sum z}) = a*(1-a)$
 
 当j!=k
 
