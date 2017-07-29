@@ -79,17 +79,17 @@ tags:
 
 。而且交叉熵有另一个均方代价函数不具备的特征，**它能够避免学习速率降低的情况**。为了理解这个，我们需要计算一下交叉熵关于权重的偏导。因为在计算代价函数关于权值的偏导的时候，sigmoid函数的导数会与交叉熵中导数的一部分抵消掉。
 
-![误差关于权值的偏导][6]
+![误差关于权值的偏导][6]-
 
 
 当我们的输出层是线性神经元（linear neurons）的时候使用均方误差，假设我们有一个多层神经网络。假设最后一层的所有神经元都是线性神经元（linear neurons）意味着我们不用sigmoid作为激活函数。
 
 |   激活函数  |  函数   |  导数   |  特点   | 
 | --- | --- | --- | --- |
-|  sigmoid   |  $\sigma(z) = \frac{1}{1+e^{-z}}$   |  $\sigma(z)(1-sigma(z))$   |  有饱和状态   |
-|  tanh   | $\frac{e^x-e^{-x}}{e^x+e^{-x}}$     |  $1-tanh(z)^2$   | tanh保持非线性单调，延迟饱和 ，[-1,1]   |
-|  relu    |  $y=max(0,x)$   |  导数为常数   |   节省计算量，避免梯度丢失，网络稀疏  |
-|   softplus  |  $y=log(1+e^x)$   |     |  softplus可以看作是ReLu的平滑  |
+|  sigmoid   |  ![sigmoid][7]   |  ![sigmoid导数][8]   |  有饱和状态   |
+|  tanh   | ![tanh][9]    |  ![enter description here][10]   | tanh保持非线性单调，延迟饱和 ，[-1,1]   |
+|  relu    |  y=max(0,x)   |  导数为常数   |   节省计算量，避免梯度丢失，网络稀疏  |
+|   softplus  |  y=log(1+e^x)  |     |  softplus可以看作是ReLu的平滑  |
 
 **如何选择为自己的模型选择合适的激活函数**
 
@@ -107,12 +107,13 @@ tags:
 
 **softmax函数的导数**
 
-![softmax函数][7]
+![softmax函数][11]
 
-当 j = k时， 
-![enter description here][8]
+当 j = k时， ![enter description here][12]
 
-当j!=k
+当j!=k,  ![enter description here][13]
+
+
 
 **损失函数是交叉熵损失函数**
 
@@ -132,5 +133,10 @@ tags:
   [4]: https://www.github.com/DragonFive/CVBasicOp/raw/master/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1501232423609.jpg
   [5]: https://www.github.com/DragonFive/CVBasicOp/raw/master/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1501233195651.jpg
   [6]: https://www.github.com/DragonFive/CVBasicOp/raw/master/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1501241302962.jpg
-  [7]: https://www.github.com/DragonFive/CVBasicOp/raw/master/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1501341429967.jpg
-  [8]: https://www.github.com/DragonFive/CVBasicOp/raw/master/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1501341467832.jpg
+  [7]: https://www.github.com/DragonFive/CVBasicOp/raw/master/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1501341517202.jpg
+  [8]: https://www.github.com/DragonFive/CVBasicOp/raw/master/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1501341554626.jpg
+  [9]: https://www.github.com/DragonFive/CVBasicOp/raw/master/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1501341596684.jpg
+  [10]: https://www.github.com/DragonFive/CVBasicOp/raw/master/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1501341636250.jpg
+  [11]: https://www.github.com/DragonFive/CVBasicOp/raw/master/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1501341429967.jpg
+  [12]: https://www.github.com/DragonFive/CVBasicOp/raw/master/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1501341467832.jpg
+  [13]: https://www.github.com/DragonFive/CVBasicOp/raw/master/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1501341954136.jpg
