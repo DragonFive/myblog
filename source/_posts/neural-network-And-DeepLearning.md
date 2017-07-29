@@ -107,6 +107,8 @@ tags:
 
 **softmax函数的导数**
 
+[参考softmax分类](http://www.jianshu.com/p/8eb17fa41164)
+
 ![softmax函数][11]
 
 当 j = k时， ![enter description here][12]
