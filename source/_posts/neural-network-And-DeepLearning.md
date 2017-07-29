@@ -109,6 +109,8 @@ tags:
 
 [参考softmax分类](http://www.jianshu.com/p/8eb17fa41164)
 
+[Softmax 输出及其反向传播推导](http://shuokay.com/2016/07/20/softmax-loss/)
+
 ![softmax函数][11]
 
 当 j = k时， ![enter description here][12]
