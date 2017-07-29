@@ -100,6 +100,11 @@ tags:
 
 ## softmax 层的输出是一个概率分布
 
+**softmax 的单调性**，如果J=K，那么
+
+**softmax 的非局部性**
+
+
 # reference
 
 
