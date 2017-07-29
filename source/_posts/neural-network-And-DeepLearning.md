@@ -100,9 +100,9 @@ tags:
 
 ## softmax 层的输出是一个概率分布
 
-**softmax 的单调性**，如果J=K，那么
+**softmax 的单调性**，如果J=K，那么$\frac{\partial a^L_J}{\partial z^L_K}$为正数， 如果J!=K,则为负数，这个表明了 z增大，则相应的a增大，其它a（输出概率）就见效
 
-**softmax 的非局部性**
+**softmax 的非局部性**，任何一个输出激活值a依赖于所有的输入值。
 
 
 # reference
