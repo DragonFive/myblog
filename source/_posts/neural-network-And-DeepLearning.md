@@ -84,7 +84,7 @@ tags:
 
 当我们的输出层是线性神经元（linear neurons）的时候使用均方误差
 
-假设我们有一个多层神经网络。假设最后一层的所有神经元都是线性神经元（linear neurons）意味着我们不用sigmoid作为激活函数
+假设我们有一个多层神经网络。假设最后一层的所有神经元都是线性神经元（linear neurons）意味着我们不用sigmoid作为激活函数。
 
 
 # reference
