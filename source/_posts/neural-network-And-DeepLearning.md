@@ -88,7 +88,7 @@ tags:
 
 |   激活函数  |  函数   |  导数   |  特点   | 
 | --- | --- | --- | --- |
-|  sigmoid   |  !$\eta = \frac{1}{1+e^{-z}}$   |     |     |
+|  sigmoid   |  $\eta = \frac{1}{1+e^{-z}}$   |     |     |
 |  tanh   |     |     |     |
 |  relu    |     |     |     |
 |   prelu  |     |     |     |
