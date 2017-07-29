@@ -88,10 +88,14 @@ tags:
 
 |   激活函数  |  函数   |  导数   |  特点   | 
 | --- | --- | --- | --- |
-|  sigmoid   |  $\eta = \frac{1}{1+e^{-z}}$   |     |     |
-|  tanh   |     |     |     |
-|  relu    |     |     |     |
-|   prelu  |     |     |     |
+|  sigmoid   |  $\sigma(z) = \frac{1}{1+e^{-z}}$   |  $\sigma(z)(1-sigma(z))$   |  有饱和状态   |
+|  tanh   | $\frac{e^x-e^{-x}}{e^x+e^{-x}}$     |  $1-tanh(z)^2$   | tanh保持非线性单调，延迟饱和 ，[-1,1]   |
+|  relu    |  $y=max(0,x)$   |     |   节省计算量，避免梯度丢失，网络稀疏  |
+|   softplus  |  $y=log(1+e^x)$   |     |  softplus可以看作是ReLu的平滑  |
+
+通常使用tanh激活函数要比sigmoid收敛速度更快；
+在较深层的神经网络中，选用relu激活函数能使梯度更好地传播回去，但当使用softmax作为最后一层的激活函数时，其前一层最好不要使用relu进行激活，而是使用tanh作为替代，否则最终的loss很可能变成Nan；
+当选用高级激活函数时，建议的尝试顺序为ReLU->ELU->PReLU->MPELU，因为前两者没有超参数，而后两者需要自己调节参数使其更适应构建的网络结构。
 
 
 
