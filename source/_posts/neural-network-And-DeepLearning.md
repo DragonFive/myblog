@@ -106,7 +106,8 @@ tags:
 
 
 **softmax函数的导数**
-$$a_j = \frac{e^{z_j}  }{ \sum{e^{z_j}} }$$
+
+![softmax函数的导数][7]
 
 当 j = k时， $\frac{\partial C  }{ \partial z_k } =   \frac{e^z_k*\sum z - e^z_k*e^z_k}{\sum^2 z } = \frac{e^z_k}{\sum z}*(1-\frac{e^z_k}{\sum z}) = a*(1-a)$
 
@@ -130,3 +131,4 @@ $$a_j = \frac{e^{z_j}  }{ \sum{e^{z_j}} }$$
   [4]: https://www.github.com/DragonFive/CVBasicOp/raw/master/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1501232423609.jpg
   [5]: https://www.github.com/DragonFive/CVBasicOp/raw/master/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1501233195651.jpg
   [6]: https://www.github.com/DragonFive/CVBasicOp/raw/master/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1501241302962.jpg
+  [7]: https://www.github.com/DragonFive/CVBasicOp/raw/master/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1501341429967.jpg
