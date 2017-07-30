@@ -112,6 +112,9 @@ tags:
 
 ![softmax函数][13]
 
+
+[知乎：多类分类下为什么用softmax而不是用其他归一化方法?](https://www.zhihu.com/question/40403377/answer/86647017)
+
 当 j = k时， ![enter description here][14]，其中 y=1,所以可以写成![enter description here][15]
 
 当j!=k,  ![enter description here][16]
@@ -148,6 +151,6 @@ tags:
   [12]: https://www.github.com/DragonFive/CVBasicOp/raw/master/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1501419089972.jpg
   [13]: https://www.github.com/DragonFive/CVBasicOp/raw/master/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1501341429967.jpg
   [14]: https://www.github.com/DragonFive/CVBasicOp/raw/master/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1501341467832.jpg
-  [15]: http://markdown.xiaoshujiang.com/img/spinner.gif "[[[1501422347832]]]"
+  [15]: https://www.github.com/DragonFive/CVBasicOp/raw/master/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1501422347832.jpg
   [16]: https://www.github.com/DragonFive/CVBasicOp/raw/master/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1501341954136.jpg
   [17]: https://www.github.com/DragonFive/CVBasicOp/raw/master/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1501421402308.jpg
