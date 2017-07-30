@@ -129,7 +129,14 @@ tags:
 
 因为softmax的输出是一个概率分布，所以它的损失函数可以使用 最大似然估计
 
-![随时函数是log最大似然][18]
+![损失函数是log最大似然][18]
+
+ ![bottom-diff的值][19]
+
+![偏置的偏导][20]
+
+![权值的偏导][21]
+
 
 # reference
 
@@ -159,3 +166,6 @@ tags:
   [16]: https://www.github.com/DragonFive/CVBasicOp/raw/master/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1501341954136.jpg
   [17]: https://www.github.com/DragonFive/CVBasicOp/raw/master/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1501422904920.jpg
   [18]: https://www.github.com/DragonFive/CVBasicOp/raw/master/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1501421402308.jpg
+  [19]: https://www.github.com/DragonFive/CVBasicOp/raw/master/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1501422904920.jpg
+  [20]: https://www.github.com/DragonFive/CVBasicOp/raw/master/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1501423109179.jpg
+  [21]: https://www.github.com/DragonFive/CVBasicOp/raw/master/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1501423214892.jpg
