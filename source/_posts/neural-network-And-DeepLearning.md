@@ -121,6 +121,8 @@ tags:
 
 当j!=k,  ![enter description here][16]
 
+这样的话当j = k 的时候， 
+
 其中，损失函数对激活函数的结果a的偏导是top_diff, 而对激活函数的输入z的偏导是bottom_diff。
 
 **损失函数是最大似然也是交叉熵**
