@@ -115,6 +115,8 @@ tags:
 
 [知乎：多类分类下为什么用softmax而不是用其他归一化方法?](https://www.zhihu.com/question/40403377/answer/86647017)
 
+[free-mind博客，softmax-loss](http://freemind.pluskid.org/machine-learning/softmax-vs-softmax-loss-numerical-stability/)
+
 当 j = k时， ![enter description here][14]，其中 y=1,所以可以写成![enter description here][15]
 
 当j!=k,  ![enter description here][16]
