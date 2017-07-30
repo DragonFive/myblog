@@ -142,7 +142,8 @@ tags:
 
 检测过拟合一个显而易见的方法就是跟踪网络训练过程中测试数据的准确率。如果测试数据的精度不再提高，就应该停止训练。当然，严格地说，这也不一定就是过拟合的迹象，也许需要同时检测到测试数据和训练数据的精度都不再提高时才行。
 
-在每一步训练之后，计算 validation_data 的分类精度。一旦 validation_data 的分类精度达到饱和，就停止训练。这种策略叫做提前终止（early stopping）。
+在每一步训练之后，计算 validation_data 的分类精度。一旦 validation_data 的分类精度达到饱和，就停止训练。这种策略叫做提前终止（early stopping）。validation_data视为帮助我们学习合适超参数的一种训练数据。由于validation_data和test_data是完全分离开的，所以这种找到优秀超参数的方法被称为分离法（hold out method）。
+
 
 # reference
 
