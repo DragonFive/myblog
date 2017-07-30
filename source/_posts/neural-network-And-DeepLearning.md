@@ -50,13 +50,12 @@ tags:
 
 [反向传播背后的四个基本等式](https://mp.weixin.qq.com/s?__biz=MzIxMjAzNDY5Mg==&mid=400329443&idx=1&sn=f7158ee615c2a0d6f0014adae038193e&scene=21#wechat_redirect)
 
-![错误量](http://mmbiz.qpic.cn/mmbiz/58FUuNaBUjp0hJlhelcn7XVuqEfyDuDwXdicA5veldVeT1hhVqlx9GF6ySpicDJ2zSdvJLjqEiawZbiauaZXNL8j1A/640?wx_fmt=png&tp=webp&wxfrom=5&wx_lazy=1)
+![四个基本等式][2]
+
+反向传播的四个过程
 
 
-
-
-
-![enter description here][2]
+![enter description here][3]
 
 方向传播算法就是将错误量从输出层反向传播。
 
@@ -64,30 +63,30 @@ tags:
 # 改进神经网络的方式
 学习的速度（收敛速度）与很多因素有关，学习率、代价函数的形式、激活函数的形式都有关系。这是使用平方误差作为代价函数。
 
-![代价函数][3]
+![代价函数][4]
 假设y=0是我们的输出。
-![对权值偏导][4]
+![对权值偏导][5]
 我们能够从图像看出当神经元输出接近Rendered by QuickLaTeX.com时，曲线变得非常平坦，因此激活函数的导数会变得很小。
 
 ## 交叉熵代价函数与sigmoid激活函数
 可以用不同的代价函数比如交叉熵（cross-entropy）代价函数来替代二次代价函数来让学习速度加快。
 
-![交叉熵代价函数][5]
+![交叉熵代价函数][6]
 
 **交叉熵函数为什么能作为代价函数**
 交叉熵有两个特性能够合理地解释为何它能作为代价函数。首先，它是**非负**的; 其次，如果对于所有的训练输入x，这个神经元的**实际输出值都能很接近我们期待的输出**的话，那么交叉熵将会非常接近0。
 
 。而且交叉熵有另一个均方代价函数不具备的特征，**它能够避免学习速率降低的情况**。为了理解这个，我们需要计算一下交叉熵关于权重的偏导。因为在计算代价函数关于权值的偏导的时候，sigmoid函数的导数会与交叉熵中导数的一部分抵消掉。
 
-![误差关于权值的偏导][6]-
+![误差关于权值的偏导][7]-
 
 
 当我们的输出层是线性神经元（linear neurons）的时候使用均方误差，假设我们有一个多层神经网络。假设最后一层的所有神经元都是线性神经元（linear neurons）意味着我们不用sigmoid作为激活函数。
 
 |   激活函数  |  函数   |  导数   |  特点   | 
 | --- | --- | --- | --- |
-|  sigmoid   |  ![sigmoid][7]   |  ![sigmoid导数][8]   |  有饱和状态   |
-|  tanh   | ![tanh][9]    |  ![enter description here][10]   | tanh保持非线性单调，延迟饱和 ，[-1,1]   |
+|  sigmoid   |  ![sigmoid][8]   |  ![sigmoid导数][9]   |  有饱和状态   |
+|  tanh   | ![tanh][10]    |  ![enter description here][11]   | tanh保持非线性单调，延迟饱和 ，[-1,1]   |
 |  relu    |  y=max(0,x)   |  导数为常数   |   节省计算量，避免梯度丢失，网络稀疏  |
 |   softplus  |  y=log(1+e^x)  |     |  softplus可以看作是ReLu的平滑  |
 
@@ -100,7 +99,7 @@ tags:
 
 ## softmax 层的输出是一个概率分布
 
-**softmax 的单调性**，如果J=K，那么$\frac{\partial a^L_J}{\partial z^L_K}$为正数， 如果J!=K,则为负数，这个表明了 z增大，则相应的a增大，其它a（输出概率）就见效
+**softmax 的单调性**，如果J=K，那么![enter description here][12]为正数， 如果J!=K,则为负数，这个表明了 z增大，则相应的a增大，其它a（输出概率）就见效
 
 **softmax 的非局部性**，任何一个输出激活值a依赖于所有的输入值。
 
@@ -111,15 +110,17 @@ tags:
 
 [Softmax 输出及其反向传播推导](http://shuokay.com/2016/07/20/softmax-loss/)
 
-![softmax函数][11]
+![softmax函数][13]
 
-当 j = k时， ![enter description here][12]
+当 j = k时， ![enter description here][14]
 
-当j!=k,  ![enter description here][13]
+当j!=k,  ![enter description here][15]
 
 
 
 **损失函数是交叉熵损失函数**
+
+
 
 # reference
 
@@ -132,15 +133,17 @@ tags:
 
 
   [1]: https://www.github.com/DragonFive/CVBasicOp/raw/master/1499827436670.jpg
-  [2]: https://www.github.com/DragonFive/CVBasicOp/raw/master/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1500378801942.jpg
-  [3]: https://www.github.com/DragonFive/CVBasicOp/raw/master/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1501232404378.jpg
-  [4]: https://www.github.com/DragonFive/CVBasicOp/raw/master/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1501232423609.jpg
-  [5]: https://www.github.com/DragonFive/CVBasicOp/raw/master/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1501233195651.jpg
-  [6]: https://www.github.com/DragonFive/CVBasicOp/raw/master/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1501241302962.jpg
-  [7]: https://www.github.com/DragonFive/CVBasicOp/raw/master/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1501341517202.jpg
-  [8]: https://www.github.com/DragonFive/CVBasicOp/raw/master/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1501341554626.jpg
-  [9]: https://www.github.com/DragonFive/CVBasicOp/raw/master/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1501341596684.jpg
-  [10]: https://www.github.com/DragonFive/CVBasicOp/raw/master/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1501341636250.jpg
-  [11]: https://www.github.com/DragonFive/CVBasicOp/raw/master/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1501341429967.jpg
-  [12]: https://www.github.com/DragonFive/CVBasicOp/raw/master/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1501341467832.jpg
-  [13]: https://www.github.com/DragonFive/CVBasicOp/raw/master/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1501341954136.jpg
+  [2]: https://www.github.com/DragonFive/CVBasicOp/raw/master/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1501419765215.jpg
+  [3]: https://www.github.com/DragonFive/CVBasicOp/raw/master/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1500378801942.jpg
+  [4]: https://www.github.com/DragonFive/CVBasicOp/raw/master/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1501232404378.jpg
+  [5]: https://www.github.com/DragonFive/CVBasicOp/raw/master/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1501232423609.jpg
+  [6]: https://www.github.com/DragonFive/CVBasicOp/raw/master/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1501233195651.jpg
+  [7]: https://www.github.com/DragonFive/CVBasicOp/raw/master/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1501241302962.jpg
+  [8]: https://www.github.com/DragonFive/CVBasicOp/raw/master/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1501341517202.jpg
+  [9]: https://www.github.com/DragonFive/CVBasicOp/raw/master/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1501341554626.jpg
+  [10]: https://www.github.com/DragonFive/CVBasicOp/raw/master/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1501341596684.jpg
+  [11]: https://www.github.com/DragonFive/CVBasicOp/raw/master/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1501341636250.jpg
+  [12]: https://www.github.com/DragonFive/CVBasicOp/raw/master/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1501419089972.jpg
+  [13]: https://www.github.com/DragonFive/CVBasicOp/raw/master/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1501341429967.jpg
+  [14]: https://www.github.com/DragonFive/CVBasicOp/raw/master/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1501341467832.jpg
+  [15]: https://www.github.com/DragonFive/CVBasicOp/raw/master/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1501341954136.jpg
