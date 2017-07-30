@@ -121,7 +121,7 @@ tags:
 
 当j!=k,  ![enter description here][16]
 
-这样的话当j = k 的时候, 
+这样的话当j = k 的时候, ![enter description here][17],这个形式非常简洁，而且与线性回归（采用最小均方误差目标函数）、两类分类（采用cross-entropy目标函数）时的形式一致。
 
 其中，损失函数对激活函数的结果a的偏导是top_diff, 而对激活函数的输入z的偏导是bottom_diff。
 
@@ -129,7 +129,7 @@ tags:
 
 因为softmax的输出是一个概率分布，所以它的损失函数可以使用 最大似然估计
 
-![随时函数是log最大似然][17]
+![随时函数是log最大似然][18]
 
 # reference
 
@@ -157,4 +157,5 @@ tags:
   [14]: https://www.github.com/DragonFive/CVBasicOp/raw/master/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1501341467832.jpg
   [15]: https://www.github.com/DragonFive/CVBasicOp/raw/master/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1501422347832.jpg
   [16]: https://www.github.com/DragonFive/CVBasicOp/raw/master/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1501341954136.jpg
-  [17]: https://www.github.com/DragonFive/CVBasicOp/raw/master/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1501421402308.jpg
+  [17]: https://www.github.com/DragonFive/CVBasicOp/raw/master/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1501422904920.jpg
+  [18]: https://www.github.com/DragonFive/CVBasicOp/raw/master/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1501421402308.jpg
