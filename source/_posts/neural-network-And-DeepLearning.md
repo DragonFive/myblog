@@ -144,7 +144,8 @@ tags:
 
 在每一步训练之后，计算 validation_data 的分类精度。一旦 validation_data 的分类精度达到饱和，就停止训练。这种策略叫做提前终止（early stopping）。validation_data视为帮助我们学习合适超参数的一种训练数据。由于validation_data和test_data是完全分离开的，所以这种找到优秀超参数的方法被称为分离法（hold out method）。
 
-避免正则化的手段:增大训练集、见效模型的规划、正则化。正则化的一种手段叫weight-decay 又叫L2正则
+避免正则化的手段:增大训练集、见效模型的规划、正则化。正则化的一种手段叫weight-decay 又叫L2正则。L2 正则的思想是，在代价函数中加入一个额外的正则化项。下面是加入L2正则项之后的交叉熵代价函数。
+
 
 # reference
 
