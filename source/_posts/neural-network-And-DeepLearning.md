@@ -112,17 +112,17 @@ tags:
 
 ![softmax函数][13]
 
-当 j = k时， ![enter description here][14]
+当 j = k时， ![enter description here][14]，其中 y=1,所以可以写成![enter description here][15]
 
-当j!=k,  ![enter description here][15]
+当j!=k,  ![enter description here][16]
 
 其中，损失函数对激活函数的结果a的偏导是top_diff, 而对激活函数的输入z的偏导是bottom_diff。
 
-**损失函数是最大似然**
+**损失函数是最大似然也是交叉熵**
 
 因为softmax的输出是一个概率分布，所以它的损失函数可以使用 最大似然估计
 
-![随时函数是log最大似然][16]
+![随时函数是log最大似然][17]
 
 # reference
 
@@ -148,5 +148,6 @@ tags:
   [12]: https://www.github.com/DragonFive/CVBasicOp/raw/master/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1501419089972.jpg
   [13]: https://www.github.com/DragonFive/CVBasicOp/raw/master/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1501341429967.jpg
   [14]: https://www.github.com/DragonFive/CVBasicOp/raw/master/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1501341467832.jpg
-  [15]: https://www.github.com/DragonFive/CVBasicOp/raw/master/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1501341954136.jpg
-  [16]: https://www.github.com/DragonFive/CVBasicOp/raw/master/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1501421402308.jpg
+  [15]: http://markdown.xiaoshujiang.com/img/spinner.gif "[[[1501422347832]]]"
+  [16]: https://www.github.com/DragonFive/CVBasicOp/raw/master/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1501341954136.jpg
+  [17]: https://www.github.com/DragonFive/CVBasicOp/raw/master/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1501421402308.jpg
