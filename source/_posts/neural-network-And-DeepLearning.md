@@ -149,6 +149,9 @@ tags:
 
 直观来说，正则化的作用是让网络偏向学习更小的权值，而在其它的方面保持不变。选择较大的权值只有一种情况，那就是它们能显著地改进代价函数的第一部分。换句话说，正则化可以视作一种能够**折中考虑小权值和最小化原来代价函数**的方法。
 
+而在反向传播过程中，这个正则项只影响权重项。
+
+![损失函数对权重和偏置的偏导][23]
 
 # reference
 
@@ -182,3 +185,4 @@ tags:
   [20]: https://www.github.com/DragonFive/CVBasicOp/raw/master/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1501423109179.jpg
   [21]: https://www.github.com/DragonFive/CVBasicOp/raw/master/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1501423214892.jpg
   [22]: https://www.github.com/DragonFive/CVBasicOp/raw/master/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1501424722993.jpg
+  [23]: https://www.github.com/DragonFive/CVBasicOp/raw/master/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1501425196600.jpg
