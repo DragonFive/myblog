@@ -52,7 +52,7 @@ tags:
 
 ![四个基本等式][2]
 
-反向传播的四个过程
+反向传播的过程
 
 
 ![enter description here][3]
