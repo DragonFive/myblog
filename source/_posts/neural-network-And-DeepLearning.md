@@ -177,7 +177,7 @@ dropout并不修改代价函数，而是修改网络本身。
 
 **人为扩展训练数据data augmentation**
 
-
+可以提高网络性能
 
 # reference
 
