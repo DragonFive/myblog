@@ -1,7 +1,7 @@
 ---
 title: Neural Network and Deep Learning
 
-date: 2017/7/10 12:04:12
+date: 2017/7/25 12:04:12
 
 categories:
 - 深度学习
