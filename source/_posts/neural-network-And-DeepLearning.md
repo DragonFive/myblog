@@ -1,5 +1,5 @@
 ---
-title: Neural Network and Deep Learning
+title: 《Neural Network and Deep Learning》由厚到薄
 
 date: 2017/7/10 12:04:12
 
