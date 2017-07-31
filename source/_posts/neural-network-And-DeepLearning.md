@@ -160,7 +160,9 @@ tags:
 
 L1 规范化，这个方法是在未规范化的代价函数上加上一个权重绝对值的和：
 ![L1正则][24]
-
+其中C0表示的是原来的损失函数，对上面的损失函数求导数得到：
+![L1求导][25]
+可以发现正则项的导数是常数。在 L1 规范化中，权重通过一个常量向 0 进行缩小。在 L2规范化中，权重通过一个和 |w| 成比例的量进行缩小的。所以，当一个特定的权重绝对值 |w|  很大时，L1 规范化的权重缩小得远比 L2 规范化要小得多。相反，当一个特定的权重绝对值  |w|  很小时，L1 规范化的权重缩小得要比 L2 规范化大得多。最终的结果就是：L1 规范化倾向于聚集网络的权重在相对少量的高重要度连接上，而其他权重就会被驱使向 |w|  接近。
 
 
 # reference
@@ -197,3 +199,4 @@ L1 规范化，这个方法是在未规范化的代价函数上加上一个权�
   [22]: https://www.github.com/DragonFive/CVBasicOp/raw/master/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1501424722993.jpg
   [23]: https://www.github.com/DragonFive/CVBasicOp/raw/master/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1501425196600.jpg
   [24]: https://www.github.com/DragonFive/CVBasicOp/raw/master/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1501468097877.jpg
+  [25]: https://www.github.com/DragonFive/CVBasicOp/raw/master/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1501468817310.jpg
