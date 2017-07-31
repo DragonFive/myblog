@@ -181,7 +181,7 @@ dropout并不修改代价函数，而是修改网络本身。
 
 ## 参数初始化 
 输出神经元在错误的值上饱和导致学习的下降。但是隐含层的饱和没法解决，需要用其它的初始化方法。
-
+假设我们有一个有 $n_in$ 个输入权重的神经元。我们会使用均值为 Rendered by QuickLaTeX.com 标准差为Rendered by QuickLaTeX.com 的高斯随机分布初始化这些权重。也就是说，我们会向下挤压高斯分布，让我们的神经元更不可能饱和。我们会继续使用均值为 Rendered by QuickLaTeX.com 标准差为 Rendered by QuickLaTeX.com 的高斯分布来对偏置进行初始化
 
 
 # reference
