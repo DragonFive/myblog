@@ -4,7 +4,6 @@ categories:
 - 计算机视觉
 tags:
 - 目标跟踪
-- oepncv
 - 代码
 - TLD
 ---
