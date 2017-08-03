@@ -76,6 +76,10 @@ selective search的策略是，因为目标的层级关系，用到了**multisca
 
 区域的分数是区域内图片块权重之和。
 
+## RCNN 
+
+RCNN作为第一篇目标检测领域的深度学习文章。这篇文章的创新点有以下几点：将CNN用作目标检测的特征提取器、**有监督预训练的方式初始化**CNN、在CNN特征上做**BoundingBox 回归**。
+
 
 
 # reference
