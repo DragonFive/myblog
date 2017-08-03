@@ -4,7 +4,6 @@ categories:
 - 计算机视觉
 tags:
 - 目标跟踪
-- oepncv
 - 论文
 - kcf
 ---
