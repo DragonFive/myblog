@@ -35,12 +35,12 @@ tags:
 
 selective search的策略是，因为目标的层级关系，用到了**multiscale**的思想，那我们就尽可能遍历所有的尺度好了，但是不同于暴力穷举，可以先得到小尺度的区域，然后一次次**合并**得到大的尺寸就好了。既然特征很多，那就把我们知道的特征都用上，但是同时也要照顾下**计算复杂度**，不然和穷举法也没啥区别了。最后还要做的是能够**对每个区域进行排序**，这样你想要多少个候选我就产生多少个。
 
-- 使用Efficient GraphBased Image Segmentation中的方法来得到region
+- 使用**Efficient GraphBased** Image Segmentation中的方法来得到region
 - 得到所有region之间两两的相似度
 - 合并最像的两个region
 - 重新计算新合并region与其他region的相似度
 - 重复上述过程直到整张图片都聚合成一个大的region
-- 使用一种随机的计分方式给每个region打分，按照分数进行ranking，取出top k的子集，就是selective search的结果
+- 使用一种**随机的计分方式**给每个region打分，按照分数进行ranking，取出**top k**的子集，就是selective search的结果
 
 ### 区域划分与合并
 
