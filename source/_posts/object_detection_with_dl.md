@@ -65,6 +65,7 @@ selective search的策略是，因为目标的层级关系，用到了**multisca
 
 ### 距离计算多样性
 
+ 这里的纹理采用SIFT-Like特征。具体做法是对每个颜色通道的8个不同方向计算方差σ=1的高斯微分（GaussianDerivative），每个通道每个方向获取10 bins的直方图（L1-norm归一化），这样就可以获取到一个240维的向量。
 
 
 
