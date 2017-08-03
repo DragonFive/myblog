@@ -15,6 +15,11 @@ tags:
  去年总结了一篇关于目标检测的博客 [视频智能之——目标检测](https://dragonfive.github.io/object_detection/)，今年到现在有了新的体会，所以就更新一篇。
  ![目标检测题图][1]
 <!--more-->
+
+# 目标检测
+
+## 检测算法划分
+
 目标检测的算法大致可以如下划分：
 - 传统方法：
 1. 基于Boosting框架：Haar/LBP/积分HOG/ICF/ACF等特征+Boosting等
@@ -37,6 +42,6 @@ tags:
 # reference
 [目标检测（1）-Selective Search](https://zhuanlan.zhihu.com/p/27467369)
 
-
+[CVPR2017-目标检测相关论文](https://zhuanlan.zhihu.com/p/28088956)
 
   [1]: https://www.github.com/DragonFive/CVBasicOp/raw/master/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1501725558357.jpg
