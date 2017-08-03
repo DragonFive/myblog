@@ -20,6 +20,18 @@ tags:
 基于region proposal的RCNN系列：RCNN、Fast RCNN、Faster RCNN，基于区域划分的YOLO、SSD，基于强化学习的AttentionNet等，还有最新的Mask RCNN。
 
 
+- 传统方法：
+1. 基于Boosting框架：Haar/LBP/积分HOG/ICF/ACF等特征+Boosting等
+2. 基于SVM：HOG+SVM or DPM等
+
+- CNN方法：
+1. 基于region proposal：以Faster R-CNN为代表的R-CNN家族
+2. 基于回归区域划分的：YOLO/SSD
+3. 给予强化学习的：attentionNet等。 
+4. 大杂烩：Mask R-CNN
+
+
+
 
 
 
