@@ -15,11 +15,7 @@ tags:
  去年总结了一篇关于目标检测的博客 [视频智能之——目标检测](https://dragonfive.github.io/object_detection/)，今年到现在有了新的体会，所以就更新一篇。
  ![目标检测题图][1]
 
-<!--more-->
-
-基于region proposal的RCNN系列：RCNN、Fast RCNN、Faster RCNN，基于区域划分的YOLO、SSD，基于强化学习的AttentionNet等，还有最新的Mask RCNN。
-
-
+目标检测的算法大致可以如下划分：
 - 传统方法：
 1. 基于Boosting框架：Haar/LBP/积分HOG/ICF/ACF等特征+Boosting等
 2. 基于SVM：HOG+SVM or DPM等
@@ -31,7 +27,7 @@ tags:
 4. 大杂烩：Mask R-CNN
 
 
-
+<!--more-->
 
 
 
