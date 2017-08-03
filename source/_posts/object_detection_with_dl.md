@@ -52,7 +52,13 @@ selective search的策略是，因为目标的层级关系，用到了**multisca
 
 作者采用了8中不同的颜色方式，主要是为了考虑场景以及光照条件等。这个策略主要应用于【1】中图像分割算法中原始区域的生成。主要使用的颜色空间有：**（1）RGB，（2）灰度I，（3）Lab，（4）rgI（归一化的rg通道加上灰度），（5）HSV，（6）rgb（归一化的RGB），（7）C，（8）H（HSV的H通道）**
 
-使用L1-norm归一化获取图像**每个颜色通道的25 bins**的直方图，这样每个区域都可以得到一个**75维**的向量。
+使用L1-norm归一化获取图像**每个颜色通道的25 bins**的直方图，这样每个区域都可以得到一个**75维**的向量。![enter description here][2]，区域之间颜色相似度通过下面的公式计算：
+
+![enter description here][3]
+ 在区域合并过程中使用需要对新的区域进行计算其直方图，计算方法：
+![enter description here][4]
+优先合并小的区域.
+
 
 
 
@@ -70,4 +76,8 @@ selective search的策略是，因为目标的层级关系，用到了**multisca
 
 [CVPR2017-目标检测相关论文](https://zhuanlan.zhihu.com/p/28088956)
 
+
   [1]: https://www.github.com/DragonFive/CVBasicOp/raw/master/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1501725558357.jpg
+  [2]: https://www.github.com/DragonFive/CVBasicOp/raw/master/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1501731400655.jpg
+  [3]: https://www.github.com/DragonFive/CVBasicOp/raw/master/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1501731416622.jpg
+  [4]: https://www.github.com/DragonFive/CVBasicOp/raw/master/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1501731430205.jpg
