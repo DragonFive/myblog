@@ -83,6 +83,7 @@ selective search的策略是，因为目标的层级关系，用到了**multisca
 
 [CVPR2017-目标检测相关论文](https://zhuanlan.zhihu.com/p/28088956)
 
+[论文笔记 《Selective Search for Object Recognition》](http://blog.csdn.net/csyhhb/article/details/50425114)
 
   [1]: https://www.github.com/DragonFive/CVBasicOp/raw/master/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1501725558357.jpg
   [2]: https://www.github.com/DragonFive/CVBasicOp/raw/master/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1501731400655.jpg
