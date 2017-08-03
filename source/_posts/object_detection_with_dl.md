@@ -93,7 +93,15 @@ RCNN作为第一篇目标检测领域的深度学习文章。这篇文章的创�
 ![RCNN][6]
 
 RCNN的输入为完整图片，首先通过区域建议算法产生一系列的候选目标区域，其中使用的区域建议算法为Selective Search。然后对于这些目标区域候选提取其**CNN特征AlexNet**，并训练**SVM分类**这些特征。最后为了提高定位的准确性在SVM分类后区域基础上进行**BoundingBox回归**。
-# reference
+
+
+### reference
+
+[目标检测（2）-RCNN](https://zhuanlan.zhihu.com/p/27473413)
+
+
+
+# 其它reference
 
 
 [CVPR2017-目标检测相关论文](https://zhuanlan.zhihu.com/p/28088956)
