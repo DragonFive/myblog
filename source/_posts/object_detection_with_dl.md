@@ -17,7 +17,13 @@ tags:
 
 <!--more-->
 
-欢迎使用 **{小书匠}(xiaoshujiang)编辑器**，您可以通过==设置==里的修改模板来改变新建文章的内容。
+
+
+
+
+# reference
+[目标检测（1）-Selective Search](https://zhuanlan.zhihu.com/p/27467369)
+
 
 
   [1]: https://www.github.com/DragonFive/CVBasicOp/raw/master/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1501725558357.jpg
