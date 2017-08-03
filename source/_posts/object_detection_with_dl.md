@@ -78,6 +78,7 @@ selective search的策略是，因为目标的层级关系，用到了**multisca
 ### reference
 
 [目标检测（1）-Selective Search](https://zhuanlan.zhihu.com/p/27467369)
+
 [论文笔记 《Selective Search for Object Recognition》](http://blog.csdn.net/csyhhb/article/details/50425114)
 
 
