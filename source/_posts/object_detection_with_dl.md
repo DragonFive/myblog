@@ -101,6 +101,19 @@ RCNN使用ImageNet的有标签数据进行有监督的**预训练Alexnet**，然
 #### svm训练 
 数据是在经过微调的RCNN上取得Fc7层特征，然后训练SVM，并通过BoundingBox回归得到的最终结果。
 RCNN的SVM训练将**ground truth样本作为正样本**，而**IOU>0.3的样本作为负样本**，这样也是SVM困难样本挖掘的方法。
+
+
+#### 贪婪非极大值抑制
+
+由于有多达2K个区域候选，我们如何筛选得到最后的区域呢？RCNN使用**贪婪非极大值抑制**的方法，假设ABCDEF五个区域候选，首先根据概率从大到小排列。假设为FABCDE。然后从最大的F开始，计算F与ABCDE是否IoU是否超过某个阈值，如果超过则将ABC舍弃。然后再从D开始，直到集合为空。而这个阈值是筛选得到的，通过这种处理之后一般只会剩下几个区域候选了。
+
+#### BoundingBox回归
+
+为了进一步提高定位的准确率，RCNN在贪婪非极大值抑制后进行BoundingBox回归，进一步微调BoundingBox的位置。不同于DPM的BoundingBox回归，RCNN是在Pool5层进行的回归。而**BoundingBox是类别相关的，也就是不同类的BoundingBox回归的参数是不同的**。例如我们的区域候选给出的区域位置为：也就是区域的中心点坐标以及宽度和高度
+
+
+
+
 ### reference
 
 [目标检测（2）-RCNN](https://zhuanlan.zhihu.com/p/27473413)
