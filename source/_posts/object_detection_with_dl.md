@@ -14,7 +14,7 @@ tags:
 
  去年总结了一篇关于目标检测的博客 [视频智能之——目标检测](https://dragonfive.github.io/object_detection/)，今年到现在有了新的体会，所以就更新一篇。
  ![目标检测题图][1]
-
+<!--more-->
 目标检测的算法大致可以如下划分：
 - 传统方法：
 1. 基于Boosting框架：Haar/LBP/积分HOG/ICF/ACF等特征+Boosting等
@@ -27,7 +27,7 @@ tags:
 4. 大杂烩：Mask R-CNN
 
 
-<!--more-->
+
 
 
 
