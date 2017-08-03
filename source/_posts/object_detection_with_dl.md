@@ -17,7 +17,7 @@ tags:
 
 <!--more-->
 
-
+基于region proposal的RCNN系列：RCNN、Fast RCNN、Faster RCNN，基于区域划分的YOLO、SSD，基于强化学习的AttentionNet等，还有最新的Mask RCNN。
 
 
 
