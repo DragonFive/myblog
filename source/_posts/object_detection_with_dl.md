@@ -75,19 +75,23 @@ selective search的策略是，因为目标的层级关系，用到了**multisca
 这篇文章做法是，给予最先合并的**图片块**较大的权重，比如最后一块完整图像权重为1，倒数第二次合并的区域权重为2以此类推。但是当我们策略很多，多样性很多的时候呢，这个权重就会有太多的重合了，排序不好搞啊。文章做法是给他们乘以一个随机数，毕竟3分看运气嘛，然后对于相同的区域多次出现的也叠加下权重，毕竟多个方法都说你是目标，也是有理由的嘛。
 
 区域的分数是区域内图片块权重之和。
+### reference
+
+[目标检测（1）-Selective Search](https://zhuanlan.zhihu.com/p/27467369)
+[论文笔记 《Selective Search for Object Recognition》](http://blog.csdn.net/csyhhb/article/details/50425114)
+
 
 ## RCNN 
 
 RCNN作为第一篇目标检测领域的深度学习文章。这篇文章的创新点有以下几点：将CNN用作目标检测的特征提取器、**有监督预训练的方式初始化**CNN、在CNN特征上做**BoundingBox 回归**。
 
-
+目标检测区别于目标识别很重要的一点是其需要目标的具体位置，也就是BoundingBox。而产生BoundingBox最简单的方法就是滑窗，可以在卷积特征上滑窗。但是我们知道CNN是一个层次的结构，随着网络层数的加深，卷积特征的步伐及感受野也越来越大。
 
 # reference
-[目标检测（1）-Selective Search](https://zhuanlan.zhihu.com/p/27467369)
+
 
 [CVPR2017-目标检测相关论文](https://zhuanlan.zhihu.com/p/28088956)
 
-[论文笔记 《Selective Search for Object Recognition》](http://blog.csdn.net/csyhhb/article/details/50425114)
 
   [1]: https://www.github.com/DragonFive/CVBasicOp/raw/master/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1501725558357.jpg
   [2]: https://www.github.com/DragonFive/CVBasicOp/raw/master/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1501731400655.jpg
