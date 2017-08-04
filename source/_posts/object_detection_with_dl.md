@@ -132,8 +132,9 @@ RCNN的SVM训练将**ground truth样本作为正样本**，而**IOU>0.3的样本
 
 图可以看出SPPnet和RCNN的区别，首先是输入不需要放缩到指定大小。其次是增加了一个空间金字塔池化层，使得fc层能够固定参数个数。
 
-
-
+空间金字塔池化层是SPPNet的核心
+![enter description here][8]
+其主要目的是对于任意尺寸的输入产生固定大小的输出。思路是对于任意大小的feature map首先分成16、4、1个块，然后在每个块上最大池化，池化后的特征拼接得到一个固定维度的输出。以满足全连接层的需要。不过因为不是针对于目标检测的，所以输入的图像为一整副图像。
 
 ### reference
 
@@ -165,3 +166,4 @@ RCNN的SVM训练将**ground truth样本作为正样本**，而**IOU>0.3的样本
   [5]: https://www.github.com/DragonFive/CVBasicOp/raw/master/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1501731713492.jpg
   [6]: https://www.github.com/DragonFive/CVBasicOp/raw/master/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1501733503711.jpg
   [7]: https://www.github.com/DragonFive/CVBasicOp/raw/master/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1501816659717.jpg
+  [8]: https://www.github.com/DragonFive/CVBasicOp/raw/master/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1501819431880.jpg
