@@ -169,6 +169,11 @@ Mini-Batch的设置基本上与SPPNet是一致的，不同的在于128副图片�
 
 
 
+### reference
+
+[目标检测（5）-Faster RCNN](https://zhuanlan.zhihu.com/p/27988828)
+
+
 
 # 其它reference
 
