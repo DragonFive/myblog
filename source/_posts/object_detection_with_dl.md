@@ -114,13 +114,30 @@ RCNN的SVM训练将**ground truth样本作为正样本**，而**IOU>0.3的样本
 
 ### 瓶颈
 
-速度瓶颈：重复为每个region proposal提取特征是极其费时的，Selective Search对于每幅图片产生2K左右个region proposal，也就是意味着一幅图片需要经过2K次的完整的CNN计算得到最终的结果。
-性能瓶颈：对于所有的region proposal防缩到固定的尺寸会导致我们不期望看到的几何形变，而且由于速度瓶颈的存在，不可能采用多尺度或者是大量的数据增强去训练模型。
+- 速度瓶颈：重复为每个region proposal提取特征是极其费时的，Selective Search对于每幅图片产生2K左右个region proposal，也就是意味着一幅图片需要经过2K次的完整的CNN计算得到最终的结果。
+- 性能瓶颈：对于所有的region proposal**放缩**到固定的尺寸会导致我们不期望看到的**几何形变**，而且由于速度瓶颈的存在，不可能采用多尺度或者是大量的数据增强去训练模型。
+
 
 
 ### reference
 
 [目标检测（2）-RCNN](https://zhuanlan.zhihu.com/p/27473413)
+
+## SPPNet
+
+论文：Spatial Pyramid Pooling in Deep Convolutional Networks for Visual Recognition
+
+
+![sppnet与rcnn的区别][7]
+
+图可以看出SPPnet和RCNN的区别，首先是输入不需要放缩到指定大小。其次是增加了一个空间金字塔池化层，使得fc层能够固定参数个数。
+
+
+
+
+### reference
+
+[目标检测（3）-SPPNet](https://zhuanlan.zhihu.com/p/27485018)
 
 
 
@@ -147,3 +164,4 @@ RCNN的SVM训练将**ground truth样本作为正样本**，而**IOU>0.3的样本
   [4]: https://www.github.com/DragonFive/CVBasicOp/raw/master/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1501731430205.jpg
   [5]: https://www.github.com/DragonFive/CVBasicOp/raw/master/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1501731713492.jpg
   [6]: https://www.github.com/DragonFive/CVBasicOp/raw/master/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1501733503711.jpg
+  [7]: https://www.github.com/DragonFive/CVBasicOp/raw/master/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1501816659717.jpg
