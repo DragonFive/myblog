@@ -160,6 +160,14 @@ Mini-Batch的设置基本上与SPPNet是一致的，不同的在于128副图片�
 - ROI Pooling的反向传播
 不同于SPPNet，我们的ROI Pooling是可以反向传播的，让我们考虑下正常的Pooling层是如何反向传播的，以**Max Pooling为例，根据链式法则，对于最大位置的神经元偏导数为1，对于其他神经元偏导数为0**。ROI Pooling 不用于常规Pooling，因为很多的区域建议的感受野可能是相同的或者是重叠的，因此在一个Batch_Size内，我们需要对于这些重叠的神经元偏导数进行求和，然后反向传播回去就好啦。
 
+### reference
+
+[目标检测（4）-Fast R-CNN](https://zhuanlan.zhihu.com/p/27582096)
+
+## Faster RCNN
+
+
+
 
 
 # 其它reference
