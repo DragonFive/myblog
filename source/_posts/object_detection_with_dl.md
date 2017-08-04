@@ -109,14 +109,29 @@ RCNN的SVM训练将**ground truth样本作为正样本**，而**IOU>0.3的样本
 
 #### BoundingBox回归
 
-为了进一步提高定位的准确率，RCNN在贪婪非极大值抑制后进行BoundingBox回归，进一步微调BoundingBox的位置。不同于DPM的BoundingBox回归，RCNN是在Pool5层进行的回归。而**BoundingBox是类别相关的，也就是不同类的BoundingBox回归的参数是不同的**。例如我们的区域候选给出的区域位置为：也就是区域的中心点坐标以及宽度和高度
+为了进一步提高定位的准确率，RCNN在贪婪非极大值抑制后进行BoundingBox回归，进一步微调BoundingBox的位置。不同于DPM的BoundingBox回归，RCNN是在Pool5层进行的回归。而**BoundingBox是类别相关的，也就是不同类的BoundingBox回归的参数是不同的**。例如我们的区域候选给出的区域位置为：也就是区域的中心点坐标以及宽度和高度。
 
 
+### 瓶颈
+
+速度瓶颈：重复为每个region proposal提取特征是极其费时的，Selective Search对于每幅图片产生2K左右个region proposal，也就是意味着一幅图片需要经过2K次的完整的CNN计算得到最终的结果。
+性能瓶颈：对于所有的region proposal防缩到固定的尺寸会导致我们不期望看到的几何形变，而且由于速度瓶颈的存在，不可能采用多尺度或者是大量的数据增强去训练模型。
 
 
 ### reference
 
 [目标检测（2）-RCNN](https://zhuanlan.zhihu.com/p/27473413)
+
+
+
+## fast RCNN
+
+无论是RCNN还是SPPNet，其**训练都是多阶段**的。首先通过ImageNet**预训练网络模型**，然后通过检测数据集**微调模型提取每个区域候选的特征**，之后通过**SVM分类**每个区域候选的种类，最后通过**区域回归**，精细化每个区域的具体位置。为了避免多阶段训练，同时在单阶段训练中提升识别准确率，Fast RCNN提出了**多任务目标函数**，将SVM分类以及区域回归的部分纳入了卷积神经网络中。
+
+### 网络结构
+
+
+
 
 
 
