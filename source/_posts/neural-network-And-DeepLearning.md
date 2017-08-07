@@ -181,7 +181,11 @@ dropout并不修改代价函数，而是修改网络本身。
 
 ## 参数初始化 
 输出神经元在错误的值上饱和导致学习的下降。但是隐含层的饱和没法解决，需要用其它的初始化方法。
-假设我们有一个有![enter description here][29]个输入权重的神经元。我们会使用**均值为 0 标准差为 ![enter description here][30] 的高斯随机分布**初始化这些权重。也就是说，我们会**向下挤压高斯分布**，让我们的神经元更不可能饱和。我们会继续使用均值为0 标准差为 1 的高斯分布来对偏置进行初始化。
+假设我们有一个有![enter description here][28]个输入权重的神经元。我们会使用**均值为 0 标准差为 ![enter description here][29] 的高斯随机分布**初始化这些权重。也就是说，我们会**向下挤压高斯分布**，让我们的神经元更不可能饱和。我们会继续使用均值为0 标准差为 1 的高斯分布来对偏置进行初始化。
+
+最初使用标准查为1的高斯随机分布会导致神经元饱和的原因是：![enter description here][30]，z是所有元素的和，这样的化sigmoid函数的输入就会很大，这样就导致输出为1或者0,神经元饱和。
+
+
 
 
 
@@ -222,6 +226,6 @@ dropout并不修改代价函数，而是修改网络本身。
   [25]: https://www.github.com/DragonFive/CVBasicOp/raw/master/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1501468097877.jpg
   [26]: https://www.github.com/DragonFive/CVBasicOp/raw/master/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1501468817310.jpg
   [27]: https://www.github.com/DragonFive/CVBasicOp/raw/master/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1501469475625.jpg
-  [28]: https://www.github.com/DragonFive/CVBasicOp/raw/master/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1501477340940.jpg
-  [29]: https://www.github.com/DragonFive/CVBasicOp/raw/master/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1501474164438.jpg
-  [30]: https://www.github.com/DragonFive/CVBasicOp/raw/master/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1501474130990.jpg
+  [28]: https://www.github.com/DragonFive/CVBasicOp/raw/master/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1501474164438.jpg
+  [29]: https://www.github.com/DragonFive/CVBasicOp/raw/master/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1501474130990.jpg
+  [30]: https://www.github.com/DragonFive/CVBasicOp/raw/master/1502071086301.jpg
