@@ -189,9 +189,15 @@ dropout并不修改代价函数，而是修改网络本身。
 
 ## momentum 动量
 
+momentum 技术修改了梯度下降的两处：
 
+1. 引入速度的概念
+2. 引入摩擦力项，逐步减小速度。
 
+我们将梯度下降更新规则 改成：
+![速度改变][31]
 
+![新的梯度下降公式][32]
 
 
 ## 其它激活函数及其适用场景
@@ -238,3 +244,5 @@ dropout并不修改代价函数，而是修改网络本身。
   [28]: https://www.github.com/DragonFive/CVBasicOp/raw/master/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1501474164438.jpg
   [29]: https://www.github.com/DragonFive/CVBasicOp/raw/master/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1501474130990.jpg
   [30]: https://www.github.com/DragonFive/CVBasicOp/raw/master/1502071086301.jpg
+  [31]: https://www.github.com/DragonFive/CVBasicOp/raw/master/1502088936161.jpg
+  [32]: https://www.github.com/DragonFive/CVBasicOp/raw/master/1502088940920.jpg
