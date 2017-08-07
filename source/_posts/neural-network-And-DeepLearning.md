@@ -206,7 +206,7 @@ $\mu$ 是用来控制摩擦力的超参数，取值范围从0到1。当$\mu=1$�
 
 
 ## 其它激活函数及其适用场景
-tanh曲线的取值范围是从-1到1,假设我们使用 Sigmoid 型神经元，所有激活值都是正数。让我们考虑一下权重
+tanh曲线的取值范围是从-1到1,假设我们使用 Sigmoid 型神经元，所有激活值都是正数。让我们考虑一下权重![enter description here][33]输入到第 l+1 层的第 j 个神经元上
 
 
 # reference
@@ -251,3 +251,4 @@ tanh曲线的取值范围是从-1到1,假设我们使用 Sigmoid 型神经元，
   [30]: https://www.github.com/DragonFive/CVBasicOp/raw/master/1502071086301.jpg
   [31]: https://www.github.com/DragonFive/CVBasicOp/raw/master/1502088936161.jpg
   [32]: https://www.github.com/DragonFive/CVBasicOp/raw/master/1502088940920.jpg
+  [33]: https://www.github.com/DragonFive/CVBasicOp/raw/master/1502093675016.jpg
