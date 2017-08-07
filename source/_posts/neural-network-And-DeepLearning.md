@@ -206,7 +206,9 @@ $\mu$ 是用来控制摩擦力的超参数，取值范围从0到1。当$\mu=1$�
 
 
 ## 其它激活函数及其适用场景
-tanh曲线的取值范围是从-1到1,假设我们使用 Sigmoid 型神经元，所有激活值都是正数。让我们考虑一下权重![enter description here][33]输入到第 l+1 层的第 j 个神经元上
+tanh曲线的取值范围是从-1到1,假设我们使用 Sigmoid 型神经元，所有激活值都是正数。让我们考虑一下权重![enter description here][33]输入到第 l+1 层的第 j 个神经元上.相应的梯度是![enter description here][34] 。因为所有的激活值都是正值，所以梯度的符号就l+1的输出误差![enter description here][35]一致。如果这误差为正，那么所有的权重都会在梯度下降时减少。也就是说针对同一个神经元的所有权重都会统一的减少或增加。因为有些环境权重可能需要有相反的变化，tanh可以起到这样的作用，能够做一些性能上的提升。
+
+relu 修正线性单元，不会存在神经元饱和的问题。
 
 
 # reference
@@ -252,3 +254,5 @@ tanh曲线的取值范围是从-1到1,假设我们使用 Sigmoid 型神经元，
   [31]: https://www.github.com/DragonFive/CVBasicOp/raw/master/1502088936161.jpg
   [32]: https://www.github.com/DragonFive/CVBasicOp/raw/master/1502088940920.jpg
   [33]: https://www.github.com/DragonFive/CVBasicOp/raw/master/1502093675016.jpg
+  [34]: https://www.github.com/DragonFive/CVBasicOp/raw/master/1502093754335.jpg
+  [35]: https://www.github.com/DragonFive/CVBasicOp/raw/master/1502093842719.jpg
