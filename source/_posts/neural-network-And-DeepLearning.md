@@ -131,7 +131,7 @@ tags:
 
 ![损失函数是log最大似然][19]
 
-![bottom-diff的值][20]
+ ![bottom-diff的值][20]
 
 ![偏置的偏导][21]
 
@@ -152,6 +152,7 @@ tags:
 直观来说，正则化的作用是让网络偏向学习更小的权值，而在其它的方面保持不变。选择较大的权值只有一种情况，那就是它们能显著地改进代价函数的第一部分。换句话说，正则化可以视作一种能够**折中考虑小权值和最小化原来代价函数**的方法。
 
 而在反向传播过程中，这个正则项只影响权重项。
+
 ![损失函数对权重和偏置的偏导][24]
 如果代价函数没有正则化，那么**权重向量的长度**倾向于增长，而其它的都不变。随着时间推移，权重向量将会变得非常大。这可能导致权重向量被限制得或多或少指向同一个方向，因为当长度过长时，梯度下降只能带来很小的变化。我相信这一现象令我们的学习算法难于恰当地探索权重空间，**因而难以给代价函数找到一个好的极小值**。
 
@@ -178,37 +179,16 @@ dropout并不修改代价函数，而是修改网络本身。
 
 可以提高网络性能
 
-** 参数初始化 **
+
+
+** batch normalization **
+
+
+
+## 参数初始化 
 输出神经元在错误的值上饱和导致学习的下降。但是隐含层的饱和没法解决，需要用其它的初始化方法。
-假设我们有一个有![enter description here][28]个输入权重的神经元。我们会使用**均值为 0 标准差为 ![enter description here][29] 的高斯随机分布**初始化这些权重。也就是说，我们会**向下挤压高斯分布**，让我们的神经元更不可能饱和。我们会继续使用均值为0 标准差为 1 的高斯分布来对偏置进行初始化。
+假设我们有一个有![enter description here][29]个输入权重的神经元。我们会使用**均值为 0 标准差为 ![enter description here][30] 的高斯随机分布**初始化这些权重。也就是说，我们会**向下挤压高斯分布**，让我们的神经元更不可能饱和。我们会继续使用均值为0 标准差为 1 的高斯分布来对偏置进行初始化。
 
-最初使用标准查为1的高斯随机分布会导致神经元饱和的原因是：![enter description here][30]，z是所有元素的和，这样的化sigmoid函数的输入就会很大，这样就导致输出为1或者0,神经元饱和。
-
-独立随机变量和的方差，是每个独立随机变量方差的和；
-
-## momentum 动量
-
-momentum 技术修改了梯度下降的两处：
-
-1. 引入速度的概念
-2. 引入摩擦力项，逐步减小速度。
-
-我们将梯度下降更新规则 改成：
-
-![速度改变][31]
-
-![新的梯度下降公式][32]
-
-
-
-$\mu$ 是用来控制摩擦力的超参数，取值范围从0到1。当$\mu=1$的时候，对应于没有任何摩擦力，这样就会在梯度方向上不断叠加速度。若是$\mu=0$ 就是有很大的摩擦，以至于没有速度叠加。在0和1之间的时候$\mu$ 值可以给我们避免过量而有能够叠加速度的好处。 
-
-
-
-## 其它激活函数及其适用场景
-tanh曲线的取值范围是从-1到1,假设我们使用 Sigmoid 型神经元，所有激活值都是正数。让我们考虑一下权重![enter description here][33]输入到第 l+1 层的第 j 个神经元上.相应的梯度是![enter description here][34] 。因为所有的激活值都是正值，所以梯度的符号就l+1的输出误差![enter description here][35]一致。如果这误差为正，那么所有的权重都会在梯度下降时减少。也就是说针对同一个神经元的所有权重都会统一的减少或增加。因为有些环境权重可能需要有相反的变化，tanh可以起到这样的作用，能够做一些性能上的提升。
-
-relu 修正线性单元，不会存在神经元饱和的问题。
 
 
 # reference
@@ -248,11 +228,6 @@ relu 修正线性单元，不会存在神经元饱和的问题。
   [25]: https://www.github.com/DragonFive/CVBasicOp/raw/master/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1501468097877.jpg
   [26]: https://www.github.com/DragonFive/CVBasicOp/raw/master/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1501468817310.jpg
   [27]: https://www.github.com/DragonFive/CVBasicOp/raw/master/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1501469475625.jpg
-  [28]: https://www.github.com/DragonFive/CVBasicOp/raw/master/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1501474164438.jpg
-  [29]: https://www.github.com/DragonFive/CVBasicOp/raw/master/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1501474130990.jpg
-  [30]: https://www.github.com/DragonFive/CVBasicOp/raw/master/1502071086301.jpg
-  [31]: https://www.github.com/DragonFive/CVBasicOp/raw/master/1502088936161.jpg
-  [32]: https://www.github.com/DragonFive/CVBasicOp/raw/master/1502088940920.jpg
-  [33]: https://www.github.com/DragonFive/CVBasicOp/raw/master/1502093675016.jpg
-  [34]: https://www.github.com/DragonFive/CVBasicOp/raw/master/1502093754335.jpg
-  [35]: https://www.github.com/DragonFive/CVBasicOp/raw/master/1502093842719.jpg
+  [28]: https://www.github.com/DragonFive/CVBasicOp/raw/master/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1501477340940.jpg
+  [29]: https://www.github.com/DragonFive/CVBasicOp/raw/master/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1501474164438.jpg
+  [30]: https://www.github.com/DragonFive/CVBasicOp/raw/master/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1501474130990.jpg
