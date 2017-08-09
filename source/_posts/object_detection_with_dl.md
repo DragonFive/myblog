@@ -187,6 +187,11 @@ RPN对于feature map的每个位置进行**滑窗**，通过**不同尺度以及
 
 [目标检测（5）-Faster RCNN](https://zhuanlan.zhihu.com/p/27988828)
 
+## YoLo
+
+
+### reference
+[YOLO：实时快速目标检测](https://zhuanlan.zhihu.com/p/25045711)
 
 
 # 其它reference
