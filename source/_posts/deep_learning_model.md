@@ -61,13 +61,13 @@ Alexnet有一个特殊的计算层，LRN层，做的事是对当前层的输出�
 
 ![incepiton v2][3]
 
-
+![incpiton 网络结构][4]
 
 ## VGG
 
 特点也是连续conv多，计算量巨大
 
-![做连续卷积][4]
+![做连续卷积][5]
 
 
 ## resnet
@@ -76,7 +76,7 @@ Alexnet有一个特殊的计算层，LRN层，做的事是对当前层的输出�
 
 block的结构如下图 
 
-![block][5]
+![block][6]
 
 # reference
 
@@ -84,5 +84,6 @@ block的结构如下图
   [1]: https://www.github.com/DragonFive/CVBasicOp/raw/master/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1502709541017.jpg
   [2]: https://www.github.com/DragonFive/CVBasicOp/raw/master/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1502709248613.jpg
   [3]: https://www.github.com/DragonFive/CVBasicOp/raw/master/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1502710845336.jpg
-  [4]: https://www.github.com/DragonFive/CVBasicOp/raw/master/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1502710007686.jpg
-  [5]: https://www.github.com/DragonFive/CVBasicOp/raw/master/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1502710123203.jpg
+  [4]: https://www.github.com/DragonFive/CVBasicOp/raw/master/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1502710981337.jpg
+  [5]: https://www.github.com/DragonFive/CVBasicOp/raw/master/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1502710007686.jpg
+  [6]: https://www.github.com/DragonFive/CVBasicOp/raw/master/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1502710123203.jpg
