@@ -55,12 +55,19 @@ Alexnet有一个特殊的计算层，LRN层，做的事是对当前层的输出�
 
 目前很多工作证明，要想增强网络能力，可以：增加网络深度，增加网络宽度；但是为了**减少过拟合，也要减少自由参数**。因此，就自然而然有了这个第一版的Inception网络结构——同一层里面，有卷积1x1, 3x 3,5x 5 **不同的卷积模板，他们可以在不同size的感受野做特征提取**，也算的上是一种混合模型了。因为**Max Pooling本身也有特征提取的作用**，而且和卷积不同，没有参数不会过拟合，也作为一个分支。但是直接这样做，整个网络计算量会较大，且层次并没有变深，因此，在3x3和5x5卷 积前面**先做1x1的卷积，降低input的channel数量，这样既使得网络变深，同时计算量反而小了**；（在每一个卷积之后都有**ReLU**）
 
+### inception v2 v3
+
+用1x3和3x1卷积替代3x3卷积，计算量少了很多，深度变深，思路是一样的。（实际上是1xn和nx1替代nxn，n可以变）,使用的是不对称的卷积核
+
+![incepiton v2][3]
+
+
 
 ## VGG
 
 特点也是连续conv多，计算量巨大
 
-![做连续卷积][3]
+![做连续卷积][4]
 
 
 ## resnet
@@ -69,12 +76,13 @@ Alexnet有一个特殊的计算层，LRN层，做的事是对当前层的输出�
 
 block的结构如下图 
 
-![block][4]
+![block][5]
 
 # reference
 
 
   [1]: https://www.github.com/DragonFive/CVBasicOp/raw/master/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1502709541017.jpg
   [2]: https://www.github.com/DragonFive/CVBasicOp/raw/master/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1502709248613.jpg
-  [3]: https://www.github.com/DragonFive/CVBasicOp/raw/master/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1502710007686.jpg
-  [4]: https://www.github.com/DragonFive/CVBasicOp/raw/master/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1502710123203.jpg
+  [3]: https://www.github.com/DragonFive/CVBasicOp/raw/master/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1502710845336.jpg
+  [4]: https://www.github.com/DragonFive/CVBasicOp/raw/master/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1502710007686.jpg
+  [5]: https://www.github.com/DragonFive/CVBasicOp/raw/master/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1502710123203.jpg
