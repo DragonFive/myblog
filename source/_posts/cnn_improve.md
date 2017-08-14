@@ -95,7 +95,26 @@ mobilenet也是用卷积拆分的方法
 
 
 ## DeepCompresion
+文章早期的工作，是Network Pruning，就是去除网络中权重低于一定阈值的参数后，重新**finetune一个稀疏网络**。在这篇文章中，则进一步添加了量化和编码，思路很清晰简单如下。
 
+### 网络剪枝：移除不重要的连接
+（1） 普通网络训练；
+
+（2） 删除权重小于一定阈值的连接得到**稀疏网络**；
+
+（3） 对稀疏网络再训练；
+
+### 权重量化与共享
+让许多连接共享同一权重，使原始存储整个网络权重变为只需要存储码本(有效的权重)和索引；
+
+对于一个4×4的权值矩阵，量化权重为4阶（-1.0，0，1.5，2.0）。
+
+![量化过程][5]
+
+
+
+
+### 霍夫曼编码：更高效利用了权重的有偏分布；
 
 
 ## Binarized Neural Networks
@@ -121,3 +140,4 @@ mobilenet也是用卷积拆分的方法
   [2]: https://www.github.com/DragonFive/CVBasicOp/raw/master/1502694686047.jpg
   [3]: https://www.github.com/DragonFive/CVBasicOp/raw/master/1502694868072.jpg
   [4]: https://www.github.com/DragonFive/CVBasicOp/raw/master/1502695760857.jpg
+  [5]: https://www.github.com/DragonFive/CVBasicOp/raw/master/1502698285109.jpg
