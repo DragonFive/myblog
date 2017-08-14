@@ -68,8 +68,8 @@ MobileNet将95％的计算时间用于有75％的参数的1×1卷积。
 
 
 
-
-
+没有使用这两个参数的mobilenet是vGG的1/30 
+![mobilenet参数量][7]
 
 
 
@@ -107,3 +107,4 @@ MobileNet将95％的计算时间用于有75％的参数的1×1卷积。
   [4]: https://www.github.com/DragonFive/CVBasicOp/raw/master/1502677244854.jpg
   [5]: https://www.github.com/DragonFive/CVBasicOp/raw/master/1502677189961.jpg
   [6]: https://www.github.com/DragonFive/CVBasicOp/raw/master/1502677324886.jpg
+  [7]: https://www.github.com/DragonFive/CVBasicOp/raw/master/1502695710122.jpg
