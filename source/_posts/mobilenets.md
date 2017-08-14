@@ -18,7 +18,7 @@ tags:
 
 ![enter description here][1]
 
-mobilenet 对于alexnet运行速度提高了10倍，参数量降低了50倍！
+mobilenet 对于alexnet运行速度提高了10倍，参数量降低了50倍！而squeezenet虽然参数量也降低了50倍，但是速度提升很小。
 
 <!--more-->
 
