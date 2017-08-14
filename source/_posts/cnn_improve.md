@@ -36,6 +36,7 @@ Alexnet[1]是一个8层的卷积神经网络，有约**60M个参数**，如果�
 1×1卷积，在 GoogLeNet Inception v1以及后续版本，ResNet中都大量得到应用，**有减少模型参数**的作用。
 
 
+
 # reference
 
 [知乎:为了压榨CNN模型，这几年大家都干了什么](https://zhuanlan.zhihu.com/p/25797790)
