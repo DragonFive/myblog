@@ -86,6 +86,13 @@ mobilenet也是用卷积拆分的方法
 
 [知乎:为了压榨CNN模型，这几年大家都干了什么](https://zhuanlan.zhihu.com/p/25797790)
 
+[mobile_net的模型优化](https://dragonfive.github.io/2017-07-17/mobilenets/)
+
+
+[squeeze_net的模型优化](https://dragonfive.github.io/2017-07-20/squeeze_net/)
+
+[神经网络模型演化](https://dragonfive.github.io/2017-07-05/deep_learning_model/)
+
 
   [1]: https://www.github.com/DragonFive/CVBasicOp/raw/master/1502693251377.jpg
   [2]: https://www.github.com/DragonFive/CVBasicOp/raw/master/1502694686047.jpg
