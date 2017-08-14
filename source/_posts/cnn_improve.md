@@ -76,7 +76,8 @@ mobilenet也是用卷积拆分的方法
 
 作出更多共享的是有一个width Multiplier宽度参数和resolution Multiplier 分辨率参数 ，可以降低更多的参数。
 
-
+没使用这两个参数的mobilenet是VGGNet的1/30
+![mobilenet][4]
 
 
 
@@ -97,3 +98,4 @@ mobilenet也是用卷积拆分的方法
   [1]: https://www.github.com/DragonFive/CVBasicOp/raw/master/1502693251377.jpg
   [2]: https://www.github.com/DragonFive/CVBasicOp/raw/master/1502694686047.jpg
   [3]: https://www.github.com/DragonFive/CVBasicOp/raw/master/1502694868072.jpg
+  [4]: https://www.github.com/DragonFive/CVBasicOp/raw/master/1502695760857.jpg
