@@ -50,6 +50,8 @@ int MPI_Send (void *buf, int count, MPI_Datatype datatype,int dest, int tag,MPI_
 ```
 参数buf为发送缓冲区；count为发送的数据个数；datatype为发送的数据类型；dest为消息的目的地址(进程号)，其取值范围为0到np－1间的整数(np代表通信器comm中的进程数) 或MPI_PROC_NULL；tag为消息标签，其取值范围为0到MPI_TAG_UB间的整数；**comm为通信器**
 
+mpi_recv:接收信息   MPI_Probe：预测一下消息的size
+
 
 # reference
 
