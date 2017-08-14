@@ -26,3 +26,5 @@ tags:
 
 # reference
 [深度学习（六十二）SqueezeNet网络设计思想笔记](http://blog.csdn.net/hjimce/article/details/72809131)
+
+[ 深度学习方法（七）：最新SqueezeNet 模型详解](http://blog.csdn.net/xbinworld/article/details/50897870)
