@@ -18,6 +18,8 @@ tags:
 
 ![enter description here][1]
 
+mobilenet 对于alexnet运行速度提高了10倍，参数量降低了50倍
+
 <!--more-->
 
 
@@ -25,7 +27,7 @@ tags:
 在建立小型和有效的神经网络上，已经有了一些工作，比如SqueezeNet，Google Inception，Flattened network等等。大概分为压缩预训练模型和直接训练小型网络两种。MobileNets主要关注优化延迟，同时兼顾模型大小。
 
 # mobileNets模型结构
-只有一个avg pooling层，用来替换fc层，少用fc和pooling层就能减少参数量
+只有一个avg pooling层，用来替换fc层，少用fc和pooling层就能减少参数量。
 ## 深度可分解卷积 
 MobileNets模型基于**深度可分解的卷积**，它可以**将标准卷积分解成一个深度卷积和一个点卷积（1 × 1卷积核）**。标准卷积核为：a × a × c，其中a是卷积核大小，c是卷积核的通道数，本文将其一分为二，一个卷积核是a × a × 1，一个卷积核是1 ×1 × c。简单说，就是标准卷积同时完成了**2维卷积计算和改变特征数量**两件事，本文把这两件事分开做了。后文证明，这种分解可以有效减少计算量，降低模型大小。
 
