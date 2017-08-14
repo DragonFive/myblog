@@ -188,7 +188,10 @@ dropout并不修改代价函数，而是修改网络本身。主要是用在全�
 
 ![batch normalization][28]
 
+1）直接对输入信号的每个维度做规范化（“normalize each scalar feature independently”）；
+2）在每个mini-batch中计算得到mini-batch mean和variance来替代整体训练集的mean和variance.
 
+BN的提出还是为了克服深度神经网络难以训练的弊病.说到底还是为了防止“梯度弥散”。关于梯度弥散，大家都知道一个简单的栗子：$ 0.9^30 = 0.04 $
 
 [知乎:深度学习中 Batch Normalization为什么效果好？](https://www.zhihu.com/question/38102762)
 
