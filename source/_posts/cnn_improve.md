@@ -16,8 +16,13 @@ tags:
 
 ![各种CNN模型][1]
 
+模型大小(参数量)和模型的深浅并非是正相关。
+
 <!--more-->
 
+# 一些经典的模型设计路线
+
+## fully connect to local connect 全连接到卷积神经网络
 
 
 
