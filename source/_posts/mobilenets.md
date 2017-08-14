@@ -7,9 +7,7 @@ categories:
 - 深度学习
 tags:
 - deeplearning
-- 梯度下降法
-- 正则化
-- 激活函数
+- 网络优化
 - 神经网络
 ---
 [TOC]
