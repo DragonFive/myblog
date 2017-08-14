@@ -38,6 +38,8 @@ tags:
 
 [ 深度学习（六十五）移动端网络MobileNets](http://blog.csdn.net/hjimce/article/details/72831171)
 
+[MobileNets 论文笔记](http://blog.csdn.net/Jesse_Mx/article/details/70766871)
+
 [MobileNets: Efficient Convolutional Neural Networks for Mobile Vision Applications 论文理解](http://www.jianshu.com/p/2fd0c007a560)
 
 [tensorflow训练好的模型怎么调用？](https://www.zhihu.com/question/58287577)
