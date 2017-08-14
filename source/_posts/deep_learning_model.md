@@ -82,7 +82,13 @@ block的结构如下图
 ## Global Average Pooling
 
 
+在Googlenet网络中，也用到了Global Average Pooling，其实是受启发于Network In Network。Global Average Pooling一般用于放在网络的最后，用于替换全连接FC层，为什么要替换FC？因为在使用中，例如alexnet和vgg网络都在卷积和softmax之间串联了fc层，发现有一些缺点：
 
+（1）**参数量极大**，有时候一个网络超过80~90%的参数量在最后的几层FC层中； 
+（2）**容易过拟合**，很多CNN网络的过拟合主要来自于最后的fc层，因为参数太多，却没有合适的regularizer；过拟合导致模型的泛化能力变弱； 
+（3）实际应用中非常重要的一点，paper中并没有提到：**FC要求输入输出是fix的**，也就是说图像必须按照给定大小，而实际中，图像有大有小，fc就很不方便；
+
+作者提出了Global Average Pooling，做法很简单，是对**每一个单独的feature map取全局average**。要求输出的nodes和分类category数量一致，这样后面就可以直接接softmax了。
 
 
 # reference
