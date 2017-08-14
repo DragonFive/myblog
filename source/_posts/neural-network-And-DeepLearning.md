@@ -184,6 +184,9 @@ dropout并不修改代价函数，而是修改网络本身。主要是用在全�
 ** batch normalization **
 用在relu前面效果好，是LRN的升级版，把结果映射到0-1之间。
 
+即在每次SGD时，通过mini-batch来对相应的activation做规范化操作，使得结果（输出信号各个维度）的均值为0，方差为1. 而最后的“scale and shift”操作则是为了让因训练所需而“刻意”加入的BN能够有可能还原最初的输入，从而保证整个network的capacity。
+
+![batch normalization][28]
 
 
 
@@ -233,6 +236,6 @@ dropout并不修改代价函数，而是修改网络本身。主要是用在全�
   [25]: https://www.github.com/DragonFive/CVBasicOp/raw/master/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1501468097877.jpg
   [26]: https://www.github.com/DragonFive/CVBasicOp/raw/master/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1501468817310.jpg
   [27]: https://www.github.com/DragonFive/CVBasicOp/raw/master/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1501469475625.jpg
-  [28]: https://www.github.com/DragonFive/CVBasicOp/raw/master/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1501477340940.jpg
+  [28]: https://www.github.com/DragonFive/CVBasicOp/raw/master/1502692445739.jpg
   [29]: https://www.github.com/DragonFive/CVBasicOp/raw/master/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1501474164438.jpg
   [30]: https://www.github.com/DragonFive/CVBasicOp/raw/master/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1501474130990.jpg
