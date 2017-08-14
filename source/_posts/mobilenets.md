@@ -34,6 +34,36 @@ MobileNets模型基于**深度可分解的卷积**，它可以**将标准卷积�
 ![深度可分解的卷积][2]
 
 
+首先是标准卷积，假定输入F的维度是 DF×DF×M ，经过标准卷积核K得到输出G的维度 DG×DG×N ，卷积核参数量表示为 DK×DK×M×N 。如果计算代价也用数量表示，应该为 DK×DK×M×N×DF×DF 。
+
+现在将卷积核进行分解，那么按照上述计算公式，可得深度卷积的计算代价为 DK×DK×M×DF×DF ，点卷积的计算代价为 M×N×DF×DF 。
+
+![参数量][3]
+
+
+## 模型结构和训练 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 [tensorflow官网](https://www.tensorflow.org/mobile/)给出了部署方式，支持android,ios,raspberry Pi等。
@@ -63,3 +93,4 @@ MobileNets模型基于**深度可分解的卷积**，它可以**将标准卷积�
 
   [1]: https://www.github.com/DragonFive/CVBasicOp/raw/master/1500434910512.jpg
   [2]: https://www.github.com/DragonFive/CVBasicOp/raw/master/1502675769608.jpg
+  [3]: https://www.github.com/DragonFive/CVBasicOp/raw/master/1502676514289.jpg
