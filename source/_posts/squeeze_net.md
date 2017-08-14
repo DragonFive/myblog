@@ -35,7 +35,7 @@ SqueezeNet主要是为了降低CNN模型参数数量而设计的。
 （3）**减少pooling **
 这个观点在很多其他工作中都已经有体现了，比如GoogleNet以及Deep Residual Learning。
 
-
+同时也替换fc层为 global avg pooling层
 ## Fire Module
 
 Fire Module是本文的核心构件，思想非常简单，就是将原来简单的一层conv层变成两层：**squeeze层+expand层**，各自带上Relu激活层。在squeeze层里面全是1x1的卷积kernel，数量记为S11；在expand层里面有1x1和3x3的卷积kernel，数量分别记为E11和E33，**要求S11 < input map number即满足上面的设计原则（2）**。expand层之后将1x1和3x3的卷积output feature maps在**channel维度拼接起来**。
@@ -43,6 +43,15 @@ Fire Module是本文的核心构件，思想非常简单，就是将原来简单
 ![squeezenet][1]
 
 
+## 总体网络架构
+
+
+
+![squeezenet网络结构][2]
+
+共有**9层fire module**，中间穿插一些max pooling，最后是**global avg pooling代替了fc层**（参数大大减少）。在开始和最后还有两层最简单的单层conv层，保证输入输出大小可掌握。
+
+![squeezenet参数数量][3]
 
 
 
@@ -58,3 +67,5 @@ Fire Module是本文的核心构件，思想非常简单，就是将原来简单
 
 
   [1]: https://www.github.com/DragonFive/CVBasicOp/raw/master/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1502707058373.jpg
+  [2]: https://www.github.com/DragonFive/CVBasicOp/raw/master/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1502707143096.jpg
+  [3]: https://www.github.com/DragonFive/CVBasicOp/raw/master/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1502707297973.jpg
