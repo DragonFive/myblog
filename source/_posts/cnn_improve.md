@@ -1,5 +1,5 @@
 ---
-title: cnn_improve
+title: 神经网络的压缩优化
 
 date: 2017/8/5 12:04:12
 
