@@ -59,6 +59,13 @@ Alexnet有一个特殊的计算层，LRN层，做的事是对当前层的输出�
 ![做连续卷积][3]
 
 
+## resnet
+
+特殊之处在于设计了“bottleneck”形式的block（有跨越几层的直连）。最深的model采用的152层
+
+block的结构如下图 
+
+![block][4]
 
 # reference
 
@@ -66,3 +73,4 @@ Alexnet有一个特殊的计算层，LRN层，做的事是对当前层的输出�
   [1]: https://www.github.com/DragonFive/CVBasicOp/raw/master/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1502709541017.jpg
   [2]: https://www.github.com/DragonFive/CVBasicOp/raw/master/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1502709248613.jpg
   [3]: https://www.github.com/DragonFive/CVBasicOp/raw/master/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1502710007686.jpg
+  [4]: https://www.github.com/DragonFive/CVBasicOp/raw/master/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1502710123203.jpg
