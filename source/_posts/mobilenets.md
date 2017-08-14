@@ -68,7 +68,7 @@ MobileNet将95％的计算时间用于有75％的参数的1×1卷积。
 
 
 
-没有使用这两个参数的mobilenet是vGG的1/30 
+没有使用这两个参数的mobilenet是vGG的1/30 ,$\alpha = 0.5, \rho = \frac{5}{7}$时是alexnet的1/50,精度提升了0.3%
 ![mobilenet参数量][7]
 
 
