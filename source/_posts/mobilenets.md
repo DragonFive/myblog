@@ -43,9 +43,9 @@ MobileNets模型基于**深度可分解的卷积**，它可以**将标准卷积�
 
 ## 模型结构和训练 
 
+![模型][4]
 
-
-![mobilenet架构][4]
+![mobilenet架构][5]
 
 
 
@@ -96,4 +96,5 @@ MobileNets模型基于**深度可分解的卷积**，它可以**将标准卷积�
   [1]: https://www.github.com/DragonFive/CVBasicOp/raw/master/1500434910512.jpg
   [2]: https://www.github.com/DragonFive/CVBasicOp/raw/master/1502675769608.jpg
   [3]: https://www.github.com/DragonFive/CVBasicOp/raw/master/1502676514289.jpg
-  [4]: https://www.github.com/DragonFive/CVBasicOp/raw/master/1502677189961.jpg
+  [4]: https://www.github.com/DragonFive/CVBasicOp/raw/master/1502677244854.jpg
+  [5]: https://www.github.com/DragonFive/CVBasicOp/raw/master/1502677189961.jpg
