@@ -50,7 +50,9 @@ MobileNets模型基于**深度可分解的卷积**，它可以**将标准卷积�
 
 
 
+MobileNet将95％的计算时间用于有75％的参数的1×1卷积。
 
+![1x1卷积计算量大][6]
 
 
 
@@ -98,3 +100,4 @@ MobileNets模型基于**深度可分解的卷积**，它可以**将标准卷积�
   [3]: https://www.github.com/DragonFive/CVBasicOp/raw/master/1502676514289.jpg
   [4]: https://www.github.com/DragonFive/CVBasicOp/raw/master/1502677244854.jpg
   [5]: https://www.github.com/DragonFive/CVBasicOp/raw/master/1502677189961.jpg
+  [6]: https://www.github.com/DragonFive/CVBasicOp/raw/master/1502677324886.jpg
