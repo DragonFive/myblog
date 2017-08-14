@@ -182,7 +182,7 @@ dropout并不修改代价函数，而是修改网络本身。
 
 
 ** batch normalization **
-
+用在relu前面效果好，是LRN的升级版，把结果映射到0-1之间。
 
 
 ## 参数初始化 
