@@ -31,7 +31,7 @@ tags:
 ## 深度可分解卷积 
 MobileNets模型基于**深度可分解的卷积**，它可以**将标准卷积分解成一个深度卷积和一个点卷积（1 × 1卷积核）**。标准卷积核为：a × a × c，其中a是卷积核大小，c是卷积核的通道数，本文将其一分为二，一个卷积核是a × a × 1，一个卷积核是1 ×1 × c。简单说，就是标准卷积同时完成了**2维卷积计算和改变特征数量**两件事，本文把这两件事分开做了。后文证明，这种分解可以有效减少计算量，降低模型大小。
 
-
+![深度可分解的卷积][2]
 
 
 
@@ -61,5 +61,5 @@ MobileNets模型基于**深度可分解的卷积**，它可以**将标准卷积�
 [如何用TensorFlow和TF-Slim实现图像分类与分割](https://www.ctolib.com/topics-101544.html)
 
 
-
   [1]: https://www.github.com/DragonFive/CVBasicOp/raw/master/1500434910512.jpg
+  [2]: https://www.github.com/DragonFive/CVBasicOp/raw/master/1502675769608.jpg
