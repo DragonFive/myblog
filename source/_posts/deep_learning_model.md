@@ -61,7 +61,7 @@ Alexnet有一个特殊的计算层，LRN层，做的事是对当前层的输出�
 
 ![incepiton v2][3]
 
-![incpiton 网络结构][4]
+![incpiton 2网络结构][4]
 
 ## VGG
 
@@ -78,7 +78,19 @@ block的结构如下图
 
 ![block][6]
 
+
+## Global Average Pooling
+
+
+
+
+
 # reference
+
+[深度学习方法（十一）：卷积神经网络结构变化](http://blog.csdn.net/xbinworld/article/details/61674836)
+
+[卷积神经网络结构变化](http://blog.csdn.net/xbinworld/article/details/61210499)
+
 
 
   [1]: https://www.github.com/DragonFive/CVBasicOp/raw/master/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1502709541017.jpg
