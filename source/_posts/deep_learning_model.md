@@ -40,12 +40,14 @@ Alexnet有一个特殊的计算层，LRN层，做的事是对当前层的输出�
 
 前面的结构  conv - relu - pool - LRN
 
+![卷积层][1]
+
 全连接的结构 fc - relu - dropout
 
 
 # googLeNet
 从这里开始pooling层其实变少了。
-![inception结构][1]
+![inception结构][2]
 
 
 
@@ -53,4 +55,5 @@ Alexnet有一个特殊的计算层，LRN层，做的事是对当前层的输出�
 # reference
 
 
-  [1]: https://www.github.com/DragonFive/CVBasicOp/raw/master/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1502709248613.jpg
+  [1]: http://markdown.xiaoshujiang.com/img/spinner.gif "[[[1502709541017]]]"
+  [2]: https://www.github.com/DragonFive/CVBasicOp/raw/master/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1502709248613.jpg
