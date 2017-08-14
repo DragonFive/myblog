@@ -67,7 +67,19 @@ squeezenet将上面1×1降维的思想进一步拓展。通过减少3×3的filte
 
 文章最终**将AlexNet压缩到原来1/50**，而性能几乎不变。
 
-(4) squeezenet
+(4) mobilenet
+
+mobilenet也是用卷积拆分的方法 
+
+![mobilenet][3]
+
+
+作出更多共享的是有一个width Multiplier宽度参数和resolution Multiplier 分辨率参数 ，可以降低更多的参数。
+
+
+
+
+
 
 
 # reference
@@ -77,3 +89,4 @@ squeezenet将上面1×1降维的思想进一步拓展。通过减少3×3的filte
 
   [1]: https://www.github.com/DragonFive/CVBasicOp/raw/master/1502693251377.jpg
   [2]: https://www.github.com/DragonFive/CVBasicOp/raw/master/1502694686047.jpg
+  [3]: https://www.github.com/DragonFive/CVBasicOp/raw/master/1502694868072.jpg
