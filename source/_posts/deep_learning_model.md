@@ -44,15 +44,13 @@ Alexnet有一个特殊的计算层，LRN层，做的事是对当前层的输出�
 
 
 # googLeNet
-
+从这里开始pooling层其实变少了。
 ![inception结构][1]
 
 
 
 
-![inception][2]
 # reference
 
 
   [1]: https://www.github.com/DragonFive/CVBasicOp/raw/master/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1502709248613.jpg
-  [2]: https://www.github.com/DragonFive/CVBasicOp/raw/master/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1501055616537.jpg
