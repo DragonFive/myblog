@@ -76,8 +76,9 @@ mobilenet也是用卷积拆分的方法
 
 作出更多共享的是有一个width Multiplier宽度参数和resolution Multiplier 分辨率参数 ，可以降低更多的参数。
 
-没使用这两个参数的mobilenet是VGGNet的1/30
+没使用这两个参数的mobilenet是VGGNet的1/30.
 ![mobilenet][4]
+
 
 
 
@@ -86,6 +87,8 @@ mobilenet也是用卷积拆分的方法
 # reference
 
 [知乎:为了压榨CNN模型，这几年大家都干了什么](https://zhuanlan.zhihu.com/p/25797790)
+
+[ 深度学习（六十）网络压缩简单总结](http://blog.csdn.net/hjimce/article/details/51564774)
 
 [mobile_net的模型优化](https://dragonfive.github.io/2017-07-17/mobilenets/)
 
