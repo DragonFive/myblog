@@ -25,3 +25,4 @@ tags:
 **持续更新中。。。。。。。。。。。**
 
 # reference
+[深度学习（六十二）SqueezeNet网络设计思想笔记](http://blog.csdn.net/hjimce/article/details/72809131)
