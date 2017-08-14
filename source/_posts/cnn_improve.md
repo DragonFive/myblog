@@ -23,7 +23,7 @@ tags:
 # 一些经典的模型设计路线
 
 ## fully connect to local connect 全连接到卷积神经网络
-
+Alexnet[1]是一个8层的卷积神经网络，有约**60M个参数**，如果采用32bit float存下来有200M。值得一提的是，AlexNet中仍然有3个全连接层，其参数量占比参数总量超过了90%。
 
 
 
