@@ -16,7 +16,7 @@ tags:
 
 <div class="github-widget" data-repo="DragonFive/deep-learning-exercise"></div>
 
-SqueezeNet主要是为了降低CNN模型参数数量而设计的。
+SqueezeNet主要是为了降低CNN模型参数数量而设计的。没有提高运行速度。
 
 <!--more-->
 
