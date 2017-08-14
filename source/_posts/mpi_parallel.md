@@ -50,8 +50,20 @@ int MPI_Send (void *buf, int count, MPI_Datatype datatype,int dest, int tag,MPI_
 ```
 参数buf为发送缓冲区；count为发送的数据个数；datatype为发送的数据类型；dest为消息的目的地址(进程号)，其取值范围为0到np－1间的整数(np代表通信器comm中的进程数) 或MPI_PROC_NULL；tag为消息标签，其取值范围为0到MPI_TAG_UB间的整数；**comm为通信器**
 
+```cpp
 mpi_recv:接收信息   MPI_Probe：预测一下消息的size
+```
 
+## mpi聚合通信 
+collective communication。聚合通信是在通信子中的所有的进程都参与的通信方式。 
+
+### 同步 MPI_Barrier
+MPI_Barrier就是这样的一个函数，他确保除非所有的进程同时调用，否则他不会拒绝任何进程通过这个节点
+对于所有的进程来说，聚合通信必然包含了一个同步点。也就是说所有的进程必须在他们又一次执行新动作之前都到达某个点。这跟GPU中线程同步的概念很相似，很好理解。
+
+### 广播 
+广播机制： 
+一个进程将相同的数据发送给通信子中所有的进程。
 
 # reference
 
