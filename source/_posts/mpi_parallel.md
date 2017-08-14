@@ -41,8 +41,14 @@ a、需要进行任务划分;
 b、通信延迟和负载不均衡;通信延迟很好理解，负载不均衡是因为分布式的系统，每个处理的任务量不同？待进一步的解释 ；
 c、可靠性差，一个进程出错，整个程序崩溃。第一感觉就是这简直是MPI的命门。在分布式系统中某一个进程出错是很容易的，为MPI的命运担忧。
 
+# 通信函数 
 
+## 一般函数 
 
+```cpp
+int MPI_Send (void *buf, int count, MPI_Datatype datatype,int dest, int tag,MPI_Comm comm)
+```
+参数buf为发送缓冲区；count为发送的数据个数；datatype为发送的数据类型；dest为消息的目的地址(进程号)，其取值范围为0到np－1间的整数(np代表通信器comm中的进程数) 或MPI_PROC_NULL；tag为消息标签，其取值范围为0到MPI_TAG_UB间的整数；**comm为通信器**
 
 
 # reference
