@@ -22,6 +22,15 @@ tags:
 
 <!--more-->
 
+
+
+在建立小型和有效的神经网络上，已经有了一些工作，比如SqueezeNet，Google Inception，Flattened network等等。大概分为压缩预训练模型和直接训练小型网络两种。MobileNets主要关注优化延迟，同时兼顾模型大小。
+
+# mobileNets模型结构
+
+
+
+
 [tensorflow官网](https://www.tensorflow.org/mobile/)给出了部署方式，支持android,ios,raspberry Pi等。
 
 
