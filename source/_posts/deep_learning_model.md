@@ -36,7 +36,11 @@ tags:
 ## alexNet
 
 它证明了CNN在复杂模型下的有效性，然后GPU实现使得训练在可接受的时间范围内得到结果
+Alexnet有一个特殊的计算层，LRN层，做的事是对当前层的输出结果做平滑处理。
 
+前面的结构 conv - relu - pool - LRN
+
+全连接的结构 fc - relu - dropout
 
 
 
