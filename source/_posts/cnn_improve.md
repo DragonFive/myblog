@@ -53,12 +53,17 @@ GoogleLet Inception v2就借鉴了VGG上面的思想。而到了Inception V3网�
 
 后来的Resnet就不说了，也是上面这些trick。到现在，基本上网络中都是3×3卷积和1×1卷积，5×5很少见，7×7几乎不可见。
 
+(3) SqueezeNet[7]
 
+squeezenet将上面1×1降维的思想进一步拓展。通过减少3×3的filter数量，将其一部分替换为1×1来实现压缩。
 
+具体的一个子结构如下：一个squeeze模块加上一个expand模块，使squeeze中的通道数量，少于expand通道数量就行。
 
+![squeezenet网络的expand模块][2]
 # reference
 
 [知乎:为了压榨CNN模型，这几年大家都干了什么](https://zhuanlan.zhihu.com/p/25797790)
 
 
   [1]: https://www.github.com/DragonFive/CVBasicOp/raw/master/1502693251377.jpg
+  [2]: https://www.github.com/DragonFive/CVBasicOp/raw/master/1502694686047.jpg
