@@ -1,5 +1,5 @@
 ---
-title: 神经网络模型进化
+title: 神经网络模型演化
 date: 2017/7/5 17:38:58
 
 categories:
