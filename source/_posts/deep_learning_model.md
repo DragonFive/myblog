@@ -13,8 +13,12 @@ tags:
 ---
 [TOC]
 
+1. Lenet，1986年
+2. Alexnet，2012年
+3. GoogleNet，2014年
+4. VGG，2014年
+5. Deep Residual Learning，2015年
 
-![inception][1]
 
 <!--more-->
 
@@ -31,7 +35,7 @@ tags:
 
 
 
-
+![inception][1]
 # reference
 
 
