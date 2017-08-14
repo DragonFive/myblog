@@ -53,7 +53,7 @@ GoogleLet Inception v2就借鉴了VGG上面的思想。而到了Inception V3网�
 
 后来的Resnet就不说了，也是上面这些trick。到现在，基本上网络中都是3×3卷积和1×1卷积，5×5很少见，7×7几乎不可见。
 
-(3) SqueezeNet[7]
+(3) SqueezeNet
 
 squeezenet将上面1×1降维的思想进一步拓展。通过减少3×3的filter数量，将其一部分替换为1×1来实现压缩。
 
@@ -67,7 +67,7 @@ squeezenet将上面1×1降维的思想进一步拓展。通过减少3×3的filte
 
 文章最终**将AlexNet压缩到原来1/50**，而性能几乎不变。
 
-
+(4) squeezenet
 
 
 # reference
