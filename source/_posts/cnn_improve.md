@@ -112,7 +112,10 @@ mobilenet也是用卷积拆分的方法
 ![量化过程][5]
 
 
+看下表就知道最终的压缩效率非常可观，把500M的VGG压缩到到了11M，1/50。
 
+
+![压缩VGG][6]
 
 ### 霍夫曼编码：更高效利用了权重的有偏分布；
 
@@ -141,3 +144,4 @@ mobilenet也是用卷积拆分的方法
   [3]: https://www.github.com/DragonFive/CVBasicOp/raw/master/1502694868072.jpg
   [4]: https://www.github.com/DragonFive/CVBasicOp/raw/master/1502695760857.jpg
   [5]: https://www.github.com/DragonFive/CVBasicOp/raw/master/1502698285109.jpg
+  [6]: https://www.github.com/DragonFive/CVBasicOp/raw/master/1502698400878.jpg
