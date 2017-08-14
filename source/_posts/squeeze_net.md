@@ -51,9 +51,11 @@ Fire Module是本文的核心构件，思想非常简单，就是将原来简单
 
 共有**9层fire module**，中间穿插一些max pooling，最后是**global avg pooling代替了fc层**（参数大大减少）。在开始和最后还有两层最简单的单层conv层，保证输入输出大小可掌握。
 
-![squeezenet参数数量][3]
+![squeezenet 参数数量][3]
 
+比较了alexnet，可以看到准确率差不多的情况下，squeezeNet模型参数数量显著降低了（下表倒数第三行），参数减少50X；如果再加上deep compression技术，压缩比可以达到461X！
 
+![参数量比较][4]
 
 
 
@@ -69,3 +71,4 @@ Fire Module是本文的核心构件，思想非常简单，就是将原来简单
   [1]: https://www.github.com/DragonFive/CVBasicOp/raw/master/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1502707058373.jpg
   [2]: https://www.github.com/DragonFive/CVBasicOp/raw/master/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1502707143096.jpg
   [3]: https://www.github.com/DragonFive/CVBasicOp/raw/master/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1502707297973.jpg
+  [4]: https://www.github.com/DragonFive/CVBasicOp/raw/master/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1502707773916.jpg
