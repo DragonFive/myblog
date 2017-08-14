@@ -80,6 +80,14 @@ mobilenet也是用卷积拆分的方法
 ![mobilenet][4]
 
 
+# 权重参数量化与剪枝
+主要是通过权重剪枝，量化编码等方法来实现模型压缩。deep compression是float到uint的压缩,Binarized Neural Networks是 uint 到bool的压缩。
+
+## DeepCompresion
+
+
+
+## Binarized Neural Networks
 
 
 
