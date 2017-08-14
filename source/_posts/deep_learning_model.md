@@ -90,6 +90,7 @@ block的结构如下图
 
 作者提出了Global Average Pooling，做法很简单，是对**每一个单独的feature map取全局average**。要求输出的nodes和分类category数量一致，这样后面就可以直接接softmax了。
 
+global avg pooling层没有参数所以不会过拟合。
 
 # reference
 
