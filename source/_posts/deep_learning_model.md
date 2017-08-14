@@ -45,11 +45,19 @@ Alexnet有一个特殊的计算层，LRN层，做的事是对当前层的输出�
 全连接的结构 fc - relu - dropout
 
 
-# googLeNet
+## googLeNet
 从这里开始pooling层其实变少了。
 ![inception结构][2]
 
 一分四，然后做一些不同大小的卷积，之后再堆叠feature map。这样提取不同尺度的特征，能够提高网络表达能力。
+
+
+## VGG
+
+特点也是连续conv多，计算量巨大
+
+![做连续卷积][3]
+
 
 
 # reference
@@ -57,3 +65,4 @@ Alexnet有一个特殊的计算层，LRN层，做的事是对当前层的输出�
 
   [1]: https://www.github.com/DragonFive/CVBasicOp/raw/master/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1502709541017.jpg
   [2]: https://www.github.com/DragonFive/CVBasicOp/raw/master/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1502709248613.jpg
+  [3]: https://www.github.com/DragonFive/CVBasicOp/raw/master/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1502710007686.jpg
