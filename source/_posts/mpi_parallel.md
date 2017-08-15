@@ -58,13 +58,34 @@ mpi_recv:接收信息   MPI_Probe：预测一下消息的size
 collective communication。聚合通信是在通信子中的所有的进程都参与的通信方式。 
 
 ### 同步 MPI_Barrier
-MPI_Barrier就是这样的一个函数，他确保除非所有的进程同时调用，否则他不会拒绝任何进程通过这个节点
-对于所有的进程来说，聚合通信必然包含了一个同步点。也就是说所有的进程必须在他们又一次执行新动作之前都到达某个点。这跟GPU中线程同步的概念很相似，很好理解。
+MPI_Barrier就是这样的一个函数，他确保除非所有的进程同时调用，否则他不会允许任何进程通过这个节点
+对于所有的进程来说，聚合通信必然包含了一个**同步点**。也就是说所有的进程必须在他们又一次执行新动作之前都到达某个点。这跟GPU中线程同步的概念很相似，很好理解。
 
 ### 广播 
 广播机制： 
-一个进程将相同的数据发送给通信子中所有的进程。
+一个进程将相同的数据发送给通信子中所有的进程。该机制最主要的应用是将输入数据发送给并行程序，或者将**配置参数**发送给所有的进程
+
+```cpp
+
+MPI_Bcast(
+    void* data,//数据
+    int count,//数据个数
+    MPI_Datatype datatype,
+    int root,//根进程编号
+    MPI_Comm communicator)
+```
+
+### MPI_Scatter 数据分发
+
+MPI_Scatter与MPI_Bcast非常相似，都是**一对多**的通信方式，不同的是后者的**0号进程**将相同的信息发送给所有的进程，而前者则是将一段array 的不同部分发送给所有的进程
+
+![scatter与bcast的区别][1]
+
+
 
 # reference
 
 [MPI学习笔记之并行程序概述](http://blog.csdn.net/sinat_22336563/article/details/69486937)
+
+
+  [1]: https://www.github.com/DragonFive/CVBasicOp/raw/master/1502761049076.jpg
