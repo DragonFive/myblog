@@ -1,5 +1,5 @@
 ---
-title: mpi_parallel
+title: 深度学习框架的并行优化方法小结
 date: 2017/8/11 17:38:58
 
 categories:
@@ -82,6 +82,47 @@ MPI_Scatter与MPI_Bcast非常相似，都是**一对多**的通信方式，不�
 ![scatter与bcast的区别][1]
 
 
+```cpp
+
+MPI_Scatter(
+    void* send_data,//存储在0号进程的数据，array
+    int send_count,//具体需要给每个进程发送的数据的个数
+    //如果send_count为1，那么每个进程接收1个数据；如果为2，那么每个进程接收2个数据
+    MPI_Datatype send_datatype,//发送数据的类型
+    void* recv_data,//接收缓存，缓存 recv_count个数据
+    int recv_count,
+    MPI_Datatype recv_datatype,
+    int root,//root进程的编号
+    MPI_Comm communicator)
+```
+
+通常send_count等于array的元素个数除以进程个数。
+
+### MPI_Gather
+MPI_Gather和MPI_scatter刚好相反，他的作用是从所有的进程中将每个进程的数据集中到根进程中，**同样根据进程的编号对array元素排序**
+
+![mpi_gather][2]
+
+
+```cpp
+
+MPI_Gather(
+    void* send_data,
+    int send_count,
+    MPI_Datatype send_datatype,
+    void* recv_data,
+    int recv_count,//注意该参数表示的是从单个进程接收的数据个数，不是总数
+    MPI_Datatype recv_datatype,
+    int root,
+    MPI_Comm communicator)
+```
+### MPI_Allgather 多对多通信
+当数据分布在所有的进程中时，MPI_Allgather将所有的数据聚合到每个进程中。
+
+![mpi_Allgather][3]
+
+
+
 
 # reference
 
@@ -89,3 +130,5 @@ MPI_Scatter与MPI_Bcast非常相似，都是**一对多**的通信方式，不�
 
 
   [1]: https://www.github.com/DragonFive/CVBasicOp/raw/master/1502761049076.jpg
+  [2]: https://www.github.com/DragonFive/CVBasicOp/raw/master/1502761558789.jpg
+  [3]: https://www.github.com/DragonFive/CVBasicOp/raw/master/1502761637900.jpg
