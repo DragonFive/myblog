@@ -24,6 +24,8 @@ tags:
 多个处理器能访问内存系统中的相同内存，通过共享内存进行通信。 
 **MPI**就是用来在分布式系统中为各处理器进行消息传递的API。 
 
+<!--more-->
+
 各个核能够直接访问自己的内存，而运行在不同核之间的进程需要交换内存数据的时候，只能通过消息传递API来实现。消息传递的API至少要提供一个发送函数和接收函数。**进程之间通过它们的序号（rank）**进行识别。
 
 
@@ -121,6 +123,50 @@ MPI_Gather(
 
 ![mpi_Allgather][3]
 
+## 数据归约 Reduce
+Reduce——规约是来自函数式编程的一个经典概念。数据规约包含通过一个函数将一批数据分成较小的一批数据。比如将一个数组的元素通过加法函数规约为一个数字。
+
+### mpi_reduce
+与MPI_Gather类似，MPI_Reduce在每个进程上都有一组输入元素，并将**一个输出元素数组返回给根进程**。 输出元素包含被规约的结果。
+
+```cpp
+MPI_Reduce(
+    void* send_data,
+    void* recv_data,
+    int count,
+    MPI_Datatype datatype,
+    MPI_Op op,
+    int root,
+    MPI_Comm communicator)
+```
+>send_data参数指向的是每个进程想要规约的datatype类型的元素数组。
+>recv_data仅与根进程相关。
+>recv_data数组包含规约的结果，并具有sizeof（datatype）* count的大小的内存。
+>op参数是要应用于数据的操作。
+
+mpi支持的操作有 
+
+
+>MPI_MAX - 返回最大值.
+MPI_MIN - 返回最小值.
+MPI_SUM -元素和.
+MPI_PROD - 元素乘积.
+MPI_LAND - 逻辑与.
+MPI_LOR - 逻辑或
+MPI_BAND -按位与
+MPI_BOR - 按位或
+MPI_MAXLOC - 返回最大值和拥有该值的进程编号
+MPI_MINLOC - 返回最小值和拥有该值的进程编号.```
+
+
+如果每个进程中的数组拥有两个元素，那么规约结果是对两个对位的元素进行规约的。
+
+![两个元素的归约结果][4]
+
+### mpi_allReduce
+
+![归约后分发给所有的进程][5]
+
 
 
 
@@ -132,3 +178,5 @@ MPI_Gather(
   [1]: https://www.github.com/DragonFive/CVBasicOp/raw/master/1502761049076.jpg
   [2]: https://www.github.com/DragonFive/CVBasicOp/raw/master/1502761558789.jpg
   [3]: https://www.github.com/DragonFive/CVBasicOp/raw/master/1502761637900.jpg
+  [4]: https://www.github.com/DragonFive/CVBasicOp/raw/master/1502762764619.jpg
+  [5]: https://www.github.com/DragonFive/CVBasicOp/raw/master/1502762804609.jpg
