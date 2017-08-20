@@ -85,6 +85,18 @@ cudaSetValidDevices(int &device_arr, int len);
 cudaMalloc(void **devPtr,size_t size);
 
 ```
+**cudaMallocPitch**
+
+在GPU上分配大小为PitchxHight的逻辑2D线性存储空间，首地址为```*devPtr```, 其中Pitch是返回的width对齐后的存储空间的宽度
+
+```cpp
+cudaMallocPitch(void **devPtr, size_t *pitch, size_t width, size_t height);
+```
+```
+devPtr[x] = devPtr[rowid*pitch+column]
+```
+
+
 **cudaFree**
 清空指定的GPU存储区域，可释放cudaMalloc和cudaMallocPitch分类的GPU存储区域
 
@@ -93,6 +105,30 @@ cudaMalloc(void **devPtr,size_t size);
 cudaFree(void *devPtr);
 
 ```
+
+**cudaMemset**
+将GPU端的devPtr指针指向的count长度的存储空间赋值为value.
+```cpp
+cudaMemset(void 8DevPTR， int value,size_t count);
+```
+
+**cudaHostAlloc**
+在主机端(CPU)根据flag值来分配页锁定存储, 
+
+```cpp
+cudaHostAlloc(void **pHost, size_t size, usigned int flags);
+```
+
+flags可以有四种取值
+
+```cpp
+cudaHostAllocDefault   分配默认存储
+cudaHostAllocPortable  分配的存储可以被cuda索引
+cudaHostAllocMapped 分配的存储映射到GPU
+。。。
+
+```
+
 
 
 # reference
