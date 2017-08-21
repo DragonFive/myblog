@@ -133,13 +133,15 @@ cudaHostAllocMapped 分配的存储映射到GPU
 
 **cudaMemcpy**
 ```cpp
-
+cudaMemcpy(void * dst, const void *src, size_t count, enum cudaMemcpyKind kind);
 ```
 
 主机(cpu内存)与设备间的数据传输函数，源地址是```*src```，目标地址是```*dst```,传输长度为```count```,kind指定了传输的方向，kind可选值域如下：
 ```cpp
-
-
+cudaMemcpyHostToHost = 0;
+cudaMemcpyHostToDevice = 0;
+cudaMemcpyDeviceToHost = 0;
+cudaMemcpyDeviceToDevice = 0;
 ```
 
 
