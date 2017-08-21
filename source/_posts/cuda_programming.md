@@ -143,6 +143,19 @@ cudaMemcpyHostToDevice = 0;
 cudaMemcpyDeviceToHost = 0;
 cudaMemcpyDeviceToDevice = 0;
 ```
+还有其它的形式 
+
+
+### 线程管理函数 
+
+**cudaThreadSynchronize**
+
+CPU与GPU之间的同步函数，保证该函数前的CPU和GPU上的任务均执行完成，并在该函数位置汇合。一般是CPU在该函数处等待GPU函数执行完。
+```cpp
+cudaThreadSynchronize(void);
+```
+
+
 
 
 # reference
