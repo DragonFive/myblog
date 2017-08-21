@@ -129,6 +129,18 @@ cudaHostAllocMapped 分配的存储映射到GPU
 
 ```
 
+### 数据传输函数 
+
+**cudaMemcpy**
+```cpp
+
+```
+
+主机(cpu内存)与设备间的数据传输函数，源地址是```*src```，目标地址是```*dst```,传输长度为```count```,kind指定了传输的方向，kind可选值域如下：
+```cpp
+
+
+```
 
 
 # reference
