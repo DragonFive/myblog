@@ -304,14 +304,23 @@ pet_train.record
 
 pet_val.record
 
+### 运行训练
+
+**准备数据**
+
 这时候把它们拷贝到新创建的文件夹,比如 ```_pet_20170822```
 
 将 object_detection/data/pet_label_map.pbtxt 和  object_detection/samples/configs/faster_rcnn_resnet152_pets.config 两个文件也拷贝到这个目录。
+
+将faster_rcnn_resnet152_pets.config文件内容中几个```PATH_TO_BE_CONFIGURED``` 都替换为 ```_pet_20170822```，第 110 和 111 行内容改为：
 
 ```
   #fine_tune_checkpoint: "_pet_20170822/model.ckpt"
   from_detection_checkpoint: false
 ```
+
+
+
 # reference
 
 [protobuf的配置](http://zhwen.org/?p=909)
