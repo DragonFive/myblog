@@ -41,6 +41,8 @@ export PYTHONPATH=$PYTHONPATH:`pwd`:`pwd`/slim
 
 ## 宠物数据集和标注
 
+### 数据下载
+
 下载训练数据里面的 图片
 ```
 wget http://www.robots.ox.ac.uk/~vgg/data/pets/data/images.tar.gz
@@ -49,6 +51,33 @@ wget http://www.robots.ox.ac.uk/~vgg/data/pets/data/images.tar.gz
 ```
 wget http://www.robots.ox.ac.uk/~vgg/data/pets/data/annotations.tar.gz
 ```
+### 将训练数据格式转化为tfrecord格式
+
+需要一个id与类名的对应关系的txt文件：pet_label_map.pbtxt
+
+```cpp
+item {
+  id: 1
+  name: 'Abyssinian'
+}
+
+item {
+  id: 2
+  name: 'american_bulldog'
+}
+
+item {
+  id: 3
+  name: 'american_pit_bull_terrier'
+}
+
+item {
+  id: 4
+  name: 'basset_hound'
+}
+
+```
+
 
 
 # reference
