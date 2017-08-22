@@ -404,7 +404,7 @@ python object_detection/eval.py \
         --logtostderr \
         --checkpoint_dir=_pet_20170822 \
         --eval_dir=_pet_20170822 \
-        --pipeline_config_path=pipeline_config.pbtxt
+        --pipeline_config_path=_pet_20170822/faster_rcnn_resnet152_pets.config 
 ```
 
 
