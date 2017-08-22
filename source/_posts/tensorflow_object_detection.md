@@ -391,7 +391,7 @@ python  object_detection/train.py --logtostderr --train_dir=_pet_20170822/ --pip
 tensorboard --logdir=_pet_20170822
 ```
 
-
+![enter description here][2]
 
 # reference
 
@@ -408,3 +408,4 @@ tensorboard --logdir=_pet_20170822
 
 
   [1]: https://www.github.com/DragonFive/CVBasicOp/raw/master/1503395510074.jpg
+  [2]: https://www.github.com/DragonFive/CVBasicOp/raw/master/1503399054053.jpg
