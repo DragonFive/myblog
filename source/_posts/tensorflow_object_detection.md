@@ -15,7 +15,20 @@ tags:
 
 
 <!--more-->
+# 环境配置
 
+## docker  tensorflow-gpu
+
+
+## protobuf
+
+
+## slim-models
+
+
+```bash
+protoc object_detection/protos/*.prot --python_out=.
+```
 
 
 
