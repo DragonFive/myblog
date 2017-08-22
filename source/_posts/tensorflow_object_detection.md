@@ -393,6 +393,23 @@ tensorboard --logdir=_pet_20170822
 
 ![enter description here][2]
 
+
+
+
+### 评估训练好的网络 
+
+
+```bash
+python object_detection/eval.py \
+        --logtostderr \
+        --checkpoint_dir=_pet_20170822 \
+        --eval_dir=_pet_20170822 \
+        --pipeline_config_path=pipeline_config.pbtxt
+```
+
+
+
+
 # reference
 
 [protobuf的配置](http://zhwen.org/?p=909)
