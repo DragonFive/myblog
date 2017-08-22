@@ -32,7 +32,7 @@ apt-get update
 
 ```bash
 
-apt-get install git
+apt-get install git vim
 
 ```
 
