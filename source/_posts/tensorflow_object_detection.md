@@ -293,8 +293,9 @@ if __name__ == '__main__':
 --label_map_path：id与class_name的对应表。
 
 **脚本流程**
-1. 读取anotations文件夹里面的 trainval.txt ，来确定
-
+1. 读取anotations文件夹里面的 trainval.txt ，来确定用来训练的图片的文件名，然后通过shuffle,按比例分成训练集和验证集
+2. 然后根据训练集或测试集的文件名来读取anotations文件夹里面xmls下面的xml文件，获得图片对象
+3. 把图片对象写入文件
 
 
 
