@@ -26,6 +26,8 @@ tags:
 ## slim-models
 
 
+编译proto的内容
+
 ```bash
 protoc object_detection/protos/*.prot --python_out=.
 ```
