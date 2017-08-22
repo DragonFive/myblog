@@ -324,7 +324,7 @@ pet_val.record
 需要一个训练脚本  train.py 
 
 ```cpp
-python  object_detection/train --logtostderr --train_dir=_pet_20170822/ --pipeline_config_path=_pet_20170822/faster_rcnn_resnet152_pets.config 
+python  object_detection/train.py --logtostderr --train_dir=_pet_20170822/ --pipeline_config_path=_pet_20170822/faster_rcnn_resnet152_pets.config 
 
 ```
 
