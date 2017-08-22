@@ -20,6 +20,25 @@ tags:
 ## docker  tensorflow-gpu
 
 
+docker 方式运行tensorflow
+```bash
+nvidia-docker run -p 8088:8088 -p 6006:6006 -v /home/dragon/code:/root/code  -it a1afa03550aa bash
+```
+首先需要更新软件
+```bash
+apt-get update
+```
+然后安装git 等工具
+
+```bash
+
+apt-get install git
+
+```
+
+
+
+
 ## protobuf
 
 
@@ -33,7 +52,7 @@ protoc object_detection/protos/*.proto --python_out=.
 ```
 设置 PYTHONPATH 环境变量
 
-```cpp
+```
 export PYTHONPATH=$PYTHONPATH:`pwd`:`pwd`/slim
 ```
 注意这里pwd外围的不是单引号，而是esc下面那个键
