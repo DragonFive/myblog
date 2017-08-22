@@ -319,6 +319,36 @@ pet_val.record
   from_detection_checkpoint: false
 ```
 
+**开始训练**
+
+需要一个训练脚本  train.py 
+
+```cpp
+python  object_detection/train --logtostderr --train_dir=_pet_20170822/ --pipeline_config_path=_pet_20170822/faster_rcnn_resnet152_pets.config 
+
+```
+
+初次训练的时候用的是cpu
+>/usr/local/lib/python2.7/dist-packages/tensorflow/python/ops/gradients_impl.py:95: UserWarning: Converting sparse IndexedSlices to a dense Tensor of unknown shape. This may consume a large amount of memory.
+  "Converting sparse IndexedSlices to a dense Tensor of unknown shape. "
+2017-08-22 07:52:41.925484: W tensorflow/core/platform/cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use SSE4.1 instructions, but these are available on your machine and could speed up CPU computations.
+2017-08-22 07:52:41.925511: W tensorflow/core/platform/cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use SSE4.2 instructions, but these are available on your machine and could speed up CPU computations.
+2017-08-22 07:52:41.925517: W tensorflow/core/platform/cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use AVX instructions, but these are available on your machine and could speed up CPU computations.
+2017-08-22 07:52:41.925523: W tensorflow/core/platform/cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use AVX2 instructions, but these are available on your machine and could speed up CPU computations.
+2017-08-22 07:52:41.925529: W tensorflow/core/platform/cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use FMA instructions, but these are available on your machine and could speed up CPU computations.
+2017-08-22 07:52:42.943663: I tensorflow/core/common_runtime/simple_placer.cc:697] Ignoring device specification /device:GPU:0 for node 'prefetch_queue_Dequeue' because the input edge from 'prefetch_queue' is a reference connection and already has a device field set to /device:CPU:0
+
+解决这个问题，参考 https://github.com/tensorflow/models/issues/1695
+
+
+
+
+**监控训练**
+
+```cpp
+tensorboard --logdir=_pet_20170822
+```
+
 
 
 # reference
