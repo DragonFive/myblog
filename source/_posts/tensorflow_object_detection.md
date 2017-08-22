@@ -39,6 +39,17 @@ export PYTHONPATH=$PYTHONPATH:`pwd`:`pwd`/slim
 注意这里pwd外围的不是单引号，而是esc下面那个键
 
 
+## 宠物数据集和标注
+
+下载训练数据里面的 图片
+```
+wget http://www.robots.ox.ac.uk/~vgg/data/pets/data/images.tar.gz
+```
+下载训练数据里面的标注信息
+```
+wget http://www.robots.ox.ac.uk/~vgg/data/pets/data/annotations.tar.gz
+```
+
 
 # reference
 
