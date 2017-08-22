@@ -31,8 +31,11 @@ tags:
 ```bash
 protoc object_detection/protos/*.prot --python_out=.
 ```
+设置 PYTHONPATH 环境变量
 
-
+```cpp
+export PYTHONPATH=$PYTHONPATH:'pwd':'pwd'/slim
+```
 
 
 # reference
