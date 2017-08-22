@@ -77,6 +77,7 @@ item {
 }
 
 ```
+**执行脚本**
 需要一个把数据转化成 tfrecoder格式的脚本文件: 
 
 ```cpp
@@ -281,7 +282,7 @@ if __name__ == '__main__':
   tf.app.run()
 ```
 
-
+**脚本参数**
 这个脚本的使用方法是：
 >    ./create_pet_tf_record --data_dir=`pwd`\
 >        --label_map_path=object_detection/data/pet_lable_map.pbtxt \
@@ -290,6 +291,9 @@ if __name__ == '__main__':
 需要指定data_dir :图像的源文件夹，output_dir：转化成tfrecord格式
 
 --label_map_path：id与class_name的对应表。
+
+**脚本流程**
+1. 读取anotations文件夹里面的 trainval.txt ，来确定
 
 
 
