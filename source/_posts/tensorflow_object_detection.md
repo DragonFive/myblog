@@ -34,8 +34,10 @@ protoc object_detection/protos/*.prot --python_out=.
 设置 PYTHONPATH 环境变量
 
 ```cpp
-export PYTHONPATH=$PYTHONPATH:'pwd':'pwd'/slim
+export PYTHONPATH=$PYTHONPATH:`pwd`:`pwd`/slim
 ```
+注意这里pwd外围的不是单引号，而是esc下面那个键
+
 
 
 # reference
