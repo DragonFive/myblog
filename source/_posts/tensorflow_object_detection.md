@@ -40,6 +40,25 @@ apt-get install git vim
 
 
 ## protobuf
+[protobuf的配置](http://zhwen.org/?p=909)
+
+### 编译protobuf
+解压下载的tar.gz包，cd到protobuf的目录下，执行以下指令：
+./configure
+make
+make check
+make install
+
+### 解决命令找不到
+
+1. 创建文件 /etc/ld.so.conf.d/libprotobuf.conf 包含内容
+/usr/local/lib
+
+2. 输入命令
+ldconfig
+
+再运行protoc –version 就可以正常看到版本号了
+
 
 
 ## slim-models
