@@ -29,7 +29,7 @@ tags:
 编译proto的内容
 
 ```bash
-protoc object_detection/protos/*.prot --python_out=.
+protoc object_detection/protos/*.proto --python_out=.
 ```
 设置 PYTHONPATH 环境变量
 
