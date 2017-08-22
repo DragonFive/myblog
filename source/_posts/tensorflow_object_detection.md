@@ -382,6 +382,9 @@ python  object_detection/train.py --logtostderr --train_dir=_pet_20170822/ --pip
 
 
 
+
+![gpu训练过程][1]
+
 **监控训练**
 
 ```cpp
@@ -403,3 +406,5 @@ tensorboard --logdir=_pet_20170822
 
 [](http://www.10tiao.com/html/511/201707/2652000542/2.html)
 
+
+  [1]: https://www.github.com/DragonFive/CVBasicOp/raw/master/1503395510074.jpg
