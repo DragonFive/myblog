@@ -284,10 +284,11 @@ if __name__ == '__main__':
 
 **脚本参数**
 这个脚本的使用方法是：
->    ./create_pet_tf_record --data_dir=`pwd`\
->        --label_map_path=object_detection/data/pet_lable_map.pbtxt \
->        --output_dir=`pwd`
-
+```cpp
+    python  object_detection/create_pet_tf_record.py  --data_dir=`pwd`\
+        --label_map_path=object_detection/data/pet_lable_map.pbtxt \
+       --output_dir=`pwd`
+```
 需要指定data_dir :图像的源文件夹，output_dir：转化成tfrecord格式
 
 --label_map_path：id与class_name的对应表。
@@ -297,9 +298,20 @@ if __name__ == '__main__':
 2. 然后根据训练集或测试集的文件名来读取anotations文件夹里面xmls下面的xml文件，获得图片对象
 3. 把图片对象写入文件
 
+**生成文件**
 
+pet_train.record
 
+pet_val.record
 
+这时候把它们拷贝到新创建的文件夹,比如 ```_pet_20170822```
+
+将 object_detection/data/pet_label_map.pbtxt 和  object_detection/samples/configs/faster_rcnn_resnet152_pets.config 两个文件也拷贝到这个目录.
+
+```
+  #fine_tune_checkpoint: "_pet_20170822/model.ckpt"
+  from_detection_checkpoint: false
+```
 # reference
 
 [protobuf的配置](http://zhwen.org/?p=909)
