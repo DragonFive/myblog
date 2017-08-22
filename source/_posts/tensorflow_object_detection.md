@@ -408,7 +408,7 @@ python object_detection/eval.py \
 ```
 
 
-
+![验证的过程][3]
 
 # reference
 
@@ -426,3 +426,4 @@ python object_detection/eval.py \
 
   [1]: https://www.github.com/DragonFive/CVBasicOp/raw/master/1503395510074.jpg
   [2]: https://www.github.com/DragonFive/CVBasicOp/raw/master/1503399054053.jpg
+  [3]: https://www.github.com/DragonFive/CVBasicOp/raw/master/1503408506733.jpg
