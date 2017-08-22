@@ -306,7 +306,7 @@ pet_val.record
 
 这时候把它们拷贝到新创建的文件夹,比如 ```_pet_20170822```
 
-将 object_detection/data/pet_label_map.pbtxt 和  object_detection/samples/configs/faster_rcnn_resnet152_pets.config 两个文件也拷贝到这个目录.
+将 object_detection/data/pet_label_map.pbtxt 和  object_detection/samples/configs/faster_rcnn_resnet152_pets.config 两个文件也拷贝到这个目录。
 
 ```
   #fine_tune_checkpoint: "_pet_20170822/model.ckpt"
