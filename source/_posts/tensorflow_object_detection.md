@@ -246,7 +246,10 @@ trainable_scopes
 
 [腾讯NCNN框架入门到应用](http://blog.csdn.net/best_coder/article/details/76201275)
 
-[NCNN-mobile](https://github.com/dangbo/ncnn-mobile)
+[NCNN-squeezenet](https://github.com/dangbo/ncnn-mobile)
+
+[multi-tracker](https://github.com/Smorodov/Multitarget-tracker)
+
 
   [1]: https://www.github.com/DragonFive/CVBasicOp/raw/master/1503395510074.jpg
   [2]: https://www.github.com/DragonFive/CVBasicOp/raw/master/1503410104911.jpg
