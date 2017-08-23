@@ -1,5 +1,5 @@
 ---
-title: tensorflow_object_detection
+title: tensorflow训练网络结构
 date: 2017/8/23 17:38:58
 
 categories:
@@ -22,7 +22,7 @@ tags:
 
 docker 方式运行tensorflow
 ```bash
-nvidia-docker run -p 8088:8088 -p 6006:6006 -v /home/dragon/code:/root/code  -it a1afa03550aa bash
+nvidia-docker run -p 8088:8088 -p 6006:6006 -v /home/dragon/code:/root/code  -it dragonfive/tensorflow:gpu bash
 ```
 首先需要更新软件
 ```bash
