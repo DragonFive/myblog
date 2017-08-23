@@ -250,8 +250,9 @@ trainable_scopes
 
 [multi-tracker](https://github.com/Smorodov/Multitarget-tracker)
 
-
 [MobileNet-SSD](https://github.com/chuanqi305/MobileNet-SSD)
+
+[tensorflow-xnor](https://github.com/AngusG/tensorflow-xnor-bnn)
 
   [1]: https://www.github.com/DragonFive/CVBasicOp/raw/master/1503395510074.jpg
   [2]: https://www.github.com/DragonFive/CVBasicOp/raw/master/1503410104911.jpg
