@@ -413,6 +413,15 @@ python object_detection/eval.py \
 
 ![验证的过程][4]
 
+# preTrained model
+```cpp
+
+
+checkpoint_exclude_scopes 
+
+trainable_scopes
+```
+
 # reference
 
 [protobuf的配置](http://zhwen.org/?p=909)
