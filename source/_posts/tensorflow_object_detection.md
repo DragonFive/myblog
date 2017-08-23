@@ -251,6 +251,8 @@ trainable_scopes
 [multi-tracker](https://github.com/Smorodov/Multitarget-tracker)
 
 
+[MobileNet-SSD](https://github.com/chuanqi305/MobileNet-SSD)
+
   [1]: https://www.github.com/DragonFive/CVBasicOp/raw/master/1503395510074.jpg
   [2]: https://www.github.com/DragonFive/CVBasicOp/raw/master/1503410104911.jpg
   [3]: https://www.github.com/DragonFive/CVBasicOp/raw/master/1503399054053.jpg
