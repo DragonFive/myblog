@@ -426,6 +426,9 @@ python object_detection/eval.py \
 
 [图像识别和分类竞赛，数据增强及优化算法](http://www.10tiao.com/html/511/201707/2652000542/2.html)
 
+[tensorflow固化模型](http://www.jianshu.com/p/091415b114e2)
+
+[TensorFlow Mobile模型压缩](http://www.jianshu.com/p/d2637646cda1)
 
   [1]: https://www.github.com/DragonFive/CVBasicOp/raw/master/1503395510074.jpg
   [2]: https://www.github.com/DragonFive/CVBasicOp/raw/master/1503410104911.jpg
