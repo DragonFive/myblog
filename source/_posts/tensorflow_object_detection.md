@@ -1,5 +1,5 @@
 ---
-title: tensorflow训练网络结构
+title: tensorflow训练-finetune-压缩模型
 date: 2017/8/23 17:38:58
 
 categories:
