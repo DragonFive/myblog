@@ -385,13 +385,16 @@ python  object_detection/train.py --logtostderr --train_dir=_pet_20170822/ --pip
 
 ![gpu训练过程][1]
 
+
+![训练完成后生成的文件][2]
+
 **监控训练**
 
 ```cpp
 tensorboard --logdir=_pet_20170822
 ```
 
-![enter description here][2]
+![enter description here][3]
 
 
 
@@ -408,7 +411,7 @@ python object_detection/eval.py \
 ```
 
 
-![验证的过程][3]
+![验证的过程][4]
 
 # reference
 
@@ -421,9 +424,10 @@ python object_detection/eval.py \
 [TensorFlow Object Detection API 实践](https://mp.weixin.qq.com/s?__biz=MzI2MzYwNzUyNg==&mid=2247484024&idx=1&sn=a7ddf704f34d390bd2a64f7651ea4a44&chksm=eab807f1ddcf8ee78c6b28bea6ec7233b7236a9d653dea45859e36ea2c74afe3b350d6f97967&mpshare=1&scene=1&srcid=0822n8yUoxY0I5ITT55mu827&pass_ticket=bpMLj9Sb52k%2FdkdRYGa0rUDxv9zPd7tmsAPy7XAQiBMfzqdlgf06HEq0G62d4Kyz#rd)
 
 
-[](http://www.10tiao.com/html/511/201707/2652000542/2.html)
+[图像识别和分类竞赛，数据增强及优化算法](http://www.10tiao.com/html/511/201707/2652000542/2.html)
 
 
   [1]: https://www.github.com/DragonFive/CVBasicOp/raw/master/1503395510074.jpg
-  [2]: https://www.github.com/DragonFive/CVBasicOp/raw/master/1503399054053.jpg
-  [3]: https://www.github.com/DragonFive/CVBasicOp/raw/master/1503408506733.jpg
+  [2]: https://www.github.com/DragonFive/CVBasicOp/raw/master/1503410104911.jpg
+  [3]: https://www.github.com/DragonFive/CVBasicOp/raw/master/1503399054053.jpg
+  [4]: https://www.github.com/DragonFive/CVBasicOp/raw/master/1503408506733.jpg
