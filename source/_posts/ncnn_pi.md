@@ -89,3 +89,5 @@ with tf.Session() as sess:
 
 [tensorfow各种版本的模型](https://stackoverflow.com/questions/35508866/tensorflow-different-ways-to-export-and-run-graph-in-c/43639305#43639305)
 
+
+[mobilenet的使用](https://hackernoon.com/building-an-insanely-fast-image-classifier-on-android-with-mobilenets-in-tensorflow-dc3e0c4410d4)
