@@ -89,7 +89,10 @@ python export_inference_graph.py \
 
 ## frozen pb文件
 
+```cpp
 
+python tensorflow/tensorflow/python/tools/freeze_graph.py --input_graph=models/slim/mobilenet_v1_224.pb --input_checkpoint=tmp_data/mobilenet_v1_1.0_224.ckpt -input_binary=true --output_graph=tmp_data/frozen_mobilenet.pb --output_node_names=mobilenetv1/Predictions/Reshape_1
+```
 
 
 ## image_label
@@ -105,7 +108,7 @@ curl -L "https://storage.googleapis.com/download.tensorflow.org/models/inception
 ```
 
 ```
-python tensorflow/tensorflow/examples/label_image/label_image.py --graph=tmp_data/inception_v3_2016_08_28_frozen.pb --image=cat123.jpg --input_layer=input --output_layer=InceptionV3/Predictions/Reshape_1 --input_mean=128 --input_std=128 --input_width=192 --input_height=108 --labels=tmp_data/imagenet_slim_labels.txt
+python tensorflow/tensorflow/examples/label_image/label_image.py --graph=tmp_data/inception_v3_2016_08_28_frozen.pb --image=cat123.jpg --input_layer=input --output_layer=InceptionV3/Predictions/Reshape_1 --input_mean=128 --input_std=128  --labels=tmp_data/imagenet_slim_labels.txt
 ```
 
 
