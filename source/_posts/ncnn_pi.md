@@ -87,13 +87,19 @@ python export_inference_graph.py \
 
 [Exporting the Inference Graph](https://github.com/tensorflow/models/tree/master/slim#fine-tuning-a-model-from-an-existing-checkpoint)
 
+[作者的pretrained model](https://pan.baidu.com/s/1i5xFjal)
+
 ## frozen pb文件
 
-```cpp
-
-python tensorflow/tensorflow/python/tools/freeze_graph.py --input_graph=models/slim/mobilenet_v1_224.pb --input_checkpoint=tmp_data/mobilenet_v1_1.0_224.ckpt -input_binary=true --output_graph=tmp_data/frozen_mobilenet.pb --output_node_names=mobilenetv1/Predictions/Reshape_1
+```bash
+python tensorflow/tensorflow/python/tools/freeze_graph.py \ 
+--input_graph=models/slim/mobilenet_v1_224.pb \
+--input_checkpoint=tmp_data/mobilenet_v1_1.0_224.ckpt \
+--input_binary=true --output_graph=tmp_data/frozen_mobilenet.pb --output_node_names=mobilenetv1/Predictions/Reshape_1
 ```
+这里有个点在于怎么确定一个网络的output_node_names,参考
 
+[这个人自己搞的mobilenet](https://github.com/Zehaos/MobileNet/issues/4)
 
 ## image_label
 
