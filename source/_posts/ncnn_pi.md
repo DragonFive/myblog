@@ -12,9 +12,15 @@ tags:
 ---
 
 
+
+
+
+
 <!--more-->
 
-
+```cpp
+sudo apt-get install libprotobuf-dev protobuf-compiler
+```
 
 
 
