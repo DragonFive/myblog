@@ -61,3 +61,8 @@ saver.restore(sess, path_to_ckpt_data)
 [腾讯NCNN框架入门到应用](http://blog.csdn.net/best_coder/article/details/76201275)
 
 [ncnn wiki](https://github.com/Tencent/ncnn/wiki)
+
+[tensorflow模型的各种版本](https://stackoverflow.com/questions/44516609/tensorflow-what-is-the-relationship-between-ckpt-file-and-ckpt-meta-and-ckp)
+
+[tensorfow各种版本的模型](https://stackoverflow.com/questions/35508866/tensorflow-different-ways-to-export-and-run-graph-in-c/43639305#43639305)
+
