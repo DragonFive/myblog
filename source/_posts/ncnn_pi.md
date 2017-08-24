@@ -33,6 +33,22 @@ make install
 进入 ncnn/build/tools 目录下，如下所示，我们可以看到已经生成了 caffe2ncnn 可ncnn2mem这两个可执行文件，这两个可执行文件的作用是将caffe模型生成ncnn 模型，并且对模型进行加密。在ncnn/build/tools/tensorflow下面也有tensorflow2ncnn，可以把tensorflow模型转化乘ncnn模型
 
 
+# tensorflow 的安装
+
+
+
+# tensorflow的模型
+
+1. the .ckpt file is the old version output of saver.save(sess), which is the equivalent of your .ckpt-data (see below)
+2. the "checkpoint" file is only here to tell some TF functions which is the latest checkpoint file.
+3. .ckpt-meta contains the metagraph, i.e. the structure of your computation graph, without the values of the variables (basically what you can see in tensorboard/graph).
+4. .ckpt-data contains the values for all the variables, without the structure. To restore a model in python, you'll usually use the meta and data files with (but you can also use the .pb file):
+```
+saver = tf.train.import_meta_graph(path_to_ckpt_meta)
+saver.restore(sess, path_to_ckpt_data)
+```
+5. I don't know exactly for .ckpt-index, I guess it's some kind of index needed internally to map the two previous files correctly. Anyway it's not really necessary usually, you can restore a model with only .ckpt-meta and .ckpt-data.
+6. the .pb file can save your whole graph (meta + data). To load and use (but not train) a graph in c++ you'll usually use it, created with freeze_graph, which creates the .pb file from the meta and data. Be careful, (at least in previous TF versions and for some people) the py function provided by freeze_graph did not work properly, so you'd have to use the script version. Tensorflow also provides a tf.train.Saver.to_proto() method, but I don't know what it does exactly.
 
 
 
