@@ -87,7 +87,9 @@ python export_inference_graph.py \
 
 [Exporting the Inference Graph](https://github.com/tensorflow/models/tree/master/slim#fine-tuning-a-model-from-an-existing-checkpoint)
 
-## frozen
+## frozen pb文件
+
+
 
 
 ## image_label
