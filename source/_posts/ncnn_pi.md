@@ -50,8 +50,31 @@ saver.restore(sess, path_to_ckpt_data)
 5. I don't know exactly for .ckpt-index, I guess it's some kind of index needed internally to map the two previous files correctly. Anyway it's not really necessary usually, you can restore a model with only .ckpt-meta and .ckpt-data.
 6. the .pb file can save your whole graph (meta + data). To load and use (but not train) a graph in c++ you'll usually use it, created with freeze_graph, which creates the .pb file from the meta and data. Be careful, (at least in previous TF versions and for some people) the py function provided by freeze_graph did not work properly, so you'd have to use the script version. Tensorflow also provides a tf.train.Saver.to_proto() method, but I don't know what it does exactly.
 
+Here's my solution utilizing the V2 checkpoints introduced in TF 0.12.
 
+There's no need to convert all variables to constants or freeze the graph.
 
+Just for clarity, a V2 checkpoint looks like this in my directory models:
+```
+checkpoint  # some information on the name of the files in the checkpoint
+my-model.data-00000-of-00001  # the saved weights
+my-model.index  # probably definition of data layout in the previous file
+my-model.meta  # protobuf of the graph (nodes and topology info)
+```
+**Python part (saving)**
+```
+with tf.Session() as sess:
+    tf.train.Saver(tf.trainable_variables()).save(sess, 'models/my-model')
+```
+If you create the Saver with tf.trainable_variables(), you can save yourself some headache and storage space. But maybe some more complicated models need all data to be saved, then remove this argument to Saver, just make sure you're creating the Saver after your graph is created. It is also very wise to give all variables/layers unique names, otherwise you can run in different problems.
+
+**Python part (inference)**
+```
+with tf.Session() as sess:
+    saver = tf.train.import_meta_graph('models/my-model.meta')
+    saver.restore(sess, tf.train.latest_checkpoint('models/'))
+    outputTensors = sess.run(outputOps, feed_dict=feedDict)
+```
 
 
 # reference
