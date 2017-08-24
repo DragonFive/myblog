@@ -94,6 +94,9 @@ python export_inference_graph.py \
 
 ## image_label
 
+
+
+
 下载label数据 
 
 ```
@@ -101,7 +104,9 @@ curl -L "https://storage.googleapis.com/download.tensorflow.org/models/inception
   tar -C tensorflow/examples/label_image/data -xz
 ```
 
-
+```
+python tensorflow/tensorflow/examples/label_image/label_image.py --graph=tmp_data/inception_v3_2016_08_28_frozen.pb --image=cat123.jpg --input_layer=input --output_layer=InceptionV3/Predictions/Reshape_1 --input_mean=128 --input_std=128 --input_width=192 --input_height=108 --labels=tmp_data/imagenet_slim_labels.txt
+```
 
 
 # reference
