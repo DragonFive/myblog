@@ -18,8 +18,17 @@ tags:
 
 <!--more-->
 
+
+# 安装ncnn
+
 ```cpp
+git clone https://github.com/Tencent/ncnn
 sudo apt-get install libprotobuf-dev protobuf-compiler
+cd ncnn
+mkdir build && cd build
+cmake ..
+make -j
+make install
 ```
 
 
