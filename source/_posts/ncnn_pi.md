@@ -75,6 +75,31 @@ with tf.Session() as sess:
     saver.restore(sess, tf.train.latest_checkpoint('models/'))
     outputTensors = sess.run(outputOps, feed_dict=feedDict)
 ```
+## 导出pb文件 
+
+```
+python export_inference_graph.py \
+  --alsologtostderr \
+  --model_name=mobilenet_v1 \
+  --image_size=224 \
+  --output_file=/tmp/mobilenet_v1_224.pb
+```
+
+[Exporting the Inference Graph](https://github.com/tensorflow/models/tree/master/slim#fine-tuning-a-model-from-an-existing-checkpoint)
+
+## frozen
+
+
+## image_label
+
+下载label数据 
+
+```
+curl -L "https://storage.googleapis.com/download.tensorflow.org/models/inception_v3_2016_08_28_frozen.pb.tar.gz" |
+  tar -C tensorflow/examples/label_image/data -xz
+```
+
+
 
 
 # reference
