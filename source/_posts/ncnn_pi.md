@@ -134,3 +134,5 @@ python tensorflow/tensorflow/examples/label_image/label_image.py --graph=tmp_dat
 [mobilenet的使用](https://hackernoon.com/building-an-insanely-fast-image-classifier-on-android-with-mobilenets-in-tensorflow-dc3e0c4410d4)
 
 [retrain_mobilenet](https://hackernoon.com/creating-insanely-fast-image-classifiers-with-mobilenet-in-tensorflow-f030ce0a2991)
+
+[MobileNet-SSD](https://github.com/chuanqi305/MobileNet-SSD)
