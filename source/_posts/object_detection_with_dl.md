@@ -123,6 +123,9 @@ RCNN的SVM训练将**ground truth样本作为正样本**，而**IOU>0.3的样本
 
 [目标检测（2）-RCNN](https://zhuanlan.zhihu.com/p/27473413)
 
+
+[RCNN学习笔记(0):rcnn简介](http://blog.csdn.net/u011534057/article/details/51240387)
+
 ## SPPNet
 
 论文：Spatial Pyramid Pooling in Deep Convolutional Networks for Visual Recognition
