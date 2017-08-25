@@ -88,6 +88,9 @@ RCNN作为第一篇目标检测领域的深度学习文章。这篇文章的创�
 
 目标检测区别于目标识别很重要的一点是其需要目标的具体位置，也就是BoundingBox。而产生BoundingBox最简单的方法就是滑窗，可以在卷积特征上滑窗。但是我们知道**CNN是一个层次的结构，随着网络层数的加深，卷积特征的步伐及感受野也越来越大**。
 
+对于每一个region proposal 都wrap到固定的大小的scale,227x227(AlexNet Input),对于每一个处理之后的图片，把他都放到CNN上去进行特征提取，得到每个region proposal的feature map,这些特征用固定长度的特征集合feature vector来表示。
+
+
 本文的亮点在于网络结构和训练集
 ### 训练集
 
