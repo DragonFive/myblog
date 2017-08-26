@@ -14,7 +14,7 @@ tags:
 
 
 
-<!--more-->
+
 # 环境配置
 
 ## docker  tensorflow-gpu
@@ -35,7 +35,7 @@ apt-get update
 apt-get install git vim
 
 ```
-
+<!--more-->
 
 
 
