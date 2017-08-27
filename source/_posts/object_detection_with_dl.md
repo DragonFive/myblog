@@ -155,7 +155,9 @@ RCNN的SVM训练将**ground truth样本作为正样本**，而**IOU>0.3的样本
 - 速度瓶颈：重复为每个region proposal提取特征是极其费时的，Selective Search对于每幅图片产生2K左右个region proposal，也就是意味着一幅图片需要经过2K次的完整的CNN计算得到最终的结果。
 - 性能瓶颈：对于所有的region proposal**放缩**到固定的尺寸会导致我们不期望看到的**几何形变**，而且由于速度瓶颈的存在，不可能采用多尺度或者是大量的数据增强去训练模型。
 
-作者提到花费在region propasals和提取特征的时间是13s/张-GPU和53s/张-CPU.
+作者提到花费在region propasals和提取特征的时间是13s/张-GPU和53s/张-CPU。
+
+r-cnn有点麻烦，他要先过一次classification得到分类的model，继而在得到的model上进行适当的改变又得到了detection的model，最后才开始在detection model cnn上进行边界检测。
 
 ### reference
 
