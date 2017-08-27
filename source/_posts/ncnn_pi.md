@@ -18,7 +18,7 @@ ncnn 是一个为手机端极致优化的高性能神经网络前向计算框架
 
 
 <!--more-->
-# 安装ncnn
+# 编译ncnn
 
 ```cpp
 git clone https://github.com/Tencent/ncnn
@@ -32,11 +32,19 @@ make install
 进入 ncnn/build/tools 目录下，如下所示，我们可以看到已经生成了 caffe2ncnn 可ncnn2mem这两个可执行文件，这两个可执行文件的作用是将caffe模型生成ncnn 模型，并且对模型进行加密。在ncnn/build/tools/tensorflow下面也有tensorflow2ncnn，可以把tensorflow模型转化乘ncnn模型
 
 
-# tensorflow 的安装
 
+
+# tensorflow在arm上的安装
+
+```bash
+wget https://github.com/samjabrahams/tensorflow-on-raspberry-pi/releases/download/v0.11.0/tensorflow-0.11.0-cp27-none-linux_armv7l.whl
+sudo pip install tensorflow-0.11.0-cp27-none-linux_armv7l.whl
+```
 
 
 # tensorflow的模型
+
+## ckpt, pb，meta等文件的意思
 
 1. the .ckpt file is the old version output of saver.save(sess), which is the equivalent of your .ckpt-data (see below)
 2. the "checkpoint" file is only here to tell some TF functions which is the latest checkpoint file.
