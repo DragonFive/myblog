@@ -17,7 +17,7 @@ tags:
 <!--more-->
 
 # 目标检测
-
+![map与fps][2]
 ## 检测算法划分
 
 目标检测的算法大致可以如下划分：
@@ -52,12 +52,12 @@ selective search的策略是，因为目标的层级关系，用到了**multisca
 
 作者采用了8中不同的颜色方式，主要是为了考虑场景以及光照条件等。这个策略主要应用于【1】中图像分割算法中原始区域的生成。主要使用的颜色空间有：**（1）RGB，（2）灰度I，（3）Lab，（4）rgI（归一化的rg通道加上灰度），（5）HSV，（6）rgb（归一化的RGB），（7）C，（8）H（HSV的H通道）**
 
-使用L1-norm归一化获取图像**每个颜色通道的25 bins**的直方图，这样每个区域都可以得到一个**75维**的向量。![enter description here][2]，区域之间颜色相似度通过下面的公式计算：
+使用L1-norm归一化获取图像**每个颜色通道的25 bins**的直方图，这样每个区域都可以得到一个**75维**的向量。![enter description here][3]，区域之间颜色相似度通过下面的公式计算：
 
-![enter description here][3]
+![enter description here][4]
  在区域合并过程中使用需要对新的区域进行计算其直方图，计算方法：
  
-![enter description here][4]
+![enter description here][5]
 优先合并小的区域.
 
 
@@ -66,7 +66,7 @@ selective search的策略是，因为目标的层级关系，用到了**multisca
 
 ### 距离计算多样性
 
- 这里的纹理采用SIFT-Like特征。具体做法是对每个颜色通道的8个不同方向计算方差σ=1的高斯微分（GaussianDerivative），每个通道每个方向获取10 bins的直方图（L1-norm归一化），这样就可以获取到一个240维的向量。![enter description here][5]
+ 这里的纹理采用SIFT-Like特征。具体做法是对每个颜色通道的8个不同方向计算方差σ=1的高斯微分（GaussianDerivative），每个通道每个方向获取10 bins的直方图（L1-norm归一化），这样就可以获取到一个240维的向量。![enter description here][6]
 
 
 还有大小相似度(优先合并小的区域)和吻合相似度(boundingbox是否在一块儿)
@@ -86,17 +86,17 @@ selective search的策略是，因为目标的层级关系，用到了**multisca
 ## bounding-box regression详解 
 (回归/微调的对象是什么
 
-![enter description here][6]
-
 ![enter description here][7]
-
 
 ![enter description here][8]
 
 
 ![enter description here][9]
 
+
 ![enter description here][10]
+
+![enter description here][11]
 
 
 
@@ -127,10 +127,10 @@ RCNN作为第一篇目标检测领域的深度学习文章。这篇文章的创�
 
 ### 整体结构 
 
-![RCNN][11]
+![RCNN][12]
 
 
-![网络结构][12]
+![网络结构][13]
 
 RCNN的输入为完整图片，首先通过区域建议算法产生一系列的候选目标区域，其中使用的区域建议算法为**Selective Search,选择2K**个置信度最高的区域候选。
 
@@ -176,7 +176,7 @@ RCNN的SVM训练将**ground truth样本作为正样本**，而**IOU>0.3的样本
 
 由于有多达2K个区域候选，我们如何筛选得到最后的区域呢？RCNN使用**贪婪非极大值抑制**的方法，假设ABCDEF五个区域候选，首先根据概率从大到小排列。假设为FABCDE。然后从最大的F开始，计算F与ABCDE是否IoU是否超过某个阈值，如果超过则将ABC舍弃。然后再从D开始，直到集合为空。而这个阈值是筛选得到的，通过这种处理之后一般只会剩下几个区域候选了。
 
-![NMS非极大值抑制][13]
+![NMS非极大值抑制][14]
 
 定位一个车辆，最后算法就找出了一堆的方框，我们需要判别哪些矩形框是没用的。非极大值抑制：先假设有6个矩形框，根据分类器类别分类概率做排序，从小到大分别属于车辆的概率分别为A、B、C、D、E、F。
 (1)从最大概率矩形框F开始，分别判断A~E与F的重叠度IOU是否大于某个设定的阈值;
@@ -221,7 +221,7 @@ r-cnn有点麻烦，他要先过一次classification得到分类的model，继�
 论文：Spatial Pyramid Pooling in Deep Convolutional Networks for Visual Recognition
 
 
-![sppnet与rcnn的区别][14]
+![sppnet与rcnn的区别][15]
 
 
 SPP的优点：
@@ -234,7 +234,7 @@ SPP的优点：
 
 空间金字塔池化层是SPPNet的核心
 
-![enter description here][15]
+![enter description here][16]
 其主要目的是对于任意尺寸的输入产生固定大小的输出。思路是对于任意大小的feature map首先分成16、4、1个块，然后在每个块上最大池化，池化后的特征拼接得到一个固定维度的输出。以满足全连接层的需要。不过因为不是针对于目标检测的，所以输入的图像为一整副图像。
 
 为了简便，在fintune的阶段只修改fc层。
@@ -256,7 +256,7 @@ multi-size训练，输入尺寸在[180,224]之间，假设最后一个卷积层�
 
 ### 网络结构
 
-![fast RCNN网络结构][16]
+![fast RCNN网络结构][17]
 
 整体框架大致如上述所示,再次几句话总结：
 
@@ -275,14 +275,14 @@ Rol pooling layer的作用主要有两个：
 - muti-task 
 将网络的**输出改为两个子网络**，一个用以分类（softmax）一个用于回归。最后更改网络的输入，网络的**输入是图片集合以及ROI的集合**
 
-![统一的损失函数][17]
+![统一的损失函数][18]
 
 kx是真实类别，式中第一项是分类损失，第二项是定位损失，L由R个输出取均值而来。
 
 1.对于分类loss，是一个N+1路的softmax输出，其中的N是类别个数，1是背景。为何不用SVM做分类器了？在5.4作者讨论了softmax效果比SVM好，因为它引入了类间竞争。（笔者觉得这个理由略牵强，估计还是实验效果验证了softmax的performance好吧 ）
 2.对于回归loss，是一个4xN路输出的regressor，也就是说对于每个类别都会训练一个单独的regressor的意思，比较有意思的是，这里regressor的loss不是L2的，而是一个平滑的L1，形式如下：
 
-![enter description here][18]
+![enter description here][19]
 
 
 
@@ -293,7 +293,7 @@ Mini-Batch的设置基本上与SPPNet是一致的，不同的在于128副图片�
 
 RoI pooling层计算损失函数对每个输入变量x的偏导数，如下
 
-![ROI pooling反向传播][19]
+![ROI pooling反向传播][20]
 
 
 
@@ -368,11 +368,11 @@ Fast RCNN提到如果去除区域建议算法的话，网络能够接近实时�
 
 ### region proposal network
 
-![faster RCNN的结构][20]
+![faster RCNN的结构][22]
 
 区域建议算法一般分为两类：基于超像素合并的（selective search、CPMC、MCG等），基于滑窗算法的。由于卷积特征层一般很小，所以得到的滑窗数目也少很多。但是产生的滑窗准确度也就差了很多，毕竟感受野也相应大了很多。
 
-![区域建议算法][22]
+![区域建议算法][23]
 
 RPN对于feature map的每个位置进行**滑窗**，通过**不同尺度以及不同比例的K个anchor**产生K个256维的向量，然后分类每一个region是否包含目标以及通过**回归**得到目标的具体位置。
 
@@ -398,24 +398,25 @@ RPN对于feature map的每个位置进行**滑窗**，通过**不同尺度以及
 
 
   [1]: https://www.github.com/DragonFive/CVBasicOp/raw/master/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1501725558357.jpg
-  [2]: https://www.github.com/DragonFive/CVBasicOp/raw/master/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1501731400655.jpg
-  [3]: https://www.github.com/DragonFive/CVBasicOp/raw/master/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1501731416622.jpg
-  [4]: https://www.github.com/DragonFive/CVBasicOp/raw/master/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1501731430205.jpg
-  [5]: https://www.github.com/DragonFive/CVBasicOp/raw/master/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1501731713492.jpg
-  [6]: https://www.github.com/DragonFive/CVBasicOp/raw/master/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1503827108571.jpg
-  [7]: https://www.github.com/DragonFive/CVBasicOp/raw/master/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1503827140439.jpg
-  [8]: https://www.github.com/DragonFive/CVBasicOp/raw/master/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1503827159776.jpg
-  [9]: https://www.github.com/DragonFive/CVBasicOp/raw/master/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1503827186738.jpg
-  [10]: https://www.github.com/DragonFive/CVBasicOp/raw/master/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1503827198922.jpg
-  [11]: https://www.github.com/DragonFive/CVBasicOp/raw/master/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1501733503711.jpg
-  [12]: https://www.github.com/DragonFive/CVBasicOp/raw/master/1503646999361.jpg
-  [13]: https://www.github.com/DragonFive/CVBasicOp/raw/master/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1503820950848.jpg
-  [14]: https://www.github.com/DragonFive/CVBasicOp/raw/master/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1501816659717.jpg
-  [15]: https://www.github.com/DragonFive/CVBasicOp/raw/master/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1501819431880.jpg
-  [16]: https://www.github.com/DragonFive/CVBasicOp/raw/master/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1501820819379.jpg
-  [17]: https://www.github.com/DragonFive/CVBasicOp/raw/master/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1503827726497.jpg
-  [18]: https://www.github.com/DragonFive/CVBasicOp/raw/master/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1503827873218.jpg
-  [19]: https://www.github.com/DragonFive/CVBasicOp/raw/master/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1503827982062.jpg
-  [20]: https://www.github.com/DragonFive/CVBasicOp/raw/master/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1501831614917.jpg
+  [2]: https://www.github.com/DragonFive/CVBasicOp/raw/master/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1503846055542.jpg
+  [3]: https://www.github.com/DragonFive/CVBasicOp/raw/master/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1501731400655.jpg
+  [4]: https://www.github.com/DragonFive/CVBasicOp/raw/master/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1501731416622.jpg
+  [5]: https://www.github.com/DragonFive/CVBasicOp/raw/master/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1501731430205.jpg
+  [6]: https://www.github.com/DragonFive/CVBasicOp/raw/master/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1501731713492.jpg
+  [7]: https://www.github.com/DragonFive/CVBasicOp/raw/master/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1503827108571.jpg
+  [8]: https://www.github.com/DragonFive/CVBasicOp/raw/master/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1503827140439.jpg
+  [9]: https://www.github.com/DragonFive/CVBasicOp/raw/master/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1503827159776.jpg
+  [10]: https://www.github.com/DragonFive/CVBasicOp/raw/master/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1503827186738.jpg
+  [11]: https://www.github.com/DragonFive/CVBasicOp/raw/master/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1503827198922.jpg
+  [12]: https://www.github.com/DragonFive/CVBasicOp/raw/master/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1501733503711.jpg
+  [13]: https://www.github.com/DragonFive/CVBasicOp/raw/master/1503646999361.jpg
+  [14]: https://www.github.com/DragonFive/CVBasicOp/raw/master/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1503820950848.jpg
+  [15]: https://www.github.com/DragonFive/CVBasicOp/raw/master/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1501816659717.jpg
+  [16]: https://www.github.com/DragonFive/CVBasicOp/raw/master/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1501819431880.jpg
+  [17]: https://www.github.com/DragonFive/CVBasicOp/raw/master/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1501820819379.jpg
+  [18]: https://www.github.com/DragonFive/CVBasicOp/raw/master/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1503827726497.jpg
+  [19]: https://www.github.com/DragonFive/CVBasicOp/raw/master/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1503827873218.jpg
+  [20]: https://www.github.com/DragonFive/CVBasicOp/raw/master/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1503827982062.jpg
   [21]: https://www.github.com/DragonFive/CVBasicOp/raw/master/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1503843755653.jpg
-  [22]: https://www.github.com/DragonFive/CVBasicOp/raw/master/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1501832022067.jpg
+  [22]: https://www.github.com/DragonFive/CVBasicOp/raw/master/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1501831614917.jpg
+  [23]: https://www.github.com/DragonFive/CVBasicOp/raw/master/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1501832022067.jpg
