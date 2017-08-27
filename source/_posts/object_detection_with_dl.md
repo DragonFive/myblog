@@ -108,7 +108,11 @@ RCNN作为第一篇目标检测领域的深度学习文章。这篇文章的创�
 
 ![网络结构][7]
 
-RCNN的输入为完整图片，首先通过区域建议算法产生一系列的候选目标区域，其中使用的区域建议算法为**Selective Search,选择2K**个置信度最高的区域候选。然后对于这些目标区域候选提取其**CNN特征AlexNet**，并训练**SVM分类**这些特征。最后为了提高定位的准确性在SVM分类后区域基础上进行**BoundingBox回归**。
+RCNN的输入为完整图片，首先通过区域建议算法产生一系列的候选目标区域，其中使用的区域建议算法为**Selective Search,选择2K**个置信度最高的区域候选。
+
+然后对这些候选区域预处理成227 × 227 pixel size ，16 pixels of warped image context around the original box 
+
+然后对于这些目标区域候选提取其**CNN特征AlexNet**，并训练**SVM分类**这些特征。最后为了提高定位的准确性在SVM分类后区域基础上进行**BoundingBox回归**。
 
 #### CNN目标特征提取 finetune
 
