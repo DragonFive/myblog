@@ -13,6 +13,9 @@ tags:
 
 获取设备->分配显存->数据传输host to device->kernel函数执行->数据传输device to host->释放显存->重置设备
 
+
+<!--more-->
+
 ```cpp
 cudaSetDevice(0);
 cudaMalloc((void **)&d_a, sizeof(float)*n);
@@ -24,7 +27,7 @@ cudaDeviceReset();
 
 
 ```
-<!--more-->
+
 
 
 # CUDA C编程
