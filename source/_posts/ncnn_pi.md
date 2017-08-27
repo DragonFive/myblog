@@ -44,7 +44,7 @@ sudo pip install tensorflow-0.11.0-cp27-none-linux_armv7l.whl
 
 # tensorflow的模型
 
-## ckpt, pb，meta等模型
+## ckpt, pb，meta等文件
 
 1. the .ckpt file is the old version output of saver.save(sess), which is the equivalent of your .ckpt-data (see below)
 2. the "checkpoint" file is only here to tell some TF functions which is the latest checkpoint file.
@@ -57,6 +57,7 @@ saver.restore(sess, path_to_ckpt_data)
 5. I don't know exactly for .ckpt-index, I guess it's some kind of index needed internally to map the two previous files correctly. Anyway it's not really necessary usually, you can restore a model with only .ckpt-meta and .ckpt-data.
 6. the .pb file can save your whole graph (meta + data). To load and use (but not train) a graph in c++ you'll usually use it, created with freeze_graph, which creates the .pb file from the meta and data. Be careful, (at least in previous TF versions and for some people) the py function provided by freeze_graph did not work properly, so you'd have to use the script version. Tensorflow also provides a tf.train.Saver.to_proto() method, but I don't know what it does exactly.
 
+## TF0.12以来的模型类型
 Here's my solution utilizing the V2 checkpoints introduced in TF 0.12.
 
 There's no need to convert all variables to constants or freeze the graph.
