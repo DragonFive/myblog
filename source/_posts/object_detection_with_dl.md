@@ -175,6 +175,8 @@ RCNN的SVM训练将**ground truth样本作为正样本**，而**IOU>0.3的样本
 ![enter description here][9]
 其主要目的是对于任意尺寸的输入产生固定大小的输出。思路是对于任意大小的feature map首先分成16、4、1个块，然后在每个块上最大池化，池化后的特征拼接得到一个固定维度的输出。以满足全连接层的需要。不过因为不是针对于目标检测的，所以输入的图像为一整副图像。
 
+为了简便，在fintune的阶段只修改fc层。
+
 ### reference
 
 [目标检测（3）-SPPNet](https://zhuanlan.zhihu.com/p/27485018)
