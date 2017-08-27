@@ -44,7 +44,7 @@ sudo pip install tensorflow-0.11.0-cp27-none-linux_armv7l.whl
 
 # tensorflow的模型
 
-## ckpt, pb，meta等文件的意思
+## ckpt, pb，meta等模型
 
 1. the .ckpt file is the old version output of saver.save(sess), which is the equivalent of your .ckpt-data (see below)
 2. the "checkpoint" file is only here to tell some TF functions which is the latest checkpoint file.
