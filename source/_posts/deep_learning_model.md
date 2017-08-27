@@ -24,7 +24,7 @@ tags:
 
 <div class="github-widget" data-repo="DragonFive/python_cv_AI_ML"></div>
 
-
+![caffe model][1]
 # 网络结构的基础知识
 1. 下采样层的目的是为了**降低网络训练参数**及模型的**过拟合程度**。
 2. LRN局部响应归一化有利于模型泛化。（过拟合）
@@ -40,7 +40,7 @@ Alexnet有一个特殊的计算层，LRN层，做的事是对当前层的输出�
 
 前面的结构  conv - relu - pool - LRN
 
-![卷积层][1]
+![卷积层][2]
 
 全连接的结构 fc - relu - dropout
 
@@ -49,7 +49,7 @@ Alexnet有一个特殊的计算层，LRN层，做的事是对当前层的输出�
 从这里开始pooling层其实变少了。
 要想提高CNN的网络能力，比如分类准确率，一般的想法就是增大网络，比如Alexnet确实比以前早期Lenet大了很多，但是纯粹的增大网络——比如把**每一层的channel数量翻倍**——但是这样做有两个缺点——**参数太多容易过拟合，网络计算量也会越来越大**。
 ### inception v1
-![inceptionv1结构][2]
+![inceptionv1结构][3]
 
 一分四，然后做一些不同大小的卷积，之后再堆叠feature map。这样提取不同尺度的特征，能够提高网络表达能力。
 
@@ -59,15 +59,15 @@ Alexnet有一个特殊的计算层，LRN层，做的事是对当前层的输出�
 
 用1x3和3x1卷积替代3x3卷积，计算量少了很多，深度变深，思路是一样的。（实际上是1xn和nx1替代nxn，n可以变）,使用的是不对称的卷积核
 
-![incepiton v2][3]
+![incepiton v2][4]
 
-![incpiton 2网络结构][4]
+![incpiton 2网络结构][5]
 
 ## VGG
 
 特点也是连续conv多，计算量巨大
 
-![做连续卷积][5]
+![做连续卷积][6]
 
 
 ## resnet
@@ -76,7 +76,7 @@ Alexnet有一个特殊的计算层，LRN层，做的事是对当前层的输出�
 
 block的结构如下图 
 
-![block][6]
+![block][7]
 
 
 ## Global Average Pooling
@@ -99,10 +99,10 @@ global avg pooling层没有参数所以不会过拟合。
 [卷积神经网络结构变化](http://blog.csdn.net/xbinworld/article/details/61210499)
 
 
-
-  [1]: https://www.github.com/DragonFive/CVBasicOp/raw/master/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1502709541017.jpg
-  [2]: https://www.github.com/DragonFive/CVBasicOp/raw/master/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1502709248613.jpg
-  [3]: https://www.github.com/DragonFive/CVBasicOp/raw/master/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1502710845336.jpg
-  [4]: https://www.github.com/DragonFive/CVBasicOp/raw/master/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1502710981337.jpg
-  [5]: https://www.github.com/DragonFive/CVBasicOp/raw/master/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1502710007686.jpg
-  [6]: https://www.github.com/DragonFive/CVBasicOp/raw/master/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1502710123203.jpg
+  [1]: https://www.github.com/DragonFive/CVBasicOp/raw/master/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1503832736486.jpg
+  [2]: https://www.github.com/DragonFive/CVBasicOp/raw/master/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1502709541017.jpg
+  [3]: https://www.github.com/DragonFive/CVBasicOp/raw/master/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1502709248613.jpg
+  [4]: https://www.github.com/DragonFive/CVBasicOp/raw/master/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1502710845336.jpg
+  [5]: https://www.github.com/DragonFive/CVBasicOp/raw/master/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1502710981337.jpg
+  [6]: https://www.github.com/DragonFive/CVBasicOp/raw/master/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1502710007686.jpg
+  [7]: https://www.github.com/DragonFive/CVBasicOp/raw/master/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1502710123203.jpg
