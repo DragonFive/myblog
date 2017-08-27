@@ -279,10 +279,22 @@ Rol pooling layer的作用主要有两个：
 
 kx是真实类别，式中第一项是分类损失，第二项是定位损失，L由R个输出取均值而来。
 
+1.对于分类loss，是一个N+1路的softmax输出，其中的N是类别个数，1是背景。为何不用SVM做分类器了？在5.4作者讨论了softmax效果比SVM好，因为它引入了类间竞争。（笔者觉得这个理由略牵强，估计还是实验效果验证了softmax的performance好吧 ）
+2.对于回归loss，是一个4xN路输出的regressor，也就是说对于每个类别都会训练一个单独的regressor的意思，比较有意思的是，这里regressor的loss不是L2的，而是一个平滑的L1，形式如下：
+
+![enter description here][18]
+
+
+
 - Mini-Batch 采样
 Mini-Batch的设置基本上与SPPNet是一致的，不同的在于128副图片中，仅来自于**两幅图片**。其中25%的样本为正样本，也就是IOU大于0.5的，其他样本为负样本，同样使用了**困难负样本挖掘**的方法，也就是负样本的IOU区间为[0.1，0.5），负样本的u=0，[u> 1]函数为艾弗森指示函数，意思是如果是背景的话我们就不进行区域回归了。在训练的时候，每个区域候选都有一个正确的标签以及正确的位置作为监督信息。
 - ROI Pooling的反向传播
 不同于SPPNet，我们的ROI Pooling是可以反向传播的，让我们考虑下正常的Pooling层是如何反向传播的，以**Max Pooling为例，根据链式法则，对于最大位置的神经元偏导数为1，对于其他神经元偏导数为0**。ROI Pooling 不用于常规Pooling，因为很多的区域建议的感受野可能是相同的或者是重叠的，因此在一个Batch_Size内，我们需要对于这些重叠的神经元偏导数进行求和，然后反向传播回去就好啦。
+
+RoI pooling层计算损失函数对每个输入变量x的偏导数，如下
+
+![ROI pooling反向传播][19]
+
 
 ### 改算法的结构与思考的问题
 
@@ -334,7 +346,7 @@ image-centric sampling：(solution)mini-batch采用层次取样，先对图像�
 Fast RCNN提到如果去除区域建议算法的话，网络能够接近实时，而 **selective search方法进行区域建议的时间一般在秒级**。产生差异的原因在于卷积神经网络部分运行在GPU上，而selective search运行在CPU上，所以效率自然是不可同日而语。一种可以想到的解决策略是将selective search通过GPU实现一遍，但是这种实现方式忽略了接下来的**检测网络可以与区域建议方法共享计算**的问题。因此Faster RCNN从提高区域建议的速度出发提出了region proposal network 用以通过GPU实现快速的区域建议。通过**共享卷积，RPN在测试时的速度约为10ms**，相比于selective search的秒级简直可以忽略不计。Faster RCNN整体结构为RPN网络产生区域建议，然后直接传递给Fast RCNN。
 
 ### faster rcnn 结构
-![faster RCNN的结构][18]
+![faster RCNN的结构][20]
 
 对于一幅图片的处理流程为：图片-卷积特征提取-RPN产生proposals-Fast RCNN分类proposals。
 
@@ -342,7 +354,7 @@ Fast RCNN提到如果去除区域建议算法的话，网络能够接近实时�
 
 区域建议算法一般分为两类：基于超像素合并的（selective search、CPMC、MCG等），基于滑窗算法的。由于卷积特征层一般很小，所以得到的滑窗数目也少很多。但是产生的滑窗准确度也就差了很多，毕竟感受野也相应大了很多。
 
-![区域建议算法][19]
+![区域建议算法][21]
 
 RPN对于feature map的每个位置进行**滑窗**，通过**不同尺度以及不同比例的K个anchor**产生K个256维的向量，然后分类每一个region是否包含目标以及通过**回归**得到目标的具体位置。
 
@@ -382,5 +394,7 @@ RPN对于feature map的每个位置进行**滑窗**，通过**不同尺度以及
   [15]: https://www.github.com/DragonFive/CVBasicOp/raw/master/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1501819431880.jpg
   [16]: https://www.github.com/DragonFive/CVBasicOp/raw/master/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1501820819379.jpg
   [17]: https://www.github.com/DragonFive/CVBasicOp/raw/master/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1503827726497.jpg
-  [18]: https://www.github.com/DragonFive/CVBasicOp/raw/master/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1501831614917.jpg
-  [19]: https://www.github.com/DragonFive/CVBasicOp/raw/master/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1501832022067.jpg
+  [18]: https://www.github.com/DragonFive/CVBasicOp/raw/master/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1503827873218.jpg
+  [19]: https://www.github.com/DragonFive/CVBasicOp/raw/master/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1503827982062.jpg
+  [20]: https://www.github.com/DragonFive/CVBasicOp/raw/master/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1501831614917.jpg
+  [21]: https://www.github.com/DragonFive/CVBasicOp/raw/master/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1501832022067.jpg
