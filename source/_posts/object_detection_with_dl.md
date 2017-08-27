@@ -351,19 +351,28 @@ faster RCNN可以简单地看做“区域生成网络+fast RCNN“的系统,着�
 3. 如何让区域生成网络和fast RCNN网络共享特征提取网络
 
 
-
 Fast RCNN提到如果去除区域建议算法的话，网络能够接近实时，而 **selective search方法进行区域建议的时间一般在秒级**。产生差异的原因在于卷积神经网络部分运行在GPU上，而selective search运行在CPU上，所以效率自然是不可同日而语。一种可以想到的解决策略是将selective search通过GPU实现一遍，但是这种实现方式忽略了接下来的**检测网络可以与区域建议方法共享计算**的问题。因此Faster RCNN从提高区域建议的速度出发提出了region proposal network 用以通过GPU实现快速的区域建议。通过**共享卷积，RPN在测试时的速度约为10ms**，相比于selective search的秒级简直可以忽略不计。Faster RCNN整体结构为RPN网络产生区域建议，然后直接传递给Fast RCNN。
 
 ### faster rcnn 结构
-![faster RCNN的结构][20]
+
+
 
 对于一幅图片的处理流程为：图片-卷积特征提取-RPN产生proposals-Fast RCNN分类proposals。
 
+![enter description here][21]
+
+### feature extraction 特征提取
+
+原始特征提取（上图灰色方框）包含若干层conv+relu，直接套用ImageNet上常见的分类网络，额外添加一个conv+relu层，输出51*39*256维特征（feature）。
+
+
 ### region proposal network
+
+![faster RCNN的结构][20]
 
 区域建议算法一般分为两类：基于超像素合并的（selective search、CPMC、MCG等），基于滑窗算法的。由于卷积特征层一般很小，所以得到的滑窗数目也少很多。但是产生的滑窗准确度也就差了很多，毕竟感受野也相应大了很多。
 
-![区域建议算法][21]
+![区域建议算法][22]
 
 RPN对于feature map的每个位置进行**滑窗**，通过**不同尺度以及不同比例的K个anchor**产生K个256维的向量，然后分类每一个region是否包含目标以及通过**回归**得到目标的具体位置。
 
@@ -372,6 +381,8 @@ RPN对于feature map的每个位置进行**滑窗**，通过**不同尺度以及
 ### reference
 
 [目标检测（5）-Faster RCNN](https://zhuanlan.zhihu.com/p/27988828)
+
+[faster rcnn](http://blog.csdn.net/u011534057/article/details/51247371)
 
 ## YoLo
 
@@ -406,4 +417,5 @@ RPN对于feature map的每个位置进行**滑窗**，通过**不同尺度以及
   [18]: https://www.github.com/DragonFive/CVBasicOp/raw/master/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1503827873218.jpg
   [19]: https://www.github.com/DragonFive/CVBasicOp/raw/master/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1503827982062.jpg
   [20]: https://www.github.com/DragonFive/CVBasicOp/raw/master/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1501831614917.jpg
-  [21]: https://www.github.com/DragonFive/CVBasicOp/raw/master/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1501832022067.jpg
+  [21]: https://www.github.com/DragonFive/CVBasicOp/raw/master/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1503843755653.jpg
+  [22]: https://www.github.com/DragonFive/CVBasicOp/raw/master/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1501832022067.jpg
