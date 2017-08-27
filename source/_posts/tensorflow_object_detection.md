@@ -12,7 +12,9 @@ tags:
 ---
 
 
+本博文主要介绍tensorflow训练模型并使用训练好的模型做图像分类，内容有:slim库，TensorFlow虚拟化环境安装，图像数据集的准备，训练网络模型的脚本，评估训练好的模型，调用训练好的模型来做分类。
 
+<!--more-->
 
 
 # 环境配置
@@ -35,7 +37,7 @@ apt-get update
 apt-get install git vim
 
 ```
-<!--more-->
+
 
 
 
