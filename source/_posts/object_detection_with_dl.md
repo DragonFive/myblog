@@ -241,8 +241,13 @@ multi-size训练，输入尺寸在[180,224]之间，假设最后一个卷积层�
 2.把它们整体输入到全卷积的网络中，在**最后一个卷积层上对每个ROI求映射关系**，并用一个RoI pooling layer来统一到相同的大小－> (fc)feature vector 即－>提取一个固定维度的特征表示。
 3.继续经过两个全连接层（FC）得到特征向量。特征向量经由各自的FC层，得到两个输出向量：第一个是分类，使用softmax，第二个是每一类的bounding box回归。
 
-
+**ROI pooling**
 对比SPPNet，首先是将SPP换成了**ROI Poling**。ROI Poling可以看作是空间金字塔池化的简化版本，它通过将区域候选对应的卷积层特征还分为H\*W个块，然后在每个块上进行最大池化就好了。每个块的划分也简单粗暴，直接使用卷积特征尺寸除块的数目就可以了。空间金字塔池化的特征是多尺寸的，而ROI Pooling是**单一尺度**的。而对于H\*W的设定也是参照网络Pooling层的，例如对于VGG-19，网络全连接层输入是7\*7\*512，因此对应于我们的H,W就分别设置为7，7就可以了。另外一点不同在于网络的输出端，无论是SPPNet还是RCNN，CNN网络都是仅用于特征提取，因此输出端只有网络类别的概率。而Fast RCNN的网络输出是**包含区域回归**的。
+
+Rol pooling layer的作用主要有两个：
+1.是将image中的rol定位到feature map中对应patch
+2.是用一个单层的SPP layer将这个feature map patch下采样为大小固定的feature再传入全连接层。即RoI pooling layer来统一到相同的大小－> (fc)feature vector 即－>提取一个固定维度的特征表示。
+
 
 - muti-task 
 将网络的**输出改为两个子网络**，一个用以分类（softmax）一个用于回归。最后更改网络的输入，网络的**输入是图片集合以及ROI的集合**
