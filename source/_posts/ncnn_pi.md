@@ -1,5 +1,5 @@
 ---
-title: ncnn_pi
+title: ncnn库在树莓派上运行tensorflow模型
 date: 2017/8/24 17:38:58
 
 categories:
@@ -13,9 +13,11 @@ tags:
 
 
 
+ncnn 是一个为手机端极致优化的高性能神经网络前向计算框架。ncnn 从设计之初深刻考虑手机端的部署和使用。无第三方依赖，跨平台，手机端 cpu 的速度快于目前所有已知的**开源**框架。
 
 
 
+<!--more-->
 # 安装ncnn
 
 ```cpp
@@ -28,7 +30,7 @@ make -j
 make install
 ```
 进入 ncnn/build/tools 目录下，如下所示，我们可以看到已经生成了 caffe2ncnn 可ncnn2mem这两个可执行文件，这两个可执行文件的作用是将caffe模型生成ncnn 模型，并且对模型进行加密。在ncnn/build/tools/tensorflow下面也有tensorflow2ncnn，可以把tensorflow模型转化乘ncnn模型
-<!--more-->
+
 
 # tensorflow 的安装
 
