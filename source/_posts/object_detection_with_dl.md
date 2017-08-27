@@ -142,6 +142,8 @@ RCNN的SVM训练将**ground truth样本作为正样本**，而**IOU>0.3的样本
 
 由于有多达2K个区域候选，我们如何筛选得到最后的区域呢？RCNN使用**贪婪非极大值抑制**的方法，假设ABCDEF五个区域候选，首先根据概率从大到小排列。假设为FABCDE。然后从最大的F开始，计算F与ABCDE是否IoU是否超过某个阈值，如果超过则将ABC舍弃。然后再从D开始，直到集合为空。而这个阈值是筛选得到的，通过这种处理之后一般只会剩下几个区域候选了。
 
+![NMS非极大值抑制][8]
+
 定位一个车辆，最后算法就找出了一堆的方框，我们需要判别哪些矩形框是没用的。非极大值抑制：先假设有6个矩形框，根据分类器类别分类概率做排序，从小到大分别属于车辆的概率分别为A、B、C、D、E、F。
 (1)从最大概率矩形框F开始，分别判断A~E与F的重叠度IOU是否大于某个设定的阈值;
 (2)假设B、D与F的重叠度超过阈值，那么就扔掉B、D；并标记第一个矩形框F，是我们保留下来的。
@@ -185,13 +187,13 @@ r-cnn有点麻烦，他要先过一次classification得到分类的model，继�
 论文：Spatial Pyramid Pooling in Deep Convolutional Networks for Visual Recognition
 
 
-![sppnet与rcnn的区别][8]
+![sppnet与rcnn的区别][9]
 
 图可以看出SPPnet和RCNN的区别，首先是输入不需要放缩到指定大小。其次是增加了一个空间金字塔池化层，使得fc层能够固定参数个数。
 
 空间金字塔池化层是SPPNet的核心
 
-![enter description here][9]
+![enter description here][10]
 其主要目的是对于任意尺寸的输入产生固定大小的输出。思路是对于任意大小的feature map首先分成16、4、1个块，然后在每个块上最大池化，池化后的特征拼接得到一个固定维度的输出。以满足全连接层的需要。不过因为不是针对于目标检测的，所以输入的图像为一整副图像。
 
 为了简便，在fintune的阶段只修改fc层。
@@ -210,7 +212,7 @@ r-cnn有点麻烦，他要先过一次classification得到分类的model，继�
 
 ### 网络结构
 
-![fast RCNN网络结构][10]
+![fast RCNN网络结构][11]
 
 类似于RCNN，Fast RCNN首先通过**Selective Search**产生一系列的区域候选，然后通过通过**CNN**提取每个区域候选的特征，之后**训练分类网络softmax以及区域回归网络**。对比SPPNet，首先是将SPP换成了**ROI Poling**。ROI Poling可以看作是空间金字塔池化的简化版本，它通过将区域候选对应的卷积层特征还分为H\*W个块，然后在每个块上进行最大池化就好了。每个块的划分也简单粗暴，直接使用卷积特征尺寸除块的数目就可以了。空间金字塔池化的特征是多尺寸的，而ROI Pooling是**单一尺度**的。而对于H\*W的设定也是参照网络Pooling层的，例如对于VGG-19，网络全连接层输入是7\*7\*512，因此对应于我们的H,W就分别设置为7，7就可以了。另外一点不同在于网络的输出端，无论是SPPNet还是RCNN，CNN网络都是仅用于特征提取，因此输出端只有网络类别的概率。而Fast RCNN的网络输出是**包含区域回归**的。
 
@@ -234,7 +236,7 @@ Mini-Batch的设置基本上与SPPNet是一致的，不同的在于128副图片�
 Fast RCNN提到如果去除区域建议算法的话，网络能够接近实时，而 **selective search方法进行区域建议的时间一般在秒级**。产生差异的原因在于卷积神经网络部分运行在GPU上，而selective search运行在CPU上，所以效率自然是不可同日而语。一种可以想到的解决策略是将selective search通过GPU实现一遍，但是这种实现方式忽略了接下来的**检测网络可以与区域建议方法共享计算**的问题。因此Faster RCNN从提高区域建议的速度出发提出了region proposal network 用以通过GPU实现快速的区域建议。通过**共享卷积，RPN在测试时的速度约为10ms**，相比于selective search的秒级简直可以忽略不计。Faster RCNN整体结构为RPN网络产生区域建议，然后直接传递给Fast RCNN。
 
 ### faster rcnn 结构
-![faster RCNN的结构][11]
+![faster RCNN的结构][12]
 
 对于一幅图片的处理流程为：图片-卷积特征提取-RPN产生proposals-Fast RCNN分类proposals。
 
@@ -242,7 +244,7 @@ Fast RCNN提到如果去除区域建议算法的话，网络能够接近实时�
 
 区域建议算法一般分为两类：基于超像素合并的（selective search、CPMC、MCG等），基于滑窗算法的。由于卷积特征层一般很小，所以得到的滑窗数目也少很多。但是产生的滑窗准确度也就差了很多，毕竟感受野也相应大了很多。
 
-![区域建议算法][12]
+![区域建议算法][13]
 
 RPN对于feature map的每个位置进行**滑窗**，通过**不同尺度以及不同比例的K个anchor**产生K个256维的向量，然后分类每一个region是否包含目标以及通过**回归**得到目标的具体位置。
 
@@ -272,8 +274,9 @@ RPN对于feature map的每个位置进行**滑窗**，通过**不同尺度以及
   [5]: https://www.github.com/DragonFive/CVBasicOp/raw/master/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1501731713492.jpg
   [6]: https://www.github.com/DragonFive/CVBasicOp/raw/master/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1501733503711.jpg
   [7]: https://www.github.com/DragonFive/CVBasicOp/raw/master/1503646999361.jpg
-  [8]: https://www.github.com/DragonFive/CVBasicOp/raw/master/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1501816659717.jpg
-  [9]: https://www.github.com/DragonFive/CVBasicOp/raw/master/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1501819431880.jpg
-  [10]: https://www.github.com/DragonFive/CVBasicOp/raw/master/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1501820819379.jpg
-  [11]: https://www.github.com/DragonFive/CVBasicOp/raw/master/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1501831614917.jpg
-  [12]: https://www.github.com/DragonFive/CVBasicOp/raw/master/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1501832022067.jpg
+  [8]: https://www.github.com/DragonFive/CVBasicOp/raw/master/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1503820950848.jpg
+  [9]: https://www.github.com/DragonFive/CVBasicOp/raw/master/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1501816659717.jpg
+  [10]: https://www.github.com/DragonFive/CVBasicOp/raw/master/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1501819431880.jpg
+  [11]: https://www.github.com/DragonFive/CVBasicOp/raw/master/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1501820819379.jpg
+  [12]: https://www.github.com/DragonFive/CVBasicOp/raw/master/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1501831614917.jpg
+  [13]: https://www.github.com/DragonFive/CVBasicOp/raw/master/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1501832022067.jpg
