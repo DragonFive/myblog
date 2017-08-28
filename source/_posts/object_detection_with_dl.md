@@ -398,6 +398,14 @@ RPN对于feature map的每个位置进行**滑窗**，通过**不同尺度以及
 [ RCNN学习笔记(5) faster rcnn](http://blog.csdn.net/u011534057/article/details/51247371)
 
 ## YoLo
+YOLO的核心思想就是利用整张图作为网络的输入，直接在输出层回归bounding box的位置和bounding box所属的类别。
+
+### yolo的实现方法
+将一幅图像分成SxS个网格(grid cell)，如果某个object的中心 落在这个网格中，则这个网格就负责预测这个object。
+
+每个网格要预测B个bounding box，每个bounding box除了要回归自身的位置之外，还要附带预测一个confidence值。 这个confidence代表了所预测的box中含有object的置信度和这个box预测的有多准两重信息，其值是这样计算的：
+
+![box的confidence][25]
 
 
 ### reference
@@ -434,3 +442,4 @@ RPN对于feature map的每个位置进行**滑窗**，通过**不同尺度以及
   [22]: https://www.github.com/DragonFive/CVBasicOp/raw/master/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1503843755653.jpg
   [23]: https://www.github.com/DragonFive/CVBasicOp/raw/master/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1501831614917.jpg
   [24]: https://www.github.com/DragonFive/CVBasicOp/raw/master/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1501832022067.jpg
+  [25]: https://www.github.com/DragonFive/CVBasicOp/raw/master/1503904894093.jpg
