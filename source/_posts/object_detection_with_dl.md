@@ -464,6 +464,20 @@ YOLO对相互靠的很近的物体，还有**很小的群体 检测效果**不�
 [YOLO：实时快速目标检测](https://zhuanlan.zhihu.com/p/25045711)
 
 [RCNN学习笔记(6)：You Only Look Once(YOLO)](http://blog.csdn.net/u011534057/article/details/51244354)
+
+
+
+
+## SSD
+
+
+
+
+
+
+
+
+
 # 其它reference
 
 
