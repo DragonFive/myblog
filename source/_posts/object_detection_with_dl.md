@@ -445,6 +445,16 @@ YOLO的核心思想就是利用整张图作为网络的输入，直接在输出�
 只有当某个box predictor对某个ground truth box负责的时候，才会对**box的coordinate error**进行惩罚，而对哪个ground truth box负责就看其预测值和ground truth box的IoU是不是在那个cell的所有box中最大。
 其他细节，例如使用激活函数使用leak RELU，模型用ImageNet预训练等等
 
+### yolo的缺点
+
+YOLO对相互靠的很近的物体，还有**很小的群体 检测效果**不好，这是因为**一个网格中只预测了两个框，并且只属于一类**。
+
+对测试图像中，同一类物体出现的新的不常见的长宽比和其他情况是。泛化能力偏弱。
+
+由于损失函数的问题，定位误差是影响检测效果的主要原因。尤其是大小物体的处理上，还有待加强。
+
+
+
 ### reference
 [YOLO：实时快速目标检测](https://zhuanlan.zhihu.com/p/25045711)
 
