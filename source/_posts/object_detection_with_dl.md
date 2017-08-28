@@ -426,8 +426,24 @@ YOLO的核心思想就是利用整张图作为网络的输入，直接在输出�
 
 每个grid有30维，这30维中，8维是回归box的坐标，2维是box的confidence，还有20维是类别。 其中坐标的x,y用对应网格的offset归一化到0-1之间，w,h用图像的width和height**归一化**到0-1之间。
 
+对不同大小的box预测中，相比于大box预测偏一点，小box预测偏一点肯定更不能被忍受的。而sum-square error loss中对同样的偏移loss是一样。 
+为了缓和这个问题，作者用了一个比较取巧的办法，就是将box的width和height取平方根代替原本的height和width。这个参考下面的图很容易理解，小box的横轴值较小，发生偏移时，反应到y轴上相比大box要大。
 
 
+![enter description here][27]
+
+更重视8维的坐标预测，给这些损失前面赋予更大的loss weight, 记为 $\lambda_{coord}$ 在pascal VOC训练中取5。
+对没有object的box的confidence loss，赋予小的loss weight，记为 $\lambda_noobj$ 在pascal VOC训练中取0.5。
+有object的box的confidence loss和类别的loss的loss weight正常取1。
+
+![损失函数][30]
+
+
+
+这个损失函数中： 
+只有当某个网格中有object的时候才对classification error进行惩罚。
+只有当某个box predictor对某个ground truth box负责的时候，才会对**box的coordinate error**进行惩罚，而对哪个ground truth box负责就看其预测值和ground truth box的IoU是不是在那个cell的所有box中最大。
+其他细节，例如使用激活函数使用leak RELU，模型用ImageNet预训练等等
 
 ### reference
 [YOLO：实时快速目标检测](https://zhuanlan.zhihu.com/p/25045711)
@@ -465,3 +481,7 @@ YOLO的核心思想就是利用整张图作为网络的输入，直接在输出�
   [24]: https://www.github.com/DragonFive/CVBasicOp/raw/master/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1501832022067.jpg
   [25]: https://www.github.com/DragonFive/CVBasicOp/raw/master/1503904894093.jpg
   [26]: https://www.github.com/DragonFive/CVBasicOp/raw/master/1503905518100.jpg
+  [27]: https://www.github.com/DragonFive/CVBasicOp/raw/master/1503905912862.jpg
+  [28]: https://www.github.com/DragonFive/CVBasicOp/raw/master/1503906134505.jpg
+  [29]: https://www.github.com/DragonFive/CVBasicOp/raw/master/1503906142222.jpg
+  [30]: https://www.github.com/DragonFive/CVBasicOp/raw/master/1503905928952.jpg
