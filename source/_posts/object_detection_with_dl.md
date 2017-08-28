@@ -403,9 +403,28 @@ YOLO的核心思想就是利用整张图作为网络的输入，直接在输出�
 ### yolo的实现方法
 将一幅图像分成SxS个网格(grid cell)，如果某个object的中心 落在这个网格中，则这个网格就负责预测这个object。
 
-每个网格要预测B个bounding box，每个bounding box除了要回归自身的位置之外，还要附带预测一个confidence值。 这个confidence代表了所预测的box中含有object的置信度和这个box预测的有多准两重信息，其值是这样计算的：
+- 每个网格要预测B个bounding box，每个bounding box除了要回归自身的位置之外，还要附带预测一个confidence值。 这个confidence代表了所预测的box中含有object的置信度和这个box预测的有多准两重信息，其值是这样计算的：
 
 ![box的confidence][25]
+
+其中如果有object落在一个grid cell里，第一项取1，否则取0。 第二项是预测的bounding box和实际的groundtruth之间的IoU值。
+
+- 每个bounding box要预测(x, y, w, h)和confidence共5个值，每个网格还要预测一个类别信息，记为C类。则SxS个网格，每个网格要预测B个bounding box还要预测C个categories。输出就是S x S x (5xB+C)的一个tensor。 
+注意：class信息是针对每个网格的，confidence信息是针对每个bounding box的。
+
+- PASCAL VOC中，图像输入为448x448，**取S=7，B=2，一共有20个类别(C=20)**。则输出就是7x7x30的一个tensor。 
+
+![yolo的网络结构][26]
+
+- 在test的时候，每个网格预测的class信息和bounding box预测的confidence信息相乘，就得到每个bounding box的class-specific confidence score: 
+
+
+
+### 实现细节 
+
+每个grid有30维，这30维中，8维是回归box的坐标，2维是box的confidence，还有20维是类别。 其中坐标的x,y用对应网格的offset归一化到0-1之间，w,h用图像的width和height**归一化**到0-1之间。
+
+
 
 
 ### reference
@@ -443,3 +462,4 @@ YOLO的核心思想就是利用整张图作为网络的输入，直接在输出�
   [23]: https://www.github.com/DragonFive/CVBasicOp/raw/master/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1501831614917.jpg
   [24]: https://www.github.com/DragonFive/CVBasicOp/raw/master/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1501832022067.jpg
   [25]: https://www.github.com/DragonFive/CVBasicOp/raw/master/1503904894093.jpg
+  [26]: https://www.github.com/DragonFive/CVBasicOp/raw/master/1503905518100.jpg
