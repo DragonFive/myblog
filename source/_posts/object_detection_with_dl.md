@@ -19,7 +19,7 @@ tags:
 
 # 目标检测
 
-![map与fps][2]
+![map与速度][2]
 ## 检测算法划分
 
 目标检测的算法大致可以如下划分：
@@ -488,7 +488,7 @@ YOLO对相互靠的很近的物体，还有**很小的群体 检测效果**不�
 
 
   [1]: https://www.github.com/DragonFive/CVBasicOp/raw/master/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1501725558357.jpg
-  [2]: https://www.github.com/DragonFive/CVBasicOp/raw/master/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1503846055542.jpg
+  [2]: https://www.github.com/DragonFive/CVBasicOp/raw/master/1503912071330.jpg
   [3]: https://www.github.com/DragonFive/CVBasicOp/raw/master/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1501731400655.jpg
   [4]: https://www.github.com/DragonFive/CVBasicOp/raw/master/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1501731416622.jpg
   [5]: https://www.github.com/DragonFive/CVBasicOp/raw/master/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1501731430205.jpg
