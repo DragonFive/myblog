@@ -481,6 +481,8 @@ YOLO对相互靠的很近的物体，还有**很小的群体 检测效果**不�
 
 [RCNN学习笔记(10)：SSD:Single Shot MultiBox Detector](http://blog.csdn.net/u011534057/article/details/52733686)
 
+[晓雷机器学习笔记-SSD](https://zhuanlan.zhihu.com/p/24954433)
+
 # 其它reference
 
 
