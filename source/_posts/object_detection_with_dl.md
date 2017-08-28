@@ -417,7 +417,9 @@ YOLO的核心思想就是利用整张图作为网络的输入，直接在输出�
 ![yolo的网络结构][26]
 
 - 在test的时候，每个网格预测的class信息和bounding box预测的confidence信息相乘，就得到每个bounding box的class-specific confidence score: 
+等式左边第一项就是每个网格预测的类别信息，第二三项就是每个bounding box预测的confidence。这个乘积即encode了预测的box属于某一类的概率，也有该box准确度的信息。
 
+- 得到每个box的class-specific confidence score以后，设置阈值，滤掉得分低的boxes，对保留的boxes进行**NMS处理**，就得到最终的检测结果
 
 
 ### 实现细节 
