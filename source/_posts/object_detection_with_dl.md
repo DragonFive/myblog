@@ -403,7 +403,7 @@ RPN对于feature map的每个位置进行**滑窗**，通过**不同尺度以及
 ### reference
 [YOLO：实时快速目标检测](https://zhuanlan.zhihu.com/p/25045711)
 
-
+[RCNN学习笔记(6)：You Only Look Once(YOLO)](http://blog.csdn.net/u011534057/article/details/51244354)
 # 其它reference
 
 
