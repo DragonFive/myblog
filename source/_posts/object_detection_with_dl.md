@@ -13,10 +13,12 @@ tags:
 [TOC]
 
  去年总结了一篇关于目标检测的博客 [视频智能之——目标检测](https://dragonfive.github.io/object_detection/)，今年到现在有了新的体会，所以就更新一篇。
+ 
  ![目标检测题图][1]
 <!--more-->
 
 # 目标检测
+
 ![map与fps][2]
 ## 检测算法划分
 
@@ -284,7 +286,7 @@ kx是真实类别，式中第一项是分类损失，第二项是定位损失，
 
 ![enter description here][19]
 
-
+![smooth图像][20]
 
 - Mini-Batch 采样
 Mini-Batch的设置基本上与SPPNet是一致的，不同的在于128副图片中，仅来自于**两幅图片**。其中25%的样本为正样本，也就是IOU大于0.5的，其他样本为负样本，同样使用了**困难负样本挖掘**的方法，也就是负样本的IOU区间为[0.1，0.5），负样本的u=0，[u> 1]函数为艾弗森指示函数，意思是如果是背景的话我们就不进行区域回归了。在训练的时候，每个区域候选都有一个正确的标签以及正确的位置作为监督信息。
@@ -293,7 +295,7 @@ Mini-Batch的设置基本上与SPPNet是一致的，不同的在于128副图片�
 
 RoI pooling层计算损失函数对每个输入变量x的偏导数，如下
 
-![ROI pooling反向传播][20]
+![ROI pooling反向传播][21]
 
 
 
@@ -361,7 +363,7 @@ Fast RCNN提到如果去除区域建议算法的话，网络能够接近实时�
 
 对于一幅图片的处理流程为：图片-卷积特征提取-RPN产生proposals-Fast RCNN分类proposals。
 
-![enter description here][21]
+![enter description here][22]
 
 ### feature extraction 特征提取
 
@@ -370,13 +372,22 @@ Fast RCNN提到如果去除区域建议算法的话，网络能够接近实时�
 
 ### region proposal network
 
-![faster RCNN的结构][22]
+![faster RCNN的结构][23]
 
 区域建议算法一般分为两类：基于超像素合并的（selective search、CPMC、MCG等），基于滑窗算法的。由于卷积特征层一般很小，所以得到的滑窗数目也少很多。但是产生的滑窗准确度也就差了很多，毕竟感受野也相应大了很多。
 
-![区域建议算法][23]
+![区域建议算法][24]
 
 RPN对于feature map的每个位置进行**滑窗**，通过**不同尺度以及不同比例的K个anchor**产生K个256维的向量，然后分类每一个region是否包含目标以及通过**回归**得到目标的具体位置。
+
+### 训练方法 
+
+4-Step Alternating Training的方法，思路和迭代的Alternating training有点类似，但是细节有点差别：
+
+第一步：用ImageNet模型初始化，独立训练一个RPN网络；
+第二步：仍然用ImageNet模型初始化，但是使用上一步RPN网络产生的proposal作为输入，训练一个Fast-RCNN网络，至此，两个网络每一层的参数完全不共享；
+第三步：使用第二步的Fast-RCNN网络参数初始化一个新的RPN网络，但是把RPN、Fast-RCNN共享的那些卷积层的learning rate设置为0，也就是不更新，仅仅更新RPN特有的那些网络层，重新训练，此时，两个网络已经共享了所有公共的卷积层；
+第四步：仍然固定共享的那些网络层，把Fast-RCNN特有的网络层也加入进来，形成一个unified network，继续训练，fine tune Fast-RCNN特有的网络层，此时，该网络已经实现我们设想的目标，即网络内部预测proposal并实现检测的功能。
 
 
 
@@ -418,7 +429,8 @@ RPN对于feature map的每个位置进行**滑窗**，通过**不同尺度以及
   [17]: https://www.github.com/DragonFive/CVBasicOp/raw/master/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1501820819379.jpg
   [18]: https://www.github.com/DragonFive/CVBasicOp/raw/master/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1503827726497.jpg
   [19]: https://www.github.com/DragonFive/CVBasicOp/raw/master/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1503827873218.jpg
-  [20]: https://www.github.com/DragonFive/CVBasicOp/raw/master/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1503827982062.jpg
-  [21]: https://www.github.com/DragonFive/CVBasicOp/raw/master/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1503843755653.jpg
-  [22]: https://www.github.com/DragonFive/CVBasicOp/raw/master/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1501831614917.jpg
-  [23]: https://www.github.com/DragonFive/CVBasicOp/raw/master/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1501832022067.jpg
+  [20]: https://www.github.com/DragonFive/CVBasicOp/raw/master/1503889360944.jpg
+  [21]: https://www.github.com/DragonFive/CVBasicOp/raw/master/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1503827982062.jpg
+  [22]: https://www.github.com/DragonFive/CVBasicOp/raw/master/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1503843755653.jpg
+  [23]: https://www.github.com/DragonFive/CVBasicOp/raw/master/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1501831614917.jpg
+  [24]: https://www.github.com/DragonFive/CVBasicOp/raw/master/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1501832022067.jpg
