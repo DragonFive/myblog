@@ -401,11 +401,14 @@ RPN对于feature map的每个位置进行**滑窗**，通过**不同尺度以及
 YOLO的核心思想就是利用整张图作为网络的输入，直接在输出层回归bounding box的位置和bounding box所属的类别。该方法采用单个神经网络直接预测物品边界和类别概率，实现端到端的物品检测。同时，该方法检测速非常快，基础版可以达到**45帧/s的实时检测；FastYOLO可以达到155帧/s**。由于可以看到图片的全局信息，所以YOLO的背景预测的假阳性优于当前最好的方法。
 
 ### yolo的实现方法
+
+网络结构类似于 **GoogleNet**
+
 将一幅图像分成SxS个网格(grid cell)，如果某个object的中心 落在这个网格中，则这个网格就负责预测这个object。
 
 - 每个网格要预测B个bounding box，每个bounding box除了要回归自身的位置之外，还要附带预测一个confidence值。 这个confidence代表了所预测的box中含有object的置信度和这个box预测的有多准两重信息，其值是这样计算的：
 
-![box的confidence][25]
+![enter description here][25]
 
 其中如果有object落在一个grid cell里，第一项取1，否则取0。 第二项是预测的bounding box和实际的groundtruth之间的IoU值。
 
@@ -429,6 +432,8 @@ YOLO的核心思想就是利用整张图作为网络的输入，直接在输出�
 对不同大小的box预测中，相比于大box预测偏一点，小box预测偏一点肯定更不能被忍受的。而sum-square error loss中对同样的偏移loss是一样。 
 为了缓和这个问题，作者用了一个比较取巧的办法，就是将box的width和height取平方根代替原本的height和width。这个参考下面的图很容易理解，小box的横轴值较小，发生偏移时，反应到y轴上相比大box要大。
 
+作者向预训练模型中加入了4个卷积层和两层全连接层，提高了模型输入分辨率（224×224->448×448）。顶层预测类别概率和bounding box协调值。bounding box的宽和高通过输入图像宽和高归一化到0-1区间。顶层采用linear activation，其它层使用 leaky rectified linear。作者采用sum-squared error为目标函数来优化，增加bounding box loss权重，减少置信度权重。
+
 
 ![enter description here][27]
 
@@ -436,7 +441,7 @@ YOLO的核心思想就是利用整张图作为网络的输入，直接在输出�
 对没有object的box的confidence loss，赋予小的loss weight，记为 $\lambda_noobj$ 在pascal VOC训练中取0.5。
 有object的box的confidence loss和类别的loss的loss weight正常取1。
 
-![损失函数][30]
+![损失函数][28]
 
 
 
@@ -489,9 +494,7 @@ YOLO对相互靠的很近的物体，还有**很小的群体 检测效果**不�
   [22]: https://www.github.com/DragonFive/CVBasicOp/raw/master/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1503843755653.jpg
   [23]: https://www.github.com/DragonFive/CVBasicOp/raw/master/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1501831614917.jpg
   [24]: https://www.github.com/DragonFive/CVBasicOp/raw/master/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1501832022067.jpg
-  [25]: https://www.github.com/DragonFive/CVBasicOp/raw/master/1503904894093.jpg
+  [25]: https://www.github.com/DragonFive/CVBasicOp/raw/master/1503907708434.jpg
   [26]: https://www.github.com/DragonFive/CVBasicOp/raw/master/1503905518100.jpg
   [27]: https://www.github.com/DragonFive/CVBasicOp/raw/master/1503905912862.jpg
-  [28]: https://www.github.com/DragonFive/CVBasicOp/raw/master/1503906134505.jpg
-  [29]: https://www.github.com/DragonFive/CVBasicOp/raw/master/1503906142222.jpg
-  [30]: https://www.github.com/DragonFive/CVBasicOp/raw/master/1503905928952.jpg
+  [28]: https://www.github.com/DragonFive/CVBasicOp/raw/master/1503905928952.jpg
