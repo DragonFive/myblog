@@ -413,14 +413,14 @@ b) $7*7=49个cell$所属20个物体的概率。
 
 预训练分类网络： 在 ImageNet 1000-class competition dataset上预训练一个分类网络，这个网络是Figure3中的前20个卷机网络+average-pooling layer+ fully connected layer （此时网络输入是224*224）。
 
-训练检测网络：转换模型去执行检测任务，《Object detection networks on convolutional feature maps》提到说在预训练网络中增加卷积和全链接层可以改善性能。在他们例子基础上添加4个卷积层和2个全链接层，随机初始化权重。检测要求细粒度的视觉信息，所以把网络输入也又224*224变成448*448。
+训练检测网络：转换模型去执行检测任务，《Object detection networks on convolutional feature maps》提到说在预训练网络中增加卷积和全链接层可以改善性能。在他们例子基础上添加4个卷积层和2个全链接层，随机初始化权重。检测要求细粒度的视觉信息，所以把网络输入也又$224*224$变成$448*448$。
 
 
 将一幅图像分成SxS个网格(grid cell)，如果某个object的中心 落在这个网格中，则这个网格就负责预测这个object。
 
 - 每个网格要预测B个bounding box，每个bounding box除了要回归自身的位置之外，还要附带预测一个confidence值。 这个confidence代表了所预测的box中含有object的置信度和这个box预测的有多准两重信息，其值是这样计算的：
+$$confidence = Pr(Object) \ast IOU^{truth}_{pred}$$
 
-![enter description here][25]
 
 其中如果有object落在一个grid cell里，第一项取1，否则取0。 第二项是预测的bounding box和实际的groundtruth之间的IoU值。
 
