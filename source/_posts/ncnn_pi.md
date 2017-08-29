@@ -1,5 +1,5 @@
 ---
-title: ncnn库在树莓派上运行tensorflow模型
+title: tensorflow目标检测模型的压缩和ncnn转换
 date: 2017/8/24 17:38:58
 
 categories:
