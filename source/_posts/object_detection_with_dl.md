@@ -400,6 +400,13 @@ RPN对于feature map的每个位置进行**滑窗**，通过**不同尺度以及
 ## YoLo
 YOLO的核心思想就是利用整张图作为网络的输入，直接在输出层回归bounding box的位置和bounding box所属的类别。该方法采用单个神经网络直接预测物品边界和类别概率，实现端到端的物品检测。同时，该方法检测速非常快，基础版可以达到**45帧/s的实时检测；FastYOLO可以达到155帧/s**。由于可以看到图片的全局信息，所以YOLO的背景预测的假阳性优于当前最好的方法。
 
+Resize成$448*448$，图片分割得到$7*7$网格(cell)
+CNN提取特征和预测：卷积不忿负责提特征。全链接部分负责预测：
+a) $7*7*2=98$个bounding box(bbox) 的坐标$x_{center},y_{center},w,h$ 和是否有物体的conﬁdence 。 
+b) $7*7=49个cell$所属20个物体的概率。
+过滤bbox（通过nms）
+
+
 ### yolo的实现方法
 
 网络结构类似于 **GoogleNet**
@@ -427,6 +434,8 @@ YOLO的核心思想就是利用整张图作为网络的输入，直接在输出�
 
 ### 实现细节 
 
+![inference][27]
+
 每个grid有30维，这30维中，8维是回归box的坐标，2维是box的confidence，还有20维是类别。 其中坐标的x,y用对应网格的offset归一化到0-1之间，w,h用图像的width和height**归一化**到0-1之间。
 
 对不同大小的box预测中，相比于大box预测偏一点，小box预测偏一点肯定更不能被忍受的。而sum-square error loss中对同样的偏移loss是一样。 
@@ -435,13 +444,13 @@ YOLO的核心思想就是利用整张图作为网络的输入，直接在输出�
 作者向预训练模型中加入了4个卷积层和两层全连接层，提高了模型输入分辨率（224×224->448×448）。顶层预测类别概率和bounding box协调值。bounding box的宽和高通过输入图像宽和高归一化到0-1区间。顶层采用linear activation，其它层使用 leaky rectified linear。作者采用sum-squared error为目标函数来优化，增加bounding box loss权重，减少置信度权重。
 
 
-![enter description here][27]
+![enter description here][28]
 
 更重视8维的坐标预测，给这些损失前面赋予更大的loss weight, 记为 $\lambda_{coord}$ 在pascal VOC训练中取5。
 对没有object的box的confidence loss，赋予小的loss weight，记为 $\lambda_noobj$ 在pascal VOC训练中取0.5。
 有object的box的confidence loss和类别的loss的loss weight正常取1。
 
-![损失函数][28]
+![损失函数][29]
 
 
 
@@ -476,20 +485,20 @@ YOLO对相互靠的很近的物体，还有**很小的群体 检测效果**不�
 
 
 
-![网络大致结构][29]
+![网络大致结构][30]
 
 这些增加的卷积层的 feature map 的大小变化比较大，允许能够检测出**不同尺度**下的物体： 在低层的feature map,感受野比较小，高层的感受野比较大，在不同的feature map进行卷积，可以达到多尺度的目的。
 
 ### 六尺度检测器 
 
 
-![多尺度feature map][30]
+![多尺度feature map][31]
 
 多尺度feature map得到 default boxs及其 4个位置偏移和21个类别置信度。
 
 对于不同尺度feature map（ 上图中 38x38x512，19x19x512, 10x10x512, 5x5x512, 3x3x512, 1x1x256） 的上的所有特征点： 以5x5x256为例 它的#defalut_boxes = 6。
 
-![检测器生成5x5x6个结果][31]
+![检测器生成5x5x6个结果][32]
 
 1. 按照不同的 scale 和 ratio 生成，k 个 default boxes，这种结构有点类似于 Faster R-CNN 中的 Anchor。(此处k=6所以：5x5x6 = 150 boxes)
 scale: 假定使用 m 个不同层的feature map 来做预测，最底层的 feature map 的 scale 值为 $s_{min} = 0.2$，最高层的为 $s_{max} = 0.95$，其他层通过下面公式计算得到 $s_k = s_{min} + \frac{s_{max} - s_{min}}{m - 1}(k-1), k \in [1,m]$
@@ -505,15 +514,15 @@ default box中心：上每个 default box的中心位置设置成  $( \frac{i+0.
 
 ==正负样本==： 给定输入图像以及每个物体的 ground truth,首先找到每个ground true box对应的default box中**IOU最大的做为**（与该ground true box相关的匹配）正样本。然后，在剩下的default box中找到那些与任意一个ground truth box 的 **IOU 大于 0.5的default box**作为（与该ground true box相关的匹配）正样本。下图的例子是：给定输入图像及 ground truth，分别在两种不同尺度(feature map 的大小为 8*8，4*4)下的匹配情况。有两个 default box 与猫匹配（$8*8$），一个 default box 与狗匹配（$4*4$）。
 
-![feature map][32]
+![feature map][33]
 
 
-![anchor在faster-rcnn与ssd的区别][33]
+![anchor在faster-rcnn与ssd的区别][34]
 
 
 目标函数，和常见的 Object Detection 的方法目标函数相同，分为两部分：计算相应的 default box 与目标类别的 score(置信度)以及相应的回归结果（位置回归）。置信度是采用 Softmax Loss（Faster R-CNN是log loss），位置回归则是采用 Smooth L1 loss （与Faster R-CNN一样采用 offset_PTDF靠近 offset_GTDF的策略
 
-![损失函数][34]
+![损失函数][35]
 
 
 
@@ -558,11 +567,12 @@ default box中心：上每个 default box的中心位置设置成  $( \frac{i+0.
   [24]: https://www.github.com/DragonFive/CVBasicOp/raw/master/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1501832022067.jpg
   [25]: https://www.github.com/DragonFive/CVBasicOp/raw/master/1503907708434.jpg
   [26]: https://www.github.com/DragonFive/CVBasicOp/raw/master/1503905518100.jpg
-  [27]: https://www.github.com/DragonFive/CVBasicOp/raw/master/1503905912862.jpg
-  [28]: https://www.github.com/DragonFive/CVBasicOp/raw/master/1503905928952.jpg
-  [29]: https://www.github.com/DragonFive/CVBasicOp/raw/master/1503975757154.jpg
-  [30]: https://www.github.com/DragonFive/CVBasicOp/raw/master/1503976032747.jpg
-  [31]: https://www.github.com/DragonFive/CVBasicOp/raw/master/1503976224714.jpg
-  [32]: https://www.github.com/DragonFive/CVBasicOp/raw/master/1503976848017.jpg
-  [33]: https://www.github.com/DragonFive/CVBasicOp/raw/master/1503976974477.jpg
-  [34]: https://www.github.com/DragonFive/CVBasicOp/raw/master/1503977129813.jpg
+  [27]: https://www.github.com/DragonFive/CVBasicOp/raw/master/1503978258508.jpg
+  [28]: https://www.github.com/DragonFive/CVBasicOp/raw/master/1503905912862.jpg
+  [29]: https://www.github.com/DragonFive/CVBasicOp/raw/master/1503905928952.jpg
+  [30]: https://www.github.com/DragonFive/CVBasicOp/raw/master/1503975757154.jpg
+  [31]: https://www.github.com/DragonFive/CVBasicOp/raw/master/1503976032747.jpg
+  [32]: https://www.github.com/DragonFive/CVBasicOp/raw/master/1503976224714.jpg
+  [33]: https://www.github.com/DragonFive/CVBasicOp/raw/master/1503976848017.jpg
+  [34]: https://www.github.com/DragonFive/CVBasicOp/raw/master/1503976974477.jpg
+  [35]: https://www.github.com/DragonFive/CVBasicOp/raw/master/1503977129813.jpg
