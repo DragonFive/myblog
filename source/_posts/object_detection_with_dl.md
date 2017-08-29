@@ -481,7 +481,7 @@ YOLO对相互靠的很近的物体，还有**很小的群体 检测效果**不�
 
 ![多尺度feature map][30]
 
-
+多尺度feature map得到 default boxs及其 4个位置偏移和21个类别置信度。
 
 
 
