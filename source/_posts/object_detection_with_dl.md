@@ -503,7 +503,7 @@ default box中心：上每个 default box的中心位置设置成  $( \frac{i+0.
 
 **正负样本**
 
-正负样本： 给定输入图像以及每个物体的 ground truth,首先找到每个ground true box对应的default box中**IOU最大的做为**（与该ground true box相关的匹配）正样本。然后，在剩下的default box中找到那些与任意一个ground truth box 的 **IOU 大于 0.5的default box**作为（与该ground true box相关的匹配）正样本。下图的例子是：给定输入图像及 ground truth，分别在两种不同尺度(feature map 的大小为 8*8，4*4)下的匹配情况。有两个 default box 与猫匹配（$8*8$），一个 default box 与狗匹配（$4*4$）。
+==正负样本==： 给定输入图像以及每个物体的 ground truth,首先找到每个ground true box对应的default box中**IOU最大的做为**（与该ground true box相关的匹配）正样本。然后，在剩下的default box中找到那些与任意一个ground truth box 的 **IOU 大于 0.5的default box**作为（与该ground true box相关的匹配）正样本。下图的例子是：给定输入图像及 ground truth，分别在两种不同尺度(feature map 的大小为 8*8，4*4)下的匹配情况。有两个 default box 与猫匹配（$8*8$），一个 default box 与狗匹配（$4*4$）。
 
 ![feature map][32]
 
