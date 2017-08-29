@@ -476,6 +476,13 @@ YOLO对相互靠的很近的物体，还有**很小的群体 检测效果**不�
 
 这些增加的卷积层的 feature map 的大小变化比较大，允许能够检测出**不同尺度**下的物体： 在低层的feature map,感受野比较小，高层的感受野比较大，在不同的feature map进行卷积，可以达到多尺度的目的。
 
+### 六尺度检测器 
+
+
+![多尺度feature map][30]
+
+
+
 
 
 ### reference
@@ -520,3 +527,4 @@ YOLO对相互靠的很近的物体，还有**很小的群体 检测效果**不�
   [27]: https://www.github.com/DragonFive/CVBasicOp/raw/master/1503905912862.jpg
   [28]: https://www.github.com/DragonFive/CVBasicOp/raw/master/1503905928952.jpg
   [29]: https://www.github.com/DragonFive/CVBasicOp/raw/master/1503975757154.jpg
+  [30]: https://www.github.com/DragonFive/CVBasicOp/raw/master/1503976032747.jpg
