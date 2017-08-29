@@ -546,6 +546,12 @@ default box中心：上每个 default box的中心位置设置成  $( \frac{i+0.
 [CVPR2017-目标检测相关论文](https://zhuanlan.zhihu.com/p/28088956)
 
 
+[深度学习实践经验：用Faster R-CNN训练行人检测数据集Caltech——准备工作](http://jacobkong.github.io/posts/2093106769/)
+
+
+[深度学习实践经验：用Faster R-CNN训练行人检测数据集Caltech](http://jacobkong.github.io/posts/464905881/)
+
+
   [1]: https://www.github.com/DragonFive/CVBasicOp/raw/master/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1501725558357.jpg
   [2]: https://www.github.com/DragonFive/CVBasicOp/raw/master/1503912071330.jpg
   [3]: https://www.github.com/DragonFive/CVBasicOp/raw/master/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1501731400655.jpg
