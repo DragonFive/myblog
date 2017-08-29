@@ -150,8 +150,8 @@ python tensorflow/tensorflow/examples/label_image/label_image.py --graph=tmp_dat
 
 [[Learning Note] Single Shot MultiBox Detector with Pytorch — Part 3](https://medium.com/towards-data-science/learning-note-single-shot-multibox-detector-with-pytorch-part-3-f0711caa65ad)
 
-[Building a Real-Time Object Recognition App with Tensorflow and OpenCV
-](https://medium.com/towards-data-science/building-a-real-time-object-recognition-app-with-tensorflow-and-opencv-b7a2b4ebdc32)
+[Building a Real-Time Object Recognition App with Tensorflow and OpenCV](https://medium.com/towards-data-science/building-a-real-time-object-recognition-app-with-tensorflow-and-opencv-b7a2b4ebdc32)
 
-[How to train your own Object Detector with TensorFlow’s Object Detector API
-](https://medium.com/towards-data-science/how-to-train-your-own-object-detector-with-tensorflows-object-detector-api-bec72ecfe1d9)
+[How to train your own Object Detector with TensorFlow’s Object Detector API](https://medium.com/towards-data-science/how-to-train-your-own-object-detector-with-tensorflows-object-detector-api-bec72ecfe1d9)
+
+[Creating an Object Detection Application Using TensorFlow](https://cloud.google.com/solutions/creating-object-detection-application-tensorflow)
