@@ -472,7 +472,7 @@ YOLO对相互靠的很近的物体，还有**很小的群体 检测效果**不�
 
 采用 **VGG16** 的基础网络结构，使用前面的前 5 层，然后利用 astrous 算法将 fc6 和 fc7 层转化成两个卷积层。再格外增加了 3 个卷积层，和一个 average pool层。不同层次的 feature map 分别用于 default box 的偏移以及不同类别得分的预测，最后通过 nms得到最终的检测结果。
 
-
+![网络大致结构][29]
 
 
 
@@ -519,3 +519,4 @@ YOLO对相互靠的很近的物体，还有**很小的群体 检测效果**不�
   [26]: https://www.github.com/DragonFive/CVBasicOp/raw/master/1503905518100.jpg
   [27]: https://www.github.com/DragonFive/CVBasicOp/raw/master/1503905912862.jpg
   [28]: https://www.github.com/DragonFive/CVBasicOp/raw/master/1503905928952.jpg
+  [29]: https://www.github.com/DragonFive/CVBasicOp/raw/master/1503975757154.jpg
