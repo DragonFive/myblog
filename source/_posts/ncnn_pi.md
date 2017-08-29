@@ -144,3 +144,14 @@ python tensorflow/tensorflow/examples/label_image/label_image.py --graph=tmp_dat
 [retrain_mobilenet](https://hackernoon.com/creating-insanely-fast-image-classifiers-with-mobilenet-in-tensorflow-f030ce0a2991)
 
 [MobileNet-SSD](https://github.com/chuanqi305/MobileNet-SSD)
+
+
+[从零开始码一个皮卡丘检测器-CNN目标检测入门教程](https://zhuanlan.zhihu.com/p/28867241)
+
+[[Learning Note] Single Shot MultiBox Detector with Pytorch — Part 3](https://medium.com/towards-data-science/learning-note-single-shot-multibox-detector-with-pytorch-part-3-f0711caa65ad)
+
+[Building a Real-Time Object Recognition App with Tensorflow and OpenCV
+](https://medium.com/towards-data-science/building-a-real-time-object-recognition-app-with-tensorflow-and-opencv-b7a2b4ebdc32)
+
+[How to train your own Object Detector with TensorFlow’s Object Detector API
+](https://medium.com/towards-data-science/how-to-train-your-own-object-detector-with-tensorflows-object-detector-api-bec72ecfe1d9)
