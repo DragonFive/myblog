@@ -422,7 +422,7 @@ b) $7*7=49个cell$所属20个物体的概率。
 - 每个bounding box要预测(x, y, w, h)和confidence共5个值，每个网格还要预测一个类别信息，记为C类。则SxS个网格，每个网格要预测B个bounding box还要预测C个categories。输出就是S x S x (5xB+C)的一个tensor。 
 注意：class信息是针对每个网格的，confidence信息是针对每个bounding box的。
 
-- PASCAL VOC中，图像输入为448x448，**取S=7，B=2，一共有20个类别(C=20)**。则输出就是7x7x30的一个tensor。 
+- PASCAL VOC中，图像输入为**448x448**，**取S=7，B=2，一共有20个类别(C=20)**。则输出就是7x7x30的一个tensor。 
 
 ![yolo的网络结构][26]
 
