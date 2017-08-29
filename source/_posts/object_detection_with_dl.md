@@ -483,7 +483,15 @@ YOLO对相互靠的很近的物体，还有**很小的群体 检测效果**不�
 
 多尺度feature map得到 default boxs及其 4个位置偏移和21个类别置信度。
 
+对于不同尺度feature map（ 上图中 38x38x512，19x19x512, 10x10x512, 5x5x512, 3x3x512, 1x1x256） 的上的所有特征点： 以5x5x256为例 它的#defalut_boxes = 6。
 
+![检测器生成5x5x6个结果][31]
+
+1. 按照不同的 scale 和 ratio 生成，k 个 default boxes，这种结构有点类似于 Faster R-CNN 中的 Anchor。(此处k=6所以：5x5x6 = 150 boxes)
+scale: 假定使用 m 个不同层的feature map 来做预测，最底层的 feature map 的 scale 值为 $s_{min} = 0.2$，最高层的为 $s_{max} = 0.95$，其他层通过下面公式计算得到 $s_k = s_{min} + \frac{s_{max} - s_{min}}{m - 1}(k-1), k \in [1,m]$
+ratio: 使用不同的 ratio值$a_r \in \left\{1, 2, \frac{1}{2}, 3, \frac{1}{3} \right \}$ 计算 default box 的宽度和高度：$w_k^{a} = s_k\sqrt{a_r}，h_k^{a} = s_k/\sqrt{a_r}$。另外对于 ratio = 1 的情况，额外再指定 scale 为$s_k{'} = \sqrt{s_ks_{k+1}}$ 也就是总共有 6 中不同的 default box。
+default box中心：上每个 default box的中心位置设置成  $( \frac{i+0.5}{  \left| f_k \right| },\frac{j+0.5}{\left| f_k \right| }  )$ ，其中 $\left| f_k \right|$ 表示第k个特征图的大小 $i,j \in [0, \left| f_k \right| )$ 。因为有6个ratio，所以每个位置有6个defaul box.
+2. 新增加的每个卷积层的 feature map 都会通过一些小的卷积核操作，得到每一个 default boxes 关于物体类别的21个置信度 ($c_1,c_2 ,\cdots, c_p$ 20个类别和1个背景) 和4偏移 (shape offsets) 。
 
 ### reference
 
@@ -528,3 +536,4 @@ YOLO对相互靠的很近的物体，还有**很小的群体 检测效果**不�
   [28]: https://www.github.com/DragonFive/CVBasicOp/raw/master/1503905928952.jpg
   [29]: https://www.github.com/DragonFive/CVBasicOp/raw/master/1503975757154.jpg
   [30]: https://www.github.com/DragonFive/CVBasicOp/raw/master/1503976032747.jpg
+  [31]: https://www.github.com/DragonFive/CVBasicOp/raw/master/1503976224714.jpg
