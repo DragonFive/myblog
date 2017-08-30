@@ -479,7 +479,7 @@ YOLO对相互靠的很近的物体，还有**很小的群体 检测效果**不�
 
 [RCNN学习笔记(6)：You Only Look Once(YOLO)](http://blog.csdn.net/u011534057/article/details/51244354)
 
-
+[YOLO有史以来讲的最清楚的PPT](https://docs.google.com/presentation/d/1aeRvtKG21KHdD5lg6Hgyhx5rPq_ZOsGjG5rJ1HP7BbA/pub?start=false&loop=false&delayms=3000&slide=id.g137784ab86_4_1252)
 
 
 ## SSD
@@ -539,6 +539,9 @@ default box中心：上每个 default box的中心位置设置成  $( \frac{i+0.
 [RCNN学习笔记(10)：SSD:Single Shot MultiBox Detector](http://blog.csdn.net/u011534057/article/details/52733686)
 
 [晓雷机器学习笔记-SSD](https://zhuanlan.zhihu.com/p/24954433)
+
+[最好的SSD课程](https://deepsystems.ai/en/reviews)
+
 
 # 其它reference
 
