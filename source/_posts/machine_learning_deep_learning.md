@@ -39,6 +39,13 @@ Linear SVM**依赖数据表达的距离测度，所以需要对数据先做norma
 Linear SVM依赖penalty的系数，实验中需要做validation
 Linear SVM和LR的performance都会收到outlier的影响，其敏感程度而言，谁更好很难下明确结论。
 
+**balance的方法**
+
+1. 调整正、负样本在求cost时的权重，比如按比例加大正样本cost的权重。然而deep learning的训练过程是on-line的因此你需要按照batch中正、负样本的比例调整。
+2. 做训练样本选取：如hard negative mining，只用负样本中的一部分。
+3. 做训练样本选取：如通过data augmentation扩大正样本数量。
+
+
 
 # reference
 
