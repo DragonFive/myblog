@@ -52,3 +52,15 @@ Linear SVM和LR的performance都会收到outlier的影响，其敏感程度而�
 [Linear SVM 和 LR 有什么异同？](https://www.zhihu.com/question/26768865)
 
 [SVM和logistic回归分别在什么情况下使用?](https://www.zhihu.com/question/21704547)
+
+[百度 – 机器学习面试](http://www.100mian.com/mianshi/baidu/49214.html)
+
+[ svmw问题整理](http://blog.csdn.net/rosenor1/article/details/52318454)
+
+[各种机器学习的应用场景分别是什么？例如，k近邻,贝叶斯，决策树，svm，逻辑斯蒂回归](https://www.zhihu.com/question/26726794)
+
+[机器学习面试问题汇总](http://www.cnblogs.com/hellochennan/p/6654084.html)
+
+[机器学习面试](http://blog.csdn.net/u010496169/article/category/6984158)
+
+[如何准备机器学习工程师的面试 ？](https://www.zhihu.com/question/23259302/answer/174467341)
