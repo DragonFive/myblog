@@ -28,6 +28,17 @@ Linear SVM直观上是trade-off两个量
 求解LR模型过程中，**每一个数据点对分类平面都是有影响的**，它的影响力远离它到分类平面的距离指数递减。换句话说，LR的解是**受数据本身分布**影响的。在实际应用中，如果数据维度很高，LR模型都会配合参数的L1 regularization。
 
 
+## 两者的区别
+
+两个模型对**数据和参数**的敏感程度不同，Linear SVM比较依赖penalty的系数和**数据表达空间的测度**，而（带正则项的）LR**比较依赖对参数做L1 regularization的系数**。但是由于他们或多或少都是线性分类器，所以实际上对低维度数据overfitting的能力都比较有限，相比之下对高维度数据，LR的表现会更加稳定，为什么呢？因为Linear SVM在计算margin有多“宽”的时候是依赖数据表达上的距离测度的，换句话说如果这个测度不好（badly scaled，这种情况在高维数据尤为显著），所求得的所谓Large margin就没有意义了，这个问题即使换用kernel trick（比如用Gaussian kernel）也无法完全避免。所以使用Linear SVM之前一般都需要先对数据做normalization，而求解LR（without regularization）时则不需要或者结果不敏感。
+
+
+Linear SVM和LR都是线性分类器
+Linear SVM不直接依赖数据分布，分类平面不受一类点影响；**LR则受所有数据点的影响，如果数据不同类别strongly unbalance一般需要先对数据做balancing**。
+Linear SVM**依赖数据表达的距离测度，所以需要对数据先做normalization**；LR不受其影响
+Linear SVM依赖penalty的系数，实验中需要做validation
+Linear SVM和LR的performance都会收到outlier的影响，其敏感程度而言，谁更好很难下明确结论。
+
 
 # reference
 
