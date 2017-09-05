@@ -46,6 +46,16 @@ Linear SVM和LR的performance都会收到outlier的影响，其敏感程度而�
 3. 做训练样本选取：如通过data augmentation扩大正样本数量。
 
 
+## 方法的选择 
+
+
+
+在Andrew NG的课里讲到过：1. 如果Feature的数量很大，跟样本数量差不多，这时候选用LR或者是Linear Kernel的SVM2. 如果Feature的数量比较小，样本数量一般，不算大也不算小，选用SVM+Gaussian Kernel3. 如果Feature的数量比较小，而样本数量很多，需要手工添加一些feature变成第一种情况
+
+作者：彭飞
+链接：https://www.zhihu.com/question/26768865/answer/139613835
+来源：知乎
+著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
 
 # reference
 
