@@ -14,6 +14,7 @@ tags:
 # SVM与LR的区别 
 
 
+
 ## 从模型解决问题的方式来看
 Linear SVM直观上是trade-off两个量 
 1. a large margin，就是两类之间可以画多宽的gap ；不妨说是正样本应该在分界平面向左gap/2（称正分界），负样本应该在分解平面向右gap/2（称负分界）
@@ -71,6 +72,30 @@ Linear SVM和LR的performance都会收到outlier的影响，其敏感程度而�
 决策树的特点是它总是在沿着特征做切分。随着层层递进，这个划分会越来越细。
 
 因为它能够生成清晰的基于特征(feature)选择不同预测结果的树状结构
+
+## 随机森林
+
+它首先随机选取不同的特征(feature)和训练样本(training sample)，生成大量的决策树，然后综合这些决策树的结果来进行最终的分类。
+
+随机森林在现实分析中被大量使用，它相对于决策树，在准确性上有了很大的提升
+
+适用场景：数据维度相对低（几十维），同时对准确性有较高要求时。
+
+
+# LR相关问题
+
+## LR与BP
+[BP神经网络是否优于logistic回归？](https://www.zhihu.com/question/27823925)
+首先，神经网络的最后一层，也就是输出层，是一个 Logistic Regression （或者 Softmax Regression ），也就是一个线性分类器，中间的隐含层起到特征提取的作用，把隐含层的输出当作特征，然后再将它送入下一个 Logistic Regression，一层层变换。
+
+神经网络的训练，实际上就是同时训练特征提取算法以及最后的 Logistic Regression的参数。为什么要特征提取呢，因为 Logistic Regression 本身是一个线性分类器，所以，通过特征提取，我们可以把原本线性不可分的数据变得线性可分。要如何训练呢，最简单的方法是**（随机，Mini batch）梯度下降法**
+
+## LR为什么使用sigmoid函数 
+
+源于sigmoid，或者说exponential family所具有的最佳性质，即**maximum entropy**的性质。maximum entropy给了logistic regression一个很好的数学解释。为什么maximum entropy好呢？entropy翻译过来就是熵，所以maximum entropy也就是最大熵。熵用在概率分布上可以表示这个**分布中所包含的不确定度**，熵越大不确定度越大。均匀分布熵最大，因为基本新数据是任何值的概率都均等。而我们现在关心的是，给定某些假设之后，熵最大的分布。也就是说这个分布应该在满足我假设的前提下越均匀越好。比如大家熟知的正态分布，正是假设已知mean和variance后熵最大的分布。首先，我们在建模预测 Y|X，并认为 Y|X 服从bernoulli distribution，所以我们只需要知道 P(Y|X)；其次我们需要一个线性模型，所以 P(Y|X) = f(wx)。接下来我们就只需要知道 f 是什么就行了。而我们可以通过最大熵原则推出的这个 f，就是sigmoid。
+
+
+
 
 
 
