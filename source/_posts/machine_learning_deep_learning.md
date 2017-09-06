@@ -155,6 +155,10 @@ $$\max_{w, b}\frac{1}{||w||}=\min_{w,b}\frac{1}{2}||w||^{2}\\
 对偶问题
 $$\max_{\alpha, \beta, \alpha_{i}\geq 0}\min_{w}L(w, \alpha, \beta)=\max_{\alpha, \alpha_{i}\geq 0}\min_{w, b}\{\frac{1}{2}||w||^{2}-\sum_{i=1}^{N}\alpha_{i}[y_{i}(w^{T}x_{i}+b)-1]\}$$
 
+## SVM解决过拟合的方法
+
+决定SVM最优分类超平面的恰恰是那些占少数的支持向量，如果支持向量中碰巧存在异常点就会过拟合，解决的方法是加入松弛变量。
+
 # reference
 
 [Linear SVM 和 LR 有什么异同？](https://www.zhihu.com/question/26768865)
