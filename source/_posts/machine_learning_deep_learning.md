@@ -144,6 +144,15 @@ $$L(x,\alpha) = f(x) + \alpha_1g1(x)+\alpha_2g2(x)\\ =x_1^2-2x_1+1+x_2^2+4x_2+4+
 (2) h(x)=0; 
 (3) $\sum\alpha_ig_i(x)=0，\alpha_i\ge0$
 
+第三个式子不好理解，因为我们知道在约束条件变完后，所有的g(x)<=0，且αi≥0，然后求和还要为0，无非就是告诉你，**要么某个不等式gi(x)=0,要么其对应的αi=0**。那么为什么KKT的条件是这样的呢？
+
+## SVM的原问题和对偶问题
+
+$$\max_{w, b}\frac{1}{||w||}=\min_{w,b}\frac{1}{2}||w||^{2}\\
+\text{s,t}\ \ \ \  y_{i}(w^{T}x_{i}+b)\geq 1, i\in {\{1,...,N\}}$$
+
+
+
 # reference
 
 [Linear SVM 和 LR 有什么异同？](https://www.zhihu.com/question/26768865)
