@@ -159,6 +159,10 @@ $$\max_{\alpha, \beta, \alpha_{i}\geq 0}\min_{w}L(w, \alpha, \beta)=\max_{\alpha
 
 决定SVM最优分类超平面的恰恰是那些占少数的支持向量，如果支持向量中碰巧存在异常点就会过拟合，解决的方法是加入松弛变量。
 
+另一方面从损失函数角度看，引入了L2正则。
+
+
+
 # reference
 
 [Linear SVM 和 LR 有什么异同？](https://www.zhihu.com/question/26768865)
