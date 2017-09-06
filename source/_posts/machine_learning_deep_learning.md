@@ -94,6 +94,8 @@ Linear SVM和LR的performance都会收到outlier的影响，其敏感程度而�
 
 源于sigmoid，或者说exponential family所具有的最佳性质，即**maximum entropy**的性质。maximum entropy给了logistic regression一个很好的数学解释。为什么maximum entropy好呢？entropy翻译过来就是熵，所以maximum entropy也就是最大熵。熵用在概率分布上可以表示这个**分布中所包含的不确定度**，熵越大不确定度越大。均匀分布熵最大，因为基本新数据是任何值的概率都均等。而我们现在关心的是，给定某些假设之后，熵最大的分布。也就是说这个分布应该在满足我假设的前提下越均匀越好。比如大家熟知的正态分布，正是假设已知mean和variance后熵最大的分布。首先，我们在建模预测 Y|X，并认为 Y|X 服从bernoulli distribution，所以我们只需要知道 P(Y|X)；其次我们需要一个线性模型，所以 P(Y|X) = f(wx)。接下来我们就只需要知道 f 是什么就行了。而我们可以通过最大熵原则推出的这个 f，就是sigmoid。
 
+在logistic regression （LR）中，这个目标是什么呢？最大化条件似然度。考虑一个二值分类问题，训练数据是一堆（特征，标记）组合，（x1,y1), (x2,y2), .... 其中x是特征向量，y是类标记（y=1表示正类，y=0表示反类）。LR首先定义一个条件概率p(y|x；w）。 **p(y|x；w）表示给定特征x，类标记y的概率分布，其中w是LR的模型参数（一个超平面）**。有了这个条件概率，就可以在训练数据上定义一个似然函数，然后通过最大似然来学习w。这是LR模型的基本原理。
+
 
 
 
