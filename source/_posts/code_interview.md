@@ -64,6 +64,15 @@ void bar(A * a)
 }
 
 
+## 线程安全
+
+
+
+
+
+## 智能指针
+
+
 # reference
 
 [大量面经总结(包括牛客网的和我听来的)](https://www.nowcoder.com/discuss/33737?type=0&order=0&pos=213&page=2)
