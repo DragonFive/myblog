@@ -32,6 +32,9 @@ tags:
 ## c++的set和unordered_set
 [STL中map、set的数据结构及底层实现](http://blog.csdn.net/wallaceli1981/article/details/4723478)
 
+c++中的set是经过排序的数据，这里数据的值必须是唯一的，查找插入和删除的时间复杂度都是$O(logn)$
+
+
 
 ## c++的虚函数 
 
