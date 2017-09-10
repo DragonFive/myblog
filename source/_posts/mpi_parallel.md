@@ -190,6 +190,9 @@ MPI_MINLOC - 返回最小值和拥有该值的进程编号.```
 [MPI学习笔记之并行程序概述](http://blog.csdn.net/sinat_22336563/article/details/69486937)
 
 
+[ 卷积神经网络的并行化模型](http://blog.csdn.net/xsc_c/article/details/42420167)
+
+
   [1]: https://www.github.com/DragonFive/CVBasicOp/raw/master/1505026360037.jpg
   [2]: https://www.github.com/DragonFive/CVBasicOp/raw/master/1502761049076.jpg
   [3]: https://www.github.com/DragonFive/CVBasicOp/raw/master/1502761558789.jpg
