@@ -106,6 +106,8 @@ GBDT设置大量基学习器的目的是为了集成来**降低偏差**，所以
 
 [GBDT算法特征重要程度计算](http://blog.csdn.net/yangxudong/article/details/53899260)
 
+[机器学习中，有哪些特征选择的工程方法？](https://www.zhihu.com/question/28641663)
+
 # LR相关问题
 
 ## LR与BP
