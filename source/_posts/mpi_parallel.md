@@ -22,7 +22,7 @@ tags:
 
 每一个节点（或者叫进程）都有一份模型，然后各个节点取不同的数据，通常是一个batch_size，然后各自完成前向和后向的计算得到梯度，这些进行训练的进程我们成为worker，除了worker，还有参数服务器，简称ps server，这些worker会把各自计算得到的梯度送到ps server，然后由ps server来进行update操作，然后把update后的模型再传回各个节点。因为在这种并行模式中，被划分的是数据，所以这种并行方式叫数据并行。
 
-
+[ 卷积神经网络的并行化模型](http://blog.csdn.net/xsc_c/article/details/42420167)
 
 # 并行程序
 
