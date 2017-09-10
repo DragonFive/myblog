@@ -98,6 +98,13 @@ GBDT设置大量基学习器的目的是为了集成来**降低偏差**，所以
 
 
 
+# 集成学习与方差偏差
+
+[从集成学习到模型的偏差和方差的理解](http://blog.csdn.net/xmu_jupiter/article/details/47314927)
+
+[使用sklearn进行集成学习——理论](http://www.cnblogs.com/jasonfreak/p/5657196.html)
+
+[GBDT算法特征重要程度计算](http://blog.csdn.net/yangxudong/article/details/53899260)
 
 # LR相关问题
 
