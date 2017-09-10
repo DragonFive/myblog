@@ -194,6 +194,9 @@ MPI_MINLOC - 返回最小值和拥有该值的进程编号.```
 
 [ 卷积神经网络的并行化模型](http://blog.csdn.net/xsc_c/article/details/42420167)
 
+[知乎 parameter server](https://www.zhihu.com/search?type=content&q=parameter+server)
+
+
 
   [1]: https://www.github.com/DragonFive/CVBasicOp/raw/master/1505026360037.jpg
   [2]: https://www.github.com/DragonFive/CVBasicOp/raw/master/1502761049076.jpg
