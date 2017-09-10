@@ -77,7 +77,7 @@ Linear SVM和LR的performance都会收到outlier的影响，其敏感程度而�
 
 [ 天池离线赛 - 移动推荐算法（四）：基于LR, RF, GBDT等模型的预测](http://blog.csdn.net/Snoopy_Yuan/article/details/75808006)
 
-它首先随机选取不同的特征(feature)和训练样本(training sample)bagging，生成大量的决策树，然后综合这些决策树的结果来进行最终的分类。
+它首先随机选取不同的特征(feature)和训练样本(training sample)**bagging**，生成大量的决策树，然后综合这些决策树的结果来进行最终的分类。
 
 随机森林在现实分析中被大量使用，它相对于决策树，在准确性上有了很大的提升
 
