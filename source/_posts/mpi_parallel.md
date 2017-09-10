@@ -14,6 +14,14 @@ tags:
 目前的深度学习领域就是海量的数据加上大量的数学运算，所以计算量相当的大，训练一个模型跑上十天半个月啥的是常事。那此时分布式的意义就出现了，既然一张GPU卡跑得太慢就来两张，一台机器跑得太慢就用多台机器。
 
 
+**数据并行**
+
+
+![数据并行][1]
+
+
+每一个节点（或者叫进程）都有一份模型，然后各个节点取不同的数据，通常是一个batch_size，然后各自完成前向和后向的计算得到梯度，这些进行训练的进程我们成为worker，除了worker，还有参数服务器，简称ps server，这些worker会把各自计算得到的梯度送到ps server，然后由ps server来进行update操作，然后把update后的模型再传回各个节点。因为在这种并行模式中，被划分的是数据，所以这种并行方式叫数据并行。
+
 
 
 # 并行程序
@@ -86,7 +94,7 @@ MPI_Bcast(
 
 MPI_Scatter与MPI_Bcast非常相似，都是**一对多**的通信方式，不同的是后者的**0号进程**将相同的信息发送给所有的进程，而前者则是将一段array 的不同部分发送给所有的进程
 
-![scatter与bcast的区别][1]
+![scatter与bcast的区别][2]
 
 
 ```cpp
@@ -108,7 +116,7 @@ MPI_Scatter(
 ### MPI_Gather
 MPI_Gather和MPI_scatter刚好相反，他的作用是从所有的进程中将每个进程的数据集中到根进程中，**同样根据进程的编号对array元素排序**
 
-![mpi_gather][2]
+![mpi_gather][3]
 
 
 ```cpp
@@ -126,7 +134,7 @@ MPI_Gather(
 ### MPI_Allgather 多对多通信
 当数据分布在所有的进程中时，MPI_Allgather将所有的数据聚合到每个进程中。
 
-![mpi_Allgather][3]
+![mpi_Allgather][4]
 
 ## 数据归约 Reduce
 Reduce——规约是来自函数式编程的一个经典概念。数据规约包含通过一个函数将一批数据分成较小的一批数据。比如将一个数组的元素通过加法函数规约为一个数字。
@@ -166,11 +174,11 @@ MPI_MINLOC - 返回最小值和拥有该值的进程编号.```
 
 如果每个进程中的数组拥有两个元素，那么规约结果是对两个对位的元素进行规约的。
 
-![两个元素的归约结果][4]
+![两个元素的归约结果][5]
 
 ### mpi_allReduce
 
-![归约后分发给所有的进程][5]
+![归约后分发给所有的进程][6]
 
 
 # parameter-server
@@ -182,8 +190,9 @@ MPI_MINLOC - 返回最小值和拥有该值的进程编号.```
 [MPI学习笔记之并行程序概述](http://blog.csdn.net/sinat_22336563/article/details/69486937)
 
 
-  [1]: https://www.github.com/DragonFive/CVBasicOp/raw/master/1502761049076.jpg
-  [2]: https://www.github.com/DragonFive/CVBasicOp/raw/master/1502761558789.jpg
-  [3]: https://www.github.com/DragonFive/CVBasicOp/raw/master/1502761637900.jpg
-  [4]: https://www.github.com/DragonFive/CVBasicOp/raw/master/1502762764619.jpg
-  [5]: https://www.github.com/DragonFive/CVBasicOp/raw/master/1502762804609.jpg
+  [1]: https://www.github.com/DragonFive/CVBasicOp/raw/master/1505026360037.jpg
+  [2]: https://www.github.com/DragonFive/CVBasicOp/raw/master/1502761049076.jpg
+  [3]: https://www.github.com/DragonFive/CVBasicOp/raw/master/1502761558789.jpg
+  [4]: https://www.github.com/DragonFive/CVBasicOp/raw/master/1502761637900.jpg
+  [5]: https://www.github.com/DragonFive/CVBasicOp/raw/master/1502762764619.jpg
+  [6]: https://www.github.com/DragonFive/CVBasicOp/raw/master/1502762804609.jpg
