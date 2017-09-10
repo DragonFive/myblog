@@ -196,7 +196,9 @@ MPI_MINLOC - 返回最小值和拥有该值的进程编号.```
 
 [知乎 parameter server](https://www.zhihu.com/search?type=content&q=parameter+server)
 
+[分布式机器学习系统笔记（一）——模型并行，数据并行，参数平均，ASGD](http://blog.csdn.net/xbinworld/article/details/74781605)
 
+[深度学习及并行化实现概述](http://djt.qq.com/article/view/1245)
 
   [1]: https://www.github.com/DragonFive/CVBasicOp/raw/master/1505026360037.jpg
   [2]: https://www.github.com/DragonFive/CVBasicOp/raw/master/1502761049076.jpg
