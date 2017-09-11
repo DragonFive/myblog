@@ -30,6 +30,9 @@ tags:
 
 [最近比较火的parameter server是什么？](https://www.zhihu.com/question/26998075)
 
+[李沐：Parameter Server for Distributed Machine Learning](http://www.cs.cmu.edu/~muli/file/ps.pdf)
+
+参数服务器是个编程框架，用于方便分布式并行程序的编写，其中重点是对大规模参数的分布式存储和协同的支持。
 
 # 并行程序
 
