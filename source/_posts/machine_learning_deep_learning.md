@@ -228,7 +228,24 @@ gbdt是boosting的方式，它的决策树的深度比较小，模型会欠拟�
 
 判别方法的特点：判别方法直接学习的是条件概率或者决策函数，直接面对预测，往往学习的准确率更高；由于直接学习或者，可以对数据进行各种程度上的抽象、定义特征并使用特征，因此可以**简化学习问题**。
 
+## 精确率、召回率、F1 值、ROC、AUC 各自的优缺点是什么？
 
+![enter description here][3]
+
+精确率（Precision）为TP/(TP+FP)
+
+召回率（Recall）为TP/(TP+FN)
+
+F1值是精确率和召回率的调和均值，即F1=2PR/(P+R）
+
+ROC曲线（Receiver operating characteristic curve），ROC曲线其实是多个混淆矩阵的结果组合，如果在上述模型中我们没有定好阈值，而是将模型预测结果从高到低排序，将每个概率值依次作为阈值，那么就有多个混淆矩阵。对于每个混淆矩阵，我们计算两个指标TPR（True positive rate）和FPR（False positive rate），TPR=TP/(TP+FN)=Recall，**TPR就是召回率**，FPR=FP/(FP+TN)。
+
+![enter description here][4]
+在画ROC曲线的过程中，若有一个阈值，高于此阈值的均为坏人，低于此阈值的均为好人，则认为此模型已完美的区分开好坏用户。此时坏用户的预测准确率（TPR）为1，同时好用户的预测错误率（FPR）为0，ROC曲线经过（0,1）点。AUC（Area Under Curve）的值为ROC曲线下面的面积，若如上所述模型十分准确，则AUC为1。但现实生活中尤其是工业界不会有如此完美的模型，一般AUC均在0.5到1之间，AUC越高，模型的区分能力越好
+
+若AUC=0.5，即与上图中红线重合，表示模型的区分能力与随机猜测没有差别。
+
+所以AUC表征的是模型的分类能力。
 
 # 特征选择的方法 
 [机器学习中，有哪些特征选择的工程方法？](https://www.zhihu.com/question/28641663)
@@ -247,7 +264,7 @@ gbdt是boosting的方式，它的决策树的深度比较小，模型会欠拟�
 
 ## 特征选择方法分类
 
-![特征选择思维导图][3]
+![特征选择思维导图][5]
 
 1. Filter：过滤法，按照**发散性或者相关性**对各个特征进行评分，设定阈值或者待选择阈值的个数，选择特征。
 
@@ -308,7 +325,7 @@ PCA是为了让映射后的样本具有最大的**发散性**；而LDA是为了�
 
 前提条件凸函数：下图左侧是凸函数。
 
-![左侧是凸函数][4]
+![左侧是凸函数][6]
 
 凸的就是开口朝一个方向（向上或向下）。更准确的数学关系就是： 
 
@@ -351,27 +368,27 @@ $$L(x,\alpha) = f(x) + \alpha_1g1(x)+\alpha_2g2(x)\\ =x_1^2-2x_1+1+x_2^2+4x_2+4+
 
 原问题
 
-![原问题][5]
+![原问题][7]
 
 拉格朗日乘子法结果
 
-![对偶问题][6]
+![对偶问题][8]
 
 
 求导得到
 
 
-![求导得到][7]
+![求导得到][9]
 
 
 代入乘子算式得到 
 
-![对偶结果][8]
+![对偶结果][10]
 
 
 就得到的原问题的对偶问题 
 
-![对偶问题][9]
+![对偶问题][11]
 
 
 
@@ -431,10 +448,12 @@ B 因为（画图）L1约束是正方形的，经验损失最有可能和L1的�
 
   [1]: https://www.github.com/DragonFive/CVBasicOp/raw/master/1505100218144.jpg
   [2]: https://www.github.com/DragonFive/CVBasicOp/raw/master/1505131808906.jpg
-  [3]: https://www.github.com/DragonFive/CVBasicOp/raw/master/1505115301909.jpg
-  [4]: https://www.github.com/DragonFive/CVBasicOp/raw/master/1504663655806.jpg
-  [5]: https://www.github.com/DragonFive/CVBasicOp/raw/master/1505112787822.jpg
-  [6]: https://www.github.com/DragonFive/CVBasicOp/raw/master/1505112823865.jpg
-  [7]: https://www.github.com/DragonFive/CVBasicOp/raw/master/1505121534590.jpg
-  [8]: https://www.github.com/DragonFive/CVBasicOp/raw/master/1505121791713.jpg
-  [9]: https://www.github.com/DragonFive/CVBasicOp/raw/master/1505121960729.jpg
+  [3]: https://www.github.com/DragonFive/CVBasicOp/raw/master/1505137634679.jpg
+  [4]: https://www.github.com/DragonFive/CVBasicOp/raw/master/1505137939621.jpg
+  [5]: https://www.github.com/DragonFive/CVBasicOp/raw/master/1505115301909.jpg
+  [6]: https://www.github.com/DragonFive/CVBasicOp/raw/master/1504663655806.jpg
+  [7]: https://www.github.com/DragonFive/CVBasicOp/raw/master/1505112787822.jpg
+  [8]: https://www.github.com/DragonFive/CVBasicOp/raw/master/1505112823865.jpg
+  [9]: https://www.github.com/DragonFive/CVBasicOp/raw/master/1505121534590.jpg
+  [10]: https://www.github.com/DragonFive/CVBasicOp/raw/master/1505121791713.jpg
+  [11]: https://www.github.com/DragonFive/CVBasicOp/raw/master/1505121960729.jpg
