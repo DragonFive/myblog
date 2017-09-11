@@ -120,11 +120,21 @@ GBDT设置大量基学习器的目的是为了集成来**降低偏差**，所以
 
 
 ## 为什么说bagging是减少variance，而boosting是减少bias?
+
+**从机制上讲**
 [为什么说bagging是减少variance，而boosting是减少bias](https://www.zhihu.com/question/26760839)
 
+若各**子模型独立**，则有$$Var(\frac{\sum X_i}{n})=\frac{Var(X_i)}{n}$$，此时可以显著降低variance。若**各子模型完全相同**，则$$Var(\frac{\sum X_i}{n})=Var(X_i)$$
+，此时不会降低variance。
+
+Bagging 是 Bootstrap Aggregating 的简称，意思就是再取样 (Bootstrap) 然后在每个样本上训练出来的模型取平均。
+![bagging的偏差][2]，所以从偏差上看没有降低，但是由于各个子模型是单独训练的，有一定的独立性，所以方差降低比较多。特别是random forest这种方式，不仅对样本取样，还有特征取样。
+
+boosting从优化角度来看，是用forward-stagewise这种贪心法去最小化损失函数，在这个过程中偏差是逐步减小的，而由于各阶段分类器之间相关性较强，方差降低得少。
 
 
-
+**举个例子**
+gbdt是boosting的方式，它的决策树的深度比较小，模型会欠拟合，刚开始偏差大，后来就慢慢变小了。
 
 
 # 特征选择的方法 
@@ -144,7 +154,7 @@ GBDT设置大量基学习器的目的是为了集成来**降低偏差**，所以
 
 ## 特征选择方法分类
 
-![特征选择思维导图][2]
+![特征选择思维导图][3]
 
 1. Filter：过滤法，按照**发散性或者相关性**对各个特征进行评分，设定阈值或者待选择阈值的个数，选择特征。
 
@@ -205,7 +215,7 @@ PCA是为了让映射后的样本具有最大的**发散性**；而LDA是为了�
 
 前提条件凸函数：下图左侧是凸函数。
 
-![左侧是凸函数][3]
+![左侧是凸函数][4]
 
 凸的就是开口朝一个方向（向上或向下）。更准确的数学关系就是： 
 
@@ -248,27 +258,27 @@ $$L(x,\alpha) = f(x) + \alpha_1g1(x)+\alpha_2g2(x)\\ =x_1^2-2x_1+1+x_2^2+4x_2+4+
 
 原问题
 
-![原问题][4]
+![原问题][5]
 
 拉格朗日乘子法结果
 
-![对偶问题][5]
+![对偶问题][6]
 
 
 求导得到
 
 
-![求导得到][6]
+![求导得到][7]
 
 
 代入乘子算式得到 
 
-![对偶结果][7]
+![对偶结果][8]
 
 
 就得到的原问题的对偶问题 
 
-![对偶问题][8]
+![对偶问题][9]
 
 
 
@@ -327,10 +337,11 @@ B 因为（画图）L1约束是正方形的，经验损失最有可能和L1的�
 
 
   [1]: https://www.github.com/DragonFive/CVBasicOp/raw/master/1505100218144.jpg
-  [2]: https://www.github.com/DragonFive/CVBasicOp/raw/master/1505115301909.jpg
-  [3]: https://www.github.com/DragonFive/CVBasicOp/raw/master/1504663655806.jpg
-  [4]: https://www.github.com/DragonFive/CVBasicOp/raw/master/1505112787822.jpg
-  [5]: https://www.github.com/DragonFive/CVBasicOp/raw/master/1505112823865.jpg
-  [6]: https://www.github.com/DragonFive/CVBasicOp/raw/master/1505121534590.jpg
-  [7]: https://www.github.com/DragonFive/CVBasicOp/raw/master/1505121791713.jpg
-  [8]: https://www.github.com/DragonFive/CVBasicOp/raw/master/1505121960729.jpg
+  [2]: https://www.github.com/DragonFive/CVBasicOp/raw/master/1505131808906.jpg
+  [3]: https://www.github.com/DragonFive/CVBasicOp/raw/master/1505115301909.jpg
+  [4]: https://www.github.com/DragonFive/CVBasicOp/raw/master/1504663655806.jpg
+  [5]: https://www.github.com/DragonFive/CVBasicOp/raw/master/1505112787822.jpg
+  [6]: https://www.github.com/DragonFive/CVBasicOp/raw/master/1505112823865.jpg
+  [7]: https://www.github.com/DragonFive/CVBasicOp/raw/master/1505121534590.jpg
+  [8]: https://www.github.com/DragonFive/CVBasicOp/raw/master/1505121791713.jpg
+  [9]: https://www.github.com/DragonFive/CVBasicOp/raw/master/1505121960729.jpg
