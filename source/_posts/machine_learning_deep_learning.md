@@ -245,6 +245,18 @@ $$L(x,\alpha) = f(x) + \alpha_1g1(x)+\alpha_2g2(x)\\ =x_1^2-2x_1+1+x_2^2+4x_2+4+
 
 ![对偶问题][5]
 
+
+求导得到
+
+
+![求导得到][6]
+
+
+代入对偶式得到 
+
+![对偶结果][7]
+
+
 ## SVM解决过拟合的方法
 
 决定SVM最优分类超平面的恰恰是那些占少数的支持向量，如果支持向量中碰巧存在异常点就会过拟合，解决的方法是加入松弛变量。
@@ -303,3 +315,5 @@ B 因为（画图）L1约束是正方形的，经验损失最有可能和L1的�
   [3]: https://www.github.com/DragonFive/CVBasicOp/raw/master/1504663655806.jpg
   [4]: https://www.github.com/DragonFive/CVBasicOp/raw/master/1505112787822.jpg
   [5]: https://www.github.com/DragonFive/CVBasicOp/raw/master/1505112823865.jpg
+  [6]: https://www.github.com/DragonFive/CVBasicOp/raw/master/1505121534590.jpg
+  [7]: https://www.github.com/DragonFive/CVBasicOp/raw/master/1505121791713.jpg
