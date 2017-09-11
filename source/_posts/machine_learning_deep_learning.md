@@ -194,14 +194,15 @@ $$L(x,\alpha) = f(x) + \alpha_1g1(x)+\alpha_2g2(x)\\ =x_1^2-2x_1+1+x_2^2+4x_2+4+
 第三个式子不好理解，因为我们知道在约束条件变完后，所有的g(x)<=0，且αi≥0，然后求和还要为0，无非就是告诉你，**要么某个不等式gi(x)=0,要么其对应的αi=0**。那么为什么KKT的条件是这样的呢？
 
 ## SVM的原问题和对偶问题
-```
+
 原问题
 
 ![原问题][3]
 
 对偶问题
-$$\max_{\alpha, \beta, \alpha_{i}\geq 0}\min_{w}L(w, \alpha, \beta)=\max_{\alpha, \alpha_{i}\geq 0}\min_{w, b}\{\frac{1}{2}||w||^{2}-\sum_{i=1}^{N}\alpha_{i}[y_{i}(w^{T}x_{i}+b)-1]\}$$
-```
+
+![对偶问题][4]
+
 ## SVM解决过拟合的方法
 
 决定SVM最优分类超平面的恰恰是那些占少数的支持向量，如果支持向量中碰巧存在异常点就会过拟合，解决的方法是加入松弛变量。
@@ -258,3 +259,4 @@ B 因为（画图）L1约束是正方形的，经验损失最有可能和L1的�
   [1]: https://www.github.com/DragonFive/CVBasicOp/raw/master/1505100218144.jpg
   [2]: https://www.github.com/DragonFive/CVBasicOp/raw/master/1504663655806.jpg
   [3]: https://www.github.com/DragonFive/CVBasicOp/raw/master/1505112787822.jpg
+  [4]: https://www.github.com/DragonFive/CVBasicOp/raw/master/1505112823865.jpg
