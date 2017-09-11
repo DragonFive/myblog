@@ -26,6 +26,11 @@ tags:
 
 [ 卷积神经网络的并行化模型](http://blog.csdn.net/xsc_c/article/details/42420167)
 
+# parameter server
+
+[最近比较火的parameter server是什么？](https://www.zhihu.com/question/26998075)
+
+
 # 并行程序
 
 ## 并行实现实现方式： 
