@@ -196,8 +196,8 @@ $$L(x,\alpha) = f(x) + \alpha_1g1(x)+\alpha_2g2(x)\\ =x_1^2-2x_1+1+x_2^2+4x_2+4+
 ## SVM的原问题和对偶问题
 ```
 原问题
-$$\max_{w, b}\frac{1}{||w||}=\min_{w,b}\frac{1}{2}||w||^{2}\\
-\text{s,t}\ \ \ \  y_{i}(w^{T}x_{i}+b)\geq 1, i\in {\{1,...,N\}}$$
+
+![原问题][3]
 
 对偶问题
 $$\max_{\alpha, \beta, \alpha_{i}\geq 0}\min_{w}L(w, \alpha, \beta)=\max_{\alpha, \alpha_{i}\geq 0}\min_{w, b}\{\frac{1}{2}||w||^{2}-\sum_{i=1}^{N}\alpha_{i}[y_{i}(w^{T}x_{i}+b)-1]\}$$
@@ -257,3 +257,4 @@ B 因为（画图）L1约束是正方形的，经验损失最有可能和L1的�
 
   [1]: https://www.github.com/DragonFive/CVBasicOp/raw/master/1505100218144.jpg
   [2]: https://www.github.com/DragonFive/CVBasicOp/raw/master/1504663655806.jpg
+  [3]: https://www.github.com/DragonFive/CVBasicOp/raw/master/1505112787822.jpg
