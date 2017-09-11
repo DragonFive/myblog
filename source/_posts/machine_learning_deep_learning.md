@@ -46,6 +46,12 @@ Linear SVM和LR的performance都会收到outlier的影响，其敏感程度而�
 2. 做训练样本选取：如hard negative mining，只用负样本中的一部分。
 3. 做训练样本选取：如通过data augmentation扩大正样本数量。
 
+**过拟合方面**
+
+LR容易过拟合 
+
+SVM不太容易过拟合：松弛因子+损失函数形式
+
 
 ## 方法的选择 
 
