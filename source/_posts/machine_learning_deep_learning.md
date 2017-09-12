@@ -109,7 +109,7 @@ SVM不太容易过拟合：松弛因子+损失函数形式
 
 
 # 优化问题的求解方法 
-
+[[Math] 常见的几种最优化方法](http://www.cnblogs.com/maybe2030/p/4751804.html)
 大部分的机器学习算法的本质都是建立优化模型，通过最优化方法对目标函数（或损失函数）进行优化，从而训练出最好的模型。常见的最优化方法有梯度下降法、牛顿法和拟牛顿法、共轭梯度法等等。
 
 ## 梯度下降法 
@@ -129,13 +129,29 @@ SVM不太容易过拟合：松弛因子+损失函数形式
 
 随机梯度下降是通过每个样本来迭代更新一次，如果样本量很大的情况（例如几十万），那么可能**只用其中几万条或者几千条的样本**，就已经将theta迭代到最优解了，对比上面的批量梯度下降，迭代一次需要用到十几万训练样本，一次迭代不可能最优，如果迭代10次的话就需要遍历训练样本10次。但是，SGD伴随的一个问题是**噪音**较BGD要多，使得SGD并不是每次迭代都向着整体最优化方向。
 
-## 牛顿法比梯度下降法快 
+
+## 牛顿法 
+牛顿法是一种在实数域和复数域上近似求解方程的方法。方法使用函数f (x)的**泰勒级数的前面几项**来寻找方程f (x) = 0的根。牛顿法最大的特点就在于它的收敛速度很快。
+
+![迭代公式][9]
+
+### 牛顿法比梯度下降法快 
 
 
 牛顿法是二阶收敛，梯度下降是一阶收敛，所以牛顿法就更快。如果更通俗地说的话，比如你想找一条最短的路径走到一个盆地的最底部，梯度下降法每次只从你当前所处位置选一个坡度最大的方向走一步，牛顿法在选择方向时，不仅会考虑坡度是否够大，还会考虑你走了一步之后，坡度是否会变得更大。所以，可以说牛顿法比梯度下降法看得更远一点，能更快地走到最底部。
 
 但是牛顿法要算hessian矩阵的逆，比较费时间。
+### 拟牛顿法 
 
+　拟牛顿法的本质思想是改善牛顿法每次需要求解复杂的Hessian矩阵的逆矩阵的缺陷，它使用正定矩阵来近似Hessian矩阵的逆，从而简化了运算的复杂度。拟牛顿法和最速下降法一样只要求每一步迭代时知道目标函数的梯度。通过测量梯度的变化，构造一个目标函数的模型使之足以产生超线性收敛性。这类方法大大优于最速下降法，尤其对于困难的问题。另外，因为拟牛顿法不需要二阶导数的信息，所以有时比牛顿法更为有效。
+ 
+ 
+ ## 拉格朗日法 
+ [拉格朗日乘数法](http://www.cnblogs.com/maybe2030/p/4946256.html)
+ 
+拉格朗日乘子法主要用于解决约束优化问题，它的基本思想就是通过引入拉格朗日乘子来将含有n个变量和k个约束条件的约束优化问题转化为含有（n+k）个变量的无约束优化问题。拉格朗日乘子背后的数学意义是其为约束方程梯度线性组合中每个向量的系数。
+
+通过引入拉格朗日乘子建立极值条件，对n个变量分别求偏导对应了n个方程，然后加上k个约束条件（对应k个拉格朗日乘子）一起构成包含了（n+k）变量的（n+k）个方程的方程组问题，这样就能根据求方程组的方法对其进行求解。
 
 
 # 机器学习算法选择 
@@ -259,7 +275,7 @@ daBoost的优缺点
 
 其次，有了合适的算法，我们还要慎重选择数据集的大小。通常训练数据集越大越好，但是当大到数据集已经对整体所有数据有了一定的代表性之后，再多的数据已经不能提升模型的准确性，反而带来模型训练的计算量增加。但是，训练数据太少的话是一定不好的，这会带来过拟合的问题，过拟合就是模型复杂度太高，方差很大，不同的数据集训练出来的模型变化非常大
 
-![偏差与方差][9]
+![偏差与方差][10]
 
 
 
@@ -282,7 +298,7 @@ daBoost的优缺点
 ，此时不会降低variance。
 
 Bagging 是 Bootstrap Aggregating 的简称，意思就是再取样 (Bootstrap) 然后在每个样本上训练出来的模型取平均。
-![bagging的偏差][10]，所以从偏差上看没有降低，但是由于各个子模型是单独训练的，有一定的独立性，所以方差降低比较多,**提高泛化能力**。特别是random forest这种方式，不仅对样本取样，还有特征取样。
+![bagging的偏差][11]，所以从偏差上看没有降低，但是由于各个子模型是单独训练的，有一定的独立性，所以方差降低比较多,**提高泛化能力**。特别是random forest这种方式，不仅对样本取样，还有特征取样。
 
 boosting从优化角度来看，是用forward-stagewise这种贪心法去最小化损失函数，在这个过程中偏差是逐步减小的，而由于各阶段分类器之间相关性较强，方差降低得少。
 
@@ -313,7 +329,7 @@ gbdt是boosting的方式，它的决策树的深度比较小，模型会欠拟�
 
 ## 精确率、召回率、F1 值、ROC、AUC 各自的优缺点是什么？
 
-![enter description here][11]
+![enter description here][12]
 
 精确率（Precision）为TP/(TP+FP)
 
@@ -323,7 +339,7 @@ F1值是精确率和召回率的调和均值，即F1=2PR/(P+R）
 
 ROC曲线（Receiver operating characteristic curve），ROC曲线其实是多个混淆矩阵的结果组合，如果在上述模型中我们没有定好阈值，而是将模型预测结果从高到低排序，将每个概率值依次作为阈值，那么就有多个混淆矩阵。对于每个混淆矩阵，我们计算两个指标TPR（True positive rate）和FPR（False positive rate），TPR=TP/(TP+FN)=Recall，**TPR就是召回率**，FPR=FP/(FP+TN)。
 
-![enter description here][12]
+![enter description here][13]
 在画ROC曲线的过程中，若有一个阈值，高于此阈值的均为坏人，低于此阈值的均为好人，则认为此模型已完美的区分开好坏用户。此时坏用户的预测准确率（TPR）为1，同时好用户的预测错误率（FPR）为0，ROC曲线经过（0,1）点。AUC（Area Under Curve）的值为ROC曲线下面的面积，若如上所述模型十分准确，则AUC为1。但现实生活中尤其是工业界不会有如此完美的模型，一般AUC均在0.5到1之间，AUC越高，模型的区分能力越好
 
 若AUC=0.5，即与上图中红线重合，表示模型的区分能力与随机猜测没有差别。
@@ -410,7 +426,7 @@ NOTE：解决其中局部最小值的方法：（1）多组不同随机参数，
 
 ## 特征选择方法分类
 
-![特征选择思维导图][13]
+![特征选择思维导图][14]
 
 1. Filter：过滤法，按照**发散性或者相关性**对各个特征进行评分，设定阈值或者待选择阈值的个数，选择特征。
 
@@ -471,7 +487,7 @@ PCA是为了让映射后的样本具有最大的**发散性**；而LDA是为了�
 
 前提条件凸函数：下图左侧是凸函数。
 
-![左侧是凸函数][14]
+![左侧是凸函数][15]
 
 凸的就是开口朝一个方向（向上或向下）。更准确的数学关系就是： 
 
@@ -514,27 +530,27 @@ $$L(x,\alpha) = f(x) + \alpha_1g1(x)+\alpha_2g2(x)\\ =x_1^2-2x_1+1+x_2^2+4x_2+4+
 
 原问题
 
-![原问题][15]
+![原问题][16]
 
 拉格朗日乘子法结果
 
-![对偶问题][16]
+![对偶问题][17]
 
 
 求导得到
 
 
-![求导得到][17]
+![求导得到][18]
 
 
 代入乘子算式得到 
 
-![对偶结果][18]
+![对偶结果][19]
 
 
 就得到的原问题的对偶问题 
 
-![对偶问题][19]
+![对偶问题][20]
 
 
 
@@ -603,14 +619,15 @@ B 因为（画图）L1约束是正方形的，经验损失最有可能和L1的�
   [6]: https://www.github.com/DragonFive/CVBasicOp/raw/master/1505185372812.jpg
   [7]: https://www.github.com/DragonFive/CVBasicOp/raw/master/1505185383608.jpg
   [8]: https://www.github.com/DragonFive/CVBasicOp/raw/master/1505185421152.jpg
-  [9]: https://www.github.com/DragonFive/CVBasicOp/raw/master/1505100218144.jpg
-  [10]: https://www.github.com/DragonFive/CVBasicOp/raw/master/1505131808906.jpg
-  [11]: https://www.github.com/DragonFive/CVBasicOp/raw/master/1505137634679.jpg
-  [12]: https://www.github.com/DragonFive/CVBasicOp/raw/master/1505137939621.jpg
-  [13]: https://www.github.com/DragonFive/CVBasicOp/raw/master/1505115301909.jpg
-  [14]: https://www.github.com/DragonFive/CVBasicOp/raw/master/1504663655806.jpg
-  [15]: https://www.github.com/DragonFive/CVBasicOp/raw/master/1505112787822.jpg
-  [16]: https://www.github.com/DragonFive/CVBasicOp/raw/master/1505112823865.jpg
-  [17]: https://www.github.com/DragonFive/CVBasicOp/raw/master/1505121534590.jpg
-  [18]: https://www.github.com/DragonFive/CVBasicOp/raw/master/1505121791713.jpg
-  [19]: https://www.github.com/DragonFive/CVBasicOp/raw/master/1505121960729.jpg
+  [9]: https://www.github.com/DragonFive/CVBasicOp/raw/master/1505191811966.jpg
+  [10]: https://www.github.com/DragonFive/CVBasicOp/raw/master/1505100218144.jpg
+  [11]: https://www.github.com/DragonFive/CVBasicOp/raw/master/1505131808906.jpg
+  [12]: https://www.github.com/DragonFive/CVBasicOp/raw/master/1505137634679.jpg
+  [13]: https://www.github.com/DragonFive/CVBasicOp/raw/master/1505137939621.jpg
+  [14]: https://www.github.com/DragonFive/CVBasicOp/raw/master/1505115301909.jpg
+  [15]: https://www.github.com/DragonFive/CVBasicOp/raw/master/1504663655806.jpg
+  [16]: https://www.github.com/DragonFive/CVBasicOp/raw/master/1505112787822.jpg
+  [17]: https://www.github.com/DragonFive/CVBasicOp/raw/master/1505112823865.jpg
+  [18]: https://www.github.com/DragonFive/CVBasicOp/raw/master/1505121534590.jpg
+  [19]: https://www.github.com/DragonFive/CVBasicOp/raw/master/1505121791713.jpg
+  [20]: https://www.github.com/DragonFive/CVBasicOp/raw/master/1505121960729.jpg
