@@ -95,7 +95,13 @@ SVM不太容易过拟合：松弛因子+损失函数形式
 ![enter description here][5]
 ## LR回归 
 
+![enter description here][6]
+回归用来分类 0/1 问题,也就是预测结果属于 0 或者 1 的二值分类问题
+![enter description here][7]
 
+仍然求的是最大似然估计,然后求导,得到迭代公式结果为，梯度下降法：
+
+![enter description here][8]
 
 
 # 机器学习算法选择 
@@ -219,7 +225,7 @@ daBoost的优缺点
 
 其次，有了合适的算法，我们还要慎重选择数据集的大小。通常训练数据集越大越好，但是当大到数据集已经对整体所有数据有了一定的代表性之后，再多的数据已经不能提升模型的准确性，反而带来模型训练的计算量增加。但是，训练数据太少的话是一定不好的，这会带来过拟合的问题，过拟合就是模型复杂度太高，方差很大，不同的数据集训练出来的模型变化非常大
 
-![偏差与方差][6]
+![偏差与方差][9]
 
 
 
@@ -242,7 +248,7 @@ daBoost的优缺点
 ，此时不会降低variance。
 
 Bagging 是 Bootstrap Aggregating 的简称，意思就是再取样 (Bootstrap) 然后在每个样本上训练出来的模型取平均。
-![bagging的偏差][7]，所以从偏差上看没有降低，但是由于各个子模型是单独训练的，有一定的独立性，所以方差降低比较多,**提高泛化能力**。特别是random forest这种方式，不仅对样本取样，还有特征取样。
+![bagging的偏差][10]，所以从偏差上看没有降低，但是由于各个子模型是单独训练的，有一定的独立性，所以方差降低比较多,**提高泛化能力**。特别是random forest这种方式，不仅对样本取样，还有特征取样。
 
 boosting从优化角度来看，是用forward-stagewise这种贪心法去最小化损失函数，在这个过程中偏差是逐步减小的，而由于各阶段分类器之间相关性较强，方差降低得少。
 
@@ -273,7 +279,7 @@ gbdt是boosting的方式，它的决策树的深度比较小，模型会欠拟�
 
 ## 精确率、召回率、F1 值、ROC、AUC 各自的优缺点是什么？
 
-![enter description here][8]
+![enter description here][11]
 
 精确率（Precision）为TP/(TP+FP)
 
@@ -283,7 +289,7 @@ F1值是精确率和召回率的调和均值，即F1=2PR/(P+R）
 
 ROC曲线（Receiver operating characteristic curve），ROC曲线其实是多个混淆矩阵的结果组合，如果在上述模型中我们没有定好阈值，而是将模型预测结果从高到低排序，将每个概率值依次作为阈值，那么就有多个混淆矩阵。对于每个混淆矩阵，我们计算两个指标TPR（True positive rate）和FPR（False positive rate），TPR=TP/(TP+FN)=Recall，**TPR就是召回率**，FPR=FP/(FP+TN)。
 
-![enter description here][9]
+![enter description here][12]
 在画ROC曲线的过程中，若有一个阈值，高于此阈值的均为坏人，低于此阈值的均为好人，则认为此模型已完美的区分开好坏用户。此时坏用户的预测准确率（TPR）为1，同时好用户的预测错误率（FPR）为0，ROC曲线经过（0,1）点。AUC（Area Under Curve）的值为ROC曲线下面的面积，若如上所述模型十分准确，则AUC为1。但现实生活中尤其是工业界不会有如此完美的模型，一般AUC均在0.5到1之间，AUC越高，模型的区分能力越好
 
 若AUC=0.5，即与上图中红线重合，表示模型的区分能力与随机猜测没有差别。
@@ -370,7 +376,7 @@ NOTE：解决其中局部最小值的方法：（1）多组不同随机参数，
 
 ## 特征选择方法分类
 
-![特征选择思维导图][10]
+![特征选择思维导图][13]
 
 1. Filter：过滤法，按照**发散性或者相关性**对各个特征进行评分，设定阈值或者待选择阈值的个数，选择特征。
 
@@ -431,7 +437,7 @@ PCA是为了让映射后的样本具有最大的**发散性**；而LDA是为了�
 
 前提条件凸函数：下图左侧是凸函数。
 
-![左侧是凸函数][11]
+![左侧是凸函数][14]
 
 凸的就是开口朝一个方向（向上或向下）。更准确的数学关系就是： 
 
@@ -474,27 +480,27 @@ $$L(x,\alpha) = f(x) + \alpha_1g1(x)+\alpha_2g2(x)\\ =x_1^2-2x_1+1+x_2^2+4x_2+4+
 
 原问题
 
-![原问题][12]
+![原问题][15]
 
 拉格朗日乘子法结果
 
-![对偶问题][13]
+![对偶问题][16]
 
 
 求导得到
 
 
-![求导得到][14]
+![求导得到][17]
 
 
 代入乘子算式得到 
 
-![对偶结果][15]
+![对偶结果][18]
 
 
 就得到的原问题的对偶问题 
 
-![对偶问题][16]
+![对偶问题][19]
 
 
 
@@ -560,14 +566,17 @@ B 因为（画图）L1约束是正方形的，经验损失最有可能和L1的�
   [3]: https://www.github.com/DragonFive/CVBasicOp/raw/master/1505183272196.jpg
   [4]: https://www.github.com/DragonFive/CVBasicOp/raw/master/1505183334024.jpg
   [5]: https://www.github.com/DragonFive/CVBasicOp/raw/master/1505183365593.jpg
-  [6]: https://www.github.com/DragonFive/CVBasicOp/raw/master/1505100218144.jpg
-  [7]: https://www.github.com/DragonFive/CVBasicOp/raw/master/1505131808906.jpg
-  [8]: https://www.github.com/DragonFive/CVBasicOp/raw/master/1505137634679.jpg
-  [9]: https://www.github.com/DragonFive/CVBasicOp/raw/master/1505137939621.jpg
-  [10]: https://www.github.com/DragonFive/CVBasicOp/raw/master/1505115301909.jpg
-  [11]: https://www.github.com/DragonFive/CVBasicOp/raw/master/1504663655806.jpg
-  [12]: https://www.github.com/DragonFive/CVBasicOp/raw/master/1505112787822.jpg
-  [13]: https://www.github.com/DragonFive/CVBasicOp/raw/master/1505112823865.jpg
-  [14]: https://www.github.com/DragonFive/CVBasicOp/raw/master/1505121534590.jpg
-  [15]: https://www.github.com/DragonFive/CVBasicOp/raw/master/1505121791713.jpg
-  [16]: https://www.github.com/DragonFive/CVBasicOp/raw/master/1505121960729.jpg
+  [6]: https://www.github.com/DragonFive/CVBasicOp/raw/master/1505185372812.jpg
+  [7]: https://www.github.com/DragonFive/CVBasicOp/raw/master/1505185383608.jpg
+  [8]: https://www.github.com/DragonFive/CVBasicOp/raw/master/1505185421152.jpg
+  [9]: https://www.github.com/DragonFive/CVBasicOp/raw/master/1505100218144.jpg
+  [10]: https://www.github.com/DragonFive/CVBasicOp/raw/master/1505131808906.jpg
+  [11]: https://www.github.com/DragonFive/CVBasicOp/raw/master/1505137634679.jpg
+  [12]: https://www.github.com/DragonFive/CVBasicOp/raw/master/1505137939621.jpg
+  [13]: https://www.github.com/DragonFive/CVBasicOp/raw/master/1505115301909.jpg
+  [14]: https://www.github.com/DragonFive/CVBasicOp/raw/master/1504663655806.jpg
+  [15]: https://www.github.com/DragonFive/CVBasicOp/raw/master/1505112787822.jpg
+  [16]: https://www.github.com/DragonFive/CVBasicOp/raw/master/1505112823865.jpg
+  [17]: https://www.github.com/DragonFive/CVBasicOp/raw/master/1505121534590.jpg
+  [18]: https://www.github.com/DragonFive/CVBasicOp/raw/master/1505121791713.jpg
+  [19]: https://www.github.com/DragonFive/CVBasicOp/raw/master/1505121960729.jpg
