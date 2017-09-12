@@ -14,6 +14,8 @@ tags:
 1. 100亿数字，怎么统计前100大的？
 分治+堆
 [海量数据处理：十道面试题与十个海量数据处理方法总结](http://blog.csdn.net/v_july_v/article/details/6279498)
+[数据结构与算法（19）：海量数据处理](https://plushunter.github.io/2017/08/02/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%EF%BC%8819%EF%BC%89%EF%BC%9A%E6%B5%B7%E9%87%8F%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/)
+
 
 # C++基础
 ## c++的存储区
