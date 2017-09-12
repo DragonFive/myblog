@@ -398,9 +398,9 @@ NOTE：解决其中局部最小值的方法：（1）多组不同随机参数，
 
 ## DNN常用的激活函数有哪些，各有什么特点 
 （1）sigmoid：易饱和（梯度消失），非0均值 （2）tanh，改进了sigmoid的第二个缺点，即它是0均值的 （3）ReLU，收敛快（不容易饱和），求梯度简单（没有指数计算，只需要阈值就可以），有稀疏特性。缺点是**神经元容易坏死**。 
-
+```
 由于ReLU在x<0时梯度为0，这样就导致负的梯度在这个ReLU被置零，而且这个神经元有可能再也不会被任何数据激活。如果这个情况发生了，那么这个神经元之后的梯度就永远是0了，也就是ReLU神经元坏死了，不再对任何数据有所响应。实际操作中，如果你的learning rate 很大，那么很有可能你网络中的40%的神经元都坏死了
-
+```
 ## 什么样的资料不适合用深度学习？ 
 （1）数据量小 （2）没有**局部相关性**
 
@@ -496,9 +496,9 @@ PCA是为了让映射后的样本具有最大的**发散性**；而LDA是为了�
 
 凸的就是开口朝一个方向（向上或向下）。更准确的数学关系就是： 
 
-$$\frac{f(x_1)+f(x_2)}{2}>f(\frac{x_1+x_2}{2})$$
+![enter description here][16]
 或者
-$$\frac{f(x_1)+f(x_2)}{2}<f(\frac{x_1+x_2}{2})$$
+![enter description here][17]
 
 对于凸问题，你去求导的话，是不是只有一个极点，那么他就是最优点，很合理。
 
@@ -535,27 +535,27 @@ $$L(x,\alpha) = f(x) + \alpha_1g1(x)+\alpha_2g2(x)\\ =x_1^2-2x_1+1+x_2^2+4x_2+4+
 
 原问题
 
-![原问题][16]
+![原问题][18]
 
 拉格朗日乘子法结果
 
-![对偶问题][17]
+![对偶问题][19]
 
 
 求导得到
 
 
-![求导得到][18]
+![求导得到][20]
 
 
 代入乘子算式得到 
 
-![对偶结果][19]
+![对偶结果][21]
 
 
 就得到的原问题的对偶问题 
 
-![对偶问题][20]
+![对偶问题][22]
 
 
 
@@ -616,6 +616,11 @@ B 因为（画图）L1约束是正方形的，经验损失最有可能和L1的�
 [机器学习常见算法个人总结（面试用）](http://kubicode.me/2015/08/16/Machine%20Learning/Algorithm-Summary-for-Interview/)
 
 
+[机器学习面试问题汇总](http://blog.csdn.net/q383700092/article/details/58605715)
+
+[cs229机器学习笔记及代码](http://memoiry.me/2017/02/22/cs229/)
+
+
   [1]: https://www.github.com/DragonFive/CVBasicOp/raw/master/1505183290340.jpg
   [2]: https://www.github.com/DragonFive/CVBasicOp/raw/master/1505185139623.jpg
   [3]: https://www.github.com/DragonFive/CVBasicOp/raw/master/1505183272196.jpg
@@ -631,8 +636,10 @@ B 因为（画图）L1约束是正方形的，经验损失最有可能和L1的�
   [13]: https://www.github.com/DragonFive/CVBasicOp/raw/master/1505137939621.jpg
   [14]: https://www.github.com/DragonFive/CVBasicOp/raw/master/1505115301909.jpg
   [15]: https://www.github.com/DragonFive/CVBasicOp/raw/master/1504663655806.jpg
-  [16]: https://www.github.com/DragonFive/CVBasicOp/raw/master/1505112787822.jpg
-  [17]: https://www.github.com/DragonFive/CVBasicOp/raw/master/1505112823865.jpg
-  [18]: https://www.github.com/DragonFive/CVBasicOp/raw/master/1505121534590.jpg
-  [19]: https://www.github.com/DragonFive/CVBasicOp/raw/master/1505121791713.jpg
-  [20]: https://www.github.com/DragonFive/CVBasicOp/raw/master/1505121960729.jpg
+  [16]: https://www.github.com/DragonFive/CVBasicOp/raw/master/1505199847293.jpg
+  [17]: https://www.github.com/DragonFive/CVBasicOp/raw/master/1505199898762.jpg
+  [18]: https://www.github.com/DragonFive/CVBasicOp/raw/master/1505112787822.jpg
+  [19]: https://www.github.com/DragonFive/CVBasicOp/raw/master/1505112823865.jpg
+  [20]: https://www.github.com/DragonFive/CVBasicOp/raw/master/1505121534590.jpg
+  [21]: https://www.github.com/DragonFive/CVBasicOp/raw/master/1505121791713.jpg
+  [22]: https://www.github.com/DragonFive/CVBasicOp/raw/master/1505121960729.jpg
