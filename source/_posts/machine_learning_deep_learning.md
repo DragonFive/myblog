@@ -433,6 +433,9 @@ LeCun的“Learning Mid-Level Features For Recognition”对前两种pooling方�
  
 其实pooling的目的就是为了使参数量减少，因为根本不需要那么多参数。pooling也只能做到在极小范围内的平移不变性，旋转和 伸缩是做不到的。其实不变性都是特征工程时代的概念了，现在在数据量极大的情况下，样本覆盖了足够多的variance，dnn自动就会把各种不变性学习出来
 
+使用Pooling的目的之一是获取一定的特征不变性，目前用的比较多的是Max Pooling。
+max pooling是DCNN的非线性来源之一，然后在现代的深度神经网络中，最大的非线性来源是ReLU类的激活函数。
+因此，目前对使用Pooling也存在一定的争议，一些最新的工作已经不在网络的中间层使用pooling层了（或者只在最后一层使用average pooling，比如说network in network）
 
 # 特征选择的方法 
 [机器学习中，有哪些特征选择的工程方法？](https://www.zhihu.com/question/28641663)
