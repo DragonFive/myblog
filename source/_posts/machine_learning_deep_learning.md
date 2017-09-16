@@ -467,7 +467,7 @@ $$f(x)=x，(x>=0)$$
 然而可以观察到，损失函数对α的导数我们是可以求得的，可不可以将它作为一个参数进行训练呢
 
 **Randomized ReLU：** 
-Randomized Leaky ReLU是 leaky ReLU 的random 版本 ,核心思想就是，在训练过程中，α 是从一个高斯分布 U(l,u) 中 随机出来的，然后再测试过程中进行修正（有点像dropout的用法
+Randomized Leaky ReLU是 leaky ReLU 的random 版本 ,核心思想就是，在训练过程中，α 是从一个高斯分布 U(l,u) 中 随机出来的，然后再测试过程中进行修正（有点像dropout的用法)
 
 ## 什么样的资料不适合用深度学习？ 
 （1）数据量小 （2）没有**局部相关性**
