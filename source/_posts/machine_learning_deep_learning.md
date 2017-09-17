@@ -616,7 +616,7 @@ PCA是为了让映射后的样本具有最大的**发散性**；而LDA是为了�
 
 添加正则化后的损失函数变为： $$J(w)=-\frac{1}{N} \sum_{i=1}^N{\left(y_i*log(h_w(x_i))+(1-y_i)*log(1-h_w(x_i))\right)} + \lambda ||w||_2$$
 
-
+同时w的更新变为： $$w:=w-\alpha * \left(h_w(x_j)-y_j) *x_i\right) -2\alpha*w_j$$
 
 # SVM相关问题 
 
