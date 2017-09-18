@@ -1,6 +1,6 @@
 ---
 title: c++使用7年后的经验总结
-date: 2017/6/8 17:38:58
+date: 2017/8/8 17:38:58
 
 categories:
 - 编程
@@ -9,8 +9,24 @@ tags:
 ---
 [TOC]
 
-![c++][1]
+这里总结了一些c++11标准的重要的新特性和c++的编程经验。
+
+![enter description here][1]
 <!--more-->
+
+# new feature
+
+## variadic Templates
+
+可变的模板参数，参数量可以变化，举个例子：
+
+```cpp
+
+
+
+```
+
+
 
 # effective_Cpp
 
@@ -166,4 +182,5 @@ shared_ptr 和 auto_ptr 都提供一个 get 成员函数进行显示转换。
 [c++单例模型](http://blog.yangyubo.com/2009/06/04/best-cpp-singleton-pattern/)
 
 
-  [1]: https://www.github.com/DragonFive/CVBasicOp/raw/master/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1500388501263.jpg
+  [1]: https://www.github.com/DragonFive/CVBasicOp/raw/master/1505722824118.jpg
+  [2]: https://www.github.com/DragonFive/CVBasicOp/raw/master/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1500388501263.jpg
