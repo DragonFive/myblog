@@ -69,7 +69,7 @@ class tuple<Head, Tail...> :private tuple<Tail...>//实现递归定义
 ## 一些小更新
 
 ### nullptr
-可以用来替代NULL
+可以用来替代NULL,避免因为NULL=0带来的一些混淆。
 
 ```cpp
 void f(int);
