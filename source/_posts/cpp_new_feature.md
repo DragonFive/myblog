@@ -21,6 +21,11 @@ tags:
 可变的模板参数，参数量可以变化，举个例子：
 
 ```cpp
+void print()//对于print没有参数的时候，调用这个函数。
+{
+
+}
+
 template <typename T, typename... Types>
 void print(const T& firstArg, const Types&... args)
 {
