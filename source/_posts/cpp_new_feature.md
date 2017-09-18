@@ -88,7 +88,12 @@ f(nullptr);//调用f(void *)
 ```cpp
 auto L = [](int x)->bool{};
 ```
+### 统一的初始化方法-大括号
 
+```cpp
+int values[] {1,2,3};
+vector<int> v{2,3,4,5};
+```
 
 
 # effective_Cpp
