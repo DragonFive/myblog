@@ -66,6 +66,21 @@ class tuple<Head, Tail...> :private tuple<Tail...>//实现递归定义
 
 ```
 
+## 一些小更新
+
+### nullptr
+可以用来替代NULL
+
+```cpp
+void f(int);
+void f(void *);
+
+//下面调用
+f(0);//调用f(int)
+f(NULL);//调用f(int)
+f(nullptr);//调用f(void *)
+
+```
 
 
 # effective_Cpp
