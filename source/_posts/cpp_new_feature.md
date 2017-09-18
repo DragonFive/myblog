@@ -20,6 +20,7 @@ tags:
 
 可变的模板参数，参数量可以变化，举个例子：
 
+### 对于函数
 ```cpp
 void print()//对于print没有参数的时候，调用这个函数。
 {
@@ -36,6 +37,11 @@ void print(const T& firstArg, const Types&... args)
 
 ```
 注意了，上面的这种方式由于不知道有多少个参数，所以使用了递归的方式。为了**处理最后的状态**，上面声明了零参数的print;
+
+### 对于类
+
+
+
 
 
 # effective_Cpp
