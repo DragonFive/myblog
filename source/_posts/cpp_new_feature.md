@@ -21,11 +21,16 @@ tags:
 可变的模板参数，参数量可以变化，举个例子：
 
 ```cpp
-
+template <typename T, typename... Types>
+void print(const T& firstArg, const Types&... args)
+{
+	cout<<firstArg<<endl;
+	print(args...);//这里使用了递归的方式
+}
 
 
 ```
-
+注意了，上面的这种方式由于不知道有多少个参数，所以使用了递归的方式。
 
 
 # effective_Cpp
