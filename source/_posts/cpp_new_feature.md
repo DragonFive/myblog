@@ -14,7 +14,7 @@ tags:
 ![enter description here][1]
 <!--more-->
 
-# new feature
+# c++11 new feature
 
 ## variadic Templates
 
@@ -46,7 +46,25 @@ print(7.5, "hello", 1.3, bitset<16>(377));
 
 ### 对于类
 
+tuple的实现就是依赖可变参数
 
+
+```cpp
+template <typename... Values> class tuple;
+template<> class tuple<>(); // 处理终止条件
+
+template<typename Head, typename... Tail>
+class tuple<Head, Tail...> :private tuple<Tail...>//实现递归定义
+{
+		typedef tuple<Tail...> inherited;// 重新起个名字;
+	public :
+		tuple(){}
+		tuple(Head v, Tail... vtail):m_head(v), inherited(vtail){}
+	protected:
+		Head m_head;
+};
+
+```
 
 
 
