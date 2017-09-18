@@ -81,6 +81,14 @@ f(NULL);//调用f(int)
 f(nullptr);//调用f(void *)
 
 ```
+### auto
+当type比较长的时候，比如iterator定义的时候可以用auto替换，也可以定义返回值类型。
+
+或者比较复杂：比如用
+```cpp
+auto L = [](int x)->bool{};
+```
+
 
 
 # effective_Cpp
