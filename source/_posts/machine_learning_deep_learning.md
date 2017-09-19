@@ -618,6 +618,10 @@ PCA是为了让映射后的样本具有最大的**发散性**；而LDA是为了�
 
 同时w的更新变为： $$w:=w-\alpha * \left(h_w(x_j)-y_j) *x_i\right) -2\alpha*w_j$$
 
+## 关于LR的多分类：softmax
+
+
+
 # SVM相关问题 
 
 [解密SVM系列（一）：关于拉格朗日乘子法和KKT条件](http://blog.csdn.net/on2way/article/details/47729419)
