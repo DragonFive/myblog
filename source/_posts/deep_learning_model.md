@@ -101,6 +101,7 @@ global avg pooling层没有参数所以不会过拟合。
 
 [卷积神经网络结构变化](http://blog.csdn.net/xbinworld/article/details/61210499)
 
+[卷积神经网络总结](http://www.shuang0420.com/2017/04/25/%E5%8D%B7%E7%A7%AF%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C%20CNN%20%E7%AC%94%E8%AE%B0(%E9%AB%98%E7%BA%A7%E7%AF%87)/)
 
   [1]: https://www.github.com/DragonFive/CVBasicOp/raw/master/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1503832736486.jpg
   [2]: https://www.github.com/DragonFive/CVBasicOp/raw/master/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1502709541017.jpg
