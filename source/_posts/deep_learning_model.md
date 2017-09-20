@@ -70,13 +70,16 @@ Alexnet有一个特殊的计算层，LRN层，做的事是对当前层的输出�
 ![做连续卷积][6]
 
 
+![VGG的参数量][7]
+
+
 ## resnet
 
 特殊之处在于设计了“bottleneck”形式的block（有跨越几层的直连）。最深的model采用的152层
 
 block的结构如下图 
 
-![block][7]
+![block][8]
 
 
 ## Global Average Pooling
@@ -105,4 +108,5 @@ global avg pooling层没有参数所以不会过拟合。
   [4]: https://www.github.com/DragonFive/CVBasicOp/raw/master/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1502710845336.jpg
   [5]: https://www.github.com/DragonFive/CVBasicOp/raw/master/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1502710981337.jpg
   [6]: https://www.github.com/DragonFive/CVBasicOp/raw/master/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1502710007686.jpg
-  [7]: https://www.github.com/DragonFive/CVBasicOp/raw/master/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1502710123203.jpg
+  [7]: https://www.github.com/DragonFive/CVBasicOp/raw/master/1505876579495.jpg
+  [8]: https://www.github.com/DragonFive/CVBasicOp/raw/master/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1502710123203.jpg
