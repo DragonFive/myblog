@@ -12,6 +12,14 @@ tags:
 ---
 [TOC]
 
+机器学习是做NLP和计算机视觉这类应用算法的基础，虽然现在深度学习模型大行其道，但是懂一些传统算法的原理和它们之间的区别还是很有必要的。可以帮助我们做一些模型选择。本篇博文就总结一下各种机器学习算法的特点和应用场景。
+
+![机器学习][1]
+
+
+
+<!--more-->
+
 # SVM与LR的区别 
 
 ## 从模型解决问题的方式来看
@@ -99,36 +107,36 @@ Note：拉格朗日对偶没有改变最优解，但改变了算法复杂度：�
 **优化方法**
 
 1. 当x矩阵是列满秩的时候，可以用最小二乘法，但是求矩阵的逆比较慢
-![enter description here][1]
+![enter description here][2]
 2. 梯度下降法，以最大似然估计的结果对权值求梯度，sigmoid函数也是如此
 
-![enter description here][2]
+![enter description here][3]
 
 **均方无法的概率解释**
 假设根据特征的预测结果与实际结果有误差∈ (i) ,那么预测结果θ T x (i) 和真实结果y (i) 满足下
 式:
-![enter description here][3]
+![enter description here][4]
 一般来讲,误差满足平均值为 0 的高斯分布,也就是正态分布。那么 x 和 y 的条件概率也就
 是
-![enter description here][4]
+![enter description here][5]
 
 用条件概率最大似然估计法得到：
 
-![enter description here][5]
+![enter description here][6]
 ## LR回归 
 
 
 
-![enter description here][6]
-回归用来分类 0/1 问题,也就是预测结果属于 0 或者 1 的二值分类问题
 ![enter description here][7]
+回归用来分类 0/1 问题,也就是预测结果属于 0 或者 1 的二值分类问题
+![enter description here][8]
 
 仍然求的是最大似然估计,然后求导,得到迭代公式结果为，梯度下降法：
 
 
 
 
-![enter description here][8]
+![enter description here][9]
 
 
 # 优化问题的求解方法 
@@ -156,7 +164,7 @@ Note：拉格朗日对偶没有改变最优解，但改变了算法复杂度：�
 ## 牛顿法 
 牛顿法是一种在实数域和复数域上近似求解方程的方法。方法使用函数f (x)的**泰勒级数的前面几项**来寻找方程f (x) = 0的根。牛顿法最大的特点就在于它的收敛速度很快。
 
-![迭代公式][9]
+![迭代公式][10]
 
 ### 牛顿法比梯度下降法快 
 
@@ -353,7 +361,7 @@ daBoost的优缺点
 
 其次，有了合适的算法，我们还要慎重选择数据集的大小。通常训练数据集越大越好，但是当大到数据集已经对整体所有数据有了一定的代表性之后，再多的数据已经不能提升模型的准确性，反而带来模型训练的计算量增加。但是，训练数据太少的话是一定不好的，这会带来过拟合的问题，过拟合就是模型复杂度太高，方差很大，不同的数据集训练出来的模型变化非常大
 
-![偏差与方差][10]
+![偏差与方差][11]
 
 
 
@@ -376,7 +384,7 @@ daBoost的优缺点
 ，此时不会降低variance。
 
 Bagging 是 Bootstrap Aggregating 的简称，意思就是再取样 (Bootstrap) 然后在每个样本上训练出来的模型取平均。
-![bagging的偏差][11]，所以从偏差上看没有降低，但是由于各个子模型是单独训练的，有一定的独立性，所以方差降低比较多,**提高泛化能力**。特别是random forest这种方式，不仅对样本取样，还有特征取样。
+![bagging的偏差][12]，所以从偏差上看没有降低，但是由于各个子模型是单独训练的，有一定的独立性，所以方差降低比较多,**提高泛化能力**。特别是random forest这种方式，不仅对样本取样，还有特征取样。
 
 boosting从优化角度来看，是用forward-stagewise这种贪心法去最小化损失函数，在这个过程中偏差是逐步减小的，而由于各阶段分类器之间相关性较强，方差降低得少。
 
@@ -409,7 +417,7 @@ gbdt是boosting的方式，它的决策树的深度比较小，模型会欠拟�
 
 ## 精确率、召回率、F1 值、ROC、AUC 各自的优缺点是什么？
 
-![enter description here][12]
+![enter description here][13]
 
 精确率（Precision）为TP/(TP+FP)
 
@@ -419,7 +427,7 @@ F1值是精确率和召回率的调和均值，即F1=2PR/(P+R）
 
 ROC曲线（Receiver operating characteristic curve），ROC曲线其实是多个混淆矩阵的结果组合，如果在上述模型中我们没有定好阈值，而是将模型预测结果从高到低排序，将每个概率值依次作为阈值，那么就有多个混淆矩阵。对于每个混淆矩阵，我们计算两个指标TPR（True positive rate）和FPR（False positive rate），TPR=TP/(TP+FN)=Recall，**TPR就是召回率**，FPR=FP/(FP+TN)。
 
-![enter description here][13]
+![enter description here][14]
 在画ROC曲线的过程中，若有一个阈值，高于此阈值的均为坏人，低于此阈值的均为好人，则认为此模型已完美的区分开好坏用户。此时坏用户的预测准确率（TPR）为1，同时好用户的预测错误率（FPR）为0，ROC曲线经过（0,1）点。AUC（Area Under Curve）的值为ROC曲线下面的面积，若如上所述模型十分准确，则AUC为1。但现实生活中尤其是工业界不会有如此完美的模型，一般AUC均在0.5到1之间，AUC越高，模型的区分能力越好
 
 若AUC=0.5，即与上图中红线重合，表示模型的区分能力与随机猜测没有差别。
@@ -589,7 +597,7 @@ backward: [3] -> [0 3; 0 0]
 
 ## 特征选择方法分类
 
-![特征选择思维导图][14]
+![特征选择思维导图][15]
 
 1. Filter：过滤法，按照**发散性或者相关性**对各个特征进行评分，设定阈值或者待选择阈值的个数，选择特征。
 
@@ -723,13 +731,13 @@ Note：拉格朗日对偶没有改变最优解，但改变了算法复杂度：�
 
 前提条件凸函数：下图左侧是凸函数。
 
-![左侧是凸函数][15]
+![左侧是凸函数][16]
 
 凸的就是开口朝一个方向（向上或向下）。更准确的数学关系就是： 
 
-![enter description here][16]
-或者
 ![enter description here][17]
+或者
+![enter description here][18]
 
 对于凸问题，你去求导的话，是不是只有一个极点，那么他就是最优点，很合理。
 
@@ -766,27 +774,27 @@ $$L(x,\alpha) = f(x) + \alpha_1g1(x)+\alpha_2g2(x)\\ =x_1^2-2x_1+1+x_2^2+4x_2+4+
 
 原问题
 
-![原问题][18]
+![原问题][19]
 
 拉格朗日乘子法结果
 
-![对偶问题][19]
+![对偶问题][20]
 
 
 求导得到
 
 
-![求导得到][20]
+![求导得到][21]
 
 
 代入乘子算式得到 
 
-![对偶结果][21]
+![对偶结果][22]
 
 
 就得到的原问题的对偶问题 
 
-![对偶问题][22]
+![对偶问题][23]
 
 ## 为什么要引入对偶算法
 1. 对偶问题往往更加容易求解(结合拉格朗日和kkt条件)
@@ -873,25 +881,26 @@ SMO是用于快速求解SVM的
 [cs229机器学习笔记及代码](http://memoiry.me/2017/02/22/cs229/)
 
 
-  [1]: https://www.github.com/DragonFive/CVBasicOp/raw/master/1505183290340.jpg
-  [2]: https://www.github.com/DragonFive/CVBasicOp/raw/master/1505185139623.jpg
-  [3]: https://www.github.com/DragonFive/CVBasicOp/raw/master/1505183272196.jpg
-  [4]: https://www.github.com/DragonFive/CVBasicOp/raw/master/1505183334024.jpg
-  [5]: https://www.github.com/DragonFive/CVBasicOp/raw/master/1505183365593.jpg
-  [6]: https://www.github.com/DragonFive/CVBasicOp/raw/master/1505185372812.jpg
-  [7]: https://www.github.com/DragonFive/CVBasicOp/raw/master/1505185383608.jpg
-  [8]: https://www.github.com/DragonFive/CVBasicOp/raw/master/1505185421152.jpg
-  [9]: https://www.github.com/DragonFive/CVBasicOp/raw/master/1505191811966.jpg
-  [10]: https://www.github.com/DragonFive/CVBasicOp/raw/master/1505100218144.jpg
-  [11]: https://www.github.com/DragonFive/CVBasicOp/raw/master/1505131808906.jpg
-  [12]: https://www.github.com/DragonFive/CVBasicOp/raw/master/1505137634679.jpg
-  [13]: https://www.github.com/DragonFive/CVBasicOp/raw/master/1505137939621.jpg
-  [14]: https://www.github.com/DragonFive/CVBasicOp/raw/master/1505115301909.jpg
-  [15]: https://www.github.com/DragonFive/CVBasicOp/raw/master/1504663655806.jpg
-  [16]: https://www.github.com/DragonFive/CVBasicOp/raw/master/1505199847293.jpg
-  [17]: https://www.github.com/DragonFive/CVBasicOp/raw/master/1505199898762.jpg
-  [18]: https://www.github.com/DragonFive/CVBasicOp/raw/master/1505112787822.jpg
-  [19]: https://www.github.com/DragonFive/CVBasicOp/raw/master/1505112823865.jpg
-  [20]: https://www.github.com/DragonFive/CVBasicOp/raw/master/1505121534590.jpg
-  [21]: https://www.github.com/DragonFive/CVBasicOp/raw/master/1505121791713.jpg
-  [22]: https://www.github.com/DragonFive/CVBasicOp/raw/master/1505121960729.jpg
+  [1]: https://www.github.com/DragonFive/CVBasicOp/raw/master/1505873442450.jpg
+  [2]: https://www.github.com/DragonFive/CVBasicOp/raw/master/1505183290340.jpg
+  [3]: https://www.github.com/DragonFive/CVBasicOp/raw/master/1505185139623.jpg
+  [4]: https://www.github.com/DragonFive/CVBasicOp/raw/master/1505183272196.jpg
+  [5]: https://www.github.com/DragonFive/CVBasicOp/raw/master/1505183334024.jpg
+  [6]: https://www.github.com/DragonFive/CVBasicOp/raw/master/1505183365593.jpg
+  [7]: https://www.github.com/DragonFive/CVBasicOp/raw/master/1505185372812.jpg
+  [8]: https://www.github.com/DragonFive/CVBasicOp/raw/master/1505185383608.jpg
+  [9]: https://www.github.com/DragonFive/CVBasicOp/raw/master/1505185421152.jpg
+  [10]: https://www.github.com/DragonFive/CVBasicOp/raw/master/1505191811966.jpg
+  [11]: https://www.github.com/DragonFive/CVBasicOp/raw/master/1505100218144.jpg
+  [12]: https://www.github.com/DragonFive/CVBasicOp/raw/master/1505131808906.jpg
+  [13]: https://www.github.com/DragonFive/CVBasicOp/raw/master/1505137634679.jpg
+  [14]: https://www.github.com/DragonFive/CVBasicOp/raw/master/1505137939621.jpg
+  [15]: https://www.github.com/DragonFive/CVBasicOp/raw/master/1505115301909.jpg
+  [16]: https://www.github.com/DragonFive/CVBasicOp/raw/master/1504663655806.jpg
+  [17]: https://www.github.com/DragonFive/CVBasicOp/raw/master/1505199847293.jpg
+  [18]: https://www.github.com/DragonFive/CVBasicOp/raw/master/1505199898762.jpg
+  [19]: https://www.github.com/DragonFive/CVBasicOp/raw/master/1505112787822.jpg
+  [20]: https://www.github.com/DragonFive/CVBasicOp/raw/master/1505112823865.jpg
+  [21]: https://www.github.com/DragonFive/CVBasicOp/raw/master/1505121534590.jpg
+  [22]: https://www.github.com/DragonFive/CVBasicOp/raw/master/1505121791713.jpg
+  [23]: https://www.github.com/DragonFive/CVBasicOp/raw/master/1505121960729.jpg
