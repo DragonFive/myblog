@@ -711,6 +711,8 @@ $$P(Y=a|x)=\frac{exp(w_a*x)}{(\sum_{i=1}^k(wi*x))}  ;  1 < a < k$$
 
 [解密SVM系列（一）：关于拉格朗日乘子法和KKT条件](http://blog.csdn.net/on2way/article/details/47729419)
 
+[svmw问题整理](http://blog.csdn.net/rosenor1/article/details/52318454)
+
 ## SVM的主要特点 
 （1）非线性映射-理论基础 
 （2）最大化分类边界-方法核心 
