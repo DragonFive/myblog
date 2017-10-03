@@ -11,7 +11,7 @@ tags:
 - 神经网络
 ---
 
-回顾一下几个经典模型，我们主要看看深度和caffe模型大小，[神经网络模型演化](https://dragonfive.github.io/2017-07-05/deep_learning_model/)
+这里回顾一下几个经典模型，我们主要看看深度和caffe模型大小，[神经网络模型演化](https://dragonfive.github.io/2017-07-05/deep_learning_model/)。并总结一些模型压缩优化的方法。
 
 ![各种CNN模型][1]
 
@@ -168,6 +168,10 @@ mobilenet也是用卷积拆分的方法
 
 ## Binarized Neural Networks
 
+- 提出了一个BWN（Binary-Weight-Network）和XNOR-Network，前者只对网络参数做二值化，带来约32x的存储压缩和2x的速度提升，而后者对网络输入和参数都做了二值化，在实现32x存储压缩的同时带了58x的速度提升；
+- 提出了一个新型二值化权值的算法；
+- 第一个在大规模数据集如ImageNet上提交二值化网络结果的工作；
+- 无需预训练，可实现training from scratch。
 
 
 
