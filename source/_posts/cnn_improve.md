@@ -10,7 +10,6 @@ tags:
 - 网络优化
 - 神经网络
 ---
-[TOC]
 
 回顾一下几个经典模型，我们主要看看深度和caffe模型大小，[神经网络模型演化](https://dragonfive.github.io/2017-07-05/deep_learning_model/)
 
