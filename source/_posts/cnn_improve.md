@@ -130,6 +130,9 @@ mobilenet也是用卷积拆分的方法
 
 
 ## DeepCompresion
+
+![deep compression pipeline][6]
+
 文章早期的工作，是Network Pruning，就是去除网络中权重低于一定阈值的参数后，重新**finetune一个稀疏网络**。在这篇文章中，则进一步添加了量化和编码，思路很清晰简单如下。
 
 ### 网络剪枝：移除不重要的连接
@@ -144,7 +147,7 @@ mobilenet也是用卷积拆分的方法
 
 对于一个4×4的权值矩阵，量化权重为4阶（-1.0，0，1.5，2.0）。
 
-![量化过程][6]
+![量化过程][7]
 
 对weights采用**cluster index进行存储**后，原来需要16个32bit float，现在只需要4个32bit float码字，与16个2bit uint索引，参数量为原来的(16×2+4×32)/(16×32)=0.31。
 
@@ -155,7 +158,7 @@ mobilenet也是用卷积拆分的方法
 看下表就知道最终的压缩效率非常可观，把500M的VGG压缩到到了11M，1/50。
 
 
-![压缩VGG][7]
+![压缩VGG][8]
 
 ### 霍夫曼编码：更高效利用了权重的有偏分布；
 
@@ -187,5 +190,6 @@ mobilenet也是用卷积拆分的方法
   [3]: https://www.github.com/DragonFive/CVBasicOp/raw/master/1507038803077.jpg
   [4]: https://www.github.com/DragonFive/CVBasicOp/raw/master/1502694868072.jpg
   [5]: https://www.github.com/DragonFive/CVBasicOp/raw/master/1502695760857.jpg
-  [6]: https://www.github.com/DragonFive/CVBasicOp/raw/master/1502698285109.jpg
-  [7]: https://www.github.com/DragonFive/CVBasicOp/raw/master/1502698400878.jpg
+  [6]: https://www.github.com/DragonFive/CVBasicOp/raw/master/1507039484844.jpg
+  [7]: https://www.github.com/DragonFive/CVBasicOp/raw/master/1502698285109.jpg
+  [8]: https://www.github.com/DragonFive/CVBasicOp/raw/master/1502698400878.jpg
