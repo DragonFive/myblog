@@ -133,6 +133,9 @@ mobilenet也是用卷积拆分的方法
 
 # reference
 
+
+[CNN 模型压缩与加速算法综述](https://cloud.tencent.com/community/article/678192)
+
 [知乎:为了压榨CNN模型，这几年大家都干了什么](https://zhuanlan.zhihu.com/p/25797790)
 
 [ 深度学习（六十）网络压缩简单总结](http://blog.csdn.net/hjimce/article/details/51564774)
