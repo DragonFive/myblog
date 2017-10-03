@@ -68,17 +68,38 @@ squeezenet将上面1×1降维的思想进一步拓展。通过减少3×3的filte
 
 文章最终**将AlexNet压缩到原来1/50**，而性能几乎不变。
 
+---
+
+SqueezeNet的核心指导思想是——在保证精度的同时使用最少的参数。而这也是所有模型压缩方法的一个终极目标。
+
+基于这个思想，SqueezeNet提出了3点网络结构设计策略：
+
+策略 1. 将3x3卷积核替换为1x1卷积核。
+
+这一策略很好理解，因为1个1x1卷积核的参数是3x3卷积核参数的1/9，这一改动理论上可以将模型尺寸压缩9倍。
+
+策略 2. 减小输入到3x3卷积核的输入通道数。
+
+我们知道，对于一个采用3x3卷积核的卷积层，该层所有卷积参数的数量（不考虑偏置）为：
+![enter description here][3]
+
+N是卷积核的数量，也即输出通道数，C是输入通道数。因此，为了保证减小网络参数，**不仅仅需要减少3x3卷积核的数量，还需减少输入到3x3卷积核的输入通道数量**，即式中C的数量。
+
+策略 3.尽可能的将降采样放在网络后面的层中。
+
+
+
 (4) mobilenet
 
 mobilenet也是用卷积拆分的方法 
 
-![mobilenet][3]
+![mobilenet][4]
 
 
 作出更多共享的是有一个width Multiplier宽度参数和resolution Multiplier 分辨率参数 ，可以降低更多的参数。
 
 没使用这两个参数的mobilenet是VGGNet的1/30.
-![mobilenet][4]
+![mobilenet][5]
 
 
 # 权重参数量化与剪枝
@@ -110,7 +131,7 @@ mobilenet也是用卷积拆分的方法
 
 对于一个4×4的权值矩阵，量化权重为4阶（-1.0，0，1.5，2.0）。
 
-![量化过程][5]
+![量化过程][6]
 
 对weights采用**cluster index进行存储**后，原来需要16个32bit float，现在只需要4个32bit float码字，与16个2bit uint索引，参数量为原来的(16×2+4×32)/(16×32)=0.31。
 
@@ -121,7 +142,7 @@ mobilenet也是用卷积拆分的方法
 看下表就知道最终的压缩效率非常可观，把500M的VGG压缩到到了11M，1/50。
 
 
-![压缩VGG][6]
+![压缩VGG][7]
 
 ### 霍夫曼编码：更高效利用了权重的有偏分布；
 
@@ -150,7 +171,8 @@ mobilenet也是用卷积拆分的方法
 
   [1]: https://www.github.com/DragonFive/CVBasicOp/raw/master/1502693251377.jpg
   [2]: https://www.github.com/DragonFive/CVBasicOp/raw/master/1502694686047.jpg
-  [3]: https://www.github.com/DragonFive/CVBasicOp/raw/master/1502694868072.jpg
-  [4]: https://www.github.com/DragonFive/CVBasicOp/raw/master/1502695760857.jpg
-  [5]: https://www.github.com/DragonFive/CVBasicOp/raw/master/1502698285109.jpg
-  [6]: https://www.github.com/DragonFive/CVBasicOp/raw/master/1502698400878.jpg
+  [3]: https://www.github.com/DragonFive/CVBasicOp/raw/master/1507038803077.jpg
+  [4]: https://www.github.com/DragonFive/CVBasicOp/raw/master/1502694868072.jpg
+  [5]: https://www.github.com/DragonFive/CVBasicOp/raw/master/1502695760857.jpg
+  [6]: https://www.github.com/DragonFive/CVBasicOp/raw/master/1502698285109.jpg
+  [7]: https://www.github.com/DragonFive/CVBasicOp/raw/master/1502698400878.jpg
