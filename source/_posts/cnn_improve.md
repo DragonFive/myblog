@@ -94,6 +94,8 @@ N是卷积核的数量，也即输出通道数，C是输入通道数。因此，
 
 **squeeze层**借鉴了inception的思想，利用1x1卷积核来降低输入到expand层中3x3卷积核的输入通道数。
 
+
+
 (4) mobilenet
 
 mobilenet也是用卷积拆分的方法 
