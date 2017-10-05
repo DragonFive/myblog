@@ -44,5 +44,7 @@ based on gemm convolution algorithm
 
 优点是：比较简单，方便理解和计算
 
-缺点是：需要大量的内存消耗
+缺点是：需要大量的内存做中间存储
+
+
 
