@@ -50,3 +50,11 @@ based on gemm convolution algorithm
 图片来自 ：贾扬清的demo convolution in caffe 
 [在 Caffe 中如何计算卷积？](https://www.zhihu.com/question/28385679)
 
+
+
+
+
+# reference 
+
+[在 Caffe 中如何计算卷积？](https://www.zhihu.com/question/28385679)
+
