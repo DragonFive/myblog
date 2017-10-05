@@ -1,5 +1,5 @@
 ---
-title: cuda_programming
+title: cuda编程学习笔记
 date: 2017/8/16 17:38:58
 
 categories:
