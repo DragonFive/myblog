@@ -46,5 +46,7 @@ based on gemm convolution algorithm
 
 缺点是：需要大量的内存做中间存储
 
-
+### im2col过程 
+图片来自 ：贾扬清的demo convolution in caffe 
+[在 Caffe 中如何计算卷积？](https://www.zhihu.com/question/28385679)
 
