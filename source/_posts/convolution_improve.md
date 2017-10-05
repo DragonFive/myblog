@@ -38,3 +38,6 @@ for h in 1 to H do
 			output[o][w][h] = sum;
 ```
 
+## patch-building DNN convolution algorithms
+
+based on gemm convolution algorithm
