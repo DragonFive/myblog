@@ -21,7 +21,7 @@ tags:
 
 ## sum循环法 
 
-时间复杂度最高，最笨的方法，只是用来理解。
+时间复杂度最高，为 $O(HWMKKC)$ 最笨的方法，只是用来理解。
 ```
 input[C][H][W];
 kernels[M][K][K][C];
@@ -37,3 +37,4 @@ for h in 1 to H do
 						*kernels[o][x][y][i];
 			output[o][w][h] = sum;
 ```
+
