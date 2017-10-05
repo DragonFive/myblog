@@ -51,10 +51,22 @@ based on gemm convolution algorithm
 [在 Caffe 中如何计算卷积？](https://www.zhihu.com/question/28385679)
 
 
+![1][1]
+把卷积的第一个感受野里的矩阵转化成一个vector，并把各个channel的feature连接起来。
+![2][2]
+随着划窗的进行，把接下来的窗口都转化乘vector,并排放在下面
+![3][3]
 
+![4][4]
+最后把有Cout个卷积核，每个卷积核有C个channel,那么转化乘Cout行的vector组。最后卷积就编程矩阵乘法了。
 
 
 # reference 
 
 [在 Caffe 中如何计算卷积？](https://www.zhihu.com/question/28385679)
 
+
+  [1]: https://www.github.com/DragonFive/CVBasicOp/raw/master/1507194578418.jpg
+  [2]: https://www.github.com/DragonFive/CVBasicOp/raw/master/1507194598695.jpg
+  [3]: https://www.github.com/DragonFive/CVBasicOp/raw/master/1507194615038.jpg
+  [4]: https://www.github.com/DragonFive/CVBasicOp/raw/master/1507194630559.jpg
