@@ -1,5 +1,5 @@
 ---
-title: convolution_improve
+title: CNN中卷积计算的内存和速度优化
 
 date: 2017/9/20 12:04:12
 
