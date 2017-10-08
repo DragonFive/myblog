@@ -101,6 +101,18 @@ Test(Test && rhs):m_p(rhs.m_p)
 
 C++ STL为我们提供了四种智能指针：**auto_ptr、unique_ptr、shared_ptr和weak_ptr**；其中auto_ptr是C++98提供，在C++11中建议摒弃不用。
 
+### 为什么不建议使用auto_ptr
+
+```cpp
+auto_ptr<int> px(new int(8));
+auto_ptr<int> py;
+py = px;
+```
+为了避免上述的代码把内存delete两次，智能指针有两种机制。
+1. 建立所有权，一个对象同一时刻智能有一个智能指针可以拥有。只有拥有所有权的智能智能才能delete这个对象，unique_ptr和auto_ptr就是这种机制
+2. 引用计数，share_ptr就是这么做的
+
+当py=px，后如果再想访问px, 对于auto_ptr会在运行时报segment_fault的错误，而对于unique_ptr则会在编译期就报错。
 
 
 
