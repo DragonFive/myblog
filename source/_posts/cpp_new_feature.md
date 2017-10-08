@@ -95,6 +95,16 @@ Test(Test && rhs):m_p(rhs.m_p)
 ```
 但是移动构造函数只能接受右值，所以如果是左值想传入，需要使用std::move()函数。
 
+## 智能指针 
+
+
+
+C++ STL为我们提供了四种智能指针：**auto_ptr、unique_ptr、shared_ptr和weak_ptr**；其中auto_ptr是C++98提供，在C++11中建议摒弃不用。
+
+
+
+
+
 ## 一些小更新
 
 ### nullptr
