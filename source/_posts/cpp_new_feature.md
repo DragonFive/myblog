@@ -66,34 +66,6 @@ class tuple<Head, Tail...> :private tuple<Tail...>//实现递归定义
 
 ```
 
-## 一些小更新
-
-### nullptr
-可以用来替代NULL,避免因为NULL=0带来的一些混淆。
-
-```cpp
-void f(int);
-void f(void *);
-
-//下面调用
-f(0);//调用f(int)
-f(NULL);//调用f(int)
-f(nullptr);//调用f(void *)
-
-```
-### auto
-当type比较长的时候，比如iterator定义的时候可以用auto替换，也可以定义返回值类型。
-
-或者比较复杂：比如用
-```cpp
-auto L = [](int x)->bool{};
-```
-### 统一的初始化方法-大括号
-
-```cpp
-int values[] {1,2,3};
-vector<int> v{2,3,4,5};
-```
 
 ## 右值引用，移动构造函数，与 move函数
 
@@ -123,6 +95,34 @@ Test(Test && rhs):m_p(rhs.m_p)
 ```
 但是移动构造函数只能接受右值，所以如果是左值想传入，需要使用std::move()函数。
 
+## 一些小更新
+
+### nullptr
+可以用来替代NULL,避免因为NULL=0带来的一些混淆。
+
+```cpp
+void f(int);
+void f(void *);
+
+//下面调用
+f(0);//调用f(int)
+f(NULL);//调用f(int)
+f(nullptr);//调用f(void *)
+
+```
+### auto
+当type比较长的时候，比如iterator定义的时候可以用auto替换，也可以定义返回值类型。
+
+或者比较复杂：比如用
+```cpp
+auto L = [](int x)->bool{};
+```
+### 统一的初始化方法-大括号
+
+```cpp
+int values[] {1,2,3};
+vector<int> v{2,3,4,5};
+```
 
 
 # effective_Cpp
