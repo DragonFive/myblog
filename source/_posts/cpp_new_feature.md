@@ -97,7 +97,7 @@ Test(Test && rhs):m_p(rhs.m_p)
 
 ## 智能指针 
 
-
+[C++智能指针](https://mp.weixin.qq.com/s?__biz=MzIwNTc4NTEwOQ==&mid=2247483809&idx=1&sn=373d64600b944be7258304119dae247e&chksm=972ad0dba05d59cd6cf08f3874db2c72f6a66f66ab8f516cc576c3e8752c3aa6c385e936696e&mpshare=1&scene=21&srcid=1007uaWOzcd3a12MYWEEsptn#wechat_redirect)
 
 C++ STL为我们提供了四种智能指针：**auto_ptr、unique_ptr、shared_ptr和weak_ptr**；其中auto_ptr是C++98提供，在C++11中建议摒弃不用。
 
