@@ -9,7 +9,7 @@ tags:
 ---
 [TOC]
 
-这里总结了一些c++11标准的重要的新特性和c++的编程经验。
+一年前写了一篇[c++11新特性详解](https://zhuanlan.zhihu.com/p/21930436), 这里总结了一些c++的编程经验。
 
 ![enter description here][1]
 <!--more-->
