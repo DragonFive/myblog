@@ -59,8 +59,9 @@ based on gemm convolution algorithm
 
 ![4][4]
 最后把有Cout个卷积核，每个卷积核有C个channel,那么转化乘Cout行的vector组。最后卷积就编程矩阵乘法了。
+## 各种方法占用内存量
 
-
+![enter description here][5]
 # reference 
 
 [在 Caffe 中如何计算卷积？](https://www.zhihu.com/question/28385679)
@@ -70,3 +71,4 @@ based on gemm convolution algorithm
   [2]: https://www.github.com/DragonFive/CVBasicOp/raw/master/1507194598695.jpg
   [3]: https://www.github.com/DragonFive/CVBasicOp/raw/master/1507194615038.jpg
   [4]: https://www.github.com/DragonFive/CVBasicOp/raw/master/1507194630559.jpg
+  [5]: https://www.github.com/DragonFive/CVBasicOp/raw/master/1507511974026.jpg
