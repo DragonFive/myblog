@@ -1,5 +1,5 @@
 ---
-title: 《Neural Network and Deep Learning》由厚到薄
+title: 一文讲完深度学习核心理论知识
 
 date: 2017/7/10 12:04:12
 
@@ -203,6 +203,8 @@ BN的提出还是为了克服深度神经网络难以训练的弊病.说到底�
 
 
 # reference
+
+[Deep Residual Network 与 梯度消失](http://blog.csdn.net/superCally/article/details/55671064)
 
 
 [Neural Networks and Deep Learning](http://neuralnetworksanddeeplearning.com/index.html)
