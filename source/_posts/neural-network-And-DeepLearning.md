@@ -204,9 +204,11 @@ BN的提出还是为了克服深度神经网络难以训练的弊病.说到底�
 
 梯度消失的问题出现的本质原因是梯度连乘问题
 
+而residual 结构出现后，求梯度就成
 
+![enter description here][31]
 
-
+$$\frac{\partial X_L}{\partial X_{l}} = \frac{\partial X_l + F(X_l,W_l,b_l)}{\partial X_l} = 1 + \frac{\partial F(X_L,W_L,b_L)}{\partial X_L}$$
 # reference
 
 [Deep Residual Network 与 梯度消失](http://blog.csdn.net/superCally/article/details/55671064)
@@ -249,3 +251,4 @@ BN的提出还是为了克服深度神经网络难以训练的弊病.说到底�
   [28]: https://www.github.com/DragonFive/CVBasicOp/raw/master/1502692445739.jpg
   [29]: https://www.github.com/DragonFive/CVBasicOp/raw/master/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1501474164438.jpg
   [30]: https://www.github.com/DragonFive/CVBasicOp/raw/master/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1501474130990.jpg
+  [31]: https://www.github.com/DragonFive/CVBasicOp/raw/master/1507733864824.jpg
