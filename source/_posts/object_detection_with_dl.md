@@ -10,7 +10,7 @@ tags:
 - 深度学习
 - 神经网络
 ---
-[TOC]
+
 
  去年总结了一篇关于目标检测的博客 [视频智能之——目标检测](https://dragonfive.github.io/object_detection/)，今年到现在有了新的体会，所以就更新一篇。
  
