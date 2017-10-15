@@ -542,6 +542,7 @@ NOTE：解决其中局部最小值的方法：（1）多组不同随机参数，
 
 **relu的变种**
 **leaky-relu:** 
+
 $$f(x)=\alpha x，(x < 0)$$
 $$f(x)=x，(x>=0)$$
 
@@ -641,6 +642,33 @@ L1惩罚项降维的原理在于保留多个对目标值具有同等相关性的
 将原始的样本映射到维度更低的样本空间中。
 
 PCA是为了让映射后的样本具有最大的**发散性**；而LDA是为了让映射后的样本有最好的**分类性能**。所以说PCA是一种无监督的降维方法，而LDA是一种有监督的降维方法。
+
+# 对抗过拟合的方法
+**提前停止**
+设定合适的模型训练停止条件，避免模型过程训练产生过拟合现象
+
+**交叉验证**
+一个常用的交叉验证算法是k-fold交叉方法: 
+把训练样例分成k份,然后进行k次交叉验证过程,每次使用不同的一份作为验证集合,其余k-1份合并作为训练集合.每个样例会在一次实验中被用作验证样例,在k-1次实验中被用作训练样例;
+
+# 正则项
+
+L1范数和L0范数可以实现稀疏，L1因具有比L0更好的优化求解特性而被广泛应用，L1 正则是L0的最优凸近似。稀疏规则算子”（Lasso regularization）。L0是NP难的方法，所以使用L1方法进行最优化。
+
+## L1范数能实现稀疏 
+任何的规则化算子，如果他在Wi=0的地方不可微，并且可以分解为一个“求和”的形式，那么这个规则化算子就可以实现稀疏。
+
+### 数据稀疏的好处 
+1. 自动特征选择：不重要的特征被设为0
+2. 可解释性：模型更容易解释
+
+## L2范数
+可以改善过拟合的状况 
+
+
+
+
+
 
 
 
@@ -761,13 +789,13 @@ Note：拉格朗日对偶没有改变最优解，但改变了算法复杂度：�
 
 前提条件凸函数：下图左侧是凸函数。
 
-![左侧是凸函数][16]
+![左侧是凸函数][17]
 
 凸的就是开口朝一个方向（向上或向下）。更准确的数学关系就是： 
 
-![enter description here][17]
-或者
 ![enter description here][18]
+或者
+![enter description here][19]
 
 对于凸问题，你去求导的话，是不是只有一个极点，那么他就是最优点，很合理。
 
@@ -804,27 +832,27 @@ $$L(x,\alpha) = f(x) + \alpha_1g1(x)+\alpha_2g2(x)\\ =x_1^2-2x_1+1+x_2^2+4x_2+4+
 
 原问题
 
-![原问题][19]
+![原问题][20]
 
 拉格朗日乘子法结果
 
-![对偶问题][20]
+![对偶问题][21]
 
 
 求导得到
 
 
-![求导得到][21]
+![求导得到][22]
 
 
 代入乘子算式得到 
 
-![对偶结果][22]
+![对偶结果][23]
 
 
 就得到的原问题的对偶问题 
 
-![对偶问题][23]
+![对偶问题][24]
 
 ## 为什么要引入对偶算法
 1. 对偶问题往往更加容易求解(结合拉格朗日和kkt条件)
@@ -922,6 +950,7 @@ SMO是用于快速求解SVM的
 
 [腾讯17届校招面经合集](https://zhuanlan.zhihu.com/p/27813121)
 
+
   [1]: https://www.github.com/DragonFive/CVBasicOp/raw/master/1505873442450.jpg
   [2]: https://www.github.com/DragonFive/CVBasicOp/raw/master/1505183290340.jpg
   [3]: https://www.github.com/DragonFive/CVBasicOp/raw/master/1505185139623.jpg
@@ -937,11 +966,12 @@ SMO是用于快速求解SVM的
   [13]: https://www.github.com/DragonFive/CVBasicOp/raw/master/1505137634679.jpg
   [14]: https://www.github.com/DragonFive/CVBasicOp/raw/master/1505137939621.jpg
   [15]: https://www.github.com/DragonFive/CVBasicOp/raw/master/1505115301909.jpg
-  [16]: https://www.github.com/DragonFive/CVBasicOp/raw/master/1504663655806.jpg
-  [17]: https://www.github.com/DragonFive/CVBasicOp/raw/master/1505199847293.jpg
-  [18]: https://www.github.com/DragonFive/CVBasicOp/raw/master/1505199898762.jpg
-  [19]: https://www.github.com/DragonFive/CVBasicOp/raw/master/1505112787822.jpg
-  [20]: https://www.github.com/DragonFive/CVBasicOp/raw/master/1505112823865.jpg
-  [21]: https://www.github.com/DragonFive/CVBasicOp/raw/master/1505121534590.jpg
-  [22]: https://www.github.com/DragonFive/CVBasicOp/raw/master/1505121791713.jpg
-  [23]: https://www.github.com/DragonFive/CVBasicOp/raw/master/1505121960729.jpg
+  [16]: https://markdown.xiaoshujiang.com/img/spinner.gif "[[[1508058065186]]]"
+  [17]: https://www.github.com/DragonFive/CVBasicOp/raw/master/1504663655806.jpg
+  [18]: https://www.github.com/DragonFive/CVBasicOp/raw/master/1505199847293.jpg
+  [19]: https://www.github.com/DragonFive/CVBasicOp/raw/master/1505199898762.jpg
+  [20]: https://www.github.com/DragonFive/CVBasicOp/raw/master/1505112787822.jpg
+  [21]: https://www.github.com/DragonFive/CVBasicOp/raw/master/1505112823865.jpg
+  [22]: https://www.github.com/DragonFive/CVBasicOp/raw/master/1505121534590.jpg
+  [23]: https://www.github.com/DragonFive/CVBasicOp/raw/master/1505121791713.jpg
+  [24]: https://www.github.com/DragonFive/CVBasicOp/raw/master/1505121960729.jpg
