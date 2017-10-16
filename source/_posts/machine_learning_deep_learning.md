@@ -345,7 +345,7 @@ Boosting算法，但与传统boosting有区别、**拟合上一步的残差**，
 （6）通过减少方差/偏差提高性能
 
 ### XGBOOST相比于GBDT有何不同？XGBOOST为什么快？XGBOOST如何支持并行？ 
-（1）GBDT只能用CART回归树，而XGBOOST可以用CART树（回归/分类）,还可以用用想LR之类的线性模型，相当于加入L1、L2正则项的LR或线性回归 
+（1）GBDT只能用CART，而XGBOOST可以用CART树（回归/分类）,还可以用用想LR之类的线性模型，相当于加入L1、L2正则项的LR或线性回归 
 （2）列抽样，可以并行，不是树粒度上的，是特征粒度上的，block块，并行计算所有信息增益等信息 
 （3）可处理多种特征，且对缺失值也不用进行处理 
 （4）GBDT在**残差梯度下降方向拟合，一阶导；XGBOOST泰勒展开至二阶导**
@@ -670,6 +670,8 @@ L1范数和L0范数可以实现稀疏，L1因具有比L0更好的优化求解特
 ## L1范数能实现稀疏 
 任何的规则化算子，如果他在Wi=0的地方不可微，并且可以分解为一个“求和”的形式，那么这个规则化算子就可以实现稀疏。
 
+
+
 ### 数据稀疏的好处 
 1. 自动特征选择：不重要的特征被设为0
 2. 可解释性：模型更容易解释
@@ -677,10 +679,10 @@ L1范数和L0范数可以实现稀疏，L1因具有比L0更好的优化求解特
 ## L2范数
 可以改善过拟合的状况 
 
+![enter description here][16]
 
-
-
-
+L1范数与L2范数的下降速度
+![enter description here][17]
 
 
 
@@ -801,13 +803,13 @@ Note：拉格朗日对偶没有改变最优解，但改变了算法复杂度：�
 
 前提条件凸函数：下图左侧是凸函数。
 
-![左侧是凸函数][17]
+![左侧是凸函数][18]
 
 凸的就是开口朝一个方向（向上或向下）。更准确的数学关系就是： 
 
-![enter description here][18]
-或者
 ![enter description here][19]
+或者
+![enter description here][20]
 
 对于凸问题，你去求导的话，是不是只有一个极点，那么他就是最优点，很合理。
 
@@ -844,27 +846,27 @@ $$L(x,\alpha) = f(x) + \alpha_1g1(x)+\alpha_2g2(x)\\ =x_1^2-2x_1+1+x_2^2+4x_2+4+
 
 原问题
 
-![原问题][20]
+![原问题][21]
 
 拉格朗日乘子法结果
 
-![对偶问题][21]
+![对偶问题][22]
 
 
 求导得到
 
 
-![求导得到][22]
+![求导得到][23]
 
 
 代入乘子算式得到 
 
-![对偶结果][23]
+![对偶结果][24]
 
 
 就得到的原问题的对偶问题 
 
-![对偶问题][24]
+![对偶问题][25]
 
 ## 为什么要引入对偶算法
 1. 对偶问题往往更加容易求解(结合拉格朗日和kkt条件)
@@ -978,12 +980,13 @@ SMO是用于快速求解SVM的
   [13]: https://www.github.com/DragonFive/CVBasicOp/raw/master/1505137634679.jpg
   [14]: https://www.github.com/DragonFive/CVBasicOp/raw/master/1505137939621.jpg
   [15]: https://www.github.com/DragonFive/CVBasicOp/raw/master/1505115301909.jpg
-  [16]: https://markdown.xiaoshujiang.com/img/spinner.gif "[[[1508058065186]]]"
-  [17]: https://www.github.com/DragonFive/CVBasicOp/raw/master/1504663655806.jpg
-  [18]: https://www.github.com/DragonFive/CVBasicOp/raw/master/1505199847293.jpg
-  [19]: https://www.github.com/DragonFive/CVBasicOp/raw/master/1505199898762.jpg
-  [20]: https://www.github.com/DragonFive/CVBasicOp/raw/master/1505112787822.jpg
-  [21]: https://www.github.com/DragonFive/CVBasicOp/raw/master/1505112823865.jpg
-  [22]: https://www.github.com/DragonFive/CVBasicOp/raw/master/1505121534590.jpg
-  [23]: https://www.github.com/DragonFive/CVBasicOp/raw/master/1505121791713.jpg
-  [24]: https://www.github.com/DragonFive/CVBasicOp/raw/master/1505121960729.jpg
+  [16]: https://www.github.com/DragonFive/CVBasicOp/raw/master/1508119337846.jpg
+  [17]: https://www.github.com/DragonFive/CVBasicOp/raw/master/1508119376506.jpg
+  [18]: https://www.github.com/DragonFive/CVBasicOp/raw/master/1504663655806.jpg
+  [19]: https://www.github.com/DragonFive/CVBasicOp/raw/master/1505199847293.jpg
+  [20]: https://www.github.com/DragonFive/CVBasicOp/raw/master/1505199898762.jpg
+  [21]: https://www.github.com/DragonFive/CVBasicOp/raw/master/1505112787822.jpg
+  [22]: https://www.github.com/DragonFive/CVBasicOp/raw/master/1505112823865.jpg
+  [23]: https://www.github.com/DragonFive/CVBasicOp/raw/master/1505121534590.jpg
+  [24]: https://www.github.com/DragonFive/CVBasicOp/raw/master/1505121791713.jpg
+  [25]: https://www.github.com/DragonFive/CVBasicOp/raw/master/1505121960729.jpg
