@@ -69,6 +69,11 @@ BN是对输入那一层做归一化操作，要对每个元素-均值/标准差�
 
 $$\frac{e^{f_{y_i}}}{\sum_j e^{f_j}} = \frac{Ce^{f_{y_i}}}{C\sum_j e^{f_j}} = \frac{e^{f_{y_i}+logC}}{\sum_j e^{f_j+logC}}$$
 
+其中C 的设置是任意的，在实际变成中，往往把C设置成
+
+$$logC = -max f_j$$
+
+
 
 
 [caffe+报错︱深度学习参数调优杂记+caffe训练时的问题+dropout/batch Normalization
