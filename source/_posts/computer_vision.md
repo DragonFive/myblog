@@ -38,6 +38,11 @@ histgram of gradient: 每个像素计算梯度方向和大小，然后8x8个像�
 冻结一层不参与训练：设置其blobs_lr=0
 
 
+
+
+
+
+
 [caffe+报错︱深度学习参数调优杂记+caffe训练时的问题+dropout/batch Normalization
 ](http://blog.csdn.net/sinat_26917383/article/details/54232791)
 
