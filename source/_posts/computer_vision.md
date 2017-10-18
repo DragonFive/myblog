@@ -21,5 +21,5 @@ histgram of gradient: 每个像素计算梯度方向和大小，然后8x8个像�
 [HOG特征算法](http://blog.csdn.net/hujingshuang/article/details/47337707)
 
 
-## harr特征
+## haar特征
 
