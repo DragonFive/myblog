@@ -1,5 +1,5 @@
 ---
-title: computer_vision
+title: 计算机视觉问题小结
 date: 2017/6/5 17:38:58
 
 categories:
@@ -10,4 +10,6 @@ tags:
 - 神经网络
 - 特征
 ----
+
+
 
