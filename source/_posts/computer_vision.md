@@ -49,6 +49,16 @@ histgram of gradient: 每个像素计算梯度方向和大小，然后8x8个像�
 
  减小solver.prototxt中的base_lr，至少减小一个数量级。如果有多个loss layer，需要找出哪个损失层导致了梯度爆炸，并在train_val.prototxt中减小该层的loss_weight
 
+**2. 不当的输入**
+原因：输入中就含有NaN
+
+措施：重整你的数据集，确保训练集和验证集里面没有损坏的图片。
+
+
+## 为什么Caffe中引入了这个inner_num，inner_num等于什么
+
+从FCN全卷积网络的方向去思考。FCN中label标签长度=图片尺寸 
+caffe引入inner_num使得输入image的size可以是任意大小，innuer_num大小即为softmax层输入的heightxwidth
 
 
 
