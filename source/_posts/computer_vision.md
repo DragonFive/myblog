@@ -38,6 +38,16 @@ histgram of gradient: 每个像素计算梯度方向和大小，然后8x8个像�
 冻结一层不参与训练：设置其blobs_lr=0
 
 
+## caffe训练时Loss变为nan的原因
+
+**1. 梯度爆炸**
+判定方法：
+
+观察log，注意每一轮迭代后的loss。loss随着每轮迭代越来越大，最终超过了浮点型表示的范围，就变成了NaN。
+
+解决方法：
+
+ 减小solver.prototxt中的base_lr，至少减小一个数量级。如果有多个loss layer，需要找出哪个损失层导致了梯度爆炸，并在train_val.prototxt中减小该层的loss_weight
 
 
 
