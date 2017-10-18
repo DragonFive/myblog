@@ -26,12 +26,16 @@ histgram of gradient: 每个像素计算梯度方向和大小，然后8x8个像�
 
 
 # 深度学习调参技巧 
-训练的基本流程 
+## 训练的基本流程 
 
 1. 数据处理
 2. 定义网络结构
 3. 配置solver参数
 4. 训练：如 caffe train -solver solver.prototxt -gpu 0
+
+## 冻结层 
+
+冻结一层不参与训练：设置其blobs_lr=0
 
 
 
