@@ -64,6 +64,12 @@ caffe引入inner_num使得输入image的size可以是任意大小，innuer_num�
 
 BN是对输入那一层做归一化操作，要对每个元素-均值/标准差，且输入输出规格相当，是可以进行in place
 
+## softmax问题
+在实际使用中，efj 常常因为指数太大而出现数值爆炸问题，两个非常大的数相除会出现数值不稳定问题，因此我们需要在分子和分母中同时进行以下处理：
+
+$$\frac{e^{f_{y_i}}}{\sum_j e^{f_j}} = \frac{Ce^{f_{y_i}}}{C\sum_j e^{f_j}} = \frac{e^{f_{y_i}+logC}}{\sum_j e^{f_j+logC}}$$
+
+
 
 [caffe+报错︱深度学习参数调优杂记+caffe训练时的问题+dropout/batch Normalization
 ](http://blog.csdn.net/sinat_26917383/article/details/54232791)
