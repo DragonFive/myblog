@@ -60,7 +60,9 @@ histgram of gradient: 每个像素计算梯度方向和大小，然后8x8个像�
 从FCN全卷积网络的方向去思考。FCN中label标签长度=图片尺寸 
 caffe引入inner_num使得输入image的size可以是任意大小，innuer_num大小即为softmax层输入的heightxwidth
 
+## BatchNorm层是否支持in place运算，为什么？
 
+BN是对输入那一层做归一化操作，要对每个元素-均值/标准差，且输入输出规格相当，是可以进行in place
 
 
 [caffe+报错︱深度学习参数调优杂记+caffe训练时的问题+dropout/batch Normalization
