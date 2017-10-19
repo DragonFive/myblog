@@ -377,6 +377,9 @@ Fast RCNN提到如果去除区域建议算法的话，网络能够接近实时�
 
 ### region proposal network
 
+[RCNN,Fast RCNN,Faster RCNN 总结](http://shartoo.github.io/RCNN-series/)
+
+
 ![faster RCNN的结构][24]
 
 区域建议算法一般分为两类：基于超像素合并的（selective search、CPMC、MCG等），基于滑窗算法的。由于卷积特征层一般很小，所以得到的滑窗数目也少很多。但是产生的滑窗准确度也就差了很多，毕竟感受野也相应大了很多。
