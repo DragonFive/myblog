@@ -425,7 +425,7 @@ PASCAL VOC 数据集中既有物体类别标签，也有物体位置标签； �
 
 ### 训练方法 
 
-4-Step Alternating Training的方法，思路和迭代的Alternating training有点类似，但是细节有点差别：
+4-Step Alternating Training交替训练的方法，思路和迭代的Alternating training有点类似，但是细节有点差别：
 
 第一步：用ImageNet模型初始化，独立训练一个RPN网络；
 第二步：仍然用ImageNet模型初始化，但是使用上一步RPN网络产生的proposal作为输入，训练一个Fast-RCNN网络，至此，两个网络每一层的参数完全不共享；
