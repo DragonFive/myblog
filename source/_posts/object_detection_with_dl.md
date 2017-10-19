@@ -404,7 +404,9 @@ Anchors是一组大小固定的参考窗口：三种尺度{ 1282，2562，512212
 
 **平移不变性**
 
+**RPN网络的训练**
 
+$$L(\{p_i\},\{t_i\})=\frac{1}{N_{cls}}\sum _i L_{cls}(p_i,p_i^*)+\lambda \frac{1}{N_{reg}}\sum _i p_i ^* L_{reg}(t_i,t_i^*)$$
 
 
 ### 训练方法 
