@@ -434,7 +434,7 @@ PASCAL VOC 数据集中既有物体类别标签，也有物体位置标签； �
 
 ### RPN的boundingbox和fast-rcnn的回归的区别
 
- Fast R-CNN中基于RoI的bounding-box回归所输入的特征是在特征图上对任意size的RoIs进行Pool操作提取的，所有size RoI共享回归参数，而在RPN中，用来bounding-box回归所输入的特征是在特征图上相同的空间size【3×3】上提取的，为了解决不同尺度变化的问题，同时训练和学习了**k个不同的回归器**，依次对应为上述9种anchors，这k个回归量**并不分享权重**。
+ Fast R-CNN中基于RoI的bounding-box回归所输入的特征是在特征图上对任意size的**RoIs进行Pool操作提取的**，所有size RoI共享回归参数，而在RPN中，用来bounding-box回归所输入的特征是在特征图上相同的空间size【3×3】上提取的，为了解决不同尺度变化的问题，同时训练和学习了**k个不同的回归器**，依次对应为上述9种anchors，这k个回归量**并不分享权重**。
 
 ### reference
 
