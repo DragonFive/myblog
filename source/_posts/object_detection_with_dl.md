@@ -367,6 +367,9 @@ Fast RCNN提到如果去除区域建议算法的话，网络能够接近实时�
 
 ![enter description here][22]
 
+
+![网络结构][23]
+
 ### feature extraction 特征提取
 
 原始特征提取（上图灰色方框）包含若干层conv+relu，直接套用ImageNet上常见的分类网络，额外添加一个conv+relu层，输出51*39*256维特征（feature）。
@@ -374,11 +377,11 @@ Fast RCNN提到如果去除区域建议算法的话，网络能够接近实时�
 
 ### region proposal network
 
-![faster RCNN的结构][23]
+![faster RCNN的结构][24]
 
 区域建议算法一般分为两类：基于超像素合并的（selective search、CPMC、MCG等），基于滑窗算法的。由于卷积特征层一般很小，所以得到的滑窗数目也少很多。但是产生的滑窗准确度也就差了很多，毕竟感受野也相应大了很多。
 
-![区域建议算法][24]
+![区域建议算法][25]
 
 RPN对于feature map的每个位置进行**滑窗**，通过**不同尺度以及不同比例的K个anchor**产生K个256维的向量，然后分类每一个region是否包含目标以及通过**回归**得到目标的具体位置。
 
@@ -582,9 +585,9 @@ default box中心：上每个 default box的中心位置设置成  $( \frac{i+0.
   [20]: https://www.github.com/DragonFive/CVBasicOp/raw/master/1503889360944.jpg
   [21]: https://www.github.com/DragonFive/CVBasicOp/raw/master/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1503827982062.jpg
   [22]: https://www.github.com/DragonFive/CVBasicOp/raw/master/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1503843755653.jpg
-  [23]: https://www.github.com/DragonFive/CVBasicOp/raw/master/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1501831614917.jpg
-  [24]: https://www.github.com/DragonFive/CVBasicOp/raw/master/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1501832022067.jpg
-  [25]: https://www.github.com/DragonFive/CVBasicOp/raw/master/1503907708434.jpg
+  [23]: https://www.github.com/DragonFive/CVBasicOp/raw/master/1508381821403.jpg
+  [24]: https://www.github.com/DragonFive/CVBasicOp/raw/master/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1501831614917.jpg
+  [25]: https://www.github.com/DragonFive/CVBasicOp/raw/master/%E5%B0%8F%E4%B9%A6%E5%8C%A0/1501832022067.jpg
   [26]: https://www.github.com/DragonFive/CVBasicOp/raw/master/1503905518100.jpg
   [27]: https://www.github.com/DragonFive/CVBasicOp/raw/master/1503978258508.jpg
   [28]: https://www.github.com/DragonFive/CVBasicOp/raw/master/1503905912862.jpg
