@@ -452,6 +452,17 @@ PASCAL VOC 数据集中既有物体类别标签，也有物体位置标签； �
 
 [ RCNN学习笔记(5) faster rcnn](http://blog.csdn.net/u011534057/article/details/51247371)
 
+[简单粗暴地使用自己数据集训练Faster-RCNN模型](http://blog.leanote.com/post/braveapple/%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8%E8%87%AA%E5%B7%B1%E6%95%B0%E6%8D%AE%E9%9B%86%E8%AE%AD%E7%BB%83Faster-RCNN%E6%A8%A1%E5%9E%8B)
+
+[Faster-RCNN+ZF用自己的数据集训练模型(Python版本)](http://blog.csdn.net/sinat_30071459/article/details/51332084)
+
+[目标检测--Faster RCNN2](https://saicoco.github.io/object-detection-4/)
+
+[如何在faster—rcnn上训练自己的数据集（单类和多类](https://www.zhihu.com/question/39487159)
+
+
+
+
 ## YoLo
 YOLO的核心思想就是利用整张图作为网络的输入，直接在输出层回归bounding box的位置和bounding box所属的类别。该方法采用单个神经网络直接预测物品边界和类别概率，实现端到端的物品检测。同时，该方法检测速非常快，基础版可以达到**45帧/s的实时检测；FastYOLO可以达到155帧/s**。由于可以看到图片的全局信息，所以YOLO的背景预测的假阳性优于当前最好的方法。
 
