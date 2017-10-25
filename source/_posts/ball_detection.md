@@ -17,3 +17,5 @@ tags:
 
 [从零开始码一个皮卡丘检测器](https://zhuanlan.zhihu.com/p/28867241)
 
+[图片标注工具](http://blog.csdn.net/jesse_mx/article/details/53606897)
+
