@@ -19,3 +19,5 @@ tags:
 
 [图片标注工具](http://blog.csdn.net/jesse_mx/article/details/53606897)
 
+[ mxnet 使用自己的图片数据训练CNN模型](http://blog.csdn.net/u014696921/article/details/56877979)
+
