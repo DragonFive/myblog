@@ -21,3 +21,4 @@ tags:
 
 [ mxnet 使用自己的图片数据训练CNN模型](http://blog.csdn.net/u014696921/article/details/56877979)
 
+[mxnet image API](https://mxnet.incubator.apache.org/api/python/image.html#Image)
