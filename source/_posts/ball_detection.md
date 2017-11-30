@@ -11,6 +11,9 @@ tags:
 - 神经网络
 ---
 
+
+
+取一个batch_size的代码
 ```python
 import random
 batch_size = 1
