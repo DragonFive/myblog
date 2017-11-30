@@ -12,8 +12,9 @@ tags:
 ---
 
 
-
-取一个batch_size的代码
+# 一些可以重复使用的代码
+## 取一个batch_size的代码
+**scratch版本**
 ```python
 import random
 batch_size = 1
@@ -23,6 +24,22 @@ def data_iter(num_examples):
     for i in range(0, num_examples, batch_size):
         j = nd.array(idx[i:min(i+batch_size,num_examples)])
         yield X.take(j), y.take(j)
+```
+**gluon版本**
+
+
+## 初始化权值
+
+**scratch版本**
+
+```python
+
+def get_params():
+    w = nd.random.normal(shape=(num_inputs, 1))*0.1
+    b = nd.zeros((1,))
+    for param in (w, b):
+        param.attach_grad()
+    return (w, b)
 ```
 
 
