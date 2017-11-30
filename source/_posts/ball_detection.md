@@ -11,6 +11,17 @@ tags:
 - 神经网络
 ---
 
+```python
+import random
+batch_size = 1
+def data_iter(num_examples):
+    idx = list(range(num_examples))
+    random.shuffle(idx)
+    for i in range(0, num_examples, batch_size):
+        j = nd.array(idx[i:min(i+batch_size,num_examples)])
+        yield X.take(j), y.take(j)
+```
+
 
 
 
