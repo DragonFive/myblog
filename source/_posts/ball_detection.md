@@ -45,7 +45,15 @@ def get_params():
 **gluon版本**
 
 
+## SGD
+**scratch版本**
 
+```python
+def SGD(params, lr):
+    for param in params:
+        param[:] = param - lr * param.grad
+
+```
 
 
 
