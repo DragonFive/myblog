@@ -70,6 +70,7 @@ def SGD(params, lr):
         'learning_rate': learning_rate, 'wd': weight_decay})
 ```
 这里的weight_decay表明这里添加了L2正则
+w = w -lr * grad - wd * w
 
 ## 训练过程
 
