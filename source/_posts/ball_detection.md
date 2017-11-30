@@ -52,7 +52,7 @@ def get_params():
 ```
 
 **gluon版本**
-
+net.initialize()
 
 ## SGD
 **scratch版本**
