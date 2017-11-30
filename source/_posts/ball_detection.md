@@ -55,6 +55,10 @@ def SGD(params, lr):
 
 ```
 
+**gluon版本**
+
+
+
 
 
 
