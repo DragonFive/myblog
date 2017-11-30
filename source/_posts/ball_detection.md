@@ -26,6 +26,15 @@ def data_iter(num_examples):
         yield X.take(j), y.take(j)
 ```
 **gluon版本**
+```python
+
+batch_size = 1
+dataset_train = gluon.data.ArrayDataset(X_train, y_train)
+data_iter_train = gluon.data.DataLoader(dataset_train, batch_size, shuffle=True)
+
+
+```
+
 
 
 ## 初始化权值
@@ -53,6 +62,29 @@ def SGD(params, lr):
     for param in params:
         param[:] = param - lr * param.grad
 
+```
+
+**gluon版本**
+
+
+
+## 训练过程
+
+
+**scratch版本**
+
+
+```python
+    for e in range(epochs):        
+        for data, label in data_iter(num_train):
+            with autograd.record():
+                output = net(data, lambd, *params)
+                loss = square_loss(
+                    output, label) + lambd * L2_penalty(*params)
+            loss.backward()
+            SGD(params, learning_rate)
+        train_loss.append(test(params, X_train, y_train))
+        test_loss.append(test(params, X_test, y_test))
 ```
 
 **gluon版本**
