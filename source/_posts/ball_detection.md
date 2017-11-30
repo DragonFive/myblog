@@ -92,7 +92,19 @@ def SGD(params, lr):
 
 **gluon版本**
 
+```python
 
+    for e in range(epochs):        
+        for data, label in data_iter_train:
+            with autograd.record():
+                output = net(data)
+                loss = square_loss(output, label)
+            loss.backward()
+            trainer.step(batch_size)            
+        train_loss.append(test(net, X_train, y_train))
+        test_loss.append(test(net, X_test, y_test))
+
+```
 
 
 
