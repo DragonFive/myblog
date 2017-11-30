@@ -42,6 +42,8 @@ def get_params():
     return (w, b)
 ```
 
+**gluon版本**
+
 
 
 
