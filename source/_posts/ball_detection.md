@@ -12,6 +12,14 @@ tags:
 ---
 
 
+# 学到的新知识
+[卷积神经网络 — 从0开始](http://zh.gluon.ai/chapter_convolutional-neural-networks/cnn-scratch.html)
+
+
+
+
+
+
 # 一些可以重复使用的代码
 ## 取一个batch_size的代码
 **scratch版本**
