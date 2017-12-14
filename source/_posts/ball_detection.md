@@ -41,7 +41,8 @@ mnist_test = gluon.data.vision.FashionMNIST(train=False, transform=transform)
 ```
 
 
-## 
+## 计算精度
+
 
 ```python
 def accuracy(output, label):
