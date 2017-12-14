@@ -29,6 +29,26 @@ tags:
 
 
 # 一些可以重复使用的代码
+## 读取数据
+```python
+from mxnet import gluon
+from mxnet import ndarray as nd
+
+def transform(data, label):
+    return data.astype('float32')/255, label.astype('float32')
+mnist_train = gluon.data.vision.FashionMNIST(train=True, transform=transform)
+mnist_test = gluon.data.vision.FashionMNIST(train=False, transform=transform)
+```
+
+
+## 
+
+```python
+def accuracy(output, label):
+    return nd.mean(output.argmax(axis=1)==label).asscalar()
+
+```
+
 ## 取一个batch_size的代码
 **scratch版本**
 ```python
