@@ -50,6 +50,9 @@ def accuracy(output, label):
 
 ```
 
+我们先使用Flatten层将输入数据转成 batch_size x ? 的矩阵，然后输入到10个输出节点的全连接层。照例我们不需要制定每层输入的大小，gluon会做自动推导。
+
+
 ## 取一个batch_size的代码
 **scratch版本**
 ```python
