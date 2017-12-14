@@ -53,6 +53,30 @@ def accuracy(output, label):
 我们先使用Flatten层将输入数据转成 batch_size x ? 的矩阵，然后输入到10个输出节点的全连接层。照例我们不需要制定每层输入的大小，gluon会做自动推导。
 
 
+## 激活函数
+
+**sigmoid**
+```python
+from mxnet import nd
+def softmax(X):
+    exp = nd.exp(X)
+    # 假设exp是矩阵，这里对行进行求和，并要求保留axis 1，
+    # 就是返回 (nrows, 1) 形状的矩阵
+    partition = exp.sum(axis=1, keepdims=True)
+    return exp / partition
+
+```
+
+
+**relu**
+```python
+def relu(X):
+    return nd.maximum(X, 0)
+```
+
+
+
+
 ## 取一个batch_size的代码
 **scratch版本**
 ```python
