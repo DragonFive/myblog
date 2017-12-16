@@ -76,7 +76,11 @@ def relu(X):
 
 ## 损失函数 
 
+** 平方误差 **
+```python
+square_loss = gluon.loss.L2Loss()
 
+```
 
 
 ## 取一个batch_size的代码
