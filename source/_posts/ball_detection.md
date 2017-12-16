@@ -83,6 +83,9 @@ square_loss = gluon.loss.L2Loss()
 ```
 
 
+
+
+
 ## 取一个batch_size的代码
 **scratch版本**
 ```python
