@@ -90,6 +90,11 @@ def square_loss(yhat, y):
 
 **交叉熵损失**
 
+```python
+def cross_entropy(yhat, y):
+    return - nd.pick(nd.log(yhat), y)
+```
+
 
 ## 取一个batch_size的代码
 **scratch版本**
