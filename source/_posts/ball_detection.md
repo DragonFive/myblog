@@ -76,7 +76,7 @@ def relu(X):
 
 ## 损失函数 
 
-** 平方误差 **
+**平方误差**
 ```python
 square_loss = gluon.loss.L2Loss()
 
@@ -88,7 +88,7 @@ def square_loss(yhat, y):
  
 ```
 
-
+**交叉熵损失**
 
 
 ## 取一个batch_size的代码
