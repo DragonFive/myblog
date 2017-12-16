@@ -74,6 +74,8 @@ def relu(X):
     return nd.maximum(X, 0)
 ```
 
+## 损失函数 
+
 
 
 
