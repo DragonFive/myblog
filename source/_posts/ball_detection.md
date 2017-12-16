@@ -81,7 +81,12 @@ def relu(X):
 square_loss = gluon.loss.L2Loss()
 
 ```
-
+```python
+def square_loss(yhat, y):
+    # 注意这里我们把y变形成yhat的形状来避免矩阵形状的自动转换
+    return (yhat - y.reshape(yhat.shape)) ** 2
+ 
+```
 
 
 
