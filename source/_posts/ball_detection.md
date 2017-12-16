@@ -97,8 +97,6 @@ def cross_entropy(yhat, y):
 
 ```python
 softmax_cross_entropy = gluon.loss.SoftmaxCrossEntropyLoss()
-
-
 ```
 
 ## 取一个batch_size的代码
