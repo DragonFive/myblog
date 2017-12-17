@@ -155,7 +155,7 @@ def SGD(params, lr):
     trainer = gluon.Trainer(net.collect_params(), 'sgd', {
         'learning_rate': learning_rate, 'wd': weight_decay})
 ```
-这里的weight_decay表明这里添加了L2正则
+这里的weight_decay表明这里添加了L2正则，正则化
 w = w -lr * grad - wd * w
 
 ## 训练过程
