@@ -155,6 +155,14 @@ def SGD(params, lr):
 
 ```
 
+L2正则
+
+```python
+def L2_penalty(w, b):
+    return ((w**2).sum() + b**2) / 2
+```
+
+
 **gluon版本**
 ```
     trainer = gluon.Trainer(net.collect_params(), 'sgd', {
