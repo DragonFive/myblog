@@ -138,7 +138,12 @@ def get_params():
 ```
 
 **gluon版本**
+```python
 net.initialize()
+
+
+net.collect_params().initialize(mx.init.Normal(sigma=1))
+```
 
 ## SGD
 **scratch版本**
