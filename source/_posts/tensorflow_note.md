@@ -1,5 +1,5 @@
 ---
-title: tensorflow_note
+title: tensorflow学习笔记
 
 date: 2017/11/20 12:04:12
 
