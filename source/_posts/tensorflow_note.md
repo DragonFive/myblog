@@ -11,3 +11,9 @@ tags:
 - 神经网络
 ---
 
+
+
+
+# reference
+
+[google group, kl 散度 ](https://groups.google.com/a/tensorflow.org/forum/#!topic/discuss/TX32t7NHkpA)
