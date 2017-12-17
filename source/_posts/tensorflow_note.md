@@ -17,3 +17,5 @@ tags:
 # reference
 
 [google group, kl 散度 讨论](https://groups.google.com/a/tensorflow.org/forum/#!topic/discuss/TX32t7NHkpA)
+
+[KL Divergence in TensorFlow](https://stackoverflow.com/questions/41863814/kl-divergence-in-tensorflow)
