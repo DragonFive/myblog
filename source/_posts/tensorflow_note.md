@@ -16,4 +16,4 @@ tags:
 
 # reference
 
-[google group, kl 散度 ](https://groups.google.com/a/tensorflow.org/forum/#!topic/discuss/TX32t7NHkpA)
+[google group, kl 散度 讨论](https://groups.google.com/a/tensorflow.org/forum/#!topic/discuss/TX32t7NHkpA)
