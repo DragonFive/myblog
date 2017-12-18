@@ -20,7 +20,7 @@ fig = plt.figure()
 ...
 ...
 plt.plot()
-fit.s
+fig.savefig("")
 
 ```
 
