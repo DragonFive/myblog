@@ -11,8 +11,18 @@ tags:
 - 神经网络
 ---
 
+matplotlib.pyplot 的使用：
+```python
+import matplotlib
+matplotlib.use('Agg')
+import matplotlib.pyplot as plt 
+fig = plt.figure()
+...
+...
+plt.plot()
+fit.s
 
-
+```
 
 # reference
 
