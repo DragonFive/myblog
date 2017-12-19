@@ -49,7 +49,7 @@ from mxnet import init
 params.initialize(init=init.Normal(sigma=0.02), force_reinit=True)
 print(net[0].weight.data(), net[0].bias.data())
 ```
-
+我们也可以通过collect_params来访问Block里面所有的参数（这个会包括所有的子Block）。它会返回一个名字到对应Parameter的dict。
 
 
 # 一些可以重复使用的代码
