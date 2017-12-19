@@ -51,6 +51,25 @@ print(net[0].weight.data(), net[0].bias.data())
 ```
 我们也可以通过collect_params来访问Block里面所有的参数（这个会包括所有的子Block）。它会返回一个名字到对应Parameter的dict。
 
+也可以自定义各层的初始化方法，没有自定义的按照net.initialize里面的方法进行定义
+```python
+from mxnet.gluon import nn
+from mxnet import nd
+from mxnet import init
+
+def get_net():
+    net = nn.Sequential()
+    with net.name_scope():
+        net.add(nn.Dense(4,activation="relu"))#,weight_initializer=init.Xavier()))
+        net.add(nn.Dense(2,weight_initializer=init.Zero(),bias_initializer=init.Zero()) )
+    return net
+
+x = nd.random.uniform(shape=(3,5))
+net = get_net()
+net.initialize(init.One())
+net(x)
+print(net[1].weight.data
+```
 
 # 一些可以重复使用的代码
 ## 读取数据
