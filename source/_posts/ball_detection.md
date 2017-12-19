@@ -42,8 +42,13 @@ rec_mlp = nn.Sequential()
 rec_mlp.add(RecMLP())
 rec_mlp.add(nn.Dense(10))
 print(rec_mlp)
-
-
+```
+## 初始化与参数访问
+```python
+from mxnet import init
+params.initialize(init=init.Normal(sigma=0.02), force_reinit=True)
+print(net[0].weight.data(), net[0].bias.data())
+```
 
 
 
