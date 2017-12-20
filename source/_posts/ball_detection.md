@@ -21,7 +21,7 @@ tags:
 
 当输出需要多通道时，每个输出通道有对应权重，然后每个通道上做卷积。所以当输入有n个channel，输出有h个channel时，卷积核channel数目为n * h，每个输出channel对应一个bias ,卷积核的维度为(h,n,w,h)
 
-
+$$conv(data, w, b)[:,i,:,:] = conv(data, w[i,:,:,:], b[i])$$
 
 
 # gluon语法
