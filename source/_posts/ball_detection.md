@@ -19,7 +19,7 @@ tags:
 
 当输入数据有多个通道的时候，每个通道会有对应的权重，然后会对每个通道做卷积之后在通道之间求和。所以当输出只有一个的时候，卷积的channel数目和data的channel数目是一样的。
 
-当输出需要多通道时，每个输出通道有对应权重，然后每个通道上做卷积。所以当输入有n个channel，输出有h个channel时，卷积核channel数目为n * h，每个输出channel对应一个bias
+当输出需要多通道时，每个输出通道有对应权重，然后每个通道上做卷积。所以当输入有n个channel，输出有h个channel时，卷积核channel数目为n * h，每个输出channel对应一个bias ,卷积核的维度为(h,n,w,h)
 
 
 # gluon语法
