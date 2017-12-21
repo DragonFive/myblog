@@ -347,3 +347,6 @@ def train(train_data, test_data, net, loss, trainer, ctx, num_epochs, print_batc
 
 [基于MXNet gluon 的SSD模型训练](http://blog.csdn.net/muyouhang/article/details/77727381)
 
+
+[解决](https://groups.google.com/a/continuum.io/forum/m/#!topic/anaconda/RuSpZVPEio8)
+
