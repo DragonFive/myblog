@@ -96,7 +96,8 @@ for pkg in ['mxnet', 'mxnet-cu75', 'mxnet-cu80']:
 1. notedown插件
 可以在jupyter 中查看markdown文件
 
-2. 
+2. nb_conda
+是conda的插件，可以在jupyter里面修改
 
 
 # 一些可以重复使用的代码
