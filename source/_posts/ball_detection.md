@@ -72,6 +72,22 @@ net.initialize(init.One())
 net(x)
 print(net[1].weight.data
 ```
+## GPU访问
+
+1. 删除cpu版本mxnet
+
+```bash
+pip uninstall mxnet
+```
+
+2. 更新GPU版本mxnet
+```bash
+pip install -u --pre mxnet-cu8.0
+```
+
+3. 查看版本号
+
+
 
 # 一些可以重复使用的代码
 ## 读取数据
