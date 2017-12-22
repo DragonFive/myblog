@@ -82,10 +82,14 @@ pip uninstall mxnet
 
 2. 更新GPU版本mxnet
 ```bash
-pip install -u --pre mxnet-cu8.0
+pip install -u --pre mxnet-cu80
 ```
 
 3. 查看版本号
+
+
+## 使用jupyter的相关插件
+
 
 
 
