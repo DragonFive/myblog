@@ -377,3 +377,4 @@ def train(train_data, test_data, net, loss, trainer, ctx, num_epochs, print_batc
 
 [解决conda与ipython notebook的python版本问题](https://groups.google.com/a/continuum.io/forum/m/#!topic/anaconda/RuSpZVPEio8)
 
+[神经网络计算参数量的方法](http://blog.csdn.net/sunshine_in_moon/article/details/51434908)
