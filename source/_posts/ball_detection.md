@@ -86,7 +86,11 @@ pip install -u --pre mxnet-cu80
 ```
 
 3. 查看版本号
-
+```python
+import pip
+for pkg in ['mxnet', 'mxnet-cu75', 'mxnet-cu80']:
+    pip.main(['show', pkg])
+```
 
 ## 使用jupyter的相关插件
 
