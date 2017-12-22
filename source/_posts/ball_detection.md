@@ -94,7 +94,9 @@ for pkg in ['mxnet', 'mxnet-cu75', 'mxnet-cu80']:
 
 ## 使用jupyter的相关插件
 1. notedown插件
-可以在jupyter 中查看
+可以在jupyter 中查看markdown文件
+
+2. 
 
 
 # 一些可以重复使用的代码
