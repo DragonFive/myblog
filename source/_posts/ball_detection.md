@@ -111,7 +111,8 @@ for pkg in ['mxnet', 'mxnet-cu75', 'mxnet-cu80']:
 ## 优化方法
 
 gluon.Trainer的learning_rate属性和set_learning_rate函数可以随意调整学习率。
-
+trainer = gluon.Trainer(net.collect_params(), 'sgd',
+                            {'learning_rate': lr, 'momentum': mom})
 # 一些可以重复使用的代码
 ## 读取数据
 ```python
