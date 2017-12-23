@@ -23,6 +23,14 @@ tags:
 
 $$conv(data, w, b)[:,i,:,:] = conv(data, w[i,:,:,:], b[i])$$
 
+![inception v1][1]
+
+
+![residual][2]
+
+![resnet各种结构][3]
+
+
 
 # gluon语法
 
@@ -380,3 +388,8 @@ def train(train_data, test_data, net, loss, trainer, ctx, num_epochs, print_batc
 [神经网络计算参数量的方法](http://blog.csdn.net/sunshine_in_moon/article/details/51434908)
 
 [神经网络计算特征图的大小的方法](https://www.jianshu.com/p/c56a37093cfa)
+
+
+  [1]: https://www.github.com/DragonFive/CVBasicOp/raw/master/1513949196873.jpg
+  [2]: https://www.github.com/DragonFive/CVBasicOp/raw/master/1514013854016.jpg
+  [3]: https://www.github.com/DragonFive/CVBasicOp/raw/master/1514012389756.jpg
