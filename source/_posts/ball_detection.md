@@ -108,6 +108,10 @@ for pkg in ['mxnet', 'mxnet-cu75', 'mxnet-cu80']:
 是conda的插件，可以在jupyter里面修改python内核版本
 
 
+## 优化方法
+
+gluon.Trainer的learning_rate属性和set_learning_rate函数可以随意调整学习率。
+
 # 一些可以重复使用的代码
 ## 读取数据
 ```python
