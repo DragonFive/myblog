@@ -111,13 +111,17 @@ for pkg in ['mxnet', 'mxnet-cu75', 'mxnet-cu80']:
 ## 优化方法
 **momentum**
 gluon.Trainer的learning_rate属性和set_learning_rate函数可以随意调整学习率。
+```python
 trainer = gluon.Trainer(net.collect_params(), 'sgd',
                             {'learning_rate': lr, 'momentum': mom})
-						
+```
+
 **adagrad**
 Adagrad是一个在迭代过程中不断自我调整学习率，并让模型参数中每个元素都使用不同学习率的优化算法。
+```python
     trainer = gluon.Trainer(net.collect_params(), 'adagrad',
                             {'learning_rate': lr})
+```
 
 # 一些可以重复使用的代码
 ## 读取数据
