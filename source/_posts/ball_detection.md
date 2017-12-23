@@ -116,7 +116,8 @@ trainer = gluon.Trainer(net.collect_params(), 'sgd',
 						
 **adagrad**
 Adagrad是一个在迭代过程中不断自我调整学习率，并让模型参数中每个元素都使用不同学习率的优化算法。
-
+    trainer = gluon.Trainer(net.collect_params(), 'adagrad',
+                            {'learning_rate': lr})
 
 # 一些可以重复使用的代码
 ## 读取数据
