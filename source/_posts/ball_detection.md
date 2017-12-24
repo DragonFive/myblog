@@ -135,9 +135,22 @@ trainer = gluon.Trainer(net.collect_params(), 'adam',
 ## 延迟执行 
 
 延后执行使得系统有更多空间来做性能优化。但我们推荐每个批量里至少有一个同步函数，例如对损失函数进行评估，来避免将过多任务同时丢进后端系统。
+```python
+from mxnet import autograd
 
+mem = get_mem()
 
+total_loss = 0
+for x, y in get_data():
+    with autograd.record():
+        L = loss(y, net(x))
+    total_loss += L.sum().asscalar()
+    L.backward()
+    trainer.step(x.shape[0])
 
+nd.waitall()
+print('Increased memory %f MB' % (get_mem() - mem))
+```
 
 # 一些可以重复使用的代码
 ## 读取数据
