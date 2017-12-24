@@ -156,8 +156,8 @@ print('Increased memory %f MB' % (get_mem() - mem))
 
 ```python
 ctx = [gpu(i) for i in range(num_gpus)]
-            data_list = gluon.utils.split_and_load(data, ctx)
-            label_list = gluon.utils.split_and_load(label, ctx)
+data_list = gluon.utils.split_and_load(data, ctx)
+label_list = gluon.utils.split_and_load(label, ctx)
 
 
 ```
