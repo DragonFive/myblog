@@ -161,7 +161,9 @@ label_list = gluon.utils.split_and_load(label, ctx)
 
 
 ```
+## fintune 微调
 
+[gluon微调](https://fiercex.github.io/post/gluon_features_fine/)
 
 
 # 一些可以重复使用的代码
