@@ -152,6 +152,14 @@ nd.waitall()
 print('Increased memory %f MB' % (get_mem() - mem))
 ```
 
+## 多GPU训练 
+
+```python
+ctx = [gpu(i) for i in range(num_gpus)]
+```
+
+
+
 # 一些可以重复使用的代码
 ## 读取数据
 ```python
