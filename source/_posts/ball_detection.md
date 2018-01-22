@@ -20,7 +20,7 @@ tags:
 
 [用于分类、检测和分割的移动网络 MobileNetV2](https://mp.weixin.qq.com/s/xJromD5Q30KlRhB_kM4kfA)
 
-[如何评价](https://www.zhihu.com/question/265709710)
+[如何评价MobileNetV2](https://www.zhihu.com/question/265709710)
 
 ## 卷积核的数量
 [卷积神经网络 — 从0开始](http://zh.gluon.ai/chapter_convolutional-neural-networks/cnn-scratch.html)
