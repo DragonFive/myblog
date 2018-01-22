@@ -90,7 +90,7 @@ pip uninstall mxnet
 
 2. 更新GPU版本mxnet
 ```bash
-pip install -u --pre mxnet-cu80
+pip install -U --pre mxnet-cu80
 ```
 
 3. 查看版本号
