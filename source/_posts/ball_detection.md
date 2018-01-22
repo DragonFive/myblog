@@ -14,6 +14,14 @@ tags:
 
 # 学到的新知识
 
+## bn放在relu后面 
+
+[BN应该放在relu后](http://minibatch.net/2017/06/11/%E7%BB%8F%E5%85%B8%E8%AE%BA%E6%96%87-Batch-Normalization/)
+
+[用于分类、检测和分割的移动网络 MobileNetV2](https://mp.weixin.qq.com/s/xJromD5Q30KlRhB_kM4kfA)
+
+[如何评价](https://www.zhihu.com/question/265709710)
+
 ## 卷积核的数量
 [卷积神经网络 — 从0开始](http://zh.gluon.ai/chapter_convolutional-neural-networks/cnn-scratch.html)
 
@@ -447,6 +455,7 @@ def train(train_data, test_data, net, loss, trainer, ctx, num_epochs, print_batc
 
 [神经网络计算特征图的大小的方法](https://www.jianshu.com/p/c56a37093cfa)
 
+[BN应该放在relu后](http://minibatch.net/2017/06/11/%E7%BB%8F%E5%85%B8%E8%AE%BA%E6%96%87-Batch-Normalization/)
 
   [1]: https://www.github.com/DragonFive/CVBasicOp/raw/master/1513949196873.jpg
   [2]: https://www.github.com/DragonFive/CVBasicOp/raw/master/1514013854016.jpg
