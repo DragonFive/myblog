@@ -35,6 +35,10 @@ histgram of gradient: 每个像素计算梯度方向和大小，然后8x8个像�
 2. 调整momentum一般为0.9 ，调整层数和minibatch size
 3. 学习率衰减率/adam的beta1(0.9) beta2(0.999),gama(10^(-8) )
 
+
+## 调参策略
+1. 不要使用网格法，而用随机选取法（不同参数对结果有不同的优先级）
+
 ## 为什么训练无法收敛 
 一直保持 Loss: 2.303, Train acc 0.10, Test acc 0.10
 
