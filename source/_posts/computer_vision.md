@@ -47,6 +47,8 @@ r = -4*np.random.rand()
 alpha = np.square(10,r)
 ```
 那么alpha的取值范围在10^-4~1之间，且从0.0001到0.001之间样本概率是1/4
+
+
 ## 为什么训练无法收敛 
 一直保持 Loss: 2.303, Train acc 0.10, Test acc 0.10
 
