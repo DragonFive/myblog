@@ -28,6 +28,13 @@ histgram of gradient: 每个像素计算梯度方向和大小，然后8x8个像�
 
 # 深度学习调参技巧 
 
+## 调参优先级
+按照对结果的影响调整：
+
+1. 调整学习率
+2. 调整momentum一般为0.9 ，调整层数和minibatch size
+3. 学习率衰减率/adam的beta1(0.9) beta2(0.999),gama(10^(-8) )
+
 ## 为什么训练无法收敛 
 一直保持 Loss: 2.303, Train acc 0.10, Test acc 0.10
 
